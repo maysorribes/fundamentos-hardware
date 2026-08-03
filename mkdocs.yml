@@ -1,0 +1,7 @@
+site_name: Mis documentos
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
