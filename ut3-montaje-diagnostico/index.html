@@ -1,0 +1,1250 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut2-elementos-internos/">
+      
+      
+        <link rel="next" href="../ut4-sistemas-entornos-empresariales/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 3. Montaje y diagnóstico - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#montaje-diagnostico-y-configuracion-de-ordenadores" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 3. Montaje y diagnóstico
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-esquema-funcional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Esquema funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-elementos-internos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-del-montaje-al-primer-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Del montaje al primer encendido
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Del montaje al primer encendido">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-montaje-fuera-de-la-caja-bench-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Montaje fuera de la caja (bench test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-puenteo-manual-del-boton-de-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Puenteo manual del botón de encendido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-arranque-del-equipo-post" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El arranque del equipo: POST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El arranque del equipo: POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-diagnostico-por-led-display-de-la-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Diagnóstico por LED / display de la placa base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-secuencia-completa-de-arranque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Secuencia completa de arranque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diagnostico-de-averias-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Diagnóstico de averías comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Diagnóstico de averías comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-metodologia-del-diagnostico-el-metodo-de-descarte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Metodología del diagnóstico: el método de descarte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-herramientas-fisicas-de-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Herramientas físicas de diagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-herramientas-de-diagnostico-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Herramientas de diagnóstico software
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Herramientas de diagnóstico software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-el-benchmarking-como-herramienta-de-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 El benchmarking como herramienta de diagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-actualizacion-de-biosuefi-y-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Actualización de BIOS/UEFI y drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-instalacion-y-configuracion-de-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Instalación y configuración de periféricos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mantenimiento-preventivo-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Mantenimiento preventivo básico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-documentacion-tecnica-de-una-intervencion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Documentación técnica de una intervención
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut4-sistemas-entornos-empresariales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4. Sistemas en entornos empresariales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-del-montaje-al-primer-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Del montaje al primer encendido
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Del montaje al primer encendido">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-montaje-fuera-de-la-caja-bench-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Montaje fuera de la caja (bench test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-puenteo-manual-del-boton-de-encendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Puenteo manual del botón de encendido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-arranque-del-equipo-post" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El arranque del equipo: POST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El arranque del equipo: POST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-diagnostico-por-led-display-de-la-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Diagnóstico por LED / display de la placa base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-secuencia-completa-de-arranque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Secuencia completa de arranque
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diagnostico-de-averias-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Diagnóstico de averías comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Diagnóstico de averías comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-metodologia-del-diagnostico-el-metodo-de-descarte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Metodología del diagnóstico: el método de descarte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-herramientas-fisicas-de-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Herramientas físicas de diagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-herramientas-de-diagnostico-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Herramientas de diagnóstico software
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Herramientas de diagnóstico software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-el-benchmarking-como-herramienta-de-diagnostico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 El benchmarking como herramienta de diagnóstico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-actualizacion-de-biosuefi-y-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Actualización de BIOS/UEFI y drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-instalacion-y-configuracion-de-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Instalación y configuración de periféricos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mantenimiento-preventivo-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Mantenimiento preventivo básico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-documentacion-tecnica-de-una-intervencion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Documentación técnica de una intervención
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>0371. Fonaments de Maquinari / Fundamentos de Hardware</strong></p>
+<h1 id="montaje-diagnostico-y-configuracion-de-ordenadores">Montaje, diagnóstico y configuración de ordenadores</h1>
+<h2 id="programacion-de-aula">Programación de Aula</h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje</h3>
+<p>Esta unidad, junto con las UT1 y UT2, trabaja el <strong>Resultado de Aprendizaje 1 (RA1)</strong> del módulo, según la programación didáctica del centro:</p>
+<ol>
+<li><strong>RA1.</strong> Configura equips microinformàtics, components i perifèrics, analitzant les seues característiques i relació amb el conjunt.</li>
+</ol>
+<p>Según la tabla de relación entre criterios de evaluación e instrumentos de la programación del módulo, esta unidad (UT3) se evalúa sobre los criterios <strong>CE15, CE16, CE17, CE18, CE19, CE47 y CE49</strong>, referidos al montaje, ensamblaje y reparación de equipos informáticos.</p>
+<div class="admonition info">
+<p class="admonition-title">Nota</p>
+<p>El texto literal de cada criterio de evaluación (CE) está definido en el Real Decreto de título y en el DECRET 114/2025; consulta la redacción exacta en el currículum oficial del ciclo para citarla tal cual en tu programación.</p>
+</div>
+<h3 id="ponderacion-de-esta-unidad">Ponderación de esta unidad</h3>
+<p>Según el cuadro de ponderaciones de la programación del módulo, <strong>UT3 (Assemblatge i reparació d'equips informàtics)</strong> aporta un <strong>10%</strong> de la nota final del módulo, dentro del RA1 (que junto con UT1 y UT2 suma el 30% total del RA1).</p>
+<h3 id="planificacion-temporal-6-sesiones-12-horas">Planificación Temporal (6 sesiones / 12 horas)</h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Recordatorio del montaje completo. Checklist previo al primer encendido. Bench test</td>
+</tr>
+<tr>
+<td>2</td>
+<td>El arranque del equipo: POST, códigos de error y diagnóstico por LED</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Diagnóstico de averías comunes en hardware. Herramientas físicas de medición</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Herramientas de diagnóstico software, benchmarking y actualización de BIOS/UEFI y drivers</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Instalación y configuración de periféricos. Mantenimiento preventivo y documentación técnica</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Práctica evaluable</strong>: montaje, diagnóstico guiado (caso de avería) y elaboración de un informe técnico</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-del-montaje-al-primer-encendido">1. Del montaje al primer encendido</h2>
+<p>En la UT2 vimos el orden de montaje de los componentes internos. Antes de darle al botón de encendido por primera vez, conviene seguir una <strong>checklist de comprobación</strong>, ya que muchos fallos "graves" en realidad son solo un cable mal conectado.</p>
+<div class="admonition task">
+<p class="admonition-title">Checklist antes del primer encendido</p>
+<ul>
+<li>¿Está conectado el conector ATX de 24 pines a la placa base?</li>
+<li>¿Está conectado el conector EPS (4/8 pines) de alimentación de la CPU?</li>
+<li>¿Está el disipador de la CPU bien asentado y con pasta térmica aplicada?</li>
+<li>¿Están los módulos de RAM encajados hasta el final (con el clic de las pestañas)?</li>
+<li>¿Está el cable de datos (SATA o M.2) y de alimentación del disco conectados?</li>
+<li>¿Están conectados los cables del panel frontal (power switch, reset, LEDs)?</li>
+<li>¿Hay algún tornillo o herramienta olvidada dentro de la caja?</li>
+</ul>
+</div>
+<h3 id="11-montaje-fuera-de-la-caja-bench-test">1.1 Montaje fuera de la caja (bench test)</h3>
+<p>Una buena práctica cuando se monta un equipo nuevo (o se diagnostica uno que no arranca) es hacer un <strong>montaje de prueba fuera de la caja</strong> (<em>bench test</em>): placa base, CPU, RAM y fuente de alimentación conectados sobre una superficie no conductora (por ejemplo, la propia caja de cartón de la placa base), sin meterlo todo en la torre. Así se descarta que el problema sea un cortocircuito con la caja (por ejemplo, un tornillo mal puesto o un separador <em>standoff</em> de más haciendo contacto con la parte trasera de la placa) antes de invertir tiempo en el montaje completo.</p>
+<h3 id="12-puenteo-manual-del-boton-de-encendido">1.2 Puenteo manual del botón de encendido</h3>
+<p>Si todavía no se han conectado los cables del panel frontal, se puede arrancar el equipo tocando brevemente con un destornillador de punta plana los dos pines correspondientes al <em>power switch</em> en la placa base (consultando el manual para localizarlos), cerrando el circuito igual que haría el botón físico. Es una técnica habitual en un banco de pruebas.</p>
+<h2 id="2-el-arranque-del-equipo-post">2. El arranque del equipo: POST</h2>
+<p>Al pulsar el botón de encendido, la placa base ejecuta la <strong>POST</strong> (Power-On Self-Test): una serie de comprobaciones automáticas del hardware básico (CPU, memoria, tarjeta gráfica...) antes de ceder el control al sistema operativo. Si todas las comprobaciones son correctas, el proceso continúa con la carga del gestor de arranque y, después, del sistema operativo.</p>
+<p>Si la POST detecta un fallo, muchas placas base emiten una serie de <strong>pitidos (beep codes)</strong> a través de un altavoz interno (<em>speaker</em>), ya que en ese punto todavía no hay imagen en pantalla para mostrar un mensaje de error.</p>
+<div class="admonition example">
+<p class="admonition-title">Códigos de pitido habituales (chipset AMI/Award, orientativo)</p>
+<table>
+<thead>
+<tr>
+<th>Patrón de pitidos</th>
+<th>Posible causa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 pitido corto</td>
+<td>Arranque correcto, sin errores</td>
+</tr>
+<tr>
+<td>Sin pitido y sin imagen</td>
+<td>Fallo de alimentación o de placa base</td>
+</tr>
+<tr>
+<td>Pitidos continuos</td>
+<td>Problema de memoria RAM mal insertada</td>
+</tr>
+<tr>
+<td>1 largo + 2 cortos</td>
+<td>Fallo en la tarjeta gráfica</td>
+</tr>
+<tr>
+<td>1 largo + 3 cortos</td>
+<td>Fallo en el teclado o su controlador</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ Los patrones exactos varían según el fabricante del chipset de la placa base (AMI, Award, Phoenix); conviene consultar siempre el manual de la placa base concreta.</p>
+</div>
+<h3 id="21-diagnostico-por-led-display-de-la-placa-base">2.1 Diagnóstico por LED / display de la placa base</h3>
+<p>Muchas placas base actuales incluyen, además o en lugar de los pitidos, un pequeño <strong>display de dos dígitos</strong> (código hexadecimal de POST) o unos <strong>LEDs de diagnóstico</strong> (CPU, DRAM, VGA, BOOT) que se iluminan según en qué fase del arranque se ha quedado bloqueado el equipo, facilitando mucho el diagnóstico sin necesidad de memorizar códigos de pitidos.</p>
+<h3 id="22-secuencia-completa-de-arranque">2.2 Secuencia completa de arranque</h3>
+<p>Para entender mejor dónde puede fallar el proceso, conviene tener claras sus fases:</p>
+<ol>
+<li>Se pulsa el botón de encendido → la fuente de alimentación entrega tensión a la placa base.</li>
+<li>La UEFI/BIOS ejecuta la <strong>POST</strong>, comprobando CPU, memoria y dispositivos básicos.</li>
+<li>Se inicializan los dispositivos de vídeo y aparece la primera imagen en pantalla (logo del fabricante).</li>
+<li>La UEFI/BIOS busca un dispositivo de arranque según el <strong>orden configurado</strong> (disco interno, USB, red...).</li>
+<li>Se carga el <strong>gestor de arranque</strong> (bootloader) del sistema operativo.</li>
+<li>El sistema operativo termina de cargarse y aparece la pantalla de inicio de sesión.</li>
+</ol>
+<h2 id="3-diagnostico-de-averias-comunes">3. Diagnóstico de averías comunes</h2>
+<p><img src="/assets/img/multimetro-diagnostico.jpg" alt="Multímetro usado para comprobar la fuente de alimentación" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un multímetro permite comprobar si la fuente de alimentación entrega los voltajes correctos.</em></p>
+
+<table>
+<thead>
+<tr>
+<th>Síntoma</th>
+<th>Posibles causas</th>
+<th>Cómo comprobarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>El equipo no enciende (ni ventiladores, ni luces)</td>
+<td>Fuente de alimentación averiada, cable de corriente, interruptor de la PSU apagado</td>
+<td>Probar con otra fuente conocida, comprobar el interruptor trasero de la PSU</td>
+</tr>
+<tr>
+<td>Enciende pero no da imagen</td>
+<td>RAM mal asentada, tarjeta gráfica mal conectada, cable de vídeo</td>
+<td>Reasentar la RAM módulo a módulo, probar con un solo módulo, revisar el cable HDMI/DP</td>
+</tr>
+<tr>
+<td>Se enciende y apaga solo (reinicios)</td>
+<td>Sobrecalentamiento de la CPU, fuente insuficiente, cortocircuito</td>
+<td>Revisar temperaturas, comprobar que el disipador está bien montado</td>
+</tr>
+<tr>
+<td>Pantallazos azules o cuelgues aleatorios</td>
+<td>Memoria RAM defectuosa, drivers, disco con errores</td>
+<td>Ejecutar un test de memoria (Memtest86), revisar el estado del disco (SMART)</td>
+</tr>
+<tr>
+<td>Ruido extraño (clics, chirridos)</td>
+<td>Disco duro mecánico (HDD) fallando, ventilador rozando</td>
+<td>Hacer copia de seguridad urgente, revisar el ventilador afectado</td>
+</tr>
+<tr>
+<td>El equipo va muy lento tras un tiempo de uso</td>
+<td>Disco casi lleno, exceso de programas en el arranque, acumulación de polvo (sobrecalentamiento)</td>
+<td>Revisar espacio libre, gestor de tareas, limpiar el interior</td>
+</tr>
+<tr>
+<td>Un puerto USB deja de reconocer dispositivos</td>
+<td>Puerto dañado, driver del controlador USB corrupto</td>
+<td>Probar el dispositivo en otro puerto, reinstalar el controlador</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p>Antes de tocar cualquier componente para diagnosticar una avería, desconecta siempre el equipo de la corriente y aplica las normas de seguridad antiestática vistas en la UT2.</p>
+</div>
+<h3 id="31-metodologia-del-diagnostico-el-metodo-de-descarte">3.1 Metodología del diagnóstico: el método de descarte</h3>
+<p>Para diagnosticar una avería de forma ordenada (y no "a lo loco" cambiando piezas), conviene seguir un método sistemático:</p>
+<ol>
+<li><strong>Reproducir el problema</strong>: confirmar en qué condiciones exactas ocurre el fallo.</li>
+<li><strong>Formular una hipótesis</strong>: ¿qué componente es más probable que esté fallando, según los síntomas?</li>
+<li><strong>Aislar la variable</strong>: cambiar (o quitar) un único componente cada vez, para saber con certeza cuál era el responsable.</li>
+<li><strong>Verificar la solución</strong>: comprobar que, tras el cambio, el problema desaparece de forma consistente (no solo una vez).</li>
+<li><strong>Documentar</strong>: anotar qué se ha hecho, para futuras averías similares.</li>
+</ol>
+<h3 id="32-herramientas-fisicas-de-diagnostico">3.2 Herramientas físicas de diagnóstico</h3>
+<ul>
+<li><strong>Multímetro</strong>: para comprobar si la fuente de alimentación entrega los voltajes correctos (+3.3V, +5V, +12V) en sus distintos conectores.</li>
+<li><strong>Fuente de alimentación de pruebas / PSU tester</strong>: pequeño dispositivo que se conecta al conector ATX de 24 pines para comprobar rápidamente si la fuente "arranca" y da tensión, sin necesidad de montarla en un equipo.</li>
+<li><strong>Módulo de RAM y disco "de repuesto conocido"</strong>: sustituir un componente sospechoso por otro que sabemos que funciona es una de las formas más rápidas de aislar el problema.</li>
+<li><strong>Kit de destornilladores de precisión y pulsera antiestática</strong>: herramientas básicas de cualquier técnico de hardware.</li>
+</ul>
+<h2 id="4-herramientas-de-diagnostico-software">4. Herramientas de diagnóstico software</h2>
+<p>Además de la comprobación física, existen programas específicos para verificar el estado de cada componente:</p>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Qué comprueba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memtest86 / Memtest86+</td>
+<td>Detecta errores en los módulos de memoria RAM, ejecutándose antes de arrancar el sistema operativo</td>
+</tr>
+<tr>
+<td>CrystalDiskInfo</td>
+<td>Muestra el estado S.M.A.R.T. de discos duros y SSD, alertando de fallos inminentes</td>
+</tr>
+<tr>
+<td>HWMonitor / HWiNFO</td>
+<td>Muestra temperaturas, voltajes y velocidades de ventiladores en tiempo real</td>
+</tr>
+<tr>
+<td>Benchmarks (Cinebench, 3DMark...)</td>
+<td>Miden el rendimiento de CPU/GPU y permiten comparar con los valores esperados del modelo</td>
+</tr>
+<tr>
+<td>Administrador de tareas / Monitor de recursos</td>
+<td>Muestra en tiempo real el uso de CPU, memoria, disco y red del sistema operativo</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">S.M.A.R.T.</p>
+<p>S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) es un sistema integrado en los discos duros y SSD que registra indicadores de su estado de salud (horas de uso, sectores dañados, temperatura...) y permite anticiparse a un fallo antes de que se produzca una pérdida de datos.</p>
+</div>
+<h3 id="41-el-benchmarking-como-herramienta-de-diagnostico">4.1 El benchmarking como herramienta de diagnóstico</h3>
+<p>Un <strong>benchmark</strong> es una prueba estandarizada que mide el rendimiento de un componente y lo compara con valores de referencia conocidos. No sirve solo para "presumir" de un equipo: también es útil para el diagnóstico, ya que si el resultado obtenido está muy por debajo de lo esperado para ese modelo de CPU o GPU, puede indicar un problema (throttling térmico, configuración incorrecta, un driver defectuoso...).</p>
+<h3 id="42-actualizacion-de-biosuefi-y-drivers">4.2 Actualización de BIOS/UEFI y drivers</h3>
+<ul>
+<li><strong>Actualizar la BIOS/UEFI</strong> puede solucionar problemas de compatibilidad (por ejemplo, que la placa base no reconozca un procesador nuevo) o de estabilidad, pero es un proceso delicado: si se interrumpe a mitad (por ejemplo, un corte de luz), la placa base puede quedar inutilizada (<em>brickeada</em>). Por eso se recomienda hacerlo solo cuando sea necesario y siguiendo exactamente el procedimiento del fabricante (a menudo mediante un USB preparado con el archivo de la nueva versión).</li>
+<li><strong>Actualizar los drivers</strong> (controladores) de los distintos componentes (gráfica, red, chipset...) asegura que el sistema operativo aproveche todas sus funciones y corrige errores conocidos. Es recomendable descargarlos siempre de la web oficial del fabricante, no de sitios de terceros.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Recuerda</p>
+<p>Antes de actualizar la BIOS de un equipo en producción (que un usuario está utilizando activamente), asegúrate de tener una fuente de alimentación estable (idealmente con un SAI) y no interrumpas nunca el proceso una vez iniciado.</p>
+</div>
+<h2 id="5-instalacion-y-configuracion-de-perifericos">5. Instalación y configuración de periféricos</h2>
+<p>Una vez el equipo funciona correctamente por dentro, hay que conectar y configurar los periféricos externos:</p>
+<ul>
+<li><strong>Plug and Play</strong>: la mayoría de periféricos actuales (USB) se detectan e instalan automáticamente al conectarlos, ya que el sistema operativo reconoce el dispositivo y busca (o ya incluye) el driver adecuado.</li>
+<li><strong>Instalación manual de drivers</strong>: algunos periféricos (impresoras, escáneres, tabletas gráficas) requieren instalar un software específico del fabricante para funcionar con todas sus funciones.</li>
+<li><strong>Calibración</strong>: monitores e impresoras a veces requieren un proceso de calibración de color para que lo que se ve en pantalla coincida con lo impreso.</li>
+<li><strong>Gestión de cables</strong>: un buen enrutado y sujeción de los cables internos mejora la circulación de aire (y por tanto la refrigeración) y facilita futuras tareas de mantenimiento.</li>
+</ul>
+<h2 id="6-mantenimiento-preventivo-basico">6. Mantenimiento preventivo básico</h2>
+<p>Aunque el mantenimiento preventivo en profundidad se trabajará en unidades posteriores, conviene introducir ya algunas pautas básicas asociadas al montaje y diagnóstico:</p>
+<ul>
+<li>Limpieza periódica del polvo acumulado en disipadores y ventiladores (con aire comprimido, con el equipo apagado y desconectado).</li>
+<li>Comprobación periódica de temperaturas en carga, para detectar una degradación progresiva de la pasta térmica.</li>
+<li>Revisión del estado S.M.A.R.T. de los discos de forma regular, especialmente en equipos que llevan varios años en uso.</li>
+<li>Comprobación visual de condensadores hinchados o abombados en la placa base o la fuente de alimentación, señal de que están próximos a fallar.</li>
+</ul>
+<h2 id="7-documentacion-tecnica-de-una-intervencion">7. Documentación técnica de una intervención</h2>
+<p>En un entorno profesional, toda intervención de montaje o reparación debe quedar <strong>documentada</strong>, tanto para el propio historial del equipo como para justificar el trabajo realizado ante el cliente. Un buen informe técnico incluye:</p>
+<ul>
+<li><strong>Identificación del equipo</strong> (modelo, número de serie o etiqueta de inventario).</li>
+<li><strong>Síntoma reportado</strong> por el usuario, con sus propias palabras.</li>
+<li><strong>Diagnóstico realizado</strong>: pruebas efectuadas y componente(s) identificado(s) como causantes del problema.</li>
+<li><strong>Solución aplicada</strong>: qué se ha hecho (sustitución de una pieza, actualización de driver, limpieza...).</li>
+<li><strong>Verificación final</strong>: comprobación de que el problema queda resuelto.</li>
+<li><strong>Fecha y técnico responsable</strong>.</li>
+</ul>
+<h2 id="ejercicios-practicos">Ejercicios prácticos</h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica qué es la POST y en qué momento exacto del arranque del ordenador se ejecuta. Enumera las seis fases de la secuencia de arranque vistas en el punto 2.2.</p>
+<p><strong>Ejercicio 2</strong>. Un equipo enciende (los ventiladores giran y las luces se encienden) pero no da imagen en el monitor. Describe, en orden, los pasos que seguirías para diagnosticar la causa, aplicando el método de descarte del punto 3.1.</p>
+<p><strong>Ejercicio 3</strong>. ¿Para qué sirve un PSU tester, y en qué se diferencia de comprobar la fuente con un multímetro?</p>
+<p><strong>Ejercicio 4</strong>. Explica qué es el estado S.M.A.R.T. de un disco y por qué es útil revisarlo periódicamente.</p>
+<p><strong>Ejercicio 5</strong>. ¿Por qué es arriesgado actualizar la BIOS de una placa base, y qué precauciones tomarías antes de hacerlo?</p>
+<p><strong>Ejercicio 6</strong>. Explica con tus palabras qué es un benchmark y pon un ejemplo de cómo podría ayudarte a detectar que la CPU de un equipo se está sobrecalentando.</p>
+<p><strong>Ejercicio 7 (práctica en el aula)</strong>. Bajo supervisión del profesor, realiza el montaje completo de un equipo del aula, complétalo con la checklist de la sección 1, enciéndelo, y si detectas algún problema, documenta el proceso de diagnóstico seguido hasta resolverlo.</p>
+<p><strong>Ejercicio 8</strong>. Elabora un informe técnico completo (siguiendo el esquema del punto 7) simulando la avería de un equipo que se apaga solo a los pocos minutos de uso: identificación del equipo, síntoma, diagnóstico, solución aplicada y verificación final.</p>
+<p><strong>Ejercicio 9</strong>. Compara los pasos que darías para diagnosticar dos averías distintas: (a) un equipo que no enciende en absoluto, y (b) un equipo que enciende pero se reinicia solo bajo carga. ¿En qué se parecen y en qué se diferencian los procesos de diagnóstico?</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
