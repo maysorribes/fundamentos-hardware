@@ -34,7 +34,7 @@ Según la programación de aula, esta unidad (UT2) se evalúa sobre los criterio
 
 ## 1. La placa base
 
-<img src="/assets/img/placa-base-elementos.jpg" alt="Placa base con sus elementos señalados" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/placa-base-elementos.jpg" alt="Placa base con sus elementos señalados" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>La placa base es el elemento central: todos los demás componentes se conectan a ella.</em></p>
 
 La **placa base** (o placa madre) es una tarjeta de circuito impreso a la que se conectan todos los componentes del ordenador: CPU, memoria, tarjetas de expansión, almacenamiento y fuente de alimentación. Es el elemento que da soporte físico y eléctrico a la comunicación entre unidades funcionales, y determina en gran medida qué componentes son compatibles entre sí.
@@ -88,7 +88,7 @@ La caja (o torre) del ordenador debe elegirse de forma compatible con el formato
 
 Los **slots de expansión** son ranuras de la placa base donde se insertan tarjetas que añaden funcionalidades al equipo. El estándar actual es **PCI Express (PCIe)**, que sustituyó a los antiguos PCI y AGP. Existen distintos tamaños de ranura PCIe (x1, x4, x8, x16) según el ancho de banda necesario; a mayor número, más líneas de datos y mayor velocidad. Además, cada nueva versión del estándar (PCIe 3.0, 4.0, 5.0...) duplica aproximadamente el ancho de banda de la anterior manteniendo el mismo tamaño físico de ranura.
 
-<img src="/assets/img/tarjeta-grafica.jpg" alt="Tarjeta gráfica de expansión" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/tarjeta-grafica.jpg" alt="Tarjeta gráfica de expansión" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Una tarjeta gráfica es la tarjeta de expansión PCIe más habitual en un PC de sobremesa.</em></p>
 
 Las tarjetas de expansión más comunes son:
@@ -121,7 +121,7 @@ Los **conectores** son los elementos de interconexión entre los distintos compo
 
 ### 3.2 Conectores externos
 
-<img src="/assets/img/conectores-placa-base.jpg" alt="Panel de conectores externos de una placa base" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/conectores-placa-base.jpg" alt="Panel de conectores externos de una placa base" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Panel de E/S de una placa base, con los conectores accesibles desde el exterior de la caja.</em></p>
 
 | Conector | Función |
@@ -137,7 +137,7 @@ Los **conectores** son los elementos de interconexión entre los distintos compo
 
 ## 4. La fuente de alimentación
 
-<img src="/assets/img/fuente-alimentacion.jpg" alt="Fuente de alimentación de un PC" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/fuente-alimentacion.jpg" alt="Fuente de alimentación de un PC" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>La fuente de alimentación convierte la corriente alterna de la red eléctrica en corriente continua para los componentes.</em></p>
 
 La **fuente de alimentación** (PSU) transforma la corriente alterna (220V) de la red eléctrica en las distintas corrientes continuas de bajo voltaje (+3.3V, +5V, +12V) que necesitan los componentes del ordenador.

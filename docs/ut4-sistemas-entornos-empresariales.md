@@ -69,7 +69,7 @@ El **Uptime Institute** clasifica los CPD en 4 niveles de fiabilidad, según su 
 
 ## 2. Racks, armarios y cableado estructurado
 
-<img src="/assets/img/rack-servidores.jpg" alt="Rack de servidores en un CPD" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/rack-servidores.jpg" alt="Rack de servidores en un CPD" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Un rack o armario estandarizado permite alojar de forma ordenada servidores, switches y sistemas de almacenamiento.</em></p>
 
 Los equipos de un CPD no se colocan sueltos, sino en **racks** (armarios metálicos normalizados) que permiten organizarlos de forma vertical, ahorrando espacio y facilitando su ventilación, cableado y mantenimiento.

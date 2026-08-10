@@ -73,7 +73,7 @@ Las copias de seguridad casi nunca se hacen manualmente cada vez: se **programan
 
 ## 2. Soportes de almacenamiento para copias e imágenes
 
-<img src="/assets/img/cinta-backup.jpg" alt="Unidad de cinta magnética LTO para copias de seguridad" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/cinta-backup.jpg" alt="Unidad de cinta magnética LTO para copias de seguridad" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Las cintas magnéticas LTO siguen siendo muy utilizadas en entornos empresariales para copias de seguridad a largo plazo.</em></p>
 
 No todos los soportes de memoria auxiliar son igual de adecuados para guardar copias de seguridad o imágenes de sistema. Cada uno tiene sus ventajas e inconvenientes:
@@ -126,7 +126,7 @@ En la BIOS/UEFI se puede configurar el **orden de arranque** (*boot order*): la 
 
 ## 6. Creación de imágenes de disco
 
-<img src="/assets/img/clonacion-disco.jpg" alt="Proceso de clonación de un disco duro" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/clonacion-disco.jpg" alt="Proceso de clonación de un disco duro" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Clonar un disco copia su contenido bit a bit en otro soporte o en un archivo de imagen.</em></p>
 
 Una **imagen de disco** es una copia exacta, bit a bit, del contenido de un disco o de una partición, guardada normalmente como uno o varios archivos.

@@ -94,7 +94,7 @@ Para entender mejor dónde puede fallar el proceso, conviene tener claras sus fa
 
 ## 3. Diagnóstico de averías comunes
 
-<img src="/assets/img/multimetro-diagnostico.jpg" alt="Multímetro usado para comprobar la fuente de alimentación" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<img src="../assets/img/multimetro-diagnostico.jpg" alt="Multímetro usado para comprobar la fuente de alimentación" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Un multímetro permite comprobar si la fuente de alimentación entrega los voltajes correctos.</em></p>
 
 | Síntoma | Posibles causas | Cómo comprobarlo |
