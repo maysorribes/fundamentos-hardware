@@ -8,23 +8,17 @@ Material elaborado para el módulo **Fundamentos de Hardware**
 
 ### Resultados de Aprendizaje
 
-Esta unidad trabaja el **Resultado de Aprendizaje 1 (RA1)** del módulo, correspondiente a:
+Esta unidad trabaja el **Resultado de Aprendizaje 1 (RA1)** del módulo, según el **Real Decreto 1629/2009** (Anexo I, módulo *Fundamentos de Hardware*):
 
-1. Reconoce la estructura y el funcionamiento de un ordenador, identificando sus unidades funcionales y describiendo las características e interrelaciones de cada una de ellas.
+1. **RA1.** Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.
 
-Los criterios de evaluación asociados son:
+Según la programación de aula, esta unidad (UT1) se evalúa sobre los criterios **CE11, CE12, CE18, CE47 y CE49**, cuya redacción literal es:
 
-a. Se ha descrito el concepto de sistema informático y sus elementos (hardware, software y humanos).
-
-b. Se han identificado las unidades funcionales de un ordenador y sus interrelaciones.
-
-c. Se han diferenciado los elementos de la memoria principal y su función en el ciclo de acceso a datos.
-
-d. Se han reconocido los elementos que componen la CPU (registros, ALU y unidad de control).
-
-e. Se han clasificado los tipos de buses del sistema según su función.
-
-f. Se ha explicado cómo se representa y codifica la información (texto, imagen y audio) en formato digital.
+- **CE11** (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.
+- **CE12** (RA1.b): Se ha descrito el papel de los elementos físicos y lógicos que intervienen en el proceso de puesta en marcha de un equipo.
+- **CE18** (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.
+- **CE47** (RA5.d): Se han descrito los elementos de seguridad de las máquinas y los equipos de protección individual que se deben emplear.
+- **CE49** (RA5.f): Se han identificado las posibles fuentes de contaminación del entorno ambiental.
 
 ### Planificación Temporal (6 sesiones / 12 horas)
 

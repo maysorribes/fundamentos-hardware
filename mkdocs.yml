@@ -5,13 +5,21 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - Inicio: index.md
+  - Tema 0. Sistemas de numeración: ut0-sistemas-numeracion.md
   - Tema 1. Esquema funcional: ut1-esquema-funcional.md
   - Tema 2. Elementos internos: ut2-elementos-internos.md
   - Tema 3. Montaje y diagnóstico: ut3-montaje-diagnostico.md
   - Tema 4. Sistemas en entornos empresariales: ut4-sistemas-entornos-empresariales.md
+  - Tema 5. Utilidades software: ut5-utilidades-software.md
+  - Tema 6. Respaldo y creación de imágenes: ut6-respaldo-imagenes.md
 
 extra_css:
   - assets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

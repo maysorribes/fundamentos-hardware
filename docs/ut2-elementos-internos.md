@@ -8,30 +8,18 @@ Material elaborado para el módulo **Fundamentos de Hardware**
 
 ### Resultados de Aprendizaje
 
-Esta unidad trabaja el **Resultado de Aprendizaje 2 (RA2)** del módulo, correspondiente a:
+⚠️ **Corrección**: esta unidad pertenece en realidad al **Resultado de Aprendizaje 1 (RA1)** (no al RA2), según confirma la tabla de criterios de tu programación y el **Real Decreto 1629/2009** (Anexo I, módulo *Fundamentos de Hardware*):
 
-2. Instala software de propósito general y periféricos, relacionando sus características con las de los elementos internos del ordenador que los soportan, y monta y desmonta componentes físicos siguiendo procedimientos establecidos.
+1. **RA1.** Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.
 
-Los criterios de evaluación asociados son:
+Según la programación de aula, esta unidad (UT2) se evalúa sobre los criterios **CE11, CE13, CE14, CE18, CE47 y CE49**, cuya redacción literal es:
 
-a. Se han identificado los elementos internos de una placa base y su función (chipset, socket, slots de memoria y de expansión).
-
-b. Se han clasificado los distintos formatos de placa base y de caja.
-
-c. Se han reconocido los tipos de conectores internos y externos más habituales.
-
-d. Se han descrito las principales tarjetas de expansión y su utilidad.
-
-e. Se han identificado los elementos de la fuente de alimentación, sus conectores y se ha calculado la potencia necesaria para un equipo.
-
-f. Se han diferenciado los dispositivos de almacenamiento interno según su tecnología, formato y configuración en RAID.
-
-g. Se ha explicado la función de la BIOS/UEFI en el arranque del equipo y se han configurado sus parámetros básicos.
-
-h. Se ha realizado el montaje y desmontaje de los componentes internos de un equipo siguiendo las normas de seguridad.
-
-!!! info "Nota"
-    Adapta la redacción exacta de RA y criterios al currículo oficial vigente en tu comunidad autónoma.
+- **CE11** (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.
+- **CE13** (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.
+- **CE14** (RA1.d): Se han establecido los parámetros de configuración (hardware y software) de un equipo microinformático con las utilidades específicas.
+- **CE18** (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.
+- **CE47** (RA5.d): Se han descrito los elementos de seguridad de las máquinas y los equipos de protección individual que se deben emplear.
+- **CE49** (RA5.f): Se han identificado las posibles fuentes de contaminación del entorno ambiental.
 
 ### Planificación Temporal (6 sesiones / 12 horas)
 

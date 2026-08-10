@@ -12,10 +12,17 @@ Esta unidad, junto con las UT1 y UT2, trabaja el **Resultado de Aprendizaje 1 (R
 
 1. **RA1.** Configura equips microinformàtics, components i perifèrics, analitzant les seues característiques i relació amb el conjunt.
 
-Según la tabla de relación entre criterios de evaluación e instrumentos de la programación del módulo, esta unidad (UT3) se evalúa sobre los criterios **CE15, CE16, CE17, CE18, CE19, CE47 y CE49**, referidos al montaje, ensamblaje y reparación de equipos informáticos.
+Según la tabla de relación entre criterios de evaluación e instrumentos de la programación del módulo, esta unidad (UT3) se evalúa sobre los criterios **CE15, CE16, CE17, CE18, CE19, CE47 y CE49**.
 
-!!! info "Nota"
-    El texto literal de cada criterio de evaluación (CE) está definido en el Real Decreto de título y en el DECRET 114/2025; consulta la redacción exacta en el currículum oficial del ciclo para citarla tal cual en tu programación.
+Su redacción literal, según el **Real Decreto 1629/2009** (Anexo I, módulo *Fundamentos de Hardware*), es:
+
+- **CE15** (RA1.e): Se ha evaluado las prestaciones del equipo.
+- **CE16** (RA1.f): Se han ejecutado utilidades de chequeo y diagnóstico.
+- **CE17** (RA1.g): Se han identificado averías y sus causas.
+- **CE18** (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.
+- **CE19** (RA1.i): Se han utilizado protocolos estándar de comunicación inalámbrica entre dispositivos.
+- **CE47** (RA5.d): Se han descrito los elementos de seguridad (protecciones, alarmas y pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+- **CE49** (RA5.f): Se han identificado las posibles fuentes de contaminación del entorno ambiental.
 
 ### Ponderación de esta unidad
 

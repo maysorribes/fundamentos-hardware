@@ -1,0 +1,1132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut3-montaje-diagnostico/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 4. Sistemas en entornos empresariales - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistemas-informaticos-en-entornos-empresariales" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 4. Sistemas en entornos empresariales
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-esquema-funcional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Esquema funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-elementos-internos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut3-montaje-diagnostico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4. Sistemas en entornos empresariales
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4. Sistemas en entornos empresariales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-centro-de-procesamiento-de-datos-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. El Centro de Procesamiento de Datos (CPD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-racks-armarios-y-cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Racks, armarios y cableado estructurado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Racks, armarios y cableado estructurado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-la-unidad-de-rack-u" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 La unidad de rack (U)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Cableado estructurado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-servidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Servidores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Servidores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-formatos-de-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Formatos de servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-almacenamiento-empresarial-nas-y-san" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Almacenamiento empresarial: NAS y SAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-alimentacion-electrica-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alimentación eléctrica del CPD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Alimentación eléctrica del CPD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-el-sai-sistema-de-alimentacion-ininterrumpida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 El SAI (Sistema de Alimentación Ininterrumpida)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-el-pdu-power-distribution-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 El PDU (Power Distribution Unit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-redundancia-electrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Redundancia eléctrica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-climatizacion-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Climatización del CPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-seguridad-fisica-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Seguridad física del CPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Alta disponibilidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-centro-de-procesamiento-de-datos-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. El Centro de Procesamiento de Datos (CPD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-racks-armarios-y-cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Racks, armarios y cableado estructurado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Racks, armarios y cableado estructurado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-la-unidad-de-rack-u" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 La unidad de rack (U)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Cableado estructurado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-servidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Servidores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Servidores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-formatos-de-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Formatos de servidor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-almacenamiento-empresarial-nas-y-san" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Almacenamiento empresarial: NAS y SAN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-alimentacion-electrica-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alimentación eléctrica del CPD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Alimentación eléctrica del CPD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-el-sai-sistema-de-alimentacion-ininterrumpida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 El SAI (Sistema de Alimentación Ininterrumpida)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-el-pdu-power-distribution-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 El PDU (Power Distribution Unit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-redundancia-electrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Redundancia eléctrica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-climatizacion-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Climatización del CPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-seguridad-fisica-del-cpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Seguridad física del CPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Alta disponibilidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>0371. Fonaments de Maquinari / Fundamentos de Hardware</strong></p>
+<h1 id="sistemas-informaticos-en-entornos-empresariales">Sistemas informáticos en entornos empresariales</h1>
+<h2 id="programacion-de-aula">Programación de Aula</h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje</h3>
+<p>Esta unidad trabaja el <strong>Resultado de Aprendizaje 4 (RA4)</strong> del módulo, según la programación didáctica del centro:</p>
+<ol>
+<li><strong>RA4.</strong> Implanta maquinari específic de centres de processament de dades (CPD), analitzant les seues característiques i aplicacions.</li>
+</ol>
+<p>Según la tabla de relación entre criterios de evaluación e instrumentos de la programación del módulo, esta unidad (UT4) se evalúa sobre los criterios <strong>CE18, CE41, CE42, CE43, CE44, CE45, CE46, CE47, CE48 y CE49</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Nota</p>
+<p>El texto literal de cada criterio de evaluación (CE) está definido en el Real Decreto de título y en el DECRET 114/2025; consulta la redacción exacta en el currículum oficial del ciclo para citarla tal cual en tu programación.</p>
+</div>
+<h3 id="ponderacion-de-esta-unidad">Ponderación de esta unidad</h3>
+<p>Según el cuadro de ponderaciones de la programación del módulo, <strong>UT4 (Sistemes informàtics en entorns empresarials)</strong> aporta un <strong>14%</strong> de la nota final del módulo, correspondiente al 100% del RA4.</p>
+<p>También según la programación, el <strong>RA4 es el único que se trabaja parcialmente en la formación en empresa</strong> (FCT/formació en empresa), con un 16% del total del módulo.</p>
+<h3 id="planificacion-temporal-6-sesiones-12-horas">Planificación Temporal (6 sesiones / 12 horas)</h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>El Centro de Procesamiento de Datos (CPD): concepto y estructura</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Racks, armarios y cableado estructurado</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Servidores: tipos y características frente a un PC de sobremesa</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Almacenamiento empresarial: NAS y SAN</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Alimentación (SAI/PDU) y climatización del CPD</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Seguridad física y alta disponibilidad. Repaso y ejercicios</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-el-centro-de-procesamiento-de-datos-cpd">1. El Centro de Procesamiento de Datos (CPD)</h2>
+<p>Un <strong>CPD</strong> (Centro de Procesamiento de Datos, o <em>Data Center</em> en inglés) es una instalación especializada donde se concentran los recursos informáticos necesarios para el funcionamiento de una organización: servidores, sistemas de almacenamiento, equipos de red y toda la infraestructura de soporte (alimentación, refrigeración, seguridad) que los mantiene operativos de forma continua.</p>
+<p>A diferencia de un ordenador de sobremesa doméstico, el hardware de un CPD está diseñado para funcionar <strong>24 horas al día, 365 días al año</strong>, priorizando la fiabilidad, la redundancia y la facilidad de mantenimiento sobre otros factores como el precio o el diseño estético.</p>
+<div class="admonition note">
+<p class="admonition-title">Niveles de fiabilidad (Tier)</p>
+<p>El Uptime Institute clasifica los CPD en 4 niveles (<strong>Tier I a Tier IV</strong>) según su grado de redundancia y disponibilidad garantizada, desde un Tier I (sin redundancia, disponibilidad básica) hasta un Tier IV (redundancia completa, tolerante a fallos, con la máxima disponibilidad posible).</p>
+</div>
+<h2 id="2-racks-armarios-y-cableado-estructurado">2. Racks, armarios y cableado estructurado</h2>
+<p><img src="/assets/img/rack-servidores.jpg" alt="Rack de servidores en un CPD" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un rack o armario estandarizado permite alojar de forma ordenada servidores, switches y sistemas de almacenamiento.</em></p>
+
+<p>Los equipos de un CPD no se colocan sueltos, sino en <strong>racks</strong> (armarios metálicos normalizados) que permiten organizarlos de forma vertical, ahorrando espacio y facilitando su ventilación, cableado y mantenimiento.</p>
+<h3 id="21-la-unidad-de-rack-u">2.1 La unidad de rack (U)</h3>
+<p>La altura de los equipos que se instalan en un rack se mide en <strong>unidades de rack (U)</strong>, donde 1U equivale a 1,75 pulgadas (4,45 cm) de altura. Un servidor puede ocupar, por ejemplo, 1U (muy compacto), 2U o 4U (más espacio interno para discos y refrigeración). Un rack estándar completo suele tener 42U de altura disponible.</p>
+<h3 id="22-cableado-estructurado">2.2 Cableado estructurado</h3>
+<p>El <strong>cableado estructurado</strong> es un sistema de cableado organizado y documentado que permite conectar todos los equipos de una instalación de forma ordenada, normalmente distribuido en:</p>
+<ul>
+<li><strong>Cableado horizontal</strong>: conecta cada puesto de trabajo o dispositivo con el armario de distribución de su planta.</li>
+<li><strong>Cableado vertical (backbone)</strong>: conecta entre sí los distintos armarios de distribución del edificio, y estos con el CPD central.</li>
+</ul>
+<p>Un buen cableado estructurado, correctamente etiquetado, es fundamental para poder diagnosticar averías y hacer cambios sin perder tiempo "siguiendo cables" a mano.</p>
+<h2 id="3-servidores">3. Servidores</h2>
+<p>Un <strong>servidor</strong> es un ordenador diseñado específicamente para ofrecer servicios y recursos a otros equipos (clientes) a través de una red, funcionando de forma ininterrumpida. Aunque comparte los mismos elementos funcionales que un PC de sobremesa (CPU, memoria, almacenamiento...), sus componentes están pensados para la fiabilidad y el funcionamiento continuo:</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>PC de sobremesa</th>
+<th>Servidor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Orientada al rendimiento monousuario</td>
+<td>Múltiples núcleos, soporte multiprocesador, orientada a cargas concurrentes</td>
+</tr>
+<tr>
+<td>Memoria</td>
+<td>Sin corrección de errores</td>
+<td>Memoria <strong>ECC</strong> (Error-Correcting Code), que detecta y corrige errores de bit automáticamente</td>
+</tr>
+<tr>
+<td>Almacenamiento</td>
+<td>Uno o pocos discos</td>
+<td>Varios discos en RAID, a menudo intercambiables en caliente (<em>hot-swap</em>)</td>
+</tr>
+<tr>
+<td>Fuente de alimentación</td>
+<td>Una única fuente</td>
+<td>Fuentes <strong>redundantes</strong> (si falla una, la otra sigue dando servicio)</td>
+</tr>
+<tr>
+<td>Gestión remota</td>
+<td>No suele tener</td>
+<td>Tarjeta de gestión remota (iLO, iDRAC...) para administrar el servidor aunque esté apagado o sin sistema operativo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-formatos-de-servidor">3.1 Formatos de servidor</h3>
+<ul>
+<li><strong>Servidor torre</strong>: similar en aspecto a un PC de sobremesa grande; adecuado para empresas pequeñas con pocos equipos.</li>
+<li><strong>Servidor rack</strong>: formato plano pensado para instalarse en un armario rack; permite concentrar muchos servidores en poco espacio.</li>
+<li><strong>Servidor blade</strong>: módulos muy compactos que se insertan en un chasis común (<em>enclosure</em>), compartiendo elementos como la alimentación o la refrigeración entre varios servidores, maximizando la densidad de cómputo.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Recuerda</p>
+<p>La disponibilidad de piezas <em>hot-swap</em> (discos, fuentes, incluso ventiladores) permite sustituir un componente averiado <strong>sin apagar el servidor</strong>, evitando interrupciones del servicio.</p>
+</div>
+<h2 id="4-almacenamiento-empresarial-nas-y-san">4. Almacenamiento empresarial: NAS y SAN</h2>
+<p>En un entorno empresarial, el almacenamiento casi nunca está "dentro" de un único servidor, sino centralizado en sistemas dedicados a los que acceden varios servidores a la vez:</p>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Significado</th>
+<th>Cómo se accede</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NAS (Network Attached Storage)</td>
+<td>Almacenamiento conectado a la red</td>
+<td>A nivel de archivo, a través de la red (protocolos como SMB o NFS), como si fuera una carpeta compartida</td>
+<td>Compartir archivos entre usuarios, copias de seguridad</td>
+</tr>
+<tr>
+<td>SAN (Storage Area Network)</td>
+<td>Red de área de almacenamiento</td>
+<td>A nivel de bloque, a través de una red dedicada de alta velocidad (Fibre Channel o iSCSI)</td>
+<td>Almacenamiento de alto rendimiento para bases de datos y servidores virtualizados</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Diferencia clave</p>
+<p>Un NAS es como un disco duro compartido en red: el sistema operativo del servidor "ve" carpetas y archivos. Una SAN, en cambio, hace que el servidor "vea" el almacenamiento como si fuera un disco propio interno, permitiendo un rendimiento mucho mayor, típico de entornos de virtualización o bases de datos exigentes.</p>
+</div>
+<h2 id="5-alimentacion-electrica-del-cpd">5. Alimentación eléctrica del CPD</h2>
+<h3 id="51-el-sai-sistema-de-alimentacion-ininterrumpida">5.1 El SAI (Sistema de Alimentación Ininterrumpida)</h3>
+<p>Un <strong>SAI</strong> (o UPS, <em>Uninterruptible Power Supply</em>) es un equipo que proporciona energía eléctrica durante un corte de suministro, el tiempo suficiente para que los sistemas se apaguen de forma ordenada o para que entre en funcionamiento un generador auxiliar. Los hay de distintos tipos según su tecnología (<em>off-line</em>, <em>line-interactive</em>, <em>on-line</em>), siendo el <strong>on-line</strong> el que ofrece mayor protección al regenerar constantemente la corriente eléctrica.</p>
+<h3 id="52-el-pdu-power-distribution-unit">5.2 El PDU (Power Distribution Unit)</h3>
+<p>Un <strong>PDU</strong> es, básicamente, una "regleta" inteligente de rack que distribuye la energía eléctrica a todos los equipos instalados en él, permitiendo a menudo monitorizar el consumo e incluso apagar/encender remotamente tomas individuales.</p>
+<h3 id="53-redundancia-electrica">5.3 Redundancia eléctrica</h3>
+<p>En instalaciones críticas es habitual disponer de <strong>doble acometida eléctrica</strong>, generadores diésel de respaldo, y servidores con <strong>doble fuente de alimentación</strong>, cada una conectada a un circuito eléctrico distinto, para que un fallo en un único punto no deje sin servicio al CPD.</p>
+<h2 id="6-climatizacion-del-cpd">6. Climatización del CPD</h2>
+<p>La densidad de equipos de un CPD genera una cantidad de calor muy superior a la de una oficina normal, por lo que requiere sistemas de <strong>climatización de precisión</strong>, capaces de mantener una temperatura y humedad estables las 24 horas.</p>
+<p>Una técnica muy habitual es la organización en <strong>pasillo frío / pasillo caliente</strong>: los racks se colocan enfrentados de forma que todas las tomas de aire frío de los equipos miran hacia un mismo pasillo (donde se inyecta aire frío) y todas las salidas de aire caliente miran hacia el pasillo opuesto (por donde se extrae), evitando que el aire caliente de un rack se mezcle con el aire frío que necesita otro.</p>
+<h2 id="7-seguridad-fisica-del-cpd">7. Seguridad física del CPD</h2>
+<p>Además de la seguridad informática (que se trata en otros módulos), un CPD requiere medidas de <strong>seguridad física</strong>:</p>
+<ul>
+<li><strong>Control de acceso</strong>: tarjetas, biometría o códigos que restringen quién puede entrar físicamente a la sala.</li>
+<li><strong>Videovigilancia</strong> de la instalación.</li>
+<li><strong>Sistemas de extinción de incendios</strong> específicos (gases inertes como el FM-200 o el CO₂), que apagan un fuego sin dañar los equipos electrónicos, a diferencia del agua.</li>
+<li><strong>Detección temprana de humo</strong> mediante sistemas de aspiración de aire de alta sensibilidad, capaces de detectar un principio de incendio antes de que sea visible.</li>
+</ul>
+<h2 id="8-alta-disponibilidad">8. Alta disponibilidad</h2>
+<p>La <strong>alta disponibilidad</strong> (High Availability, HA) es el conjunto de técnicas orientadas a que un servicio siga funcionando incluso si falla alguno de sus componentes:</p>
+<ul>
+<li><strong>Redundancia N+1</strong>: se dispone de un componente (o servidor) de más de los estrictamente necesarios, de forma que si uno falla, el sistema sigue funcionando con normalidad mientras se repara el fallo.</li>
+<li><strong>Clustering</strong>: varios servidores trabajan de forma coordinada como si fueran uno solo; si uno falla, otro asume su carga de trabajo automáticamente (<em>failover</em>).</li>
+<li><strong>Balanceo de carga</strong>: reparte las peticiones entrantes entre varios servidores, mejorando tanto el rendimiento como la tolerancia a fallos.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Virtualización y hardware de CPD</p>
+<p>Buena parte del hardware de un CPD moderno se dedica a servidores de virtualización: máquinas físicas potentes (muchos núcleos y mucha memoria RAM) sobre las que se ejecutan decenas de máquinas virtuales, optimizando el aprovechamiento del hardware disponible.</p>
+</div>
+<h2 id="ejercicios-practicos">Ejercicios prácticos</h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica con tus propias palabras qué es un CPD y en qué se diferencia, en cuanto a exigencias de hardware, de un ordenador de oficina normal.</p>
+<p><strong>Ejercicio 2</strong>. Un servidor ocupa 2U de espacio en un rack. ¿Cuántos servidores de ese tamaño caben, como máximo, en un rack estándar de 42U?</p>
+<p><strong>Ejercicio 3</strong>. Compara un NAS y una SAN: ¿en qué se diferencian en la forma de acceder a los datos, y para qué tipo de uso recomendarías cada uno?</p>
+<p><strong>Ejercicio 4</strong>. Explica qué es la memoria ECC y por qué es especialmente importante en un servidor que da servicio a muchos usuarios de forma continua.</p>
+<p><strong>Ejercicio 5</strong>. ¿Por qué en un CPD no se usan extintores de agua para apagar un incendio? Investiga qué sistema se usa en su lugar.</p>
+<p><strong>Ejercicio 6</strong>. Explica la diferencia entre redundancia N+1 y clustering, poniendo un ejemplo de cada uno.</p>
+<p><strong>Ejercicio 7</strong>. Investiga y describe brevemente qué es la organización en pasillo frío/pasillo caliente, y por qué mejora la eficiencia de la climatización frente a colocar los racks sin ese criterio.</p>
+<p><strong>Ejercicio 8 (reflexión)</strong>. Si tuvieras que montar el CPD de una pequeña empresa con un presupuesto limitado, ¿qué elementos de los vistos en esta unidad priorizarías y cuáles dejarías para una fase posterior? Justifica tu respuesta.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
