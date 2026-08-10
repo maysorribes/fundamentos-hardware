@@ -1,7 +1,17 @@
-site_name: Mis documentos
+site_name: Fundamentos de Hardware
 theme:
   name: material
 
 markdown_extensions:
   - admonition
   - pymdownx.details
+
+nav:
+  - Inicio: index.md
+  - Tema 1. Esquema funcional: ut1-esquema-funcional.md
+  - Tema 2. Elementos internos: ut2-elementos-internos.md
+  - Tema 3. Montaje y diagnóstico: ut3-montaje-diagnostico.md
+  - Tema 4. Sistemas en entornos empresariales: ut4-sistemas-entornos-empresariales.md
+
+extra_css:
+  - assets/extra.css

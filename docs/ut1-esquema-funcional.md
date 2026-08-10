@@ -83,6 +83,9 @@ Un **sistema informático** es el conjunto de elementos necesarios para desarrol
 
 Un **ordenador** puede definirse como una máquina electrónica capaz de aceptar datos por un medio de entrada, procesarlos automáticamente según un programa almacenado, y entregar el resultado por un medio de salida. Entre sus características destacan: opera a alta velocidad, es exacto y fiable, puede repetir tareas sin cansarse, y trabaja con grandes volúmenes de información.
 
+<img src="/assets/img/sistema-informatico.jpg" alt="Elementos de un sistema informático: hardware, software y usuarios" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Los tres elementos de un sistema informático: hardware, software y personas.</em></p>
+
 ### 1.4 Clasificación de los periféricos
 
 Los dispositivos físicos conectados al ordenador se clasifican según su función:
@@ -104,10 +107,15 @@ Las **unidades funcionales** son el conjunto de elementos hardware imprescindibl
 
 La forma en que estos bloques se organizan y se comunican entre sí se conoce como **arquitectura de ordenadores**, cuyo modelo de referencia es la **arquitectura de Von Neumann**: CPU, memoria y unidades de E/S conectadas entre sí mediante un bus común, compartiendo un mismo espacio de direcciones para datos e instrucciones.
 
+<iframe src="/von-neumann.html" width="100%" height="500" style="border:none;"></iframe>
+
 !!! info "Recuerda"
     Los dispositivos de hardware necesitan comunicarse entre sí; para ello existen los **buses del sistema**. Cuando la comunicación con un periférico concreto requiere una gestión especializada, se emplean **controladores**, que hacen de intermediarios entre las unidades funcionales y el periférico.
 
 ### 2.1 La memoria principal
+
+<img src="/assets/img/memoria-ram.jpg" alt="Módulos de memoria RAM" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Módulos de memoria RAM: cada uno contiene varios chips de memoria principal.</em></p>
 
 La **memoria principal** (o memoria central) almacena los datos e instrucciones que la CPU necesita en cada momento. Físicamente está formada por chips de silicio (circuitos integrados) organizados en **celdas** o posiciones de memoria, cada una identificada por una **dirección de memoria** única.
 
@@ -145,6 +153,9 @@ La velocidad de la memoria se mide con tres parámetros:
 Dado que la memoria principal tiene capacidad limitada y coste elevado por byte, se complementa con la **memoria secundaria** (discos, SSD...), pensada para almacenar grandes volúmenes de información durante largos periodos.
 
 ### 2.2 La unidad central de procesamiento (CPU)
+
+<img src="/assets/img/cpu-microprocesador.jpg" alt="Microprocesador o chip de la CPU" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un microprocesador real: toda la CPU integrada en un único chip.</em></p>
 
 La **CPU** (también UCP) es el "cerebro" del ordenador: interpreta las instrucciones almacenadas en memoria y ordena su ejecución. En los microordenadores está integrada en un único chip llamado **microprocesador** (fabricantes destacados: Intel, AMD).
 
@@ -201,6 +212,9 @@ Otros parámetros relevantes de un procesador actual: nivel de integración (nm)
 
 ### 2.3 Buses del sistema
 
+<img src="/assets/img/placa-base-buses.jpg" alt="Placa base con sus buses y conexiones" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Las pistas de la placa base son, físicamente, los buses del sistema.</em></p>
+
 Un **bus** es el conjunto de conductores (pistas o hilos) que transporta información entre las distintas unidades funcionales del ordenador. Puede ser:
 
 - **Serie**: los bits se transmiten uno a uno por el mismo cable.
@@ -236,6 +250,9 @@ Un ordenador trabaja internamente solo con dos estados: 0 y 1 (**sistema binario
 
 Cada carácter (letra, número, símbolo) se representa mediante un código binario normalizado. El más conocido es el **código ASCII**, que asigna un número (de 0 a 127 en su versión original) a cada carácter, permitiendo su almacenamiento y transmisión como una secuencia de bits.
 
+<img src="/assets/img/tabla-ascii.png" alt="Tabla del código ASCII" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Fragmento de la tabla ASCII: cada carácter tiene asignado un código binario.</em></p>
+
 ### 3.2 Almacenamiento de imágenes
 
 Una imagen digital se descompone en una matriz de puntos (**píxeles**), y cada píxel se codifica con un número determinado de bits según la profundidad de color. Por ejemplo, con 2 bits por píxel se pueden representar 4 colores:
@@ -247,11 +264,17 @@ Una imagen digital se descompone en una matriz de puntos (**píxeles**), y cada 
 | 10 | Amarillo |
 | 11 | Negro |
 
+<img src="/assets/img/pixeles.png" alt="Matriz de píxeles de una imagen digital ampliada" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Al ampliar una imagen digital se aprecia la matriz de píxeles que la compone.</em></p>
+
 Cuantos más bits se dediquen a cada píxel, mayor será el número de colores representables, pero también mayor el tamaño del archivo.
 
 ### 3.3 Almacenamiento de audio
 
 El sonido es una señal analógica (continua) que debe **digitalizarse** para poder almacenarse en un ordenador. Este proceso implica muestrear la señal a intervalos regulares (frecuencia de muestreo) y codificar cada muestra con un número de bits determinado (resolución), obteniendo así una secuencia binaria que se puede guardar y reproducir.
+
+<img src="/assets/img/onda-sonido.png" alt="Onda de sonido analógica y su muestreo digital" style="max-width:420px; width:100%; display:block; margin:16px auto;">
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>La señal analógica continua (arriba) se convierte en una secuencia de muestras digitales (abajo).</em></p>
 
 ## Ejercicios prácticos
 
@@ -271,3 +294,6 @@ El sonido es una señal analógica (continua) que debe **digitalizarse** para po
     **Ejercicio 7**. Si cada píxel de una imagen se codifica con 3 bits, ¿cuántos colores diferentes se podrán representar? Enumera los códigos binarios posibles.
 
     **Ejercicio 8**. Elabora un esquema (a mano o con una herramienta de diagramas) que represente la arquitectura de Von Neumann, señalando CPU, memoria, buses y unidades de E/S.
+
+---
+**Créditos de imágenes:** *Hardware Diagram* (Wing045, CC BY 3.0) · *RAM Module (SDRAM-DDR4)* (ElooKoN, CC BY-SA 4.0) — vía Wikimedia Commons.
