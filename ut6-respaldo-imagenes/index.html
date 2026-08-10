@@ -1,0 +1,1379 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut5-utilidades-software/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 6. Respaldo y creación de imágenes - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#respaldo-y-creacion-de-imagenes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 6. Respaldo y creación de imágenes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut0-sistemas-numeracion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 0. Sistemas de numeración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-esquema-funcional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Esquema funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-elementos-internos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut3-montaje-diagnostico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut4-sistemas-entornos-empresariales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 4. Sistemas en entornos empresariales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut5-utilidades-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 5. Utilidades software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 6. Respaldo y creación de imágenes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 6. Respaldo y creación de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-copias-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Copias de seguridad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Copias de seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tipos-de-copia-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Tipos de copia de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-la-estrategia-3-2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 La estrategia 3-2-1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-planificacion-y-automatizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Planificación y automatización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-soportes-de-almacenamiento-para-copias-e-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Soportes de almacenamiento para copias e imágenes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacion-estandar-frente-a-imagen-preinstalada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instalación estándar frente a imagen preinstalada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-particionado-de-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Particionado de discos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-secuencias-de-arranque-de-un-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Secuencias de arranque de un equipo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Secuencias de arranque de un equipo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-configuracion-de-la-secuencia-de-arranque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Configuración de la secuencia de arranque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-medios-de-arranque-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Medios de arranque habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-creacion-de-imagenes-de-disco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Creación de imágenes de disco
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Creación de imágenes de disco">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-herramientas-habituales-de-creacion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Herramientas habituales de creación de imágenes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-imagen-completa-frente-a-clonacion-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Imagen completa frente a clonación directa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-consideraciones-al-crear-una-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Consideraciones al crear una imagen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-restauracion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Restauración de imágenes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Restauración de imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-restauracion-desde-distintas-ubicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Restauración desde distintas ubicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-comprobacion-tras-la-restauracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Comprobación tras la restauración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponderacion-de-esta-unidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación de esta unidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-6-sesiones-12-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (6 sesiones / 12 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-copias-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Copias de seguridad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Copias de seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tipos-de-copia-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Tipos de copia de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-la-estrategia-3-2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 La estrategia 3-2-1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-planificacion-y-automatizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Planificación y automatización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-soportes-de-almacenamiento-para-copias-e-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Soportes de almacenamiento para copias e imágenes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instalacion-estandar-frente-a-imagen-preinstalada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instalación estándar frente a imagen preinstalada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-particionado-de-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Particionado de discos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-secuencias-de-arranque-de-un-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Secuencias de arranque de un equipo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Secuencias de arranque de un equipo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-configuracion-de-la-secuencia-de-arranque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Configuración de la secuencia de arranque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-medios-de-arranque-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Medios de arranque habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-creacion-de-imagenes-de-disco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Creación de imágenes de disco
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Creación de imágenes de disco">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-herramientas-habituales-de-creacion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Herramientas habituales de creación de imágenes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-imagen-completa-frente-a-clonacion-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Imagen completa frente a clonación directa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-consideraciones-al-crear-una-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Consideraciones al crear una imagen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-restauracion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Restauración de imágenes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Restauración de imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-restauracion-desde-distintas-ubicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Restauración desde distintas ubicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-comprobacion-tras-la-restauracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Comprobación tras la restauración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>0371. Fonaments de Maquinari / Fundamentos de Hardware</strong></p>
+<h1 id="respaldo-y-creacion-de-imagenes">Respaldo y creación de imágenes</h1>
+<h2 id="programacion-de-aula">Programación de Aula</h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje</h3>
+<p>Esta unidad trabaja el <strong>Resultado de Aprendizaje 3 (RA3)</strong> del módulo, según el <strong>Real Decreto 1629/2009</strong> (Anexo I, módulo <em>Fundamentos de Hardware</em>):</p>
+<ol>
+<li><strong>RA3.</strong> Ejecuta procedimientos para recuperar el software base de un equipo, analizándolos y utilizando imágenes almacenadas en memoria auxiliar.</li>
+</ol>
+<p>Los criterios de evaluación literales de este RA3 son:</p>
+<p>a) Se han identificado los soportes de memoria auxiliar adecuados para el almacenaje y restauración de imágenes de software.</p>
+<p>b) Se ha reconocido la diferencia entre una instalación estándar y una preinstalación o imagen de software.</p>
+<p>c) Se han identificado y probado las distintas secuencias de arranque configurables en un equipo.</p>
+<p>d) Se han utilizado herramientas para el particionado de discos.</p>
+<p>e) Se han empleado distintas utilidades y soportes para realizar imágenes.</p>
+<p>f) Se han restaurado imágenes desde distintas ubicaciones.</p>
+<div class="admonition info">
+<p class="admonition-title">Nota</p>
+<p>En la numeración de tu programación (DECRET 114/2025), estos criterios corresponden previsiblemente a CE29-CE34 (continuando la numeración correlativa tras los de RA1 y RA2). Verifica la correspondencia exacta con tu programación.</p>
+</div>
+<h3 id="ponderacion-de-esta-unidad">Ponderación de esta unidad</h3>
+<p>Según el cuadro de ponderaciones de la programación del módulo, <strong>UT6 (Respaldo y creación de imágenes)</strong> aporta un <strong>20%</strong> de la nota final del módulo, correspondiente al 100% del RA3.</p>
+<h3 id="planificacion-temporal-6-sesiones-12-horas">Planificación Temporal (6 sesiones / 12 horas)</h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Copias de seguridad: conceptos, tipos y estrategia 3-2-1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Soportes de almacenamiento para copias e imágenes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Instalación estándar frente a imagen preinstalada. Particionado de discos</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Secuencias y medios de arranque de un equipo</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Creación de imágenes de disco con herramientas específicas</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Restauración de imágenes desde distintas ubicaciones. Práctica y repaso</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-copias-de-seguridad">1. Copias de seguridad</h2>
+<p>Una <strong>copia de seguridad</strong> (o <em>backup</em>) es una copia de la información de un sistema, guardada en un soporte independiente, que permite recuperar los datos en caso de pérdida (por avería, borrado accidental, ciberataque...).</p>
+<h3 id="11-tipos-de-copia-de-seguridad">1.1 Tipos de copia de seguridad</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué copia</th>
+<th>Ventaja</th>
+<th>Inconveniente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completa</td>
+<td>Todos los datos seleccionados, cada vez</td>
+<td>Restauración simple y rápida (un solo archivo de copia)</td>
+<td>Ocupa mucho espacio y tarda más en realizarse</td>
+</tr>
+<tr>
+<td>Incremental</td>
+<td>Solo lo que ha cambiado desde la <strong>última copia</strong> (de cualquier tipo)</td>
+<td>Muy rápida y ocupa poco espacio</td>
+<td>Para restaurar, hace falta la última completa + todas las incrementales posteriores, en orden</td>
+</tr>
+<tr>
+<td>Diferencial</td>
+<td>Solo lo que ha cambiado desde la <strong>última copia completa</strong></td>
+<td>Restauración más simple que la incremental (solo hace falta la completa + la última diferencial)</td>
+<td>Ocupa más espacio que la incremental, ya que va creciendo hasta la siguiente completa</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo práctico</p>
+<p>Si el lunes se hace una copia completa, y de martes a viernes se hacen copias <strong>incrementales</strong>, para restaurar el viernes hace falta: la copia del lunes + las de martes, miércoles, jueves y viernes, en ese orden. Si en cambio fueran copias <strong>diferenciales</strong>, solo haría falta: la copia del lunes + la del viernes (que ya incluye todos los cambios acumulados desde el lunes).</p>
+</div>
+<h3 id="12-la-estrategia-3-2-1">1.2 La estrategia 3-2-1</h3>
+<p>Una recomendación clásica y muy extendida en la gestión de copias de seguridad es la <strong>regla 3-2-1</strong>:</p>
+<ul>
+<li><strong>3</strong> copias de la información (el original + 2 copias de seguridad).</li>
+<li><strong>2</strong> soportes de almacenamiento distintos (por ejemplo, un disco externo y una nube).</li>
+<li><strong>1</strong> copia fuera de las instalaciones (<em>offsite</em>), para sobrevivir a un desastre físico (incendio, robo, inundación) que afecte al lugar original.</li>
+</ul>
+<h3 id="13-planificacion-y-automatizacion">1.3 Planificación y automatización</h3>
+<p>Las copias de seguridad casi nunca se hacen manualmente cada vez: se <strong>programan</strong> para ejecutarse automáticamente (por ejemplo, cada noche), utilizando el programador de tareas del sistema operativo o un software específico de backup, que además suele permitir definir cuánto tiempo se conservan las copias antiguas (política de retención) antes de eliminarlas y liberar espacio.</p>
+<h2 id="2-soportes-de-almacenamiento-para-copias-e-imagenes">2. Soportes de almacenamiento para copias e imágenes</h2>
+<p><img src="/assets/img/cinta-backup.jpg" alt="Unidad de cinta magnética LTO para copias de seguridad" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Las cintas magnéticas LTO siguen siendo muy utilizadas en entornos empresariales para copias de seguridad a largo plazo.</em></p>
+
+<p>No todos los soportes de memoria auxiliar son igual de adecuados para guardar copias de seguridad o imágenes de sistema. Cada uno tiene sus ventajas e inconvenientes:</p>
+<table>
+<thead>
+<tr>
+<th>Soporte</th>
+<th>Ventajas</th>
+<th>Inconvenientes</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disco duro externo / SSD externo</td>
+<td>Rápido, fácil de usar, reutilizable</td>
+<td>Puede fallar mecánicamente (HDD), riesgo si está siempre conectado</td>
+<td>Copias personales o de pequeñas empresas</td>
+</tr>
+<tr>
+<td>NAS</td>
+<td>Accesible desde toda la red, puede tener su propio RAID</td>
+<td>Requiere red y mantenimiento</td>
+<td>Copias centralizadas de varios equipos</td>
+</tr>
+<tr>
+<td>Cinta magnética (LTO)</td>
+<td>Muy económica por GB almacenado, gran durabilidad si se conserva bien, fácil de transportar fuera de las instalaciones</td>
+<td>Acceso secuencial (lento para restaurar un archivo suelto), requiere unidad lectora específica</td>
+<td>Copias empresariales de gran volumen y archivo a largo plazo</td>
+</tr>
+<tr>
+<td>Almacenamiento en la nube</td>
+<td>Automáticamente fuera de las instalaciones (offsite), accesible desde cualquier lugar</td>
+<td>Depende de la conexión a internet, coste recurrente</td>
+<td>Copia adicional de la regla 3-2-1, recuperación ante desastres</td>
+</tr>
+<tr>
+<td>DVD/Blu-ray</td>
+<td>Muy económico, resistente a campos magnéticos</td>
+<td>Capacidad limitada, lento, cada vez más en desuso</td>
+<td>Archivo puntual de poca información</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Recuerda</p>
+<p>Aunque hoy es menos habitual que hace años, la cinta magnética <strong>sigue viva</strong> en el mundo empresarial precisamente por su bajísimo coste por GB y su gran fiabilidad a largo plazo cuando se almacena correctamente, lo que la hace ideal para el archivo histórico de grandes volúmenes de datos que rara vez se necesitan recuperar con urgencia.</p>
+</div>
+<h2 id="3-instalacion-estandar-frente-a-imagen-preinstalada">3. Instalación estándar frente a imagen preinstalada</h2>
+<p>Es importante distinguir dos formas muy distintas de dejar un sistema operativo funcionando en un equipo:</p>
+<ul>
+<li><strong>Instalación estándar</strong>: se ejecuta el proceso de instalación completo del sistema operativo desde cero (o desde un archivo de respuestas, como vimos en la UT5), configurando cada equipo de forma individual.</li>
+<li><strong>Preinstalación o imagen de software</strong>: se copia, tal cual, una <strong>imagen exacta</strong> de un disco ya preparado (con el sistema operativo, controladores y programas ya instalados y configurados) a otro equipo. El proceso es mucho más rápido que una instalación completa, ya que no hay que repetir todos los pasos de configuración en cada máquina.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Cuándo usar cada una</p>
+<p>Una instalación estándar tiene sentido para un único equipo con una configuración muy particular. Una imagen preinstalada es la opción lógica cuando hay que dejar <strong>muchos equipos idénticos</strong> listos para usar (por ejemplo, todos los ordenadores de un aula o de un departamento), como ya se planteó al hablar de despliegue masivo en la UT5.</p>
+</div>
+<h2 id="4-particionado-de-discos">4. Particionado de discos</h2>
+<p>Como ya se vio en la UT5, un disco puede dividirse en varias <strong>particiones</strong> independientes. En el contexto de las imágenes y copias de seguridad, el particionado es especialmente relevante porque:</p>
+<ul>
+<li>Permite crear una <strong>imagen de una única partición</strong> (por ejemplo, solo la del sistema operativo) sin necesidad de copiar todo el disco.</li>
+<li>Facilita mantener <strong>separados el sistema operativo y los datos del usuario</strong> en particiones distintas, de forma que se pueda restaurar (o incluso reinstalar) el sistema operativo sin afectar a los datos personales guardados en la otra partición.</li>
+<li>Existen herramientas específicas de particionado (tanto integradas en el propio sistema operativo como independientes, como GParted) que permiten crear, redimensionar, mover o eliminar particiones, incluso en muchos casos sin perder los datos que ya contienen.</li>
+</ul>
+<h2 id="5-secuencias-de-arranque-de-un-equipo">5. Secuencias de arranque de un equipo</h2>
+<p>Para poder crear o restaurar una imagen, normalmente hace falta arrancar el equipo desde un medio distinto al disco duro habitual (ya que, mientras el sistema operativo está en marcha, algunos de sus propios archivos están "en uso" y no se pueden copiar de forma fiable).</p>
+<h3 id="51-configuracion-de-la-secuencia-de-arranque">5.1 Configuración de la secuencia de arranque</h3>
+<p>En la BIOS/UEFI se puede configurar el <strong>orden de arranque</strong> (<em>boot order</em>): la lista de dispositivos en los que el equipo buscará, por orden, un sistema desde el que iniciar. Es habitual tener que modificar temporalmente este orden (o usar un menú de arranque rápido, accesible con una tecla concreta al encender el equipo) para arrancar desde un USB o DVD en lugar de hacerlo desde el disco duro interno.</p>
+<h3 id="52-medios-de-arranque-habituales">5.2 Medios de arranque habituales</h3>
+<table>
+<thead>
+<tr>
+<th>Medio de arranque</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB de arranque (live USB)</td>
+<td>Contiene una herramienta de creación/restauración de imágenes, o un sistema operativo completo para tareas de mantenimiento, sin necesidad de instalarlo</td>
+</tr>
+<tr>
+<td>DVD de arranque</td>
+<td>Similar al USB, en soporte óptico; cada vez menos habitual</td>
+</tr>
+<tr>
+<td>Arranque por red (PXE)</td>
+<td>El equipo descarga el sistema de arranque desde un servidor de la red, sin necesidad de ningún soporte físico; muy usado en despliegues masivos</td>
+</tr>
+<tr>
+<td>Partición de recuperación</td>
+<td>Una partición oculta en el propio disco del equipo, con herramientas básicas de reparación, sin necesidad de ningún soporte externo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-creacion-de-imagenes-de-disco">6. Creación de imágenes de disco</h2>
+<p><img src="/assets/img/clonacion-disco.jpg" alt="Proceso de clonación de un disco duro" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Clonar un disco copia su contenido bit a bit en otro soporte o en un archivo de imagen.</em></p>
+
+<p>Una <strong>imagen de disco</strong> es una copia exacta, bit a bit, del contenido de un disco o de una partición, guardada normalmente como uno o varios archivos.</p>
+<h3 id="61-herramientas-habituales-de-creacion-de-imagenes">6.1 Herramientas habituales de creación de imágenes</h3>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Tipo</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clonezilla</td>
+<td>Software libre</td>
+<td>Arranca desde USB/DVD, muy usada para clonar e implantar imágenes en despliegues masivos</td>
+</tr>
+<tr>
+<td>Acronis True Image</td>
+<td>Comercial</td>
+<td>Interfaz gráfica sencilla, orientada tanto a copias de seguridad como a clonación de discos</td>
+</tr>
+<tr>
+<td>dd (Linux)</td>
+<td>Comando integrado</td>
+<td>Copia bit a bit a bajo nivel, muy flexible pero sin protección ante errores del usuario</td>
+</tr>
+<tr>
+<td>Herramientas integradas del sistema operativo</td>
+<td>Incluidas en el propio SO</td>
+<td>Suelen permitir crear una imagen del disco del sistema de forma sencilla, aunque con menos opciones avanzadas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-imagen-completa-frente-a-clonacion-directa">6.2 Imagen completa frente a clonación directa</h3>
+<ul>
+<li><strong>Crear una imagen</strong>: el contenido del disco de origen se guarda como uno o varios <strong>archivos</strong> en otro soporte (disco externo, NAS...), que después se pueden restaurar cuando haga falta, en el mismo equipo o en otro.</li>
+<li><strong>Clonar directamente</strong>: el contenido de un disco se copia <strong>directamente</strong> a otro disco físico, sin pasar por un archivo intermedio; el disco de destino queda funcionando como una copia exacta del de origen, lista para usarse inmediatamente.</li>
+</ul>
+<h3 id="63-consideraciones-al-crear-una-imagen">6.3 Consideraciones al crear una imagen</h3>
+<ul>
+<li>El disco o partición de destino debe tener <strong>capacidad suficiente</strong> para almacenar la imagen (aunque muchas herramientas comprimen el contenido, reduciendo el tamaño final).</li>
+<li>Es recomendable <strong>verificar la integridad</strong> de la imagen tras crearla (muchas herramientas incluyen una opción de verificación), para asegurarse de que se podrá restaurar correctamente cuando se necesite.</li>
+<li>Si el disco de origen tiene errores (sectores dañados), algunas herramientas permiten continuar el proceso omitiendo esas zonas y avisando de qué se ha perdido, en lugar de detener todo el proceso.</li>
+</ul>
+<h2 id="7-restauracion-de-imagenes">7. Restauración de imágenes</h2>
+<p>La restauración es el proceso inverso: volcar el contenido de una imagen guardada de vuelta a un disco, dejándolo en el mismo estado que tenía en el momento de crear la imagen.</p>
+<h3 id="71-restauracion-desde-distintas-ubicaciones">7.1 Restauración desde distintas ubicaciones</h3>
+<p>Una imagen puede restaurarse desde diferentes orígenes, según dónde se haya guardado:</p>
+<ul>
+<li><strong>Desde un soporte local</strong> (disco externo, USB) conectado directamente al equipo.</li>
+<li><strong>Desde la red</strong> (un recurso compartido, un NAS, un servidor de imágenes), especialmente útil en despliegues masivos donde muchos equipos restauran la misma imagen simultáneamente por red (por ejemplo, mediante PXE + Clonezilla server edition).</li>
+<li><strong>Desde la nube</strong>, descargando la imagen desde un servicio de almacenamiento remoto antes de aplicarla, o en algunos casos restaurando directamente desde ahí.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Atención</p>
+<p>Antes de restaurar una imagen sobre un disco, hay que asegurarse de que el disco de destino <strong>no contiene datos que se quieran conservar</strong>, ya que la restauración sobrescribe completamente su contenido anterior.</p>
+</div>
+<h3 id="72-comprobacion-tras-la-restauracion">7.2 Comprobación tras la restauración</h3>
+<p>Después de restaurar una imagen, conviene verificar que el equipo arranca correctamente y que el software y los datos esperados están presentes, antes de dar por completado el proceso y, en su caso, retirar el medio de recuperación utilizado.</p>
+<h2 id="ejercicios-practicos">Ejercicios prácticos</h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica la diferencia entre una copia de seguridad completa, una incremental y una diferencial. Si se hace una copia completa el lunes y copias diferenciales el resto de la semana, ¿qué archivos se necesitan para restaurar el estado del jueves?</p>
+<p><strong>Ejercicio 2</strong>. Explica con tus propias palabras en qué consiste la estrategia 3-2-1 de copias de seguridad, y pon un ejemplo concreto de cómo la aplicarías en un aula de informática.</p>
+<p><strong>Ejercicio 3</strong>. Compara un disco duro externo, una cinta LTO y el almacenamiento en la nube como soportes para copias de seguridad, indicando una ventaja y un inconveniente de cada uno.</p>
+<p><strong>Ejercicio 4</strong>. Explica la diferencia entre una instalación estándar de un sistema operativo y restaurar una imagen preinstalada. ¿En qué situación elegirías cada una?</p>
+<p><strong>Ejercicio 5</strong>. ¿Por qué normalmente no se puede crear una imagen fiable del disco mientras el sistema operativo que contiene está en pleno funcionamiento? ¿Qué solución se suele usar?</p>
+<p><strong>Ejercicio 6</strong>. Describe tres medios distintos desde los que se puede arrancar un equipo para crear o restaurar una imagen, y en qué situación usarías cada uno.</p>
+<p><strong>Ejercicio 7</strong>. Explica la diferencia entre crear una imagen de un disco y clonar directamente un disco sobre otro. ¿Cuál elegirías si quieres sustituir un disco duro viejo por un SSD nuevo, manteniendo todo el contenido?</p>
+<p><strong>Ejercicio 8</strong>. ¿Qué comprobaciones harías antes de restaurar una imagen sobre un disco, y por qué son importantes?</p>
+<p><strong>Ejercicio 9 (práctica en el aula)</strong>. Utilizando Clonezilla (o la herramienta que use tu centro), crea una imagen de una partición o disco de prueba, guárdala en un soporte externo, y después restáurala en otro equipo o partición distinta. Documenta cada paso seguido y cualquier incidencia encontrada.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
