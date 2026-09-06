@@ -1,3 +1,10 @@
-.md-typeset p {
+.md-typeset p,
+.md-typeset li {
   text-align: justify;
+}
+
+.md-sidebar--secondary,
+.md-nav--secondary,
+[data-md-component="toc"] {
+  display: none !important;
 }
