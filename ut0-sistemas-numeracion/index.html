@@ -12,7 +12,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../ut1-introduccion-microinformatica/">
+        <link rel="next" href="../tema1_introduccion_arquitectura_computadores/">
       
       
         
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ut1-introduccion-microinformatica/" class="md-nav__link">
+      <a href="../tema1_introduccion_arquitectura_computadores/" class="md-nav__link">
         
   
   
@@ -1333,13 +1333,13 @@
 <p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
 
 <p>Material elaborado para el módulo <strong>0371. Fonaments de Maquinari / Fundamentos de Hardware</strong></p>
-<h1 id="sistemas-de-numeracion-y-representacion-de-la-informacion">Sistemas de numeración y representación de la información</h1>
-<h2 id="programacion-de-aula">Programación de Aula</h2>
+<h1 id="sistemas-de-numeracion-y-representacion-de-la-informacion">Sistemas de numeración y representación de la información<a class="headerlink" href="#sistemas-de-numeracion-y-representacion-de-la-informacion" title="Permanent link">&para;</a></h1>
+<h2 id="programacion-de-aula">Programación de Aula<a class="headerlink" href="#programacion-de-aula" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Nota</p>
 <p>Esta es una unidad de <strong>nivelación/repaso</strong>, previa al Tema 1, que no corresponde a un RA específico del Real Decreto de título. Se recomienda impartirla al inicio del curso como base matemática necesaria para comprender la representación binaria de la información (RA1) y sirve de apoyo transversal a todo el módulo.</p>
 </div>
-<h3 id="planificacion-temporal-5-sesiones-10-horas">Planificación Temporal (5 sesiones / 10 horas)</h3>
+<h3 id="planificacion-temporal-5-sesiones-10-horas">Planificación Temporal (5 sesiones / 10 horas)<a class="headerlink" href="#planificacion-temporal-5-sesiones-10-horas" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1370,7 +1370,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="1-sistemas-de-numeracion-el-concepto-de-base">1. Sistemas de numeración: el concepto de base</h2>
+<h2 id="1-sistemas-de-numeracion-el-concepto-de-base">1. Sistemas de numeración: el concepto de base<a class="headerlink" href="#1-sistemas-de-numeracion-el-concepto-de-base" title="Permanent link">&para;</a></h2>
 <p>Un <strong>sistema de numeración</strong> es un conjunto de símbolos y reglas que permiten representar cantidades. La característica que define un sistema de numeración es su <strong>base</strong>: el número de símbolos distintos que utiliza.</p>
 <p>El sistema que usamos habitualmente es el <strong>decimal (base 10)</strong>, con diez símbolos (0-9). Cada posición dentro de un número representa una potencia de la base, que aumenta de derecha a izquierda:</p>
 <p>$$
@@ -1408,18 +1408,18 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<h2 id="2-el-sistema-binario">2. El sistema binario</h2>
+<h2 id="2-el-sistema-binario">2. El sistema binario<a class="headerlink" href="#2-el-sistema-binario" title="Permanent link">&para;</a></h2>
 <p>Cada dígito binario se llama <strong>bit</strong> (<em>binary digit</em>), y solo puede valer 0 o 1. En un número binario, cada posición representa una potencia de 2:</p>
 <p>$$
 1011_2 = 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = 8 + 0 + 2 + 1 = 11_{10}
 $$</p>
-<h3 id="21-conversion-de-binario-a-decimal">2.1 Conversión de binario a decimal</h3>
+<h3 id="21-conversion-de-binario-a-decimal">2.1 Conversión de binario a decimal<a class="headerlink" href="#21-conversion-de-binario-a-decimal" title="Permanent link">&para;</a></h3>
 <p>Se suma el valor de la potencia de 2 correspondiente a cada posición donde haya un 1:</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>$$110101_2 = 1{\cdot}2^5 + 1{\cdot}2^4 + 0{\cdot}2^3 + 1{\cdot}2^2 + 0{\cdot}2^1 + 1{\cdot}2^0 = 32+16+0+4+0+1 = 53_{10}$$</p>
 </div>
-<h3 id="22-conversion-de-decimal-a-binario">2.2 Conversión de decimal a binario</h3>
+<h3 id="22-conversion-de-decimal-a-binario">2.2 Conversión de decimal a binario<a class="headerlink" href="#22-conversion-de-decimal-a-binario" title="Permanent link">&para;</a></h3>
 <p>El método más habitual es el de las <strong>divisiones sucesivas entre 2</strong>: se divide el número entre 2 repetidamente, anotando el resto (0 o 1) de cada división, hasta llegar a un cociente 0. El número binario resultante se lee de abajo hacia arriba (del último resto al primero).</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: convertir 53 a binario</p>
@@ -1466,27 +1466,27 @@ $$</p>
 </table>
 <p>Leyendo los restos de abajo hacia arriba: <strong>53₁₀ = 110101₂</strong></p>
 </div>
-<h2 id="3-el-sistema-octal">3. El sistema octal</h2>
+<h2 id="3-el-sistema-octal">3. El sistema octal<a class="headerlink" href="#3-el-sistema-octal" title="Permanent link">&para;</a></h2>
 <p>El sistema octal (base 8) sigue el mismo principio que el binario y el decimal, pero con potencias de 8.</p>
-<h3 id="31-de-octal-a-decimal">3.1 De octal a decimal</h3>
+<h3 id="31-de-octal-a-decimal">3.1 De octal a decimal<a class="headerlink" href="#31-de-octal-a-decimal" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>$$247_8 = 2{\cdot}8^2 + 4{\cdot}8^1 + 7{\cdot}8^0 = 128 + 32 + 7 = 167_{10}$$</p>
 </div>
-<h3 id="32-de-decimal-a-octal">3.2 De decimal a octal</h3>
+<h3 id="32-de-decimal-a-octal">3.2 De decimal a octal<a class="headerlink" href="#32-de-decimal-a-octal" title="Permanent link">&para;</a></h3>
 <p>Igual que con el binario, pero dividiendo sucesivamente entre 8 en lugar de entre 2.</p>
-<h2 id="4-el-sistema-hexadecimal">4. El sistema hexadecimal</h2>
+<h2 id="4-el-sistema-hexadecimal">4. El sistema hexadecimal<a class="headerlink" href="#4-el-sistema-hexadecimal" title="Permanent link">&para;</a></h2>
 <p>El sistema hexadecimal (base 16) es el más utilizado en informática para representar valores binarios de forma compacta (direcciones de memoria, colores en diseño web, códigos de error...).</p>
-<h3 id="41-de-hexadecimal-a-decimal">4.1 De hexadecimal a decimal</h3>
+<h3 id="41-de-hexadecimal-a-decimal">4.1 De hexadecimal a decimal<a class="headerlink" href="#41-de-hexadecimal-a-decimal" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>$$2F_{16} = 2{\cdot}16^1 + F{\cdot}16^0 = 2{\cdot}16 + 15{\cdot}1 = 32+15 = 47_{10}$$</p>
 </div>
-<h3 id="42-de-decimal-a-hexadecimal">4.2 De decimal a hexadecimal</h3>
+<h3 id="42-de-decimal-a-hexadecimal">4.2 De decimal a hexadecimal<a class="headerlink" href="#42-de-decimal-a-hexadecimal" title="Permanent link">&para;</a></h3>
 <p>Igual que en los casos anteriores, dividiendo sucesivamente entre 16. Cuando el resto de una división sea mayor que 9, se sustituye por su letra equivalente (10=A, 11=B... 15=F).</p>
-<h2 id="5-conversiones-directas-entre-binario-octal-y-hexadecimal">5. Conversiones directas entre binario, octal y hexadecimal</h2>
+<h2 id="5-conversiones-directas-entre-binario-octal-y-hexadecimal">5. Conversiones directas entre binario, octal y hexadecimal<a class="headerlink" href="#5-conversiones-directas-entre-binario-octal-y-hexadecimal" title="Permanent link">&para;</a></h2>
 <p>Convertir entre binario y octal, o entre binario y hexadecimal, <strong>no requiere pasar por el decimal</strong>, ya que tanto el 8 como el 16 son potencias exactas de 2 (8=2³, 16=2⁴). Esto permite hacer la conversión agrupando bits directamente.</p>
-<h3 id="51-de-binario-a-octal">5.1 De binario a octal</h3>
+<h3 id="51-de-binario-a-octal">5.1 De binario a octal<a class="headerlink" href="#51-de-binario-a-octal" title="Permanent link">&para;</a></h3>
 <p>Se agrupan los bits del número binario <strong>de 3 en 3</strong>, empezando por la derecha (rellenando con ceros a la izquierda si hace falta), y se convierte cada grupo a su dígito octal equivalente.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: convertir 110101₂ a octal</p>
@@ -1495,7 +1495,7 @@ $$</p>
 - <code>101</code> = 5</p>
 <p><strong>110101₂ = 65₈</strong></p>
 </div>
-<h3 id="52-de-binario-a-hexadecimal">5.2 De binario a hexadecimal</h3>
+<h3 id="52-de-binario-a-hexadecimal">5.2 De binario a hexadecimal<a class="headerlink" href="#52-de-binario-a-hexadecimal" title="Permanent link">&para;</a></h3>
 <p>Se agrupan los bits <strong>de 4 en 4</strong>, empezando por la derecha, y se convierte cada grupo a su dígito hexadecimal equivalente.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: convertir 11010101₂ a hexadecimal</p>
@@ -1504,7 +1504,7 @@ $$</p>
 - <code>0101</code> = 5</p>
 <p><strong>11010101₂ = D5₁₆</strong></p>
 </div>
-<h3 id="53-tabla-de-referencia-rapida">5.3 Tabla de referencia rápida</h3>
+<h3 id="53-tabla-de-referencia-rapida">5.3 Tabla de referencia rápida<a class="headerlink" href="#53-tabla-de-referencia-rapida" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1617,8 +1617,8 @@ $$</p>
 <p class="admonition-title">Recuerda</p>
 <p>Es muy habitual identificar la base de un número mediante un subíndice (1010₂) o un prefijo (0x2F para hexadecimal, 0b1010 para binario en programación), ya que un mismo número de dígitos como "10" significa algo completamente distinto según la base en la que se interprete.</p>
 </div>
-<h2 id="6-aritmetica-binaria">6. Aritmética binaria</h2>
-<h3 id="61-suma-binaria">6.1 Suma binaria</h3>
+<h2 id="6-aritmetica-binaria">6. Aritmética binaria<a class="headerlink" href="#6-aritmetica-binaria" title="Permanent link">&para;</a></h2>
+<h3 id="61-suma-binaria">6.1 Suma binaria<a class="headerlink" href="#61-suma-binaria" title="Permanent link">&para;</a></h3>
 <p>La suma en binario sigue las mismas reglas que en decimal, pero con solo dos símbolos. Las combinaciones posibles son:</p>
 <table>
 <thead>
@@ -1660,13 +1660,13 @@ $$</p>
 ```
 Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂ ✓</p>
 </div>
-<h3 id="62-resta-binaria">6.2 Resta binaria</h3>
+<h3 id="62-resta-binaria">6.2 Resta binaria<a class="headerlink" href="#62-resta-binaria" title="Permanent link">&para;</a></h3>
 <p>Sigue una lógica similar, tomando "prestado" de la posición siguiente cuando haga falta restar 1 a 0 (igual que en decimal, cuando restamos y el minuendo es menor que el sustraendo).</p>
 <div class="admonition note">
 <p class="admonition-title">En la práctica</p>
 <p>Los ordenadores, internamente, no restan de esta forma: usan una técnica llamada <strong>complemento a 2</strong> (que veremos en la sección 7), que permite convertir cualquier resta en una suma.</p>
 </div>
-<h2 id="7-representacion-de-numeros-negativos">7. Representación de números negativos</h2>
+<h2 id="7-representacion-de-numeros-negativos">7. Representación de números negativos<a class="headerlink" href="#7-representacion-de-numeros-negativos" title="Permanent link">&para;</a></h2>
 <p>Hasta ahora hemos trabajado con números binarios sin signo, donde cada bit representa únicamente una potencia de 2 en positivo. Para poder representar también números <strong>negativos</strong>, hay que reservar de alguna forma información sobre el signo, y existen varias técnicas para hacerlo, cada una con sus ventajas e inconvenientes.</p>
 <div class="admonition example">
 <p class="admonition-title">Comparativa (usando 8 bits)</p>
@@ -1707,20 +1707,20 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 </tbody>
 </table>
 </div>
-<h3 id="71-signo-y-magnitud">7.1 Signo y magnitud</h3>
+<h3 id="71-signo-y-magnitud">7.1 Signo y magnitud<a class="headerlink" href="#71-signo-y-magnitud" title="Permanent link">&para;</a></h3>
 <p>El bit más a la izquierda (el más significativo) se reserva para indicar el signo (0 = positivo, 1 = negativo), y el resto de bits representan el valor absoluto del número, exactamente igual que en binario sin signo.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo (8 bits)</p>
 <p>+5 = <code>00000101</code> — −5 = <code>10000101</code> (el primer bit cambia de 0 a 1, el resto queda igual)</p>
 </div>
 <p>Como se ve en la tabla comparativa, el principal inconveniente de este método es que existen <strong>dos representaciones distintas para el cero</strong> (<code>00000000</code> y <code>10000000</code>), lo que complica el diseño de los circuitos aritméticos y "desperdicia" una combinación de bits.</p>
-<h3 id="72-complemento-a-1">7.2 Complemento a 1</h3>
+<h3 id="72-complemento-a-1">7.2 Complemento a 1<a class="headerlink" href="#72-complemento-a-1" title="Permanent link">&para;</a></h3>
 <p>Para obtener el complemento a 1 de un número, simplemente se invierten todos sus bits (los 0 pasan a 1 y viceversa). Es una operación muy rápida de implementar en un circuito electrónico, pero <strong>sigue teniendo el mismo problema del doble cero</strong> que el signo y magnitud (<code>00000000</code> y <code>11111111</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo (8 bits)</p>
 <p>+5 = <code>00000101</code> → se invierten todos los bits → Complemento a 1 de 5 (es decir, −5) = <code>11111010</code></p>
 </div>
-<h3 id="73-complemento-a-2">7.3 Complemento a 2</h3>
+<h3 id="73-complemento-a-2">7.3 Complemento a 2<a class="headerlink" href="#73-complemento-a-2" title="Permanent link">&para;</a></h3>
 <p>El <strong>complemento a 2</strong> es el método que utilizan realmente los ordenadores actuales para representar números negativos, ya que soluciona el problema del doble cero (solo existe una única representación del 0) y, además, permite que la <strong>resta se realice internamente como una suma</strong>, simplificando muchísimo el diseño del procesador. Se obtiene en dos pasos:</p>
 <ol>
 <li>Se calcula el complemento a 1 (se invierten todos los bits).</li>
@@ -1735,7 +1735,7 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 </ol>
 <p><strong>−5 en complemento a 2 (8 bits) = 11111011</strong></p>
 </div>
-<h3 id="74-restar-usando-el-complemento-a-2-sumando">7.4 Restar usando el complemento a 2 (sumando)</h3>
+<h3 id="74-restar-usando-el-complemento-a-2-sumando">7.4 Restar usando el complemento a 2 (sumando)<a class="headerlink" href="#74-restar-usando-el-complemento-a-2-sumando" title="Permanent link">&para;</a></h3>
 <p>La gran ventaja práctica del complemento a 2 es que una resta A − B se puede calcular como una suma A + (−B), donde −B se obtiene con el complemento a 2. Así, el procesador solo necesita un circuito sumador, no uno de suma y otro de resta por separado.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo: calcular 9 − 5 usando complemento a 2 (8 bits)</p>
@@ -1751,9 +1751,9 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 <p class="admonition-title">Recuerda</p>
 <p>En complemento a 2, el bit más significativo también indica el signo (0 = positivo, 1 = negativo), pero el resto de bits ya no representan directamente el valor absoluto como en signo y magnitud, sino que forman parte de una única representación coherente para todo el rango de números.</p>
 </div>
-<h2 id="8-representacion-de-texto">8. Representación de texto</h2>
+<h2 id="8-representacion-de-texto">8. Representación de texto<a class="headerlink" href="#8-representacion-de-texto" title="Permanent link">&para;</a></h2>
 <p>Cada carácter (letra, número, símbolo) debe codificarse como una secuencia de bits para poder almacenarse o transmitirse. La idea es sencilla: se elabora una tabla que asigna, de forma única, un número a cada carácter posible, y ese número se guarda en binario.</p>
-<h3 id="81-el-codigo-ascii">8.1 El código ASCII</h3>
+<h3 id="81-el-codigo-ascii">8.1 El código ASCII<a class="headerlink" href="#81-el-codigo-ascii" title="Permanent link">&para;</a></h3>
 <p>El <strong>código ASCII</strong> (<em>American Standard Code for Information Interchange</em>) asigna un número, entre 0 y 127, a cada carácter del alfabeto latino básico, los dígitos, los signos de puntuación y algunos caracteres de control (como el salto de línea o el tabulador).</p>
 <p><img src="../assets/img/tabla-ascii.svg" alt="Tabla del código ASCII" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Fragmento de la tabla ASCII: cada carácter tiene asignado un código numérico, que se almacena en binario.</em></p>
@@ -1763,15 +1763,15 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 <p>La letra mayúscula "A" tiene asignado el código ASCII <strong>65</strong>, que en binario (usando 8 bits) es <code>01000001</code>. La letra "B" es el 66 (<code>01000010</code>), y así sucesivamente.</p>
 </div>
 <p>Al usar solo 7 bits (128 combinaciones posibles), el ASCII original resultó insuficiente para representar alfabetos con caracteres especiales (como la ñ, las vocales acentuadas, u otros idiomas con alfabetos distintos al latino), lo que dio lugar primero a extensiones de 8 bits (como ISO-8859-1, con 256 combinaciones) y, finalmente, a estándares mucho más completos.</p>
-<h3 id="82-unicode">8.2 Unicode</h3>
+<h3 id="82-unicode">8.2 Unicode<a class="headerlink" href="#82-unicode" title="Permanent link">&para;</a></h3>
 <p><strong>Unicode</strong> es el estándar actual que resuelve definitivamente la limitación de ASCII, asignando un código único (llamado <em>code point</em>) a prácticamente cualquier carácter de cualquier sistema de escritura del mundo (alfabetos latino, cirílico, árabe, chino...), además de símbolos matemáticos, emojis, etc. Unicode ya contempla más de 140 000 caracteres distintos.</p>
 <p>Una de sus codificaciones más utilizadas en internet es <strong>UTF-8</strong>, que tiene una ventaja muy importante: es <strong>compatible con ASCII</strong>. Los primeros 128 caracteres se codifican en UTF-8 exactamente igual (con 1 solo byte) que en ASCII, y solo los caracteres menos comunes ocupan 2, 3 o hasta 4 bytes. Esto permite que un archivo de texto antiguo en ASCII se pueda interpretar sin problemas como UTF-8.</p>
-<h2 id="9-representacion-de-imagenes">9. Representación de imágenes</h2>
+<h2 id="9-representacion-de-imagenes">9. Representación de imágenes<a class="headerlink" href="#9-representacion-de-imagenes" title="Permanent link">&para;</a></h2>
 <p>Una imagen digital se descompone en una matriz de puntos llamados <strong>píxeles</strong> (del inglés <em>picture element</em>), cada uno de los cuales almacena la información de color de esa posición concreta de la imagen.</p>
 <p><img src="../assets/img/pixeles.png" alt="Matriz de píxeles de una imagen digital ampliada" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Al ampliar mucho una imagen digital, se distinguen los píxeles individuales que la componen.</em></p>
 
-<h3 id="91-profundidad-de-color">9.1 Profundidad de color</h3>
+<h3 id="91-profundidad-de-color">9.1 Profundidad de color<a class="headerlink" href="#91-profundidad-de-color" title="Permanent link">&para;</a></h3>
 <p>El número de bits dedicados a cada píxel (<strong>profundidad de color</strong>) determina cuántos colores distintos se pueden representar: con N bits por píxel, se pueden representar 2^N colores diferentes.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplos de profundidad de color</p>
@@ -1808,26 +1808,26 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 </table>
 </div>
 <p>En una imagen a color de 24 bits, se reservan típicamente <strong>8 bits para cada componente</strong> (rojo, verde y azul — el modelo RGB), lo que permite 256 niveles de intensidad para cada uno de esos tres colores, y su combinación produce el resto de colores visibles.</p>
-<h3 id="92-resolucion">9.2 Resolución</h3>
+<h3 id="92-resolucion">9.2 Resolución<a class="headerlink" href="#92-resolucion" title="Permanent link">&para;</a></h3>
 <p>La <strong>resolución</strong> de una imagen es el número total de píxeles que la componen (ancho × alto, por ejemplo 1920×1080). A mayor resolución y mayor profundidad de color, más nítida y realista será la imagen, pero también mayor será el tamaño del archivo que ocupe (sin tener en cuenta la compresión, que puede reducir mucho ese tamaño).</p>
-<h2 id="10-representacion-de-audio">10. Representación de audio</h2>
+<h2 id="10-representacion-de-audio">10. Representación de audio<a class="headerlink" href="#10-representacion-de-audio" title="Permanent link">&para;</a></h2>
 <p>El sonido es, en origen, una señal <strong>analógica</strong> (continua): una onda que varía de forma constante en el tiempo, como la vibración del aire que llega a nuestro oído. Para poder almacenarla en un ordenador, debe convertirse en una señal <strong>digital</strong>, mediante un proceso llamado <strong>digitalización</strong>.</p>
 <p><img src="../assets/img/onda-sonido.png" alt="Onda de sonido analógica y su muestreo digital" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>La señal analógica continua se convierte en una secuencia de muestras discretas para poder almacenarla digitalmente.</em></p>
 
-<h3 id="101-muestreo-y-frecuencia-de-muestreo">10.1 Muestreo y frecuencia de muestreo</h3>
+<h3 id="101-muestreo-y-frecuencia-de-muestreo">10.1 Muestreo y frecuencia de muestreo<a class="headerlink" href="#101-muestreo-y-frecuencia-de-muestreo" title="Permanent link">&para;</a></h3>
 <p>La digitalización consiste en tomar "fotografías" del valor de la onda a intervalos de tiempo regulares (<strong>muestras</strong>). El número de muestras que se toman por segundo se denomina <strong>frecuencia de muestreo</strong>, medida en hercios (Hz).</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>La calidad de un CD de audio usa una frecuencia de muestreo de <strong>44 100 Hz</strong> (44 100 muestras por segundo). Esto no es casual: el oído humano percibe sonidos hasta unos 20 000 Hz, y según el llamado <em>teorema de muestreo</em>, hace falta muestrear a más del doble de la frecuencia máxima que se quiere reproducir con fidelidad — de ahí el valor de 44 100 Hz.</p>
 </div>
-<h3 id="102-resolucion-de-bits">10.2 Resolución de bits</h3>
+<h3 id="102-resolucion-de-bits">10.2 Resolución de bits<a class="headerlink" href="#102-resolucion-de-bits" title="Permanent link">&para;</a></h3>
 <p>Además de cuántas muestras se toman por segundo, importa también con cuántos bits se codifica el valor de cada muestra (<strong>resolución o profundidad de bits</strong>): a más bits por muestra, mayor precisión y calidad de sonido (más "escalones" distintos de volumen se pueden distinguir), pero también mayor tamaño del archivo resultante.</p>
 <div class="admonition note">
 <p class="admonition-title">Ejemplo de cálculo</p>
 <p>Un CD de audio usa 44 100 muestras/segundo, con 16 bits por muestra, en estéreo (2 canales). Eso supone: 44 100 × 16 × 2 = 1 411 200 bits por segundo de audio sin comprimir (aproximadamente 1,41 Mbps), lo que explica por qué los archivos de audio sin comprimir (como el WAV) ocupan bastante espacio.</p>
 </div>
-<h2 id="11-representacion-de-numeros-reales-coma-flotante">11. Representación de números reales (coma flotante)</h2>
+<h2 id="11-representacion-de-numeros-reales-coma-flotante">11. Representación de números reales (coma flotante)<a class="headerlink" href="#11-representacion-de-numeros-reales-coma-flotante" title="Permanent link">&para;</a></h2>
 <p>Todo lo visto hasta ahora sirve para números enteros. Pero, ¿cómo se representa un número con decimales, como 6,5 o 0,1? Los ordenadores utilizan para ello la <strong>notación en coma flotante</strong>, inspirada en la notación científica que usamos en matemáticas (por ejemplo, 6,022 × 10²³).</p>
 <p>Un número en coma flotante se representa mediante tres partes:</p>
 <ul>
@@ -1835,7 +1835,7 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 <li><strong>Mantisa</strong> (o significando): los dígitos significativos del número.</li>
 <li><strong>Exponente</strong>: indica cuántas posiciones hay que desplazar la coma decimal, y en qué dirección.</li>
 </ul>
-<h3 id="111-el-estandar-ieee-754">11.1 El estándar IEEE 754</h3>
+<h3 id="111-el-estandar-ieee-754">11.1 El estándar IEEE 754<a class="headerlink" href="#111-el-estandar-ieee-754" title="Permanent link">&para;</a></h3>
 <p>El formato más extendido para representar números en coma flotante es el estándar <strong>IEEE 754</strong>, utilizado prácticamente por todos los procesadores y lenguajes de programación actuales. Define, entre otros, dos formatos:</p>
 <table>
 <thead>
@@ -1867,7 +1867,7 @@ Comprobación: 1011₂ = 11₁₀, 0110₂ = 6₁₀, 11+6 = 17₁₀ = 10001₂
 <p><img src="../assets/img/ieee754-formato.svg" alt="Formato de coma flotante de precisión simple IEEE 754" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Distribución de los 32 bits en el formato de precisión simple: 1 bit de signo, 8 bits de exponente y 23 bits de mantisa.</em></p>
 
-<h3 id="112-ejemplo-completo-representar-65-en-precision-simple-32-bits">11.2 Ejemplo completo: representar 6,5 en precisión simple (32 bits)</h3>
+<h3 id="112-ejemplo-completo-representar-65-en-precision-simple-32-bits">11.2 Ejemplo completo: representar 6,5 en precisión simple (32 bits)<a class="headerlink" href="#112-ejemplo-completo-representar-65-en-precision-simple-32-bits" title="Permanent link">&para;</a></h3>
 <div class="admonition example">
 <p class="admonition-title">Paso a paso</p>
 <p><strong>Paso 1 — Pasar a binario.</strong> 6,5 en binario es <code>110,1</code> (6 = <code>110</code>; 0,5 = <code>0,1</code> en binario, ya que 0,1₂ = 1×2⁻¹ = 0,5).</p>
@@ -1883,9 +1883,9 @@ signo  exponente        mantisa</code></p>
 <p class="admonition-title">Recuerda</p>
 <p>El primer "1" de la mantisa normalizada (el que está justo antes de la coma en <code>1,101</code>) <strong>no se almacena</strong>, porque siempre vale 1 en un número normalizado: se llama <em>bit implícito</em>, y es lo que permite ganar un bit extra de precisión "gratis".</p>
 </div>
-<h3 id="113-precision-y-limitaciones">11.3 Precisión y limitaciones</h3>
+<h3 id="113-precision-y-limitaciones">11.3 Precisión y limitaciones<a class="headerlink" href="#113-precision-y-limitaciones" title="Permanent link">&para;</a></h3>
 <p>Como la mantisa tiene un número limitado de bits, no todos los números reales se pueden representar de forma exacta (por ejemplo, 0,1 en binario es una fracción periódica infinita, igual que 1/3 lo es en decimal), lo que provoca los conocidos <strong>errores de redondeo</strong> en cálculos con decimales que a veces se observan en programación.</p>
-<h2 id="ejercicios-practicos">Ejercicios prácticos</h2>
+<h2 id="ejercicios-practicos">Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Permanent link">&para;</a></h2>
 <div class="admonition task">
 <p class="admonition-title">Tarea</p>
 <p><strong>Ejercicio 1</strong>. Convierte los siguientes números binarios a decimal: 1101₂, 100110₂, 11111₂.</p>
