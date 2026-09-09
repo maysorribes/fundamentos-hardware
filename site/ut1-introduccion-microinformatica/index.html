@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut0-sistemas-numeracion/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tema 1. Introducción a los sistemas microinformáticos - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-a-los-sistemas-microinformaticos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 1. Introducción a los sistemas microinformáticos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut0-sistemas-numeracion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 0. Sistemas de numeración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Introducción a los sistemas microinformáticos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Introducción a los sistemas microinformáticos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-11-sesiones-22-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (11 sesiones / 22 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-sistemas-microinformaticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sistemas microinformáticos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Sistemas microinformáticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-la-placa-base-como-soporte-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 La placa base como soporte del sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-del-impulso-electrico-a-la-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Del impulso eléctrico a la información
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-elementos-de-un-sistema-microinformatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Elementos de un sistema microinformático
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-ordenador-y-la-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El ordenador y la informática
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El ordenador y la informática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-que-es-un-ordenador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 ¿Qué es un ordenador?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-que-es-la-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 ¿Qué es la informática?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-software-hardware-y-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Software, hardware y firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-historia-de-la-informatica-i-de-los-origenes-mecanicos-a-la-era-del-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Historia de la informática (I): de los orígenes mecánicos a la era del transistor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-historia-de-la-informatica-ii-de-los-primeros-ordenadores-personales-a-la-actualidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Historia de la informática (II): de los primeros ordenadores personales a la actualidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-arquitectura-de-von-neumann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La arquitectura de Von Neumann
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La arquitectura de Von Neumann">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-estructura-de-un-sistema-informatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Estructura de un sistema informático
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-el-ciclo-de-ejecucion-de-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 El ciclo de ejecución de instrucciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-la-arquitectura-harvard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. La arquitectura Harvard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. La arquitectura Harvard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-el-cuello-de-botella-de-von-neumann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 El cuello de botella de Von Neumann
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-arquitecturas-cisc-y-risc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Arquitecturas CISC y RISC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Arquitecturas CISC y RISC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-arquitectura-cisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Arquitectura CISC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-arquitectura-risc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Arquitectura RISC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-componentes-fisicos-procesador-memoria-y-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Componentes físicos: procesador, memoria y almacenamiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Componentes físicos: procesador, memoria y almacenamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-el-procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 El procesador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 El procesador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-la-unidad-de-control-uc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.1 La unidad de control (UC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-la-unidad-aritmetico-logica-alu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.2 La unidad aritmético-lógica (ALU)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813-registros-y-reloj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.3 Registros y reloj
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-la-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 La memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-dispositivos-de-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Dispositivos de almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-perifericos-y-componentes-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Periféricos y componentes lógicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Periféricos y componentes lógicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-clasificacion-de-los-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Clasificación de los periféricos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-el-software-programas-y-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 El software: programas y aplicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-el-sistema-operativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 El sistema operativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-el-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 El firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-los-drivers-o-controladores-de-dispositivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Los drivers o controladores de dispositivos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-los-buses-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Los buses del sistema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Los buses del sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-tipos-de-estructura-de-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Tipos de estructura de bus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-los-tres-buses-dedicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Los tres buses dedicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-buses-transparentes-y-buses-gestionados-por-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Buses transparentes y buses gestionados por software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-el-bus-pci-express-pcie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 El bus PCI Express (PCIe)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nuevas-arquitecturas-de-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Nuevas arquitecturas de procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Nuevas arquitecturas de procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-el-soc-system-on-a-chip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 El SoC (System on a Chip)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-coprocesadores-de-los-soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Coprocesadores de los SoC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-chips-neuromorficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Chips neuromórficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-inteligencia-artificial-en-los-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Inteligencia artificial en los procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 Inteligencia artificial en los procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrenamiento-frente-a-inferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrenamiento frente a inferencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-papel-de-la-gpu-y-la-npu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El papel de la GPU y la NPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-11-sesiones-22-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (11 sesiones / 22 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-sistemas-microinformaticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sistemas microinformáticos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Sistemas microinformáticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-la-placa-base-como-soporte-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 La placa base como soporte del sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-del-impulso-electrico-a-la-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Del impulso eléctrico a la información
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-elementos-de-un-sistema-microinformatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Elementos de un sistema microinformático
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-el-ordenador-y-la-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. El ordenador y la informática
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. El ordenador y la informática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-que-es-un-ordenador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 ¿Qué es un ordenador?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-que-es-la-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 ¿Qué es la informática?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-software-hardware-y-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Software, hardware y firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-historia-de-la-informatica-i-de-los-origenes-mecanicos-a-la-era-del-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Historia de la informática (I): de los orígenes mecánicos a la era del transistor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-historia-de-la-informatica-ii-de-los-primeros-ordenadores-personales-a-la-actualidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Historia de la informática (II): de los primeros ordenadores personales a la actualidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-arquitectura-de-von-neumann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La arquitectura de Von Neumann
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La arquitectura de Von Neumann">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-estructura-de-un-sistema-informatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Estructura de un sistema informático
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-el-ciclo-de-ejecucion-de-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 El ciclo de ejecución de instrucciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-la-arquitectura-harvard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. La arquitectura Harvard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. La arquitectura Harvard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-el-cuello-de-botella-de-von-neumann" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 El cuello de botella de Von Neumann
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-arquitecturas-cisc-y-risc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Arquitecturas CISC y RISC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Arquitecturas CISC y RISC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-arquitectura-cisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Arquitectura CISC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-arquitectura-risc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Arquitectura RISC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-componentes-fisicos-procesador-memoria-y-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Componentes físicos: procesador, memoria y almacenamiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Componentes físicos: procesador, memoria y almacenamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-el-procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 El procesador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 El procesador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-la-unidad-de-control-uc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.1 La unidad de control (UC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-la-unidad-aritmetico-logica-alu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.2 La unidad aritmético-lógica (ALU)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813-registros-y-reloj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.3 Registros y reloj
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-la-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 La memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-dispositivos-de-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Dispositivos de almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-perifericos-y-componentes-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Periféricos y componentes lógicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Periféricos y componentes lógicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-clasificacion-de-los-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Clasificación de los periféricos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-el-software-programas-y-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 El software: programas y aplicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-el-sistema-operativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 El sistema operativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-el-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 El firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-los-drivers-o-controladores-de-dispositivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Los drivers o controladores de dispositivos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-los-buses-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Los buses del sistema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Los buses del sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-tipos-de-estructura-de-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Tipos de estructura de bus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-los-tres-buses-dedicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Los tres buses dedicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-buses-transparentes-y-buses-gestionados-por-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Buses transparentes y buses gestionados por software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-el-bus-pci-express-pcie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 El bus PCI Express (PCIe)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nuevas-arquitecturas-de-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Nuevas arquitecturas de procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Nuevas arquitecturas de procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-el-soc-system-on-a-chip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 El SoC (System on a Chip)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-coprocesadores-de-los-soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Coprocesadores de los SoC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-chips-neuromorficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Chips neuromórficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-inteligencia-artificial-en-los-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Inteligencia artificial en los procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 Inteligencia artificial en los procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrenamiento-frente-a-inferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrenamiento frente a inferencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-papel-de-la-gpu-y-la-npu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El papel de la GPU y la NPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>Fundamentos de Hardware</strong></p>
+<h1 id="introduccion-a-los-sistemas-microinformaticos">Introducción a los sistemas microinformáticos</h1>
+<h2 id="programacion-de-aula">Programación de Aula</h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje</h3>
+<p>Esta unidad trabaja el <strong>Resultado de Aprendizaje 1 (RA1)</strong> del módulo, según el <strong>Real Decreto 1629/2009</strong> (Anexo I, módulo <em>Fundamentos de Hardware</em>):</p>
+<ol>
+<li><strong>RA1.</strong> Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.</li>
+</ol>
+<p>Esta unidad se centra especialmente en los criterios:</p>
+<ul>
+<li><strong>CE1.a</strong> (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.</li>
+<li><strong>CE1.c</strong> (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.</li>
+<li><strong>CE1.h</strong> (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.</li>
+</ul>
+<h3 id="planificacion-temporal-11-sesiones-22-horas">Planificación Temporal (11 sesiones / 22 horas)</h3>
+<div class="admonition info">
+<p class="admonition-title">Nota</p>
+<p>Dado el volumen de contenidos de esta unidad (arquitectura, componentes físicos y lógicos, buses, nuevas arquitecturas), se ha ampliado a 22 horas. Si tu programación exige menos horas, puedes recortar las sesiones 7-8 (CISC/RISC en detalle) o la 11 (nuevas arquitecturas) y dejarlas como ampliación optativa.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sistemas microinformáticos: hardware, software, firmware y humanware</td>
+</tr>
+<tr>
+<td>2</td>
+<td>El ordenador y la informática: definiciones y conceptos clave</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Historia de la informática (I): de los orígenes mecánicos a la era del transistor</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Historia de la informática (II): de los primeros ordenadores personales a la actualidad</td>
+</tr>
+<tr>
+<td>5</td>
+<td>La arquitectura de Von Neumann. Estructura de un sistema informático</td>
+</tr>
+<tr>
+<td>6</td>
+<td>La arquitectura Harvard. El cuello de botella de Von Neumann</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Arquitecturas CISC y RISC</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Componentes físicos: el procesador (unidad de control y ALU), memoria y almacenamiento</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Periféricos. Componentes lógicos: software, SO, firmware y drivers</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Los buses del sistema</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Nuevas arquitecturas: SoC, coprocesadores, chips neuromórficos e IA en procesadores. Repaso y ejercicios</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-sistemas-microinformaticos">1. Sistemas microinformáticos</h2>
+<p>La <strong>microinformática</strong> es la rama de la informática centrada en el estudio y uso de los equipos construidos alrededor de un <strong>microprocesador</strong>: el circuito integrado que actúa como CPU (Unidad Central de Procesamiento) del equipo.</p>
+<h3 id="11-la-placa-base-como-soporte-del-sistema">1.1 La placa base como soporte del sistema</h3>
+<p>Todos los componentes de un ordenador se conectan, física y eléctricamente, a la <strong>placa base</strong> (o placa madre, <em>motherboard</em>), que proporciona tanto las conexiones necesarias entre dispositivos como la alimentación eléctrica que cada uno de ellos requiere. En ella se encuentran, entre otros elementos, los <strong>slots de expansión</strong> y el <strong>zócalo del procesador (CPU socket)</strong>, donde se instala el microprocesador.</p>
+<h3 id="12-del-impulso-electrico-a-la-informacion">1.2 Del impulso eléctrico a la información</h3>
+<p>El microprocesador recibe constantemente <strong>impulsos eléctricos</strong>, que se interpretan como código binario (presencia o ausencia de corriente, representada como 1 o 0). Cada uno de esos impulsos, de forma aislada, constituye un <strong>dato</strong>. Es la unidad central de procesamiento la que ordena, interpreta y procesa esos datos hasta convertirlos en <strong>información</strong> con sentido, que finalmente se envía a algún periférico de salida para que el usuario pueda percibirla.</p>
+<p>Todo este procesamiento implica una enorme cantidad de operaciones aritméticas y lógicas realizadas a gran velocidad, lo que genera una cantidad considerable de calor. Por eso los procesadores necesitan sistemas de refrigeración (<strong>disipadores</strong>) y, a menudo, ventiladores específicos (<strong>coolers</strong>).</p>
+<h3 id="13-elementos-de-un-sistema-microinformatico">1.3 Elementos de un sistema microinformático</h3>
+<p>Un sistema microinformático está formado por cuatro tipos de elementos interrelacionados:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Naturaleza</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>Tangible</td>
+<td>Los componentes físicos: procesador, memoria, dispositivos de almacenamiento y periféricos</td>
+</tr>
+<tr>
+<td>Software</td>
+<td>Intangible</td>
+<td>El sistema operativo, el firmware y las aplicaciones (destacando los sistemas de gestión de bases de datos)</td>
+</tr>
+<tr>
+<td>Información</td>
+<td>—</td>
+<td>Puede obtenerse de forma externa (introducida por el usuario) o generarse mediante el propio procesamiento del sistema</td>
+</tr>
+<tr>
+<td>Soporte humano</td>
+<td>—</td>
+<td>El personal técnico que diseña y mantiene el sistema (analistas, programadores, técnicos de mantenimiento) y los propios usuarios finales</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-el-ordenador-y-la-informatica">2. El ordenador y la informática</h2>
+<h3 id="21-que-es-un-ordenador">2.1 ¿Qué es un ordenador?</h3>
+<p>Un <strong>ordenador</strong> (computador o computadora) es una máquina capaz de aceptar datos de entrada, realizar con ellos operaciones lógicas y aritméticas, y proporcionar el resultado a través de un medio de salida, todo ello sin intervención humana directa y siguiendo un programa de instrucciones previamente almacenado en el propio equipo.</p>
+<p>Lo que distingue a un ordenador de otras máquinas (como una calculadora) es precisamente esto: es una máquina <strong>programable y de propósito general</strong>, capaz de procesar datos de naturaleza muy distinta según las instrucciones que reciba, en lugar de estar limitado a una única función fija.</p>
+<p>Los <strong>datos</strong> son conjuntos de símbolos que representan un valor, un hecho, un objeto o una idea, en una forma adecuada para su tratamiento. Pueden ser captados directamente por el propio ordenador (mediante sensores u otros dispositivos) o introducidos por una persona en forma de letras y números.</p>
+<h3 id="22-que-es-la-informatica">2.2 ¿Qué es la informática?</h3>
+<p>La palabra <strong>informática</strong> proviene del francés, como contracción de <em>información</em> y <em>automática</em>. La Real Academia de la Lengua Española la define como el conjunto de conocimientos científicos y técnicas que permiten el tratamiento automático de la información mediante ordenadores.</p>
+<p>Como disciplina, la informática (o ciencia e ingeniería de los computadores) combina métodos teóricos, experimentales y de diseño, por lo que se considera tanto una ciencia como una ingeniería, abarcando el diseño, análisis, implementación y aplicación de los procesos que transforman la información.</p>
+<h3 id="23-software-hardware-y-firmware">2.3 Software, hardware y firmware</h3>
+<ul>
+<li><strong>Programa</strong>: conjunto de instrucciones que se introducen en un ordenador para que realice una tarea concreta.</li>
+<li><strong>Aplicación informática</strong>: conjunto de varios programas relacionados entre sí.</li>
+<li><strong>Software</strong>: término que engloba a los programas, las aplicaciones y los datos que estos manejan.</li>
+<li><strong>Hardware</strong>: el conjunto de componentes físicos que forman el sistema informático, necesarios para que el software pueda funcionar y generar la información que el usuario necesita.</li>
+<li><strong>Firmware</strong>: un tipo especial de software, grabado directamente en un componente físico, del que resulta casi inseparable. Es el caso, por ejemplo, del programa grabado en una memoria ROM, o del software que configura dispositivos de red como routers o switches.</li>
+</ul>
+<h2 id="3-historia-de-la-informatica-i-de-los-origenes-mecanicos-a-la-era-del-transistor">3. Historia de la informática (I): de los orígenes mecánicos a la era del transistor</h2>
+<p>Antes de que existieran las máquinas electrónicas, la humanidad ya buscaba formas de automatizar el cálculo:</p>
+<p><img src="../assets/img/abaco.jpg" alt="Ábaco tradicional" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>El ábaco, inventado hace miles de años, es la herramienta de cálculo más antigua que se conoce.</em></p>
+
+<ul>
+<li><strong>Hacia el 3500 a.C.</strong>, en Babilonia, se inventa el <strong>ábaco</strong>, la primera herramienta conocida para realizar cálculos.</li>
+<li>En el <strong>siglo IX</strong>, el matemático Al-Juarismi desarrolla el concepto de <strong>algoritmo</strong>, término que deriva precisamente de su nombre.</li>
+<li>En <strong>1642</strong>, Blaise Pascal construye la <strong>Pascalina</strong>, una de las primeras calculadoras mecánicas capaces de sumar mediante ruedas dentadas.</li>
+</ul>
+<p><img src="../assets/img/pascalina.jpg" alt="La Pascalina, calculadora mecánica de Blaise Pascal" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>La Pascalina sumaba automáticamente mediante un sistema de ruedas dentadas con acarreo.</em></p>
+
+<ul>
+<li>En <strong>1673</strong>, Gottfried Leibniz diseña la primera calculadora de propósito general capaz de multiplicar y dividir, aunque con problemas de fiabilidad.</li>
+<li>En <strong>1801</strong>, Joseph Marie Jacquard aplica <strong>tarjetas perforadas</strong> para controlar el patrón de tejido de una máquina textil — una idea que más adelante sentaría las bases de la programación por tarjetas.</li>
+<li>Entre <strong>1822 y 1837</strong>, Charles Babbage diseña el <strong>Motor Analítico</strong>, considerado el primer proyecto de una máquina de cálculo de propósito general programable, aunque nunca llegó a construirlo en vida (se construyó finalmente en 1989). Por ello se le conoce como el "padre de las computadoras modernas".</li>
+<li>En <strong>1843</strong>, Ada Lovelace propone que las tarjetas perforadas puedan hacer repetir ciertas operaciones al motor de Babbage, por lo que se la considera la primera programadora de la historia.</li>
+<li>En <strong>1854</strong>, George Boole publica su <strong>álgebra de Boole</strong>, que reduce la lógica a tres operadores básicos (Y, O, NO), sentando las bases matemáticas de toda la informática posterior.</li>
+<li>En <strong>1936</strong>, Alan Turing formaliza el concepto de <strong>algoritmo</strong> mediante su descripción teórica de la "máquina de Turing".</li>
+<li>En <strong>1941</strong>, Konrad Zuse construye el <strong>Z3</strong>, la primera máquina programable y totalmente automática.</li>
+<li>En <strong>1944</strong>, se pone en marcha el <strong>Harvard Mark I</strong>, un ordenador electromecánico financiado por IBM, con centenares de miles de piezas mecánicas.</li>
+<li>En <strong>1946</strong>, se construye en la Universidad de Pensilvania el <strong>ENIAC</strong>, considerado el primer ordenador electrónico de propósito general, con más de 18.000 tubos de vacío.</li>
+</ul>
+<p><img src="../assets/img/eniac.jpg" alt="El ENIAC, primer ordenador electrónico de propósito general" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>El ENIAC (1946) ocupaba una sala entera y pesaba unas 27 toneladas.</em></p>
+
+<ul>
+<li>En <strong>1947</strong>, John Bardeen, Walter Brattain y William Shockley inventan el <strong>transistor</strong> en los Laboratorios Bell, un avance que revolucionaría por completo la electrónica.</li>
+</ul>
+<p><img src="../assets/img/transistor-1947.jpg" alt="El primer transistor, Bell Labs 1947" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>El primer transistor de la historia, construido en los Laboratorios Bell en 1947.</em></p>
+
+<ul>
+<li>En <strong>1958</strong>, Jack Kilby construye el primer <strong>circuito integrado</strong>, permitiendo agrupar múltiples componentes electrónicos en un solo chip.</li>
+</ul>
+<h2 id="4-historia-de-la-informatica-ii-de-los-primeros-ordenadores-personales-a-la-actualidad">4. Historia de la informática (II): de los primeros ordenadores personales a la actualidad</h2>
+<ul>
+<li>En <strong>1968</strong>, Robert Noyce y Gordon Moore fundan <strong>Intel</strong>.</li>
+<li>En <strong>1969-1970</strong>, nace en los Laboratorios Bell el sistema <strong>UNIX</strong>, germen de gran parte de los sistemas operativos actuales.</li>
+<li>En <strong>1971</strong>, Intel desarrolla y comercializa uno de los primeros microprocesadores de la historia.</li>
+<li>En <strong>1975 y 1976</strong>, se fundan respectivamente <strong>Microsoft</strong> y <strong>Apple</strong>, dos de las compañías que definirían la informática personal de las décadas siguientes.</li>
+<li>En <strong>1983</strong>, ARPANET se desliga definitivamente de su origen militar, marcándose a menudo esta fecha como el nacimiento simbólico de <strong>Internet</strong>.</li>
+<li>En <strong>1990</strong>, Tim Berners-Lee concibe el <strong>World Wide Web</strong>, junto con las bases del protocolo HTTP, el lenguaje HTML y el concepto de URL.</li>
+<li>En <strong>1991</strong>, Linus Torvalds comienza a desarrollar <strong>Linux</strong>, un sistema operativo compatible con Unix y de código abierto.</li>
+<li>Durante los <strong>años 90 y 2000</strong>, se sucede el lanzamiento de las distintas versiones de Windows (3.1, 95, XP...) y la popularización de Internet entre el público general.</li>
+<li>En <strong>2007-2010</strong>, la llegada del <strong>smartphone</strong> (con el iPhone como principal impulsor) y, poco después, de la <strong>tablet</strong>, transforma de nuevo la manera en que las personas usan la informática en su día a día.</li>
+<li>En <strong>2018</strong>, se hacen públicas las vulnerabilidades <strong>Meltdown y Spectre</strong>, que afectan a la práctica totalidad de los procesadores modernos, poniendo de relieve la importancia de la seguridad a nivel de hardware.</li>
+<li>En los <strong>años más recientes</strong>, la <strong>inteligencia artificial y el aprendizaje automático</strong>, la generalización de los <strong>procesadores multinúcleo</strong> en todo tipo de dispositivos (desde smartphones hasta automóviles), y el auge del <strong>teletrabajo</strong> y la <strong>ciberseguridad</strong>, marcan las tendencias tecnológicas más destacadas.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">La Ley de Moore</p>
+<p>A lo largo de toda esta historia reciente, se ha cumplido con notable precisión la <strong>Ley de Moore</strong>: la observación de que la cantidad de transistores que se pueden integrar en un chip (y, con ello, la potencia de cálculo disponible) se duplica aproximadamente cada uno o dos años.</p>
+</div>
+<h2 id="5-la-arquitectura-de-von-neumann">5. La arquitectura de Von Neumann</h2>
+<p><img src="../assets/img/von-neumann-diagrama.svg" alt="Diagrama de la arquitectura de Von Neumann" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>CPU, memoria y periféricos conectados mediante un bus común: el esquema clásico de Von Neumann.</em></p>
+
+<p>La <strong>arquitectura de Von Neumann</strong>, publicada a principios de los años 40, sigue siendo, con matices y evoluciones, el modelo fundamental sobre el que se construyen prácticamente todos los ordenadores digitales actuales, a pesar de la enorme evolución tecnológica sufrida desde entonces.</p>
+<p>Según este modelo, los distintos bloques funcionales de un ordenador deben estar siempre conectados entre sí, de forma que no sea necesario modificar el hardware para ejecutar un programa distinto. Sus bloques funcionales son:</p>
+<ul>
+<li><strong>Unidad Central de Proceso (CPU)</strong>: el núcleo del ordenador, encargado de realizar las operaciones básicas y de gestionar el funcionamiento del resto de componentes.</li>
+<li><strong>Memoria principal</strong>: donde se almacenan tanto los datos como las instrucciones de los programas.</li>
+<li><strong>Buses</strong>: el conexionado que permite la comunicación entre los distintos bloques funcionales.</li>
+<li><strong>Periféricos</strong>: los elementos que capturan datos (como un teclado), muestran resultados (como un monitor) o comunican el sistema con otros equipos.</li>
+</ul>
+<h3 id="51-estructura-de-un-sistema-informatico">5.1 Estructura de un sistema informático</h3>
+<p>De forma más amplia, un sistema informático completo se puede describir en cuatro niveles:</p>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardware</td>
+<td>Los recursos de cómputo básicos: CPU, memoria y dispositivos de entrada/salida</td>
+</tr>
+<tr>
+<td>Sistema operativo</td>
+<td>Controla y coordina el uso de los recursos hardware, repartiéndolos entre los distintos programas</td>
+</tr>
+<tr>
+<td>Programas de aplicación</td>
+<td>Utilizan los recursos del hardware y los servicios del sistema operativo para resolver tareas concretas: procesadores de texto, navegadores, compiladores, juegos...</td>
+</tr>
+<tr>
+<td>Usuarios</td>
+<td>Las personas (u otras máquinas y sistemas) que hacen uso de todo lo anterior</td>
+</tr>
+</tbody>
+</table>
+<p>Cada nivel se apoya en el anterior: los programas de aplicación no podrían funcionar sin el sistema operativo, y este, a su vez, no tendría ningún sentido sin el hardware físico sobre el que ejecutarse.</p>
+<h3 id="52-el-ciclo-de-ejecucion-de-instrucciones">5.2 El ciclo de ejecución de instrucciones</h3>
+<p>Un programa es un conjunto de instrucciones y datos que se ejecutan de forma secuencial, y que a partir de unos datos de entrada producen una salida. Para ello, el ordenador repite constantemente esta secuencia:</p>
+<ol>
+<li>Busca cuál es la siguiente instrucción a ejecutar.</li>
+<li>Decodifica la instrucción.</li>
+<li>Busca los operandos necesarios.</li>
+<li>Realiza la operación.</li>
+<li>Almacena el resultado.</li>
+</ol>
+<p>Las instrucciones que el procesador ejecuta directamente están escritas en <strong>lenguaje máquina</strong> (binario). Como este lenguaje resulta muy difícil de manejar para una persona, los programas se escriben habitualmente en <strong>lenguajes de más alto nivel</strong>, mucho más cercanos al lenguaje humano, que después un programa <strong>compilador</strong> se encarga de traducir a lenguaje máquina.</p>
+<h2 id="6-la-arquitectura-harvard">6. La arquitectura Harvard</h2>
+<p><img src="../assets/img/harvard-diagrama.svg" alt="Diagrama de la arquitectura Harvard" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>En la arquitectura Harvard, la memoria de datos y la de instrucciones están físicamente separadas, cada una con su propio bus.</em></p>
+
+<p>Al principio de la computación electrónica convivieron dos filosofías de diseño enfrentadas: la arquitectura de <strong>Von Neumann</strong> y la arquitectura <strong>Harvard</strong>.</p>
+<p>La diferencia fundamental es esta: en la arquitectura de <strong>Von Neumann</strong>, instrucciones y datos comparten el mismo espacio de memoria y el mismo bus de acceso. En la arquitectura <strong>Harvard</strong>, en cambio, la memoria de datos y la memoria de instrucciones están <strong>físicamente separadas</strong>, cada una con su propio bus.</p>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Von Neumann</th>
+<th>Harvard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memoria de datos e instrucciones</td>
+<td>Compartida</td>
+<td>Separada</td>
+</tr>
+<tr>
+<td>Prioridad de diseño</td>
+<td>Flexibilidad y libertad para el programador</td>
+<td>Rendimiento</td>
+</tr>
+<tr>
+<td>Acceso simultáneo a datos e instrucciones</td>
+<td>No (mismo bus)</td>
+<td>Sí (buses independientes)</td>
+</tr>
+</tbody>
+</table>
+<p>En la práctica, los ordenadores actuales son <strong>híbridos</strong>: el procesador dispone de cachés separadas para datos e instrucciones (más cercanas al enfoque Harvard, por rendimiento), mientras que la memoria RAM principal sigue funcionando de forma puramente Von Neumann.</p>
+<h3 id="61-el-cuello-de-botella-de-von-neumann">6.1 El cuello de botella de Von Neumann</h3>
+<p>La principal limitación de la arquitectura de Von Neumann es precisamente compartir un único bloque de memoria y un único bus para datos e instrucciones: como ambos deben transferirse de forma secuencial por el mismo canal, se genera un <strong>cuello de botella</strong> que limita la velocidad máxima de trabajo del sistema, por rápido que sea el procesador. Es, en parte, para paliar este problema por lo que los microprocesadores actuales incorporan cachés separadas para datos y para instrucciones, como se ha comentado.</p>
+<h2 id="7-arquitecturas-cisc-y-risc">7. Arquitecturas CISC y RISC</h2>
+<p>Una de las primeras decisiones a la hora de diseñar un microprocesador es definir su <strong>juego de instrucciones</strong>, lo cual condiciona tanto el diseño físico del procesador como la forma en que se deben programar todas las operaciones que este pueda ejecutar. Frente a esta decisión, existen dos filosofías de diseño enfrentadas.</p>
+<h3 id="71-arquitectura-cisc">7.1 Arquitectura CISC</h3>
+<p><strong>CISC</strong> (<em>Complex Instruction Set Computer</em>, ordenador con juego de instrucciones complejo) se caracteriza por un conjunto de instrucciones muy amplio, capaz de realizar operaciones complejas directamente sobre datos situados en memoria o en registros internos. Esta complejidad dificulta el paralelismo entre instrucciones; por ello, los procesadores CISC de alto rendimiento actuales suelen traducir internamente esas instrucciones complejas en varias <strong>microinstrucciones</strong> más simples, de tipo RISC, antes de ejecutarlas. El procesador <strong>x86</strong>, el más habitual en equipos de escritorio, es de tipo CISC.</p>
+<h3 id="72-arquitectura-risc">7.2 Arquitectura RISC</h3>
+<p><strong>RISC</strong> (<em>Reduced Instruction Set Computer</em>, ordenador con juego de instrucciones reducido) se basa en instrucciones de tamaño fijo, presentadas en pocos formatos distintos, donde únicamente las instrucciones de carga y almacenamiento acceden a la memoria de datos. El objetivo de este diseño es facilitar la segmentación y el paralelismo en la ejecución de instrucciones, reduciendo al mínimo los accesos a memoria. Arquitecturas como <strong>ARM</strong>, <strong>MIPS</strong>, <strong>SPARC</strong> o <strong>PowerPC</strong> siguen esta filosofía, y son las que protagonizan la tendencia actual de diseño de microprocesadores, especialmente en dispositivos móviles y servidores.</p>
+<div class="admonition note">
+<p class="admonition-title">Relación con Von Neumann y Harvard</p>
+<p>De forma orientativa, la arquitectura RISC se apoya conceptualmente más en los principios de Von Neumann, mientras que CISC tiene más en común históricamente con el enfoque Harvard, aunque en la práctica ambas familias han ido convergiendo con soluciones híbridas.</p>
+</div>
+<h2 id="8-componentes-fisicos-procesador-memoria-y-almacenamiento">8. Componentes físicos: procesador, memoria y almacenamiento</h2>
+<h3 id="81-el-procesador">8.1 El procesador</h3>
+<p><img src="../assets/img/cpu-chip.jpg" alt="Chip de un microprocesador" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un microprocesador real, integrado en un único chip.</em></p>
+
+<p>El procesador es el "cerebro" del ordenador, encargado de controlar y gobernar todo el sistema, comunicándose con la memoria y los periféricos a través de los buses. Sus tareas principales son leer datos de memoria, procesarlos, y volver a escribir el resultado en memoria.</p>
+<p><img src="../assets/img/cpu-block-diagram.svg" alt="Diagrama interno de un procesador: unidad de control, ALU y registros" style="max-width:320px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema simplificado de un procesador: la unidad de control coordina la ALU y los registros a través de los buses internos.</em></p>
+
+<p>El procesador está formado por los siguientes componentes:</p>
+<h4 id="811-la-unidad-de-control-uc">8.1.1 La unidad de control (UC)</h4>
+<p>La <strong>unidad de control</strong> es el componente que gobierna y coordina el funcionamiento de todo el procesador (y, en cierta medida, de todo el sistema), interpretando y ejecutando las instrucciones en la secuencia correcta.</p>
+<ul>
+<li><strong>Entradas de la unidad de control</strong>: las señales que le llegan desde el resto de dispositivos, informándole del resultado de la actividad que ha sucedido (por ejemplo, si una operación de la ALU ha dado como resultado cero, o si un dispositivo de E/S ha terminado una transferencia).</li>
+<li><strong>Salidas de la unidad de control</strong>: las órdenes que genera para controlar la actividad del resto de componentes (a la ALU, a la memoria, a los dispositivos de E/S).</li>
+</ul>
+<p>Para llevar a cabo su trabajo, la unidad de control repite constantemente el <strong>ciclo de instrucción</strong> que ya vimos en la sección de Von Neumann: busca la instrucción en memoria, la decodifica (averigua qué operación representa), genera las señales necesarias para ejecutarla, y pasa a la siguiente instrucción.</p>
+<div class="admonition note">
+<p class="admonition-title">El decodificador de instrucciones</p>
+<p>Dentro de la unidad de control, un circuito llamado <strong>decodificador de instrucciones</strong> es el encargado de "traducir" el código de operación de cada instrucción (un número binario) en la combinación exacta de señales eléctricas que hay que activar para realizar esa operación concreta.</p>
+</div>
+<h4 id="812-la-unidad-aritmetico-logica-alu">8.1.2 La unidad aritmético-lógica (ALU)</h4>
+<p>La <strong>ALU</strong> (<em>Arithmetic Logic Unit</em>) es el circuito encargado de realizar todas las operaciones elementales del procesador, tanto <strong>aritméticas</strong> (suma, resta, multiplicación...) como <strong>lógicas</strong> (comparaciones del tipo igual, mayor o menor, y operaciones booleanas como AND, OR, NOT o XOR).</p>
+<ul>
+<li>La ALU recibe como entrada uno o dos <strong>operandos</strong> (los datos sobre los que va a operar) y una señal que indica qué operación concreta debe realizar (enviada por la unidad de control).</li>
+<li>El resultado de la operación se deposita en un registro especial llamado <strong>acumulador (ACC)</strong>.</li>
+<li>Además del resultado en sí, la ALU suele generar un conjunto de <strong>indicadores o flags</strong> (por ejemplo, si el resultado fue cero, si fue negativo, o si se produjo un desbordamiento), que la unidad de control puede consultar después para decidir el siguiente paso del programa (por ejemplo, en una instrucción de salto condicional).</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo de funcionamiento conjunto</p>
+<p>Al ejecutar una instrucción de suma: la <strong>unidad de control</strong> decodifica la instrucción y ordena a la <strong>ALU</strong> que sume los valores de dos registros; la ALU realiza la suma y deposita el resultado en el <strong>acumulador</strong>; si el resultado ha sido cero, se activa el indicador correspondiente, que la unidad de control podrá consultar en instrucciones posteriores.</p>
+</div>
+<h4 id="813-registros-y-reloj">8.1.3 Registros y reloj</h4>
+<ul>
+<li><strong>Registros</strong>: una memoria de altísima velocidad y muy poca capacidad, integrada en el propio microprocesador, que permite guardar y acceder de forma casi instantánea a los valores que se usan con más frecuencia, especialmente en operaciones matemáticas.</li>
+<li><strong>Reloj</strong>: genera una sucesión de impulsos eléctricos a intervalos constantes, marcando así el ritmo de trabajo de la CPU. El ordenador realiza, típicamente, una operación simple por cada ciclo de reloj: cuanto más corto es ese ciclo, más operaciones puede realizar por segundo. Esta frecuencia se mide en <strong>hercios (Hz)</strong>, y habitualmente en sus múltiplos: <strong>megahercios (MHz)</strong>, un millón de ciclos por segundo, y <strong>gigahercios (GHz)</strong>, mil millones de ciclos por segundo.</li>
+</ul>
+<h3 id="82-la-memoria">8.2 La memoria</h3>
+<p><img src="../assets/img/ram-modulo.jpg" alt="Módulo de memoria RAM" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un módulo de memoria RAM DDR4.</em></p>
+
+<p>La memoria permite almacenar la información que el sistema necesita, y existen distintos tipos según su función:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAM</td>
+<td>Memoria principal del sistema. Es <strong>volátil</strong>: su contenido se pierde al apagar el equipo o ante un corte de corriente. Cualquier dato o programa debe estar en RAM para poder usarse; más RAM permite trabajar con más programas abiertos a la vez y con mayor fluidez</td>
+</tr>
+<tr>
+<td>ROM</td>
+<td>Memoria de solo lectura, que contiene la información necesaria para el arranque del equipo</td>
+</tr>
+<tr>
+<td>Caché</td>
+<td>Memoria mucho más rápida que la RAM, que guarda de forma temporal la información leída o escrita más recientemente, para acelerar los accesos posteriores</td>
+</tr>
+</tbody>
+</table>
+<p>Estos tres tipos forman lo que se conoce como <strong>jerarquía de memoria</strong>: de menor a mayor velocidad (y, a la vez, de mayor a menor capacidad), los registros del procesador, la memoria caché, y finalmente la memoria RAM.</p>
+<h3 id="83-dispositivos-de-almacenamiento">8.3 Dispositivos de almacenamiento</h3>
+<p><img src="../assets/img/ssd.jpg" alt="Disco de estado sólido (SSD)" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un SSD no tiene partes mecánicas, lo que lo hace mucho más rápido que un disco duro tradicional.</em></p>
+
+<p>A diferencia de la RAM, los dispositivos de almacenamiento guardan la información de forma <strong>permanente</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Dispositivo</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disco duro clásico (HDD)</td>
+<td>Contiene piezas mecánicas: una cabeza de lectura/escritura que se desplaza sobre discos magnéticos giratorios</td>
+</tr>
+<tr>
+<td>Disco de estado sólido (SSD)</td>
+<td>Sin partes mecánicas, lee y escribe los datos mucho más rápido que un HDD</td>
+</tr>
+<tr>
+<td>Disco duro externo</td>
+<td>Permite hacer copias de seguridad independientes del disco interno del equipo</td>
+</tr>
+<tr>
+<td>Disco óptico (CD-ROM, CD-RW, DVD)</td>
+<td>Usa un rayo láser para leer y grabar la información; gran capacidad y buena seguridad frente a pérdida de datos, aunque en desuso frente a otros soportes</td>
+</tr>
+</tbody>
+</table>
+<p>La capacidad de los discos duros se mide habitualmente en gigabytes (GB) o terabytes (TB).</p>
+<h2 id="9-perifericos-y-componentes-logicos">9. Periféricos y componentes lógicos</h2>
+<h3 id="91-clasificacion-de-los-perifericos">9.1 Clasificación de los periféricos</h3>
+<p>Se consideran <strong>periféricos</strong> todos los dispositivos hardware a través de los cuales el ordenador se comunica con el exterior, así como los sistemas que sirven de memoria auxiliar a la memoria principal:</p>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Periféricos de entrada</td>
+<td>Captan y, si es necesario, digitalizan datos introducidos por el usuario o por otro dispositivo, enviándolos al ordenador para su procesamiento</td>
+</tr>
+<tr>
+<td>Periféricos de salida</td>
+<td>Muestran o proyectan información hacia el exterior, convirtiendo los impulsos eléctricos en información legible para el usuario (por ejemplo, una impresora)</td>
+</tr>
+<tr>
+<td>Periféricos de entrada/salida (E/S)</td>
+<td>Permiten la comunicación bidireccional del ordenador con el medio externo</td>
+</tr>
+<tr>
+<td>Periféricos de almacenamiento</td>
+<td>Almacenan datos e información de forma persistente (disco duro, memoria flash, cinta magnética...); la RAM, al ser volátil, no se considera un periférico de almacenamiento</td>
+</tr>
+<tr>
+<td>Periféricos de comunicación</td>
+<td>Permiten la interacción entre dos o más dispositivos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-el-software-programas-y-aplicaciones">9.2 El software: programas y aplicaciones</h3>
+<p>Un <strong>programa informático</strong> es un conjunto de instrucciones que, al ejecutarse, realizan una o varias tareas en el ordenador; sin programas, el hardware no puede funcionar por sí solo. Al conjunto general de programas se le denomina <strong>software</strong>, o equipamiento/soporte lógico del sistema.</p>
+<h3 id="93-el-sistema-operativo">9.3 El sistema operativo</h3>
+<p>Un <strong>sistema operativo (SO)</strong> es el programa (o conjunto de programas) que gestiona los recursos hardware de un sistema informático y ofrece servicios a los programas de aplicación, ejecutándose con un nivel de privilegio superior al resto del software.</p>
+<div class="admonition note">
+<p class="admonition-title">Un matiz habitual</p>
+<p>Es un error común llamar "sistema operativo" al conjunto completo de herramientas que lo acompañan (el explorador de archivos, el navegador web...). En sentido estricto, el sistema operativo es el <strong>núcleo (kernel)</strong>, y esas otras herramientas son programas que se ejecutan sobre él.</p>
+</div>
+<p>Ejemplos de sistemas operativos para PC: Microsoft Windows, macOS, GNU/Linux, Solaris, FreeBSD, Chrome OS o Android, entre otros.</p>
+<h3 id="94-el-firmware">9.4 El firmware</h3>
+<p>El <strong>firmware</strong> es un bloque de instrucciones grabado en una memoria (normalmente ROM, EEPROM o flash) que establece la lógica de más bajo nivel para controlar los circuitos electrónicos de un dispositivo. Está estrechamente integrado con la electrónica del equipo, siendo el software que interactúa de forma más directa con el hardware. La <strong>BIOS</strong> de un ordenador es un ejemplo de firmware: su función es poner en marcha el equipo al encenderlo y preparar el entorno para cargar el sistema operativo en la RAM.</p>
+<h3 id="95-los-drivers-o-controladores-de-dispositivos">9.5 Los drivers o controladores de dispositivos</h3>
+<p>Un <strong>driver</strong> (controlador de dispositivo) es la parte del sistema operativo encargada de activar, configurar y gestionar la interacción con un dispositivo hardware concreto. Funciona de forma similar a un proceso normal, pero con la única función de controlar el dispositivo para el que fue diseñado.</p>
+<p>Un driver, típicamente:</p>
+<ul>
+<li><strong>Descubre</strong> el estado del dispositivo e informa de ello al sistema operativo.</li>
+<li><strong>Atiende</strong> al dispositivo cuando este genera un aviso (por ejemplo, al pulsar un botón).</li>
+<li><strong>Transmite</strong> datos hacia el dispositivo (comandos o información a enviar).</li>
+<li><strong>Lee</strong> los datos que el dispositivo capta, para que puedan tratarse en el ordenador.</li>
+</ul>
+<p>Pueden existir varios controladores distintos para un mismo dispositivo (el oficial del fabricante, uno genérico del sistema operativo, o versiones no oficiales de terceros), y es importante evitar instalar drivers de fuentes no confiables, por el riesgo de malware o de mal funcionamiento del dispositivo.</p>
+<h2 id="10-los-buses-del-sistema">10. Los buses del sistema</h2>
+<p>Un <strong>bus</strong> es un conjunto de conductores eléctricos a los que se conectan los distintos componentes del sistema. El bus no discrimina: la señal llega a todos los dispositivos conectados, y son estos los que ignoran las señales que no van dirigidas a ellos. La operación básica de transferencia en un bus se denomina <strong>ciclo de bus</strong>.</p>
+<h3 id="101-tipos-de-estructura-de-bus">10.1 Tipos de estructura de bus</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Funcionamiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus único</td>
+<td>Trata la memoria y los periféricos como si fueran posiciones de memoria, asimilando las operaciones de E/S a operaciones de lectura/escritura; no permite el uso de controladores DMA</td>
+</tr>
+<tr>
+<td>Bus dedicado</td>
+<td>Distingue claramente la memoria de los periféricos, permitiendo el uso de controladores DMA; se subdivide a su vez en tres tipos de bus</td>
+</tr>
+</tbody>
+</table>
+<h3 id="102-los-tres-buses-dedicados">10.2 Los tres buses dedicados</h3>
+<table>
+<thead>
+<tr>
+<th>Bus</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bus de datos</td>
+<td>Transfiere los datos entre la CPU, la memoria y las unidades de E/S. Interesa especialmente su <strong>ancho de banda</strong> (información transmitida por segundo)</td>
+</tr>
+<tr>
+<td>Bus de direcciones</td>
+<td>Transfiere la dirección de memoria (o de un registro de E/S) a la que se quiere acceder. Interesa su <strong>capacidad de direccionamiento</strong>: con N líneas, puede direccionar 2^N posiciones distintas</td>
+</tr>
+<tr>
+<td>Bus de control</td>
+<td>Transmite señales de sincronismo, indicadores de lectura/escritura, peticiones de DMA, interrupciones (IRQ), etc.</td>
+</tr>
+</tbody>
+</table>
+<p>La <strong>anchura</strong> de un bus (cantidad de líneas que lo componen) determina cuánta información puede transmitir en cada ciclo, y suele coincidir con el ancho de palabra de la memoria del sistema.</p>
+<h3 id="103-buses-transparentes-y-buses-gestionados-por-software">10.3 Buses transparentes y buses gestionados por software</h3>
+<p>Algunos buses son <strong>transparentes</strong> para el sistema operativo (como el que conecta directamente la CPU con la memoria): ni el sistema operativo ni los drivers son conscientes de su existencia. Otros buses, en cambio, están <strong>gestionados por software</strong>, disponen de su propio driver y son vistos por el sistema operativo como un dispositivo más (por ejemplo, PCI Express, SATA o USB).</p>
+<p>De hecho, el sistema operativo identifica muchos periféricos, en primera instancia, por el bus y el número de conexión al que están enganchados, más que por su tipo real de dispositivo.</p>
+<h3 id="104-el-bus-pci-express-pcie">10.4 El bus PCI Express (PCIe)</h3>
+<p><img src="../assets/img/pcie-slots.jpg" alt="Slots PCI y PCIe en una placa base" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Comparación de slots PCI (arriba) y PCIe (abajo) en una placa base.</em></p>
+
+<p>El <strong>PCIe</strong> es un bus de comunicación interno (integrado en la placa base o accesible mediante sus slots) que conecta distintos componentes con el procesador, a menudo a través del chipset. Existen distintas variantes comerciales según su número de líneas: <strong>x1, x4, x8 y x16</strong>; cuantas más líneas, mayor es la velocidad de transferencia posible. Es habitual encontrar dispositivos con conector físico x16 que, sin embargo, solo aprovechan 8 líneas o menos, según su diseño concreto.</p>
+<h2 id="11-nuevas-arquitecturas-de-procesadores">11. Nuevas arquitecturas de procesadores</h2>
+<p>Todo lo visto hasta ahora describe la arquitectura "clásica" de un procesador. Sin embargo, la informática actual (especialmente la móvil) ha desarrollado nuevas variantes y componentes adicionales que conviene conocer.</p>
+<h3 id="111-el-soc-system-on-a-chip">11.1 El SoC (System on a Chip)</h3>
+<p>Un <strong>SoC</strong> (<em>System on a Chip</em>, sistema en un chip) es un microprocesador que integra, en un único circuito, no solo la CPU, sino también otras funciones que en un ordenador de sobremesa clásico estarían repartidas en componentes separados: conectividad inalámbrica (Bluetooth, Wi-Fi), procesamiento gráfico, memoria RAM, gestión de entrada/salida, etc. Los SoC son la base de la <strong>informática móvil</strong> (smartphones, tablets), donde el espacio, el consumo energético y la integración son prioritarios frente a la máxima potencia de cálculo bruta.</p>
+<h3 id="112-coprocesadores-de-los-soc">11.2 Coprocesadores de los SoC</h3>
+<p>Un <strong>coprocesador</strong> es una unidad especializada que ayuda al procesador principal en tareas concretas, para las que resulta más eficiente que una CPU de propósito general. Los SoC de los smartphones actuales incorporan, junto a la CPU principal, varios coprocesadores dedicados:</p>
+<table>
+<thead>
+<tr>
+<th>Coprocesador</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU (Graphics Processing Unit)</td>
+<td>Procesamiento gráfico y operaciones matemáticas de coma flotante en paralelo</td>
+</tr>
+<tr>
+<td>ISP (Image Signal Processor)</td>
+<td>Procesa la señal de la cámara en tiempo real (fotografía y vídeo en alta resolución)</td>
+</tr>
+<tr>
+<td>DSP (Digital Signal Processor)</td>
+<td>Procesamiento de señales de audio y de sensores de movimiento (brújula, giroscopio, acelerómetro)</td>
+</tr>
+<tr>
+<td>NPU (Neural Processing Unit)</td>
+<td>Ejecuta de forma eficiente los cálculos típicos de la inteligencia artificial (ver sección 11.4)</td>
+</tr>
+</tbody>
+</table>
+<p>Al descargar estas tareas específicas a coprocesadores dedicados, la CPU principal queda libre para otras tareas, y el consumo de batería se reduce notablemente frente a realizar esas mismas operaciones en la CPU de propósito general.</p>
+<h3 id="113-chips-neuromorficos">11.3 Chips neuromórficos</h3>
+<p>Los procesadores actuales, aunque capaces de realizar billones de operaciones por segundo, siguen siendo mucho menos eficientes energéticamente que el cerebro humano a la hora de realizar tareas como reconocer patrones, caras o sonidos.</p>
+<p>Los <strong>chips neuromórficos</strong> son una nueva arquitectura de procesador diseñada imitando la organización del cerebro (formado por neuronas que se activan mediante sinapsis), en lugar de la arquitectura clásica basada en CPU y memoria separadas. En vez de procesar valores numéricos continuos como una CPU tradicional, suelen implementar <strong>redes neuronales de impulsos (<em>spiking neural networks</em>)</strong>, donde la información se transmite mediante pulsos discretos en el tiempo, de forma similar a como se comunican realmente las neuronas biológicas.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplos reales</p>
+<p>El chip <strong>Loihi</strong>, de Intel, o el proyecto <strong>TrueNorth</strong>, de IBM, son ejemplos de chips neuromórficos experimentales, diseñados específicamente para tareas de reconocimiento de patrones con un consumo energético muchísimo menor que el de una CPU o GPU convencional realizando la misma tarea.</p>
+</div>
+<p>Este enfoque abre aplicaciones potenciales en dispositivos de bajísimo consumo capaces de "escuchar" o "ver" de forma continua sin agotar rápidamente su batería, o en la asistencia a personas con discapacidad sensorial mediante la replicación artificial de sensores.</p>
+<h3 id="114-inteligencia-artificial-en-los-procesadores">11.4 Inteligencia artificial en los procesadores</h3>
+<p>Los procesadores actuales incorporan cada vez más técnicas relacionadas con la <strong>inteligencia artificial (IA)</strong> para mejorar su eficiencia y capacidad:</p>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Relación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inteligencia Artificial (IA)</td>
+<td>Disciplina general</td>
+</tr>
+<tr>
+<td>Aprendizaje automático / Machine Learning (ML)</td>
+<td>Una rama de la IA</td>
+</tr>
+<tr>
+<td>Aprendizaje profundo / Deep Learning (DL)</td>
+<td>Una parte, más específica, del aprendizaje automático, basada en <strong>redes neuronales</strong></td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>aprendizaje automático</strong> consiste en que un sistema aprenda a partir de un conjunto de datos de referencia ya clasificados, de forma que después sea capaz de clasificar correctamente nuevos datos que se le presenten (por ejemplo, reconocer si una fotografía contiene una cara humana, entrenando el sistema con muchas fotos ya etiquetadas).</p>
+<h4 id="entrenamiento-frente-a-inferencia">Entrenamiento frente a inferencia</h4>
+<ul>
+<li><strong>Entrenamiento</strong>: el proceso, muy exigente computacionalmente, en el que el modelo "aprende" a partir de un gran volumen de datos de ejemplo. Se realiza habitualmente en servidores potentes con varias GPU.</li>
+<li><strong>Inferencia</strong>: el proceso de utilizar un modelo ya entrenado para obtener un resultado sobre un dato nuevo. Es mucho menos exigente, y puede ejecutarse en dispositivos con mucha menos potencia, como un smartphone (a menudo aprovechando la NPU vista en la sección 11.2).</li>
+</ul>
+<h4 id="el-papel-de-la-gpu-y-la-npu">El papel de la GPU y la NPU</h4>
+<p>Las <strong>GPU</strong>, al estar diseñadas para trabajar de forma masivamente paralela, resultan especialmente adecuadas para entrenar y ejecutar algoritmos de aprendizaje profundo, mucho más eficientes en esta tarea que una CPU de propósito general. La <strong>NPU</strong>, por su parte, está específicamente diseñada para la fase de inferencia en dispositivos móviles, permitiendo ejecutar tareas de IA directamente en el propio dispositivo (lo que se conoce como <strong><em>edge AI</em></strong>), sin necesidad de enviar los datos a un servidor en la nube: reconocimiento facial, mejora automática de fotografías, o asistentes de voz capaces de reconocer al usuario incluso en condiciones cambiantes.</p>
+<h2 id="ejercicios-practicos">Ejercicios prácticos</h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica con tus propias palabras qué es un sistema microinformático y enumera sus cuatro elementos principales.</p>
+<p><strong>Ejercicio 2</strong>. ¿Qué diferencia a un ordenador de una calculadora, según la definición vista en esta unidad?</p>
+<p><strong>Ejercicio 3</strong>. Explica la diferencia entre software, hardware y firmware, poniendo un ejemplo de cada uno distinto a los mencionados en el tema.</p>
+<p><strong>Ejercicio 4</strong>. Elabora una línea temporal con al menos 8 hitos de la historia de la informática vistos en esta unidad, ordenados cronológicamente, indicando en una frase la importancia de cada uno.</p>
+<p><strong>Ejercicio 5</strong>. ¿Por qué se considera a Charles Babbage el "padre de las computadoras modernas" si nunca llegó a construir su Motor Analítico?</p>
+<p><strong>Ejercicio 6</strong>. Describe, según la arquitectura de Von Neumann, los bloques funcionales mínimos que necesita un ordenador digital para funcionar, y las cinco fases del ciclo de ejecución de una instrucción.</p>
+<p><strong>Ejercicio 7</strong>. Explica la diferencia fundamental entre la arquitectura de Von Neumann y la arquitectura Harvard. ¿Por qué se dice que los procesadores actuales son "híbridos"?</p>
+<p><strong>Ejercicio 8</strong>. ¿Qué es el "cuello de botella de Von Neumann" y qué solución parcial incorporan los procesadores modernos para paliarlo?</p>
+<p><strong>Ejercicio 9</strong>. Compara las arquitecturas CISC y RISC: cita una ventaja de cada una y un ejemplo real de procesador para cada filosofía.</p>
+<p><strong>Ejercicio 10</strong>. Explica la diferencia entre las entradas y las salidas de la unidad de control. ¿Qué es el decodificador de instrucciones y qué función cumple?</p>
+<p><strong>Ejercicio 11</strong>. Describe cómo colaboran la unidad de control y la ALU al ejecutar una instrucción de suma, siguiendo el ejemplo de la sección 8.1.2. ¿Para qué sirven los indicadores (flags) que genera la ALU?</p>
+<p><strong>Ejercicio 12</strong>. Si un procesador tiene una frecuencia de 3,5 GHz, ¿cuántos ciclos de reloj realiza por segundo, aproximadamente?</p>
+<p><strong>Ejercicio 13</strong>. Ordena de más rápida/menos capacidad a más lenta/más capacidad estos tres elementos: memoria RAM, registros del procesador, memoria caché. Explica por qué existe esta jerarquía en lugar de usar un único tipo de memoria.</p>
+<p><strong>Ejercicio 14</strong>. Clasifica estos periféricos según su categoría (entrada, salida, E/S, almacenamiento, comunicación): escáner, altavoces, disco SSD externo, tarjeta de red, pantalla táctil.</p>
+<p><strong>Ejercicio 15</strong>. Explica la diferencia entre el sistema operativo, el firmware y un driver, usando como ejemplo el proceso completo desde que enciendes el ordenador hasta que puedes mover el ratón con normalidad.</p>
+<p><strong>Ejercicio 16</strong>. Explica la diferencia entre un bus único y un bus dedicado, y describe la función de cada uno de los tres buses (datos, direcciones, control) de un bus dedicado.</p>
+<p><strong>Ejercicio 17</strong>. Si un bus de direcciones tiene 24 líneas, ¿cuántas posiciones de memoria distintas puede direccionar como máximo?</p>
+<p><strong>Ejercicio 18 (investigación)</strong>. Busca las especificaciones de una placa base actual e identifica cuántas líneas PCIe ofrece cada uno de sus slots de expansión (x1, x4, x8, x16).</p>
+<p><strong>Ejercicio 19</strong>. Explica qué es un SoC y por qué es la base de la informática móvil, en lugar de usarse una arquitectura clásica de sobremesa.</p>
+<p><strong>Ejercicio 20</strong>. Enumera al menos tres coprocesadores que puede incluir el SoC de un smartphone y explica la función de cada uno.</p>
+<p><strong>Ejercicio 21</strong>. Explica con tus propias palabras qué es un chip neuromórfico y en qué se diferencian sus redes neuronales de impulsos de las redes neuronales "clásicas" del aprendizaje profundo.</p>
+<p><strong>Ejercicio 22</strong>. Explica la diferencia entre entrenamiento e inferencia en inteligencia artificial, y qué papel juegan respectivamente la GPU y la NPU en cada una de esas fases.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

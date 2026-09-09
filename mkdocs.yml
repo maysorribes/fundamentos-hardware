@@ -1,19 +1,22 @@
 site_name: Fundamentos de Hardware
 theme:
   name: material
-
+ 
 markdown_extensions:
   - admonition
   - pymdownx.details
-
+  - toc:
+      permalink: true
+      toc_depth: 4
+ 
 nav:
   - Inicio: index.md
   - Tema 0. Sistemas de numeración: ut0-sistemas-numeracion.md
-  - Tema 1. Introducción a los sistemas microinformáticos: ut1-introduccion-microinformatica.md
+  - Tema 1. Introducción a los sistemas microinformáticos: tema1_introduccion_arquitectura_computadores.md
  
-
 extra_css:
-  - assets/extra.css
-
+  - stylesheets/extra.css
+ 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+ 
