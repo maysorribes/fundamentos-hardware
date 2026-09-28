@@ -1,0 +1,2025 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut2-1-cajas-fuente-placa-base/">
+      
+      
+        <link rel="next" href="../ut2-3-almacenamiento-expansion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.2 Procesadores y memoria - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut22-procesadores-y-memoria" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.2 Procesadores y memoria
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut0-sistemas-numeracion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 0. Sistemas de numeración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-introduccion-microinformatica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Introducción a los sistemas microinformáticos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-1-cajas-fuente-placa-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Cajas, fuente de alimentación y placa base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Procesadores y memoria
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Procesadores y memoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-de-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura de procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura de procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proceso-de-fabricacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Proceso de fabricación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-juego-de-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Juego de instrucciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-partes-del-microprocesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Partes del microprocesador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-caracteristicas-de-la-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Características de la CPU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Características de la CPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-numero-de-nucleos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Número de núcleos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-control-de-voltaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Control de voltaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-hilos-de-procesamiento-o-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 Hilos de procesamiento o threads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-tecnologias-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 Tecnologías multithreading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245-memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.5 Memoria caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#246-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.6 Buses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#247-igpu-procesador-grafico-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.7 iGPU: procesador gráfico integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Socket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-consumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Consumo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Consumo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-control-de-temperatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 Control de temperatura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-resumen-de-tecnologias-asociadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 Resumen de tecnologías asociadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-overclocking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Overclocking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-tipos-de-microprocesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 Tipos de microprocesadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-procesadores-recientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 Procesadores recientes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Memoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Memoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Memoria caché
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Memoria caché">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-niveles-de-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 Niveles de caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-memoria-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Memoria RAM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Memoria RAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-tipos-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Tipos de memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tipos-de-memorias-en-el-mercado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tipos de memorias en el mercado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Tipos de memorias en el mercado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-hbm2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 HBM2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-optane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Optane
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-parametros-fundamentales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Parámetros fundamentales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Parámetros fundamentales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-calculos-con-la-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Cálculos con la RAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-componentes-de-un-modulo-de-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Componentes de un módulo de RAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-funcionamiento-en-dual-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Funcionamiento en Dual Channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-3-almacenamiento-expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Almacenamiento y expansión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut3-montaje-diagnostico.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arquitectura-de-procesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Arquitectura de procesadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arquitectura de procesadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-proceso-de-fabricacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Proceso de fabricación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-juego-de-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Juego de instrucciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-partes-del-microprocesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Partes del microprocesador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-caracteristicas-de-la-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Características de la CPU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Características de la CPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-numero-de-nucleos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Número de núcleos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-control-de-voltaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Control de voltaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-hilos-de-procesamiento-o-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 Hilos de procesamiento o threads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-tecnologias-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 Tecnologías multithreading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245-memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.5 Memoria caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#246-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.6 Buses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#247-igpu-procesador-grafico-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.7 iGPU: procesador gráfico integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Socket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-consumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Consumo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Consumo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-control-de-temperatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 Control de temperatura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-resumen-de-tecnologias-asociadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 Resumen de tecnologías asociadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-overclocking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Overclocking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-tipos-de-microprocesadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 Tipos de microprocesadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210-procesadores-recientes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.10 Procesadores recientes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Memoria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Memoria">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Memoria caché
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Memoria caché">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-niveles-de-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 Niveles de caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-memoria-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Memoria RAM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Memoria RAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-tipos-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Tipos de memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tipos-de-memorias-en-el-mercado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tipos de memorias en el mercado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Tipos de memorias en el mercado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-hbm2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 HBM2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-optane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Optane
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-parametros-fundamentales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Parámetros fundamentales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Parámetros fundamentales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-calculos-con-la-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Cálculos con la RAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-componentes-de-un-modulo-de-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Componentes de un módulo de RAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-funcionamiento-en-dual-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Funcionamiento en Dual Channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>Fundamentos de Hardware</strong></p>
+<h1 id="ut22-procesadores-y-memoria">UT2.2. Procesadores y memoria<a class="headerlink" href="#ut22-procesadores-y-memoria" title="Permanent link">&para;</a></h1>
+<h2 id="programacion-de-aula">Programación de Aula<a class="headerlink" href="#programacion-de-aula" title="Permanent link">&para;</a></h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje<a class="headerlink" href="#resultados-de-aprendizaje" title="Permanent link">&para;</a></h3>
+<p>Esta unidad forma parte de la UT2 "Elementos internos de un sistema informático" y trabaja el <strong>Resultado de Aprendizaje 1 (RA1)</strong> del módulo, según el <strong>Real Decreto 1629/2009</strong> (Anexo I, módulo <em>Fundamentos de Hardware</em>):</p>
+<ol>
+<li><strong>RA1.</strong> Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.</li>
+</ol>
+<p>Criterios de evaluación que trabaja esta unidad (junto con UT2.1 y UT2.3):</p>
+<ul>
+<li><strong>CE11</strong> (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.</li>
+<li><strong>CE13</strong> (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.</li>
+<li><strong>CE14</strong> (RA1.d): Se han establecido los parámetros de configuración (hardware y software) de un equipo microinformático con las utilidades específicas.</li>
+<li><strong>CE18</strong> (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.</li>
+</ul>
+<h3 id="planificacion-temporal-2-sesiones-4-horas">Planificación Temporal (2 sesiones / 4 horas)<a class="headerlink" href="#planificacion-temporal-2-sesiones-4-horas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Arquitectura de procesadores: fabricación, instrucciones, partes, núcleos e hilos, caché, consumo y overclocking</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Memoria: caché y RAM, tipos, parámetros, cálculos y dual channel</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Fuentes y licencia</p>
+<p>Este tema adapta el documento <em>UT2.2 Procesadores y memoria</em> de <strong>Daniel López Escuder</strong> (Fundamentos de Hardware – ASIX), publicado bajo licencia <strong>Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)</strong>. Por respeto a dicha licencia, este material se comparte con las mismas condiciones. Las imágenes proceden del documento original. Bibliografía del original: Profesional Review, HardZone, apuntes de Fundamentos de Hardware de Francisco de Asís González Cavero, <em>Montaje y mantenimiento de equipos</em> (Paraninfo, 3ª ed.) y apuntes de la Universitat Jaume I.</p>
+</div>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>El <strong>microprocesador</strong> es el auténtico cerebro de todos los elementos del PC. La función principal de la CPU es ejecutar los programas almacenados en la memoria principal del PC, leyendo las instrucciones, decodificándolas y realizando las acciones asociadas a cada una de ellas.</p>
+<p><img src="../assets/img/tema2/u22-cpu-intro.jpg" alt="El microprocesador: un chip con miles o millones de transistores" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>El microprocesador: un chip con miles o millones de transistores</em></p>
+
+<p>El microprocesador es un chip, un componente electrónico cuyo interior está compuesto por miles o millones de <strong>transistores</strong>, cuya combinación permite realizar los trabajos que se le encomienden. Suelen tener forma de rectángulo y van sobre un elemento llamado <strong>zócalo</strong> (<em>socket</em>, en inglés), específico de cada modelo, que permite conectarlos a la placa mediante pines. Además, es necesario situarlo junto con un sistema de refrigeración que ayude a disipar el calor; para una mejor transmisión entre el procesador y el disipador se inserta <strong>pasta térmica</strong>.</p>
+<p>Hemos de tener en cuenta que la información manejada es, a fin de cuentas, electricidad que viaja a través de los circuitos y que es retenida en pequeñas zonas de memoria para su posterior procesamiento en la memoria principal.</p>
+<h2 id="2-arquitectura-de-procesadores">2. Arquitectura de procesadores<a class="headerlink" href="#2-arquitectura-de-procesadores" title="Permanent link">&para;</a></h2>
+<p>A medida que avanzan las tecnologías, la CPU que estudiamos en la arquitectura de Von Neumann ha ido evolucionando hasta el esquema siguiente. Hoy en día, los procesadores tienen varios <strong>núcleos</strong>, los cuales pueden acceder a la memoria caché integrada dentro del microprocesador.</p>
+<p><img src="../assets/img/tema2/u22-arquitectura-nucleos.jpg" alt="Esquema de un procesador con dos núcleos, cachés L1 y L2 y controlador de memoria integrado" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema de un procesador con dos núcleos, cachés L1 y L2 y controlador de memoria integrado</em></p>
+<p><img src="../assets/img/tema2/u22-zen3.jpg" alt="Ejemplo: distribución interna de un procesador Zen 3 (cuatro núcleos, caché L2 y L3)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ejemplo: distribución interna de un procesador Zen 3 (cuatro núcleos, caché L2 y L3)</em></p>
+
+<h3 id="21-proceso-de-fabricacion">2.1 Proceso de fabricación<a class="headerlink" href="#21-proceso-de-fabricacion" title="Permanent link">&para;</a></h3>
+<p>El proceso de fabricación es básicamente el <strong>tamaño de los transistores</strong> que forman el procesador. Desde las válvulas de vacío de las primeras computadoras hasta los transistores <strong>FinFET</strong> actuales, fabricados por empresas como TSMC y Global Foundries, de solo unos nanómetros, la evolución ha sido enorme.</p>
+<p><img src="../assets/img/tema2/u22-finfet.jpg" alt="Sección transversal de un transistor FinFET (micrografía electrónica)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Sección transversal de un transistor FinFET (micrografía electrónica)</em></p>
+
+<p>Un procesador está formado por transistores, las unidades más pequeñas que encontramos en su interior. Un transistor es un elemento que permite o no pasar corriente: 0 (no corriente), 1 (corriente). Actualmente miden 14 nm o 7 nm o menos (1 nm = 0,000000001 m). Con los transistores se crean <strong>puertas lógicas</strong>, y con las puertas lógicas se crean los <strong>circuitos integrados</strong> capaces de realizar distintas funciones.</p>
+<h3 id="22-juego-de-instrucciones">2.2 Juego de instrucciones<a class="headerlink" href="#22-juego-de-instrucciones" title="Permanent link">&para;</a></h3>
+<p>Una parte importante de diseñar un procesador es elegir cuál será su <strong>juego de instrucciones</strong>, que junto con los registros utilizados forma su arquitectura. Esta decisión es importante porque determina el comportamiento funcional del sistema por dos motivos:</p>
+<ul>
+<li>El juego de instrucciones decide el diseño físico del conjunto.</li>
+<li>Cualquier operación a ejecutar debe ser escrita en términos de un lenguaje de estas instrucciones.</li>
+</ul>
+<p>Existen varias filosofías de arquitectura de procesadores:</p>
+<ul>
+<li><strong>CISC</strong>: ofrece un conjunto de instrucciones completas y lentas de ejecutar, que agrupan varias operaciones de bajo nivel en la misma instrucción. Esto da lugar a programas pequeños y sencillos de desarrollar que realizan pocos accesos a memoria. En la actualidad, CISC tiene a <strong>x86</strong> como su mayor exponente, con AMD y sobre todo Intel a la cabeza. Hay muchos ejemplos históricos, como los PDP, Motorola 68000, Intel 4004 o Intel 8086.</li>
+<li><strong>RISC</strong>: ofrece un conjunto de instrucciones muy simples que se ejecutan más rápidamente. El catálogo es de pocas instrucciones muy sencillas, lo que implica que hacen falta más de ellas: el programa final es más largo y accede más veces a los datos almacenados en memoria. En la actualidad, el mayor ejemplo de procesador RISC son los productos <strong>ARM</strong>, muy utilizados en dispositivos móviles.</li>
+<li><strong>Híbrido CISC/RISC</strong>: recoge lo mejor de ambas. Internamente, el procesador lleva a cabo solo instrucciones simples. Sobre estas instrucciones internas hay un circuito decodificador que convierte las instrucciones complejas utilizadas por los programas en varias instrucciones simples que el procesador puede entender.</li>
+</ul>
+<p>La gran batalla actual es la de sus dos grandes exponentes, <strong>ARM</strong> y <strong>x86</strong>, que han actualizado sus objetivos a lo que importa a los usuarios del siglo XXI. El punto fuerte de ARM es la <strong>eficiencia energética</strong>: un chip ARM consume mucha menos energía que un procesador x86, que tiene en su alto rendimiento su gran virtud a costa de consumir bastante más energía.</p>
+<h3 id="23-partes-del-microprocesador">2.3 Partes del microprocesador<a class="headerlink" href="#23-partes-del-microprocesador" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u22-partes-cpu.jpg" alt="Partes de un microprocesador: encapsulado, memoria caché, sistema de control y coprocesador matemático" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Partes de un microprocesador: encapsulado, memoria caché, sistema de control y coprocesador matemático</em></p>
+
+<ul>
+<li><strong>Encapsulado</strong>: parte física que rodea el procesador para impedir su deterioro y permitir el enlace de los conectores con el zócalo. Otorga protección de plástico o cerámica, con una serie de conexiones eléctricas que sirven para recibir energía, realizar la transmisión de datos y evacuar el calor generado.</li>
+<li><strong>Memoria caché</strong>: memoria ultrarrápida que el procesador emplea para tener almacenados los datos que previsiblemente se usarán con más frecuencia, sin acceder a la RAM. Hay diferentes niveles según su ubicación, velocidad y tamaño:</li>
+<li><strong>Caché L1</strong>: se encuentra en el núcleo del microprocesador. Es la más rápida.</li>
+<li><strong>Caché L2</strong>: más lenta que la L1, pero de mayor capacidad. Se encuentra en el procesador, pero no en su núcleo. Genera copia de L1.</li>
+<li><strong>Caché L3</strong>: agiliza el acceso a datos e instrucciones que no se localizaron en L1 o L2. Genera copia a la L2.</li>
+<li><strong>Caché L4</strong>: poco habitual; se utiliza como apoyo para mejorar el rendimiento de las GPU integradas.</li>
+<li><strong>Coprocesador matemático o FPU</strong> (<em>Floating Point Unit</em>): unidad especializada en el cálculo de operaciones en coma flotante.</li>
+<li><strong>Unidad de control</strong>: se encarga de buscar las instrucciones y los datos de la memoria principal, ejecutarlos y atender las interrupciones.</li>
+<li><strong>ALU</strong>: se encarga de realizar las operaciones aritméticas y lógicas sencillas.</li>
+<li><strong>Registros</strong>: pequeñas memorias de acceso rápido donde guardar datos de operaciones en curso. Pueden ser de uso general o específico.</li>
+<li><strong>iGP</strong> (<em>Integrated Graphics Processor</em>): procesadores que dependen de la memoria primaria del sistema. Los chips integrados actuales se incrustan directamente en la CPU, lo que determina cuánta RAM se utilizará para procesar gráficos.</li>
+</ul>
+<h3 id="24-caracteristicas-de-la-cpu">2.4 Características de la CPU<a class="headerlink" href="#24-caracteristicas-de-la-cpu" title="Permanent link">&para;</a></h3>
+<p>Las CPU tienen una serie de características que usamos para clasificarlas y compararlas.</p>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>La velocidad de un procesador no es el único indicativo para medir la rapidez, el número de instrucciones que procesa por unidad de tiempo, sino que intervienen otros parámetros como el número de núcleos, la arquitectura, la caché y, por supuesto, la frecuencia.</p>
+</div>
+<h4 id="241-numero-de-nucleos">2.4.1 Número de núcleos<a class="headerlink" href="#241-numero-de-nucleos" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u22-nucleos-die.jpg" alt="Fotografía de la pastilla de silicio de un procesador con varios núcleos y caché L3" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Fotografía de la pastilla de silicio de un procesador con varios núcleos y caché L3</em></p>
+
+<p>Los <strong>núcleos</strong> son las entidades de procesamiento de información: los elementos formados por los componentes básicos de la arquitectura x86, es decir, la unidad de control (UC), el decodificador de instrucciones (DI), la unidad aritmético-lógica (ALU), la unidad de coma flotante (FPU) y la pila de instrucciones (PI).</p>
+<p>Cada uno de estos núcleos está formado por los mismos componentes internos, y cada uno es capaz de llevar a cabo una operación en cada ciclo de instrucción. Este ciclo se mide en frecuencia o hercios (Hz): mientras más Hz, más instrucciones por segundo; y mientras más núcleos, más operaciones al mismo tiempo.</p>
+<p>En la actualidad, fabricantes como AMD implementan estos núcleos en bloques de silicio, <strong>chiplets</strong> o CCX, de forma modular. Con este sistema se consigue una mejor escalabilidad: se trata de colocar chiplets hasta conseguir el número deseado de núcleos (8 por cada elemento), y además es posible activar o desactivar cada núcleo para conseguir el recuento deseado. Intel, por su parte, aún mete todos los núcleos en un solo silicio.</p>
+<h4 id="242-control-de-voltaje">2.4.2 Control de voltaje<a class="headerlink" href="#242-control-de-voltaje" title="Permanent link">&para;</a></h4>
+<p><strong>Turbo Boost</strong> y <strong>Precision Boost Overdrive</strong> son los sistemas que utilizan Intel y AMD, respectivamente, para controlar el voltaje de sus procesadores de forma activa e inteligente. Esto les permite aumentar la frecuencia de trabajo como si de un <em>overclocking</em> automático se tratase, para que la CPU rinda más ante una gran carga de tareas. Ayuda además a mejorar la eficiencia térmica y el consumo, al poder variar la frecuencia cuando sea necesario.</p>
+<h4 id="243-hilos-de-procesamiento-o-threads">2.4.3 Hilos de procesamiento o <em>threads</em><a class="headerlink" href="#243-hilos-de-procesamiento-o-threads" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u22-hilos.png" alt="Ocho hilos repartidos entre cuatro núcleos" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ocho hilos repartidos entre cuatro núcleos</em></p>
+
+<p>En un procesador no solo tenemos núcleos: también existen los <strong>hilos de procesamiento</strong>. Normalmente los veremos representados en las especificaciones como <em>X Cores / X Threads</em> (X C / X T). Por ejemplo, un Intel Core i9-9900K tiene 8C/16T, mientras que un i5-9400 tiene 6C/6T.</p>
+<p>El término <em>thread</em> viene de «subproceso», y no forma parte físicamente del procesador: su funcionalidad es puramente lógica y se realiza mediante el conjunto de instrucciones del procesador. Se puede definir como el flujo de control de datos de un programa (un programa está formado por instrucciones o procesos), que permite administrar las tareas de un procesador dividiéndolas en trozos más pequeños llamados subprocesos. Así se pretende optimizar los tiempos de espera de cada instrucción en la cola de proceso.</p>
+<p>Hay tareas más difíciles que otras, por lo que un núcleo tardará más o menos tiempo en terminarlas. Con los hilos, esa tarea se divide en algo más simple para que cada trozo sea procesado por el primer núcleo libre que se encuentre. El resultado es mantener continuamente los núcleos ocupados, sin tiempos muertos.</p>
+<h4 id="244-tecnologias-multithreading">2.4.4 Tecnologías multithreading<a class="headerlink" href="#244-tecnologias-multithreading" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u22-hyperthreading.jpg" alt="Funcionamiento de la tecnología Hyper-Threading" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Funcionamiento de la tecnología Hyper-Threading</em></p>
+
+<p>¿Por qué vemos en unos casos el mismo número de núcleos que de hilos y en otros no? Se debe a las tecnologías <em>multithreading</em> que los fabricantes tienen implementadas en sus procesadores. Cuando una CPU cuenta con el doble de hilos que de núcleos, significa que tiene implementada esta tecnología: divide un núcleo en dos hilos o «núcleos lógicos» para dividir tareas. La división se realiza siempre en dos hilos por núcleo y no más.</p>
+<p>La tecnología de Intel se denomina <strong>Hyper-Threading</strong>, y la de AMD, <strong>SMT</strong> (<em>Simultaneous Multithreading</em>). A efectos prácticos ambas funcionan igual y, en nuestro equipo, los veremos como núcleos reales (por ejemplo, al renderizar una foto). Un procesador con idéntica velocidad es más rápido si tiene 8 núcleos físicos que si tuviera 8 lógicos.</p>
+<h4 id="245-memoria-cache">2.4.5 Memoria caché<a class="headerlink" href="#245-memoria-cache" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u22-cache-esquema.png" alt="Esquema de la memoria caché dentro del procesador y su conexión con la RAM" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema de la memoria caché dentro del procesador y su conexión con la RAM</em></p>
+
+<p>Es, de hecho, el segundo elemento más importante de un procesador. La memoria caché es mucho más rápida que la memoria RAM y está directamente integrada en el procesador. Mientras que una RAM DDR4 a 3600 MHz puede alcanzar los 50 000 MB/s en lectura, una caché L3 puede llegar a los 570 GB/s, una L2 a los 790 GB/s y una L1 a los 1600 GB/s (cifras registradas en los Ryzen 3000).</p>
+<p>Esta memoria es de tipo <strong>SRAM</strong> (<em>Static RAM</em>), rápida y cara, mientras que la RAM usa <strong>DRAM</strong> (<em>Dynamic RAM</em>), lenta y barata por necesitar continuamente una señal de refresco. En la caché se almacenan los datos que van a ser usados inmediatamente por el procesador, eliminando la espera de cogerlos de la RAM y optimizando el tiempo de proceso. En los procesadores de AMD e Intel existen tres niveles de caché:</p>
+<ul>
+<li><strong>L1</strong>: la más cercana a los núcleos, la más pequeña y la más rápida (latencias inferiores a 1 ns). Está dividida en dos: <strong>L1I</strong> (instrucciones) y <strong>L1D</strong> (datos). En los Intel Core de 9ª generación y los Ryzen 3000 es de 32 KB en cada caso, y cada núcleo tiene la suya propia.</li>
+<li><strong>L2</strong>: la siguiente, con latencias en torno a los 3 ns; también asignada de forma independiente a cada núcleo. Las CPU Intel la tienen de 256 KB, y los Ryzen, de 512 KB.</li>
+<li><strong>L3</strong>: la memoria más grande de las tres, asignada de forma compartida entre los núcleos, normalmente en grupos de 4.</li>
+</ul>
+<p>Se produce un <strong>acierto de caché</strong> (<em>hit</em>) cuando los datos solicitados se encuentran en ella, y un <strong>error o fallo de caché</strong> (<em>miss</em>) cuando no. Los datos se alojan en distintos niveles según su frecuencia de uso.</p>
+<h4 id="246-buses">2.4.6 Buses<a class="headerlink" href="#246-buses" title="Permanent link">&para;</a></h4>
+<p>El <strong>puente norte</strong> de un procesador o de una placa base tiene la función de conectar la memoria RAM con la CPU. En la actualidad, ambos fabricantes implementan este controlador de memoria (o PCH, <em>Platform Controller Hub</em>) dentro de la propia CPU, por ejemplo en un silicio independiente en las CPU basadas en chiplets.</p>
+<p>Es una forma de aumentar significativamente la velocidad de las transacciones de información y de simplificar los buses de las placas base, quedándose solo con el puente sur, que llamamos <strong>chipset</strong>. Este conjunto de chips se dedica a direccionar los datos de los discos duros, periféricos y algunas ranuras PCIe. Los procesadores de última generación de escritorio y portátiles son capaces de direccionar hasta 128 GB de RAM en <em>dual channel</em> a 3200 MHz nativos (4800 MHz con perfiles JEDEC y XMP activado).</p>
+<p>Los buses se dividen en:</p>
+<ul>
+<li><strong>Bus de datos</strong>: transporta los datos e instrucciones de los programas.</li>
+<li><strong>Bus de direcciones</strong>: por él circulan las direcciones de las celdas donde se guardan los datos.</li>
+<li><strong>BSB</strong> (<em>Back-Side Bus</em>): bus de conexión entre los núcleos del procesador y la memoria. El que utiliza AMD en Zen 2 se denomina <strong>Infinity Fabric</strong> (capaz de trabajar a 5100 MHz), y el de Intel, <strong>Intel Ring Bus</strong>.</li>
+<li><strong>Bus frontal o FSB</strong>: bus para comunicar el procesador con el chipset. En Intel es <strong>QuickPath Interconnect</strong> y en AMD, <strong>HyperTransport</strong>.</li>
+</ul>
+<h4 id="247-igpu-procesador-grafico-integrado">2.4.7 iGPU: procesador gráfico integrado<a class="headerlink" href="#247-igpu-procesador-grafico-integrado" title="Permanent link">&para;</a></h4>
+<p>La mayoría de procesadores actuales cuentan con núcleos destinados a trabajar exclusivamente con gráficos y texturas. Ya sea Intel, AMD o fabricantes como Qualcomm (con sus Adreno para smartphone) o Realtek (para Smart TV y NAS), todos tienen núcleos de este tipo. A este tipo de procesadores se les llama <strong>APU</strong> (<em>Accelerated Processor Unit</em>).</p>
+<p>La razón es simple: separar este duro trabajo del resto de tareas típicas de un programa, ya que son mucho más pesadas y lentas si no se usa un bus de mayor capacidad (por ejemplo, de 128 bits en las APU). Al igual que los núcleos normales, estos se pueden medir en cantidad y en la frecuencia a la que trabajan, pero además tienen otros componentes: las <strong>unidades de sombreado</strong>, las <strong>TMU</strong> (unidades de texturizado) y las <strong>ROP</strong> (unidades de renderizado). Todas ellas ayudan a identificar la potencia gráfica del conjunto.</p>
+<h3 id="25-socket">2.5 Socket<a class="headerlink" href="#25-socket" title="Permanent link">&para;</a></h3>
+<p>Fuera de los componentes de una CPU, tenemos dónde conectarla: el <strong>zócalo o socket</strong>, un gran conector ubicado en la placa base y provisto de cientos de pines que hacen contacto con la CPU para trasladarle la energía y los datos a procesar. Cada fabricante tiene sus propios sockets, y pueden ser de varios tipos:</p>
+<ul>
+<li><strong>LGA</strong> (<em>Land Grid Array</em>): los pines están instalados directamente en el socket de la placa y la CPU solo cuenta con contactos planos. Permite mayor densidad de conexiones y lo usa Intel (por ejemplo LGA 1151 en escritorio y LGA 2066 en estaciones de trabajo). También lo usa AMD en sus Threadripper (TR4).</li>
+<li><strong>PGA</strong> (<em>Pin Grid Array</em>): justo lo contrario, los pines están en la propia CPU y el socket tiene huecos. Lo usa AMD todavía en sus Ryzen de escritorio (AM4).</li>
+<li><strong>BGA</strong> (<em>Ball Grid Array</em>): un «socket» en el que se suelda directamente el procesador. Se usa en los portátiles de nueva generación, tanto de AMD como de Intel.</li>
+</ul>
+<h3 id="26-consumo">2.6 Consumo<a class="headerlink" href="#26-consumo" title="Permanent link">&para;</a></h3>
+<p>El <strong>consumo</strong> es la energía que gasta el procesador. Para hallarlo: <strong>tensión (V) × intensidad (A)</strong>.</p>
+<ul>
+<li><strong>Voltaje</strong>: tensión de alimentación.</li>
+<li><strong>Corriente</strong>: cantidad de electricidad que circula por un conductor.</li>
+<li><strong>Consumo</strong>: se expresa en vatios (W).</li>
+</ul>
+<p>Hay tecnologías que hacen que el procesador no consuma cuando no tiene nada que procesar (por ejemplo, <strong>Cool'n'Quiet</strong> de AMD).</p>
+<p><img src="../assets/img/tema2/u22-consumo.jpg" alt="Comparativa de consumo de procesadores en reposo y en carga" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Comparativa de consumo de procesadores en reposo y en carga</em></p>
+
+<div class="admonition example">
+<p class="admonition-title">Ejemplos</p>
+<ul>
+<li>i7 → 1,25 V; 90 A → consumo: 1,25 V × 90 A = <strong>112,5 W</strong>.</li>
+<li>Ryzen 5 → 1,15 V; 70 A → consumo: 1,15 V × 70 A = <strong>80,5 W</strong>.</li>
+<li>¿Voltaje de un procesador que consume 95 W y 80 A? Voltaje = consumo ÷ intensidad = 95 ÷ 80 = <strong>1,19 V</strong>.</li>
+</ul>
+</div>
+<h4 id="261-control-de-temperatura">2.6.1 Control de temperatura<a class="headerlink" href="#261-control-de-temperatura" title="Permanent link">&para;</a></h4>
+<p>El <em>thermal throttling</em> es un sistema de protección automático que tienen las CPU para disminuir el voltaje y la potencia suministrada cuando las temperaturas llegan al máximo admisible. De esta forma se baja la frecuencia de trabajo y también la temperatura, estabilizando el chip para que no se queme. Los propios fabricantes ofrecen datos de las temperaturas de sus procesadores:</p>
+<p><img src="../assets/img/tema2/u22-temperaturas.jpg" alt="Sensores térmicos digitales, IHS, núcleos y gradiente de temperaturas en un procesador" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Sensores térmicos digitales, IHS, núcleos y gradiente de temperaturas en un procesador</em></p>
+
+<ul>
+<li><strong>TjMax</strong>: temperatura máxima que un procesador es capaz de aguantar en su matriz, es decir, dentro de sus núcleos. Cuando la CPU se acerca a ella salta la protección que baja el voltaje y la potencia.</li>
+<li><strong>Tdie, Tjunction o temperatura de unión</strong>: se mide en tiempo real por sensores colocados en el interior de los núcleos. Nunca superará TjMax, ya que el sistema de protección actúa antes.</li>
+<li><strong>TCase</strong>: temperatura medida en el <strong>IHS</strong> (difusor térmico integrado) del procesador, es decir, en su encapsulado; siempre es distinta a la que se marca dentro de un núcleo.</li>
+<li><strong>CPU Package</strong>: promedio de la temperatura de unión de todos los núcleos de la CPU.</li>
+</ul>
+<h3 id="27-resumen-de-tecnologias-asociadas">2.7 Resumen de tecnologías asociadas<a class="headerlink" href="#27-resumen-de-tecnologias-asociadas" title="Permanent link">&para;</a></h3>
+<p><strong>Intel</strong></p>
+<ul>
+<li><strong>Hyper-Threading</strong>: divide el núcleo en dos, creando un microprocesador virtual.</li>
+<li><strong>QuickPath Interconnect</strong>: conexión punto a punto con el procesador (4,8 a 6,4 GT/s).</li>
+<li><strong>Turbo Boost</strong>: incrementa la velocidad de los núcleos cuando el usuario lo demanda.</li>
+<li><strong>SpeedStep</strong>: cambia la frecuencia del microprocesador ajustándose a la carga; disminuye el consumo y el calor.</li>
+<li><strong>Quick Sync</strong>: permite codificar y decodificar un vídeo por hardware.</li>
+<li><strong>HD Graphics</strong>: procesador gráfico dentro de la CPU.</li>
+</ul>
+<p><strong>AMD</strong></p>
+<ul>
+<li><strong>CMT</strong> (<em>Cluster-based Multithreading</em>): divide el procesador en dos, similar a Hyper-Threading.</li>
+<li><strong>HyperTransport</strong>: comunicaciones de alta velocidad punto a punto, similar a QuickPath.</li>
+<li><strong>Turbo Core</strong>: modifica la frecuencia en función de la demanda del procesador.</li>
+<li><strong>Cool'n'Quiet</strong>: permite reducir la frecuencia de operación del procesador.</li>
+</ul>
+<h3 id="28-overclocking">2.8 Overclocking<a class="headerlink" href="#28-overclocking" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u22-xtu-overclock.png" alt="Herramienta Intel Extreme Tuning Utility (XTU) para ajustar frecuencia y voltaje" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Herramienta Intel Extreme Tuning Utility (XTU) para ajustar frecuencia y voltaje</em></p>
+
+<p>El <strong>overclocking</strong> es una técnica en la que se aumenta el voltaje de la CPU y se modifica el multiplicador para aumentar así su frecuencia de operación. No se trata de las frecuencias de las especificaciones (como el modo turbo), sino de valores que superan los establecidos por el fabricante. Es un riesgo para la estabilidad e integridad del procesador.</p>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Cuando hagamos <em>overclocking</em>, no es aconsejable sobrepasar la velocidad marcada en más de un 15 %.</p>
+</div>
+<p>Para realizar un overclock hace falta una CPU con el <strong>multiplicador desbloqueado</strong> y una placa base con un chipset que permita este tipo de acción. Todos los AMD Ryzen son susceptibles de ser overclockeados, al igual que los procesadores Intel con denominación <strong>K</strong>. Los chipsets AMD B450, X470 y X570 admiten esta práctica, al igual que los de la serie X y Z de Intel.</p>
+<p>El overclocking también se puede realizar aumentando la frecuencia del reloj base o <strong>BCLK</strong>, el reloj principal de la placa base, que controla prácticamente todos los componentes (CPU, RAM, PCIe y chipset). Si se aumenta este reloj se aumenta la frecuencia de otros componentes que incluso tienen el multiplicador bloqueado, aunque conlleva aún más riesgos y es un método muy inestable.</p>
+<p>El <strong>undervolting</strong>, por su parte, es justo lo contrario: disminuir el voltaje para evitar que un procesador haga <em>thermal throttling</em>. Se usa en portátiles o tarjetas gráficas con sistemas de refrigeración ineficaces.</p>
+<table>
+<thead>
+<tr>
+<th>Consecuencias negativas</th>
+<th>Consecuencias positivas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Que no funcione a más velocidad de la marcada</td>
+<td>Tener un procesador más rápido «gratis»</td>
+</tr>
+<tr>
+<td>Que se estropee (rara vez pasa si se sube de manera escalonada)</td>
+<td></td>
+</tr>
+<tr>
+<td>Que funcione, pero se caliente más rápido</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Consejos:</p>
+<ul>
+<li>Utilizar un buen ventilador y disipador.</li>
+<li>Subir gradualmente la velocidad.</li>
+<li>En ocasiones hay que subir el voltaje al que trabaja el microprocesador.</li>
+<li>Estar atentos a cualquier fallo de ejecución.</li>
+<li>No pedir imposibles: subir un i7 a 420 MHz es demasiado.</li>
+<li>Contar con el resto de componentes de calidad.</li>
+</ul>
+<p>Últimamente los fabricantes están limitando esta práctica, por lo que tienen un multiplicador del bus fijo.</p>
+<h3 id="29-tipos-de-microprocesadores">2.9 Tipos de microprocesadores<a class="headerlink" href="#29-tipos-de-microprocesadores" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Superescalares</strong>: capaces de ejecutar más de una instrucción por ciclo de reloj.</li>
+<li><strong>Coprocesadores</strong>: procesador que ayuda al procesador principal a procesar tareas complejas, aumentando su rendimiento.</li>
+<li><strong>DSP</strong> (procesadores de señales digitales): ayudan a codificar/decodificar vídeos en tiempo real y a convertir señales digitales en analógicas y viceversa.</li>
+<li><strong>IOP</strong> (procesador de E/S): controla y administra las tareas de entrada/salida.</li>
+<li><strong>GPU</strong>: diseñado específicamente para acelerar el proceso de creación de imágenes; ejecuta las instrucciones en paralelo, razón por la cual es más rápido que la CPU para esta tarea.</li>
+<li><strong>SoC</strong> (<em>System on Chip</em>): procesadores soldados a la placa base, habituales en portátiles y consolas.</li>
+</ul>
+<h3 id="210-procesadores-recientes">2.10 Procesadores recientes<a class="headerlink" href="#210-procesadores-recientes" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u22-nomenclatura-intel.jpg" alt="Cómo leer el nombre de un procesador Intel: marca, modificador, indicador de generación y sufijo" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Cómo leer el nombre de un procesador Intel: marca, modificador, indicador de generación y sufijo</em></p>
+
+<p><strong>Intel</strong> se mantiene fiel a la microarquitectura de <strong>núcleo monolítico</strong>, lo que significa que todos los núcleos del procesador se integran en una única pastilla de silicio. Últimas arquitecturas (según el documento):</p>
+<ul>
+<li><strong>Rocket Lake-S</strong>: basada en el proceso de 14 nm++, en las gamas Core i5, i7 e i9 de 11ª generación (serie 11xxx). Hasta 8 núcleos y 16 hilos.</li>
+<li><strong>Cascade Lake-X</strong>: basada en 14 nm++, en los Core i7 e i9 serie 10000X y Xeon, con hasta 18 núcleos y 34 hilos.</li>
+</ul>
+<p><strong>AMD</strong> utiliza una microarquitectura <strong>MCM</strong> (módulo multichip), lo que significa que los núcleos pueden quedar repartidos en una, dos o hasta ocho pastillas de silicio, conocidas como <strong>chiplets</strong>, que se intercomunican mediante <strong>Infinity Fabric</strong>.</p>
+<ul>
+<li><strong>Zen 3</strong>: basada en el proceso de fabricación de 7 nm. Se utiliza en los Ryzen 5, 7 y 9 serie 5000 y en los Ryzen Pro Mobile, con hasta 16 núcleos y 32 hilos.</li>
+<li><strong>AMD EPYC</strong>: plataforma de AMD para profesionales basada en Zen 3.</li>
+</ul>
+<p>La <strong>arquitectura ARM</strong> es una arquitectura de procesadores que ha evolucionado desde los principios de diseño RISC y es muy utilizada en sistemas embebidos. ARM no fabrica ningún procesador: proporciona los diseños fundamentales que otros utilizan en los chipsets que a menudo denominan «propios».</p>
+<ul>
+<li><strong>Qualcomm (Snapdragon)</strong>: gama baja 2xx (205, 212), gama media 4xx, 6xx y 7xx, y gama alta 8xx.</li>
+<li><strong>Apple</strong>: el procesador ARM de Apple citado en el documento es el M1, con un rendimiento similar al de un i7 o un Ryzen 7.</li>
+</ul>
+<h2 id="3-memoria">3. Memoria<a class="headerlink" href="#3-memoria" title="Permanent link">&para;</a></h2>
+<p>La memoria proporciona almacenamiento temporal para tareas computacionales, lo que la hace fundamental para el funcionamiento de una computadora. Los datos se almacenan en la memoria para que se puedan enviar a la CPU para los cálculos, y para que una aplicación pueda recuperar datos cuando sea necesario.</p>
+<p><img src="../assets/img/tema2/u22-jerarquia-memoria.png" alt="Jerarquía de memoria: registros, caché L1, L2, L3, RAM y almacenamiento" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Jerarquía de memoria: registros, caché L1, L2, L3, RAM y almacenamiento</em></p>
+
+<p>En un sistema informático tenemos diferentes tipos de memoria:</p>
+<ul>
+<li><strong>Registros</strong>: las memorias más rápidas del ordenador; se encuentran en el procesador.</li>
+<li><strong>Memoria RAM</strong>: la memoria principal del ordenador. Es volátil y se mide en B/GB.</li>
+<li><strong>Caché</strong>: memoria que sirve de puente entre la memoria principal y el procesador, aumentando la velocidad del sistema. También es volátil.</li>
+<li><strong>RAM-CMOS</strong>: memoria de bajo consumo y volátil.</li>
+<li><strong>ROM</strong> (<em>Read Only Memory</em>): memoria no volátil pero más lenta. No es cierto que no se pueda escribir, pero está pensada para ser leída.</li>
+</ul>
+<h3 id="31-memoria-cache">3.1 Memoria caché<a class="headerlink" href="#31-memoria-cache" title="Permanent link">&para;</a></h3>
+<p>Consiste en una memoria auxiliar empleada para <strong>acelerar los accesos a la memoria principal</strong> y así intentar compensar la diferencia de velocidad entre ella y el procesador.</p>
+<p><img src="../assets/img/tema2/u22-cpu-cache-ram.jpg" alt="La memoria caché entre la CPU y la memoria RAM" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>La memoria caché entre la CPU y la memoria RAM</em></p>
+
+<p>Por limitaciones físicas, la mayoría de los datos que debe procesar la CPU no se encuentran dentro de ella, sino en otro conjunto de chips, la memoria RAM. Esto conlleva un cierto retardo en la comunicación entre ambos, y la memoria caché es la solución más utilizada para paliar este problema.</p>
+<p>A un nivel básico, la caché es muy rápida y contiene un pequeño conjunto de instrucciones que el equipo usa con asiduidad para realizar sus tareas cotidianas. El equipo carga esas instrucciones en la caché mediante algoritmos complejos para acceder a ellas de manera inmediata, de modo que ese pequeño retraso entre la CPU y la RAM desaparece o se camufla.</p>
+<p>Cuando el procesador intenta leer una palabra de memoria, comprueba si está en la caché. Si está (<strong>acierto</strong>), se entrega al procesador. En caso contrario (<strong>fallo</strong>), el bloque de memoria principal que contiene la palabra buscada se transfiere a la caché y, más tarde, la palabra se entrega al procesador.</p>
+<h4 id="311-niveles-de-cache">3.1.1 Niveles de caché<a class="headerlink" href="#311-niveles-de-cache" title="Permanent link">&para;</a></h4>
+<p>Los procesadores actuales cuentan con varios niveles de caché bastante diferenciados: normalmente L1, L2 y L3, y en algunos casos puntuales L4. Su configuración y características se han ido adecuando a las necesidades modernas.</p>
+<p><img src="../assets/img/tema2/u22-niveles-cache.jpg" alt="Niveles de caché: de la CPU (más rápida) a la memoria principal (más lenta)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Niveles de caché: de la CPU (más rápida) a la memoria principal (más lenta)</em></p>
+
+<ul>
+<li><strong>Caché L1</strong>: integrada en cada núcleo de forma independiente; es la más rápida, pero de menor capacidad. Normalmente se divide en dos bloques: uno para almacenar datos a tratar y otro para instrucciones.</li>
+<li><strong>Caché L2</strong>: más lenta pero de mayor capacidad que la L1. Almacena datos de los niveles anteriores. En algunas arquitecturas se comunica con varios núcleos, por lo que es compartida y da coherencia a los núcleos. Algunas CPU pueden tener más niveles: por ejemplo, agrupar los núcleos en clústeres con una L2 en común y luego una L3 general; no es algo fijo.</li>
+<li><strong>Caché L3 o LLC</strong> (<em>Last Level Cache</em>): mucho más lenta que las anteriores, pero de mayor capacidad. Es un espacio unificado y accesible para todos los núcleos de manera indistinta; almacena tanto datos como instrucciones. Es la caché de mayor capacidad y, al mismo tiempo, la más lenta. Existen procesadores con caché L4, pero es poco habitual.</li>
+</ul>
+<h4 id="312-funcionamiento">3.1.2 Funcionamiento<a class="headerlink" href="#312-funcionamiento" title="Permanent link">&para;</a></h4>
+<p>La caché no funciona igual que la RAM: no podemos hacer que la CPU se dirija a una dirección concreta dentro de la caché, porque lo que hace es <strong>copiar los datos de la RAM cercanos a la dirección que la CPU está ejecutando en ese momento</strong>.</p>
+<p>Secuencia de uso: la utilidad de la caché es almacenar el segmento de RAM más cercano a donde está «mirando» el procesador. De manera preventiva copia un bloque de datos entero en el nivel de caché más alto y, mediante mecanismos relativamente complejos, mantiene la información que aún pueda ser útil.</p>
+<p>La búsqueda no empieza en la RAM, sino en la caché más pequeña y cercana al procesador: se busca primero en la L1, luego en la L2 y así progresivamente hasta encontrar el dato. Si se encuentra en la caché, habrá tardado menos ciclos de reloj. Por ello, un procesador con una caché recortada siempre tendrá peor rendimiento. Este era precisamente el problema que se encontró en los años 80 y el motivo por el que se creó la caché: si cada vez que el procesador ejecuta una instrucción tuviera que esperar un nanosegundo de tiempo de acceso, la suma sería una enorme pérdida de rendimiento.</p>
+<h3 id="32-memoria-ram">3.2 Memoria RAM<a class="headerlink" href="#32-memoria-ram" title="Permanent link">&para;</a></h3>
+<p>La <strong>RAM</strong> (<em>Random Access Memory</em>, memoria de acceso aleatorio) sirve para dotar al sistema de un espacio virtual necesario para manejar información y resolver problemas en cada momento. Es la memoria principal de un dispositivo, y en ella se almacenan de forma temporal los datos de los programas que estás utilizando en este momento. Se puede encontrar en cualquier dispositivo, desde ordenadores de sobremesa hasta teléfonos móviles.</p>
+<p><img src="../assets/img/tema2/u22-ram-foto.jpg" alt="Módulo de memoria RAM" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Módulo de memoria RAM</em></p>
+
+<p>Hay que destacar que no es un sistema de almacenamiento como tal, ya que es <strong>volátil</strong>, pero guarda temporalmente información clave a la que el procesador debe acceder en un momento determinado. Lo que se intenta es reducir el impacto de rendimiento del procesador hacia distintos componentes, guardando información de alto valor en un sistema de alto ancho de banda y baja latencia, conectado de forma lógica al controlador de memoria integrado (IMC) de la CPU, con lo que el traspaso de información es constante y se carga y descarga cualquier dato en nanosegundos.</p>
+<h4 id="321-tipos-de-memoria">3.2.1 Tipos de memoria<a class="headerlink" href="#321-tipos-de-memoria" title="Permanent link">&para;</a></h4>
+<p><strong>RAM</strong> (<em>Random Access Memory</em>): memorias formadas por semiconductores. Se distinguen varios tipos:</p>
+<p><strong>DRAM (Dynamic RAM)</strong>: memoria de lectura/escritura formada por <strong>condensadores</strong> (uno por bit) que se descargan cada cierto tiempo, por lo que es necesario leer el bit antes de que se pierda y regrabarlo o refrescarlo. Este ciclo se llama <strong>ciclo de refresco</strong>.</p>
+<p><img src="../assets/img/tema2/u22-dram-matriz.png" alt="Matriz de celdas de una memoria DRAM: filas (RAS) y columnas (CAS)" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Matriz de celdas de una memoria DRAM: filas (RAS) y columnas (CAS)</em></p>
+
+<ul>
+<li>No se puede acceder a la información mientras se está refrescando.</li>
+<li>Es necesaria una operación de refresco para no perder la información.</li>
+<li>Tiene dos estados: estable e inestable.</li>
+<li>Almacena la información con un condensador y un transistor MOS (que forman la celda de memoria).</li>
+<li>Está formada por una rejilla bidimensional (matriz) de bits: cada columna se llama <strong>CAS</strong> y cada fila, <strong>RAS</strong>. La intersección de CAS y RAS son las celdas de memoria.</li>
+<li>Funcionamiento: se manda la carga al selector CAS y así se activa el transistor de cada bit de la columna. Para escribir, las filas tendrán el nuevo estado en función de la carga. En la lectura se tiene en cuenta el valor de la carga del condensador: menos del 50 % → 0; más del 50 % → 1.</li>
+</ul>
+<p><strong>SRAM (Static RAM)</strong>: también de lectura y escritura, pero <strong>no necesita ser refrescada</strong>, ya que se basa en semiconductores biestables que se autoalimentan y mantienen su estado mientras no se interrumpa la alimentación. Es un tipo de memoria más fiable.</p>
+<p><img src="../assets/img/tema2/u22-sram-celda.png" alt="Celda de memoria SRAM de seis transistores (biestable)" style="max-width:280px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Celda de memoria SRAM de seis transistores (biestable)</em></p>
+
+<ul>
+<li>Tiempo de acceso entre 10 y 30 ns.</li>
+<li>Está formada por un circuito <em>flip-flop</em>: fluye la corriente de un lado a otro en función de cuál esté activado.</li>
+<li>Requiere un gran número de transistores, lo que la hace más voluminosa y disminuye la capacidad por chip.</li>
+<li>Ventajas: sin refresco y más rápida. Desventaja: más cara.</li>
+</ul>
+<h3 id="33-tipos-de-memorias-en-el-mercado">3.3 Tipos de memorias en el mercado<a class="headerlink" href="#33-tipos-de-memorias-en-el-mercado" title="Permanent link">&para;</a></h3>
+<p>Las generaciones de memoria se distinguen por su velocidad, sus contactos y su voltaje. La DDR se utiliza para velocidades FSB de 266, 333 o 400 MHz y la DDR2 de 533 en adelante; según la velocidad FSB del procesador elegiremos una u otra, ya que los zócalos donde se insertan son distintos.</p>
+<p><img src="../assets/img/tema2/u22-modulos-antiguos.jpg" alt="Módulos de memoria de distintas épocas" style="max-width:200px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Módulos de memoria de distintas épocas</em></p>
+<p><img src="../assets/img/tema2/u22-tipos-modulos.jpg" alt="Tipos de módulos: SIMM 30 y 72 contactos, DIMM SDRAM, DDR, DDR2, DDR3, RIMM y SODIMM" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Tipos de módulos: SIMM 30 y 72 contactos, DIMM SDRAM, DDR, DDR2, DDR3, RIMM y SODIMM</em></p>
+
+<table>
+<thead>
+<tr>
+<th>Generación</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DIMM SDRAM</td>
+<td>Dos muescas, 168 contactos, 3,3 V</td>
+</tr>
+<tr>
+<td>DDR</td>
+<td>2 palabras por ciclo; 266/333/400 MHz (PC2100/2700/3200); 184 contactos</td>
+</tr>
+<tr>
+<td>DDR2</td>
+<td>4 palabras por ciclo; 400/533/667/800 MHz (PC2-3200/6400); 1,8 V; 240 contactos</td>
+</tr>
+<tr>
+<td>DDR3</td>
+<td>8 palabras por ciclo; 800/1066/1333/1600 MHz (PC3-6400/8500/10600/12800); 1,5 V; 240 contactos</td>
+</tr>
+<tr>
+<td>DDR4</td>
+<td>Intercala lecturas; 1,2 V; 1600-3200 MHz; 288 contactos</td>
+</tr>
+<tr>
+<td>DDR5</td>
+<td>1,1 V; 288 contactos (con muesca distinta a DDR4)</td>
+</tr>
+</tbody>
+</table>
+<p><img src="../assets/img/tema2/u22-ddr5-ddr4.jpg" alt="Comparación de un módulo DDR5 y un módulo DDR4" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Comparación de un módulo DDR5 y un módulo DDR4</em></p>
+
+<h4 id="331-hbm2">3.3.1 HBM2<a class="headerlink" href="#331-hbm2" title="Permanent link">&para;</a></h4>
+<p>Es el tipo de memoria adoptado por AMD e Hynix, originalmente diseñada para tarjetas gráficas y dispositivos de red. AMD la usa como VRAM en sus tarjetas gráficas. <strong>HBM</strong> logra un mayor ancho de banda consumiendo sustancialmente menos que DDR4 y GDDR5. Esto se logra <strong>apilando</strong> hasta 8 <em>dies</em> de DRAM.</p>
+<p><img src="../assets/img/tema2/u22-hbm.jpg" alt="Memoria HBM apilada sobre un interposer de silicio" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Memoria HBM apilada sobre un interposer de silicio</em></p>
+
+<ul>
+<li>HBM2 es la segunda generación; HBM2E, su evolución.</li>
+<li>Con una frecuencia de 1,2 GHz y un voltaje reducido de 1,2 V.</li>
+<li>Con 8 canales y un bus de 1024 bits, logra velocidades de 3,2 gigatransferencias por segundo.</li>
+</ul>
+<h4 id="332-optane">3.3.2 Optane<a class="headerlink" href="#332-optane" title="Permanent link">&para;</a></h4>
+<p><strong>Intel Optane</strong> es un tipo de memoria intermedia para PC que, a efectos prácticos, actúa como una <strong>caché entre la CPU y el disco duro</strong>, acelerando los accesos al disco. Está pensada principalmente para acelerar los discos duros magnéticos rotatorios: combinando un HDD con una memoria Optane se tiene un rendimiento similar al de un SSD. Actualmente se ha quedado obsoleta y ha dejado de desarrollarse debido a los SSD.</p>
+<p><img src="../assets/img/tema2/u22-optane.jpg" alt="Módulo Intel Optane" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Módulo Intel Optane</em></p>
+<p><img src="../assets/img/tema2/u22-optane-usos.jpg" alt="Casos de uso de Intel Optane: almacenamiento/caché rápidos y ampliación de memoria" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Casos de uso de Intel Optane: almacenamiento/caché rápidos y ampliación de memoria</em></p>
+
+<h3 id="34-parametros-fundamentales">3.4 Parámetros fundamentales<a class="headerlink" href="#34-parametros-fundamentales" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Velocidad de acceso</strong>: expresada en nanosegundos; tiempo que tarda el sistema en acceder a la memoria.</li>
+<li><strong>Velocidad de reloj (frecuencia efectiva)</strong>: frecuencia de trabajo del reloj interno de la memoria.</li>
+<li><strong>Latencia</strong>: tiempo que tarda la RAM en atender una petición de la CPU. Al ser una matriz, se siguen estos pasos: selección de la fila (RAS, <em>Row Access Strobe</em>), selección de la columna (CAS), carga de la siguiente fila y envío de datos para escribir o leer en RAM.</li>
+<li>El fabricante ofrece el dato de <strong>CAS o CL</strong> (<em>CAS Latency</em>): con CL 9 hay que esperar 9 ciclos de reloj para acceder a la columna.</li>
+<li><strong>Capacidad</strong>: cantidad de información que puede contener.</li>
+<li><strong>Tiempo de acceso</strong>: tiempo máximo que se tarda en leer o escribir el contenido de una posición de memoria.</li>
+<li><strong>Ancho de banda</strong>: cantidad de información que puede transferirse simultáneamente y con continuidad por los distintos canales (MB o GB). En las DDR actuales se calcula como 8 bytes × velocidad de reloj.</li>
+<li><strong>Voltaje</strong>: tensión necesaria para alimentar la memoria: DDR2 – 1,8 V; DDR3 – 1,5 V; DDR4 – 1,2 V; DDR5 – 1,1 V.</li>
+<li><strong>ECC</strong> (<em>Error Checking and Correction</em>): memorias capaces de detectar errores al realizar el cambio de bits. Suelen usarse en servidores.</li>
+</ul>
+<h4 id="341-calculos-con-la-ram">3.4.1 Cálculos con la RAM<a class="headerlink" href="#341-calculos-con-la-ram" title="Permanent link">&para;</a></h4>
+<p><strong>Fórmulas:</strong></p>
+<ul>
+<li>Tasa de transferencia = ancho del bus (8 bytes) × frecuencia efectiva (MHz)</li>
+<li>Frecuencia real (velocidad del reloj de E/S) = frecuencia efectiva (velocidad del bus) ÷ accesos por ciclo</li>
+<li>Frecuencia efectiva (MHz) = frecuencia real × accesos por ciclo</li>
+</ul>
+<p>Sustituyendo: tasa de transferencia = ancho del bus (8 bytes) × frecuencia real × accesos por ciclo.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de memoria</th>
+<th>Nombre estándar</th>
+<th>Nombre del módulo</th>
+<th>Accesos/ciclo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDR2</td>
+<td>PC2</td>
+<td>DDR2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>DDR3</td>
+<td>PC3</td>
+<td>DDR3</td>
+<td>8</td>
+</tr>
+<tr>
+<td>DDR4</td>
+<td>PC4</td>
+<td>DDR4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>DDR5</td>
+<td>PC5</td>
+<td>DDR5</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo 1: módulo DDR3-1600</p>
+<p>¿Nombre estándar, tasa de transferencia y velocidad de reloj real?</p>
+<ul>
+<li>Tipo de RAM: DDR3 → PC3; accesos por ciclo: 8; frecuencia efectiva: 1600 MHz; ancho de bus: 8 bytes.</li>
+<li>Tasa de transferencia = frecuencia efectiva × ancho de bus = 1600 MHz × 8 bytes = <strong>12 800 MB/s</strong> → nombre estándar <strong>PC3-12800</strong>.</li>
+<li>Velocidad de reloj del bus = frecuencia efectiva ÷ accesos por ciclo = 1600 ÷ 8 = <strong>200 MHz</strong>.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo 2: módulo PC3-19200</p>
+<p>¿Frecuencia de reloj real?</p>
+<ul>
+<li>Tipo de RAM: DDR3 → 8 accesos por ciclo; tasa de transferencia: 19 200 MB/s; ancho de bus: 8 bytes.</li>
+<li>Frecuencia efectiva = tasa de transferencia ÷ ancho de bus = 19 200 ÷ 8 = <strong>2400 MHz</strong>.</li>
+<li>Frecuencia real = frecuencia efectiva ÷ accesos por ciclo = 2400 ÷ 8 = <strong>300 MHz</strong>.</li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Actividad</p>
+<p>Calcula la tasa de transferencia y el nombre estándar de un módulo DDR4-3200, y la frecuencia efectiva y la frecuencia real de un módulo PC4-25600.</p>
+</div>
+<h3 id="35-componentes-de-un-modulo-de-ram">3.5 Componentes de un módulo de RAM<a class="headerlink" href="#35-componentes-de-un-modulo-de-ram" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u22-componentes-ram.jpg" alt="Componentes de un módulo de RAM: chip SPD, banco de memoria, placa de componentes y bus de conexión" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Componentes de un módulo de RAM: chip SPD, banco de memoria, placa de componentes y bus de conexión</em></p>
+
+<ul>
+<li><strong>Placa de componentes</strong>: la estructura que soporta los demás componentes y las pistas eléctricas que comunican cada una de las partes.</li>
+<li><strong>Bancos de memoria</strong>: los componentes físicos encargados de almacenar los registros. Están formados por chips de circuitos integrados compuestos en su interior por transistores y capacitores que forman celdas de almacenamiento.</li>
+<li><strong>Reloj</strong>: las memorias RAM síncronas cuentan con un reloj que sincroniza las operaciones de lectura y escritura. Las asíncronas no llevan este elemento.</li>
+<li><strong>Chip SPD</strong> (<em>Serial Presence Detect</em>): almacena los datos relativos al módulo: tamaño, tiempo de acceso, velocidad y tipo de memoria.</li>
+<li><strong>Bus de conexión</strong>: contactos eléctricos que permiten la comunicación entre el módulo y la placa base.</li>
+</ul>
+<h3 id="36-funcionamiento-en-dual-channel">3.6 Funcionamiento en Dual Channel<a class="headerlink" href="#36-funcionamiento-en-dual-channel" title="Permanent link">&para;</a></h3>
+<p>La tecnología de <strong>doble canal</strong> permite un incremento de rendimiento gracias a que es posible el acceso simultáneo a dos módulos distintos de memoria. Con <em>dual channel</em> activo se accede a bloques de <strong>128 bits</strong> en lugar de los 64 típicos. Para conseguirlo es necesario:</p>
+<ol>
+<li>Un controlador de memoria adicional (situado en el puente norte de la placa base o, hoy, integrado en la CPU).</li>
+<li>Módulos de memoria del mismo tipo, con la misma capacidad y velocidad.</li>
+<li>Instalarlos en los slots indicados por la placa base (normalmente los pares 1-3 y 2-4).</li>
+</ol>
+<p>Actualmente también se puede encontrar esta tecnología en triple canal o hasta cuádruple canal con las nuevas memorias DDR4.</p>
+<p><img src="../assets/img/tema2/u22-dual-channel.jpg" alt="Ranuras de memoria en dual channel: Canal 1 y Canal 2" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras de memoria en dual channel: Canal 1 y Canal 2</em></p>
+
+<h2 id="ejercicios-practicos">Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Permanent link">&para;</a></h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica qué es un transistor y cómo, a partir de transistores, se construyen puertas lógicas y circuitos integrados. ¿Qué significa que un procesador se fabrique en 7 nm?</p>
+<p><strong>Ejercicio 2</strong>. Compara CISC, RISC y el enfoque híbrido. ¿Por qué ARM destaca en eficiencia energética y x86 en rendimiento?</p>
+<p><strong>Ejercicio 3</strong>. Enumera las partes del microprocesador (encapsulado, caché, FPU, unidad de control, ALU, registros, iGP) y explica brevemente la función de cada una.</p>
+<p><strong>Ejercicio 4</strong>. Explica la diferencia entre núcleos físicos e hilos. ¿Qué significa que un procesador sea «8C/16T» y qué tecnologías lo permiten en Intel y en AMD?</p>
+<p><strong>Ejercicio 5</strong>. Un procesador funciona a 1,3 V y consume 104 W. ¿Qué intensidad circula por él? Y otro con 1,2 V y 75 A, ¿qué potencia consume?</p>
+<p><strong>Ejercicio 6</strong>. Explica qué es el <em>thermal throttling</em> y cuál es la diferencia entre TjMax, Tdie y TCase.</p>
+<p><strong>Ejercicio 7</strong>. Explica en qué consiste el <em>overclocking</em>, qué requisitos hacen falta, qué riesgos tiene y qué es el <em>undervolting</em>.</p>
+<p><strong>Ejercicio 8</strong>. Explica qué es un acierto y un fallo de caché, y por qué la búsqueda de un dato empieza siempre en la L1. Compara los tres niveles L1, L2 y L3.</p>
+<p><strong>Ejercicio 9</strong>. Compara la DRAM y la SRAM en cuanto a funcionamiento, velocidad, coste y uso típico.</p>
+<p><strong>Ejercicio 10</strong>. Calcula la tasa de transferencia y el nombre estándar de un módulo DDR4-3200, y la frecuencia efectiva y real de un módulo PC4-25600.</p>
+<p><strong>Ejercicio 11</strong>. ¿Qué información almacena el chip SPD de un módulo de RAM y para qué se utiliza?</p>
+<p><strong>Ejercicio 12</strong>. Explica qué es el <em>dual channel</em>, qué requisitos exige y en qué ranuras deben ponerse los módulos.</p>
+<p><strong>Ejercicio 13</strong>. ¿En qué se diferencia la memoria HBM de la DDR? ¿Para qué se diseñó y por qué era interesante Optane?</p>
+<p><strong>Ejercicio 14 (práctica en el aula)</strong>. Con una herramienta de información del sistema (por ejemplo, CPU-Z), identifica en un equipo del aula el modelo de procesador, número de núcleos e hilos, tamaño de las cachés L1/L2/L3, y tipo, capacidad, frecuencia y latencia de la RAM instalada.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

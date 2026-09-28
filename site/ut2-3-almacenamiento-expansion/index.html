@@ -1,0 +1,1722 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut2-2-procesadores-memoria/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.3 Almacenamiento y expansión - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut23-almacenamiento-y-tarjetas-de-expansion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.3 Almacenamiento y expansión
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut0-sistemas-numeracion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 0. Sistemas de numeración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-introduccion-microinformatica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Introducción a los sistemas microinformáticos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-1-cajas-fuente-placa-base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Cajas, fuente de alimentación y placa base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-2-procesadores-memoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Procesadores y memoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Almacenamiento y expansión
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Almacenamiento y expansión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Puertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Almacenamiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Almacenamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-almacenamiento-secundario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Almacenamiento secundario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-discos-hdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Discos HDD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Discos HDD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-sistemas-de-direccionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Sistemas de direccionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-discos-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Discos SSD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Discos SSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-interfaces-de-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Interfaces de discos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-conector-u2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 Conector U.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-tipos-de-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 Tipos de SSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.6 TRIM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#237-desfragmentacion-en-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.7 Desfragmentación en SSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tarjetas-de-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tarjetas de expansión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tarjetas de expansión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-diferencias-entre-agp-y-pci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Diferencias entre AGP y PCI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tarjetas-graficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tarjetas gráficas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Tarjetas gráficas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-memoria-compartida-frente-a-memoria-dedicada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Memoria compartida frente a memoria dedicada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-componentes-y-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Componentes y características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-diferencias-entre-cpu-y-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.5 Diferencias entre CPU y GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326-modelos-de-nvidia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.6 Modelos de NVIDIA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#327-modelos-de-amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.7 Modelos de AMD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tarjetas-de-sonido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tarjetas de sonido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tarjetas-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Tarjetas de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-tarjetas-raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Tarjetas RAID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut3-montaje-diagnostico.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-puertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Puertos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Almacenamiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Almacenamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-almacenamiento-secundario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Almacenamiento secundario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-discos-hdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Discos HDD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Discos HDD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-sistemas-de-direccionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Sistemas de direccionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-discos-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Discos SSD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Discos SSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 Diseño
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-interfaces-de-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 Interfaces de discos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-conector-u2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.4 Conector U.2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-tipos-de-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.5 Tipos de SSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.6 TRIM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#237-desfragmentacion-en-ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.7 Desfragmentación en SSD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tarjetas-de-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tarjetas de expansión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tarjetas de expansión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-diferencias-entre-agp-y-pci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Diferencias entre AGP y PCI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tarjetas-graficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tarjetas gráficas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Tarjetas gráficas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-memoria-compartida-frente-a-memoria-dedicada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Memoria compartida frente a memoria dedicada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-componentes-y-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Componentes y características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-diferencias-entre-cpu-y-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.5 Diferencias entre CPU y GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326-modelos-de-nvidia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.6 Modelos de NVIDIA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#327-modelos-de-amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.7 Modelos de AMD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tarjetas-de-sonido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tarjetas de sonido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tarjetas-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Tarjetas de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-tarjetas-raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Tarjetas RAID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>Fundamentos de Hardware</strong></p>
+<h1 id="ut23-almacenamiento-y-tarjetas-de-expansion">UT2.3. Almacenamiento y tarjetas de expansión<a class="headerlink" href="#ut23-almacenamiento-y-tarjetas-de-expansion" title="Permanent link">&para;</a></h1>
+<h2 id="programacion-de-aula">Programación de Aula<a class="headerlink" href="#programacion-de-aula" title="Permanent link">&para;</a></h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje<a class="headerlink" href="#resultados-de-aprendizaje" title="Permanent link">&para;</a></h3>
+<p>Esta unidad forma parte de la UT2 "Elementos internos de un sistema informático" y trabaja el <strong>Resultado de Aprendizaje 1 (RA1)</strong> del módulo, según el <strong>Real Decreto 1629/2009</strong> (Anexo I, módulo <em>Fundamentos de Hardware</em>):</p>
+<ol>
+<li><strong>RA1.</strong> Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.</li>
+</ol>
+<p>Criterios de evaluación que trabaja esta unidad (junto con UT2.1 y UT2.2):</p>
+<ul>
+<li><strong>CE11</strong> (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.</li>
+<li><strong>CE13</strong> (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.</li>
+<li><strong>CE14</strong> (RA1.d): Se han establecido los parámetros de configuración (hardware y software) de un equipo microinformático con las utilidades específicas.</li>
+<li><strong>CE18</strong> (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.</li>
+</ul>
+<h3 id="planificacion-temporal-2-sesiones-4-horas">Planificación Temporal (2 sesiones / 4 horas)<a class="headerlink" href="#planificacion-temporal-2-sesiones-4-horas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Puertos. Almacenamiento: discos duros (HDD) y discos de estado sólido (SSD)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tarjetas de expansión: PCIe, tarjetas gráficas, de sonido, de red y RAID</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Fuentes y licencia</p>
+<p>Este tema adapta el documento <em>UT2.3 Almacenamiento. Expansión</em> de <strong>Daniel López Escuder</strong> (Fundamentos de Hardware – ASIX), publicado bajo licencia <strong>Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)</strong>. Por respeto a dicha licencia, este material se comparte con las mismas condiciones. Las imágenes proceden del documento original. Bibliografía del original: Profesional Review, HardZone y Palentino.es.</p>
+</div>
+<h2 id="1-puertos">1. Puertos<a class="headerlink" href="#1-puertos" title="Permanent link">&para;</a></h2>
+<p>En informática, un <strong>puerto</strong> es una forma genérica de denominar una interfaz a través de la cual se pueden enviar o recibir los diferentes tipos de datos.</p>
+<p>Los conectores, normalmente denominados «conectores de entrada y salida», son interfaces para conectar dispositivos mediante cables. Generalmente tienen un extremo <strong>macho</strong>, con clavijas que sobresalen, que debe insertarse en una parte <strong>hembra</strong> (también denominada <em>socket</em>), que incluye agujeros para acomodar las clavijas. Existen también enchufes «hermafroditas» que pueden actuar como macho o hembra y se pueden insertar en cualquiera de los dos.</p>
+<p><img src="../assets/img/tema2/u23-puertos-conectores.jpg" alt="Distintos tipos de conectores: VGA, HDMI, eSATA, entre otros" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Distintos tipos de conectores: VGA, HDMI, eSATA, entre otros</em></p>
+<p><img src="../assets/img/tema2/u23-panel-trasero-etiquetado.jpg" alt="Panel trasero de una placa base con sus conectores etiquetados" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Panel trasero de una placa base con sus conectores etiquetados</em></p>
+<p><img src="../assets/img/tema2/u23-panel-trasero-usb.jpg" alt="Conectores del panel trasero: PS/2, D-SUB, audio digital óptico, USB, HDMI, DisplayPort, eSATA, Gb LAN..." style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conectores del panel trasero: PS/2, D-SUB, audio digital óptico, USB, HDMI, DisplayPort, eSATA, Gb LAN...</em></p>
+
+<h2 id="2-almacenamiento">2. Almacenamiento<a class="headerlink" href="#2-almacenamiento" title="Permanent link">&para;</a></h2>
+<p>Un dispositivo de almacenamiento tiene la función de <strong>retener datos informáticos durante un intervalo de tiempo</strong>. Estos han ido evolucionando a lo largo de la historia con el objetivo de crear dispositivos lo más pequeños posible (físicamente) y con más capacidad para almacenar y tratar datos.</p>
+<p>Podemos encontrarnos con tres tipos de almacenamiento:</p>
+<ul>
+<li><strong>Primario o principal (almacenamiento interno)</strong>: la memoria interna del ordenador, que suele estar incluida en la placa base o en módulos que se integran en ella. Lo forman la memoria RAM y ROM, ya vistas en el tema anterior.</li>
+<li><strong>Secundario (almacenamiento externo o masivo)</strong>: todos los dispositivos de almacenamiento masivo que se conectan al ordenador; pueden considerarse periféricos de almacenamiento masivo. Son bastante más lentos que los primarios, pero permiten almacenar mucha más información de forma permanente.</li>
+<li><strong>Terciario (almacenamiento distribuido)</strong>: almacenamiento en Internet (la nube).</li>
+</ul>
+<h3 id="21-almacenamiento-secundario">2.1 Almacenamiento secundario<a class="headerlink" href="#21-almacenamiento-secundario" title="Permanent link">&para;</a></h3>
+<p>El almacenamiento secundario es un medio de almacenamiento definitivo (no volátil como el de la memoria RAM). Aquí encontramos:</p>
+<ul>
+<li><strong>Magnéticos</strong>: discos duros, cintas...</li>
+<li><strong>Ópticos</strong>: DVD, CD-ROM...</li>
+<li><strong>Electrónicos / sólidos</strong>: memoria flash, SSD.</li>
+</ul>
+<p><img src="../assets/img/tema2/u23-dispositivos-almacenamiento.jpg" alt="Dispositivos de almacenamiento: disco duro, DVD, CD, pendrive, tarjeta SD, Memory Stick, disco duro portátil y disquete" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Dispositivos de almacenamiento: disco duro, DVD, CD, pendrive, tarjeta SD, Memory Stick, disco duro portátil y disquete</em></p>
+
+<h3 id="22-discos-hdd">2.2 Discos HDD<a class="headerlink" href="#22-discos-hdd" title="Permanent link">&para;</a></h3>
+<p>Los <strong>discos duros</strong> constituyen la principal unidad de almacenamiento del ordenador. Son dispositivos <strong>magnéticos</strong>. La información que almacenan no puede ser procesada directamente por el procesador, sino que debe transferirse antes a la memoria principal. Las unidades contienen uno o más discos apilados sobre un eje central y aislados del exterior.</p>
+<p><img src="../assets/img/tema2/u23-tipos-discos-interfaz.jpg" alt="Discos duros según su interfaz: IDE, SCSI, SATA y SAS" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Discos duros según su interfaz: IDE, SCSI, SATA y SAS</em></p>
+<p><img src="../assets/img/tema2/u23-partes-hdd.jpg" alt="Partes físicas de un disco duro" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Partes físicas de un disco duro</em></p>
+
+<p><strong>Partes físicas:</strong></p>
+<ul>
+<li><strong>Discos (platos)</strong>: la parte principal del disco duro. Se encuentran apilados unos sobre otros y protegidos por una carcasa que evita la entrada de aire y polvo. Son de aluminio y están recubiertos de plástico sobre el que se ha diseminado óxido de hierro. La superficie se divide en pistas concéntricas, numeradas desde la parte interior empezando en 0.</li>
+<li><strong>Cabezas</strong>: la parte capaz de leer y escribir usando tecnología magnética. Cada disco tiene dos caras y cada una tiene una cabeza de lectura/escritura sujeta por un brazo. Los brazos están entre los platillos. Se usan para expresar el número de caras: 4 cabezas = 4 caras = 2 platillos.</li>
+</ul>
+<p><strong>Partes lógicas:</strong> son las divisiones imaginarias que hacen los sistemas operativos en la superficie del disco.</p>
+<p><img src="../assets/img/tema2/u23-partes-logicas-hdd.jpg" alt="Partes lógicas de un disco: pista, sector, cilindro y clúster" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Partes lógicas de un disco: pista, sector, cilindro y clúster</em></p>
+
+<ul>
+<li><strong>Pistas</strong>: anillos concéntricos indivisibles a lo largo de los cuales se graban los pulsos magnéticos.</li>
+<li><strong>Sectores</strong>: subdivisiones de cada pista. Actualmente hay entre 15 y 65 sectores por pista.</li>
+<li><strong>Cilindros</strong>: el conjunto de pistas a las que el sistema operativo puede acceder simultáneamente en cada posición de las cabezas. Con dos platos, un cilindro son 4 pistas. Manejando cilindros se accede más rápido a los datos que con pistas.</li>
+<li><strong>Clúster</strong>: la longitud de pista tomada como unidad de proceso en cada operación de lectura/escritura, equivalente a un conjunto de 4 u 8 sectores contiguos.</li>
+</ul>
+<h4 id="221-caracteristicas">2.2.1 Características<a class="headerlink" href="#221-caracteristicas" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tiempo de acceso</strong>: tiempo medio necesario para que la cabeza acceda a los datos. Es la media de: el tiempo que tarda en cambiar de una cabeza a otra, el tiempo en localizar la pista saltando de una a otra y el tiempo en localizar el sector dentro de la pista.</li>
+<li><strong>Velocidad de rotación</strong>: velocidad a la que giran los platos del disco, medida en <strong>RPM</strong> (revoluciones por minuto). No se recomienda usar discos de menos de 5400 RPM en IDE/SATA.</li>
+<li><strong>Velocidad de transferencia</strong>: cantidad de datos que se pueden leer o escribir en una sola operación (MB/s). IDE: 133 MB/s; SCSI: 260 MB/s; SATA: 150, 300 o 600 MB/s.</li>
+<li><strong>Tamaño</strong>: diámetro de los platos, expresado en pulgadas.</li>
+<li><strong>Capacidad</strong>: cantidad de información que se puede guardar.</li>
+<li><strong>Interfaz</strong>: IDE, SCSI, SATA, SAS.</li>
+<li><strong>Buffer (caché)</strong>: memoria incluida en la controladora interna del disco. Los datos se almacenan o leen primero de aquí; como los datos suelen estar contiguos, la caché guarda los datos cercanos a los que se han accedido anteriormente.</li>
+</ul>
+<h4 id="222-sistemas-de-direccionamiento">2.2.2 Sistemas de direccionamiento<a class="headerlink" href="#222-sistemas-de-direccionamiento" title="Permanent link">&para;</a></h4>
+<p>El <strong>direccionamiento de bloque lógico</strong> (<em>Logical Block Addressing</em>, LBA) es un método muy común para especificar la localización de los bloques de datos en los sistemas de almacenamiento, principalmente el almacenamiento secundario. Los bloques lógicos en las computadoras modernas son normalmente de 512 o 1024 bytes cada uno.</p>
+<ul>
+<li><strong>CHS</strong> (<em>Cylinder-Head-Sector</em>): con estos tres valores se puede situar un dato en cualquier parte del disco.</li>
+<li><strong>LBA</strong> (<em>Logical Block Addressing</em>): consiste en dividir el disco entero en sectores y asignar a cada uno un único número. Es el que se usa actualmente.</li>
+</ul>
+<p><img src="../assets/img/tema2/u23-etiquetas-seagate.jpg" alt="Etiquetas de discos Seagate con sus datos de geometría (cilindros, cabezas, sectores)" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Etiquetas de discos Seagate con sus datos de geometría (cilindros, cabezas, sectores)</em></p>
+
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>El número total de sectores de un disco duro se calcula así: <strong>nº de sectores = nº de caras × nº de pistas por cara × nº de sectores por pista</strong>. Cada sector queda determinado si conocemos cabeza, cilindro y sector.</p>
+</div>
+<p><img src="../assets/img/tema2/u23-cables-ide-sata.jpg" alt="Cables y slots de conexión de los discos: IDE y SATA (datos y alimentación)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Cables y slots de conexión de los discos: IDE y SATA (datos y alimentación)</em></p>
+
+<h3 id="23-discos-ssd">2.3 Discos SSD<a class="headerlink" href="#23-discos-ssd" title="Permanent link">&para;</a></h3>
+<p>Este tipo de disco está basado en <strong>memoria flash</strong> para el almacenamiento de datos. Las principales ventajas frente a los discos duros tradicionales son:</p>
+<ul>
+<li>La resistencia del disco (no tiene mecánica).</li>
+<li>La rapidez de acceso a los datos.</li>
+<li>La casi ausencia de calor.</li>
+<li>La ausencia total de ruido.</li>
+</ul>
+<p>El tiempo medio de acceso de los discos duros es, por regla general, de entre 10 y 15 ms para el usuario medio. En los discos SSD este tiempo disminuye drásticamente hasta los 0,1 ms. Los SSD se conectan a la placa base mediante conexiones SATA o directamente a través de un conector PCI Express. Este último permite velocidades del orden de GB/s en lectura y escritura (unos 4 GB/s en teoría) y superar los límites físicos de la norma SATA.</p>
+<h4 id="231-diseno">2.3.1 Diseño<a class="headerlink" href="#231-diseno" title="Permanent link">&para;</a></h4>
+<p>La memoria SSD está basada en memoria de tipo <strong>NAND</strong>. Esta memoria basa su estructura en <strong>transistores de puerta flotante</strong> (<em>floating-gate</em>). La diferencia respecto a los transistores de la memoria DRAM es que estos últimos deben tener una carga eléctrica con una frecuencia de refresco constante para mantener los datos almacenados. La memoria NAND, en cambio, está diseñada para <strong>mantener su estado de carga aun cuando no recibe corriente eléctrica</strong>, por lo que es una memoria no volátil, al igual que su precursora, la EEPROM.</p>
+<p><img src="../assets/img/tema2/u23-celda-nand.jpg" alt="Celda de memoria NAND: puerta de control (TG), puerta flotante (FG), fuente y drenador" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Celda de memoria NAND: puerta de control (TG), puerta flotante (FG), fuente y drenador</em></p>
+<p><img src="../assets/img/tema2/u23-celda-puerta-flotante.jpg" alt="Estructura de una celda de puerta flotante" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Estructura de una celda de puerta flotante</em></p>
+
+<p>Los electrones se almacenan en la puerta flotante, de forma que se toma una lectura de 0 cuando está cargada y de 1 si está vacía (valores opuestos a lo habitual). La memoria NAND está organizada como una matriz: la matriz completa se entiende como un <strong>bloque</strong> y sus filas se denominan <strong>páginas</strong>. Lo normal es que las páginas tengan tamaños entre 2 KB y 16 KB, con unas 256 páginas por bloque, de forma que el tamaño de los bloques varía entre 256 KB y 4 MB.</p>
+<p>En resumen:</p>
+<ul>
+<li>SSD basados en <strong>memoria volátil (SDRAM)</strong>: menor tiempo de acceso (0,01 ms); incorporan batería interna y sistemas de respaldo.</li>
+<li>SSD basados en <strong>memoria flash no volátil</strong>: no tienen baterías; almacenan datos incluso tras una pérdida repentina de alimentación; son más lentos que los de SDRAM. Pueden encontrarse en IDE, SATA, mSATA, M.2, U.2, PCI-E, USB o Thunderbolt.</li>
+</ul>
+<h4 id="232-formato">2.3.2 Formato<a class="headerlink" href="#232-formato" title="Permanent link">&para;</a></h4>
+<ul>
+<li>El formato clásico de disco de 2,5″ con conexión <strong>SATA</strong>.</li>
+<li>El formato clásico de 2,5″ con conexión <strong>U.2</strong> (PCI Express).</li>
+<li>En forma de tarjeta <strong>mSATA</strong>, conectada en el bus PCI Express, para equipar algunos ordenadores ultraportátiles.</li>
+<li>En formato <strong>M.2</strong>, del tamaño de una tarjeta de memoria, conectado directamente en la placa base (SATA o PCI Express).</li>
+</ul>
+<p><img src="../assets/img/tema2/u23-ssd-formatos-u2.jpg" alt="Formatos de SSD: M.2, mSATA y U.2" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Formatos de SSD: M.2, mSATA y U.2</em></p>
+<p><img src="../assets/img/tema2/u23-ssd-kingston.jpg" alt="SSD de 2,5″ con interfaz SATA" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>SSD de 2,5″ con interfaz SATA</em></p>
+<p><img src="../assets/img/tema2/u23-cable-u2.jpg" alt="Cable U.2" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Cable U.2</em></p>
+
+<h4 id="233-interfaces-de-discos">2.3.3 Interfaces de discos<a class="headerlink" href="#233-interfaces-de-discos" title="Permanent link">&para;</a></h4>
+<p><strong>PCI-E NVMe (tarjeta)</strong>: la versión del PCIe indica la velocidad máxima de cada pista o carril. Dependiendo del número de pistas (PCIe con 1, 2, 4, 8 o 16) habrá ese número de pistas de comunicación entre el zócalo de la placa base y la tarjeta PCI. Por tanto, la velocidad será la de la versión multiplicada por el número de pistas.</p>
+<p><img src="../assets/img/tema2/u23-pcie-versiones.png" alt="Ancho de banda por carril y en x16 según la versión de PCI Express" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ancho de banda por carril y en x16 según la versión de PCI Express</em></p>
+
+<p><strong>SSD NVMe</strong> (<em>Non-Volatile Memory Express</em>): pueden considerarse un estado intermedio entre los chips NAND y los DRAM de las memorias RAM. Los SSD NVMe superan a los SSD SATA aproximadamente en 4,5 veces en lectura y 2,5 veces en escritura secuencial, llegando a unos 2500 MB/s y 1500 MB/s respectivamente (en torno a 3000 MB/s en modelos más rápidos).</p>
+<p><strong>M.2 con interfaz SATA</strong>: utilizan el conector SATA, por lo que tienen la barrera de los 600 MB/s.</p>
+<p><strong>M.2 con interfaz PCIe</strong>: de pequeño tamaño; su problema radica en la temperatura.</p>
+<p><img src="../assets/img/tema2/u23-ssd-tarjetas.jpg" alt="Unidad SSD creada con tarjetas SD" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Unidad SSD creada con tarjetas SD</em></p>
+<p><img src="../assets/img/tema2/u23-ssd-m2.jpg" alt="Unidad SSD con interfaz M.2" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Unidad SSD con interfaz M.2</em></p>
+<p><img src="../assets/img/tema2/u23-ssd-pcie.jpg" alt="Unidad SSD con interfaz PCI Express" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Unidad SSD con interfaz PCI Express</em></p>
+
+<h4 id="234-conector-u2">2.3.4 Conector U.2<a class="headerlink" href="#234-conector-u2" title="Permanent link">&para;</a></h4>
+<p>El conector <strong>U.2</strong> (de Intel) es una combinación intencional de los conectores SATA y SAS, que ofrece hasta un total de <strong>4 líneas PCIe 3.0</strong> a un dispositivo conectado, con la gran ventaja de no utilizar un slot PCIe. Mecánicamente, el conector U.2 es idéntico al conector SATA Express, por donde se conecta a la unidad. Comparado con SATA Express, el U.2 puede ofrecer hasta el doble de rendimiento y aprovechar por completo las ventajas de los nuevos SSD NVMe.</p>
+<p><img src="../assets/img/tema2/u23-conector-sata-express-sas.jpg" alt="Conector U.2 (SFF-8639): combinación de SATA y SAS" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector U.2 (SFF-8639): combinación de SATA y SAS</em></p>
+<p><img src="../assets/img/tema2/u23-cable-u2-foto.jpg" alt="Cable con conector U.2" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Cable con conector U.2</em></p>
+<p><img src="../assets/img/tema2/u23-pcie-ssd-opciones.jpg" alt="Opciones de conector PCI Express para SSD: SATA Express y SFF-8639" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Opciones de conector PCI Express para SSD: SATA Express y SFF-8639</em></p>
+
+<h4 id="235-tipos-de-ssd">2.3.5 Tipos de SSD<a class="headerlink" href="#235-tipos-de-ssd" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u23-celdas-slc-mlc-tlc-qlc.jpg" alt="Niveles de celda: SLC, MLC, TLC y QLC" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Niveles de celda: SLC, MLC, TLC y QLC</em></p>
+
+<ul>
+<li><strong>SLC</strong> (<em>Single Level Cell</em>): almacena <strong>1 bit</strong> por celda de la memoria NAND. Implica una menor densidad de memoria, algo a tener en cuenta con las altas capacidades que se demandan hoy, donde conseguir un gigabyte equivale a unos diez mil millones de celdas.</li>
+<li><strong>MLC</strong> (<em>Multi Level Cell</em>): almacena <strong>2 bits</strong> por celda; duplica la densidad respecto a SLC, lo que supone una gran ventaja en capacidad máxima y precio. La contrapartida es la pérdida de rendimiento y una mayor degradación: 2 bits implican 4 estados por celda, por lo que la lectura de cada celda es más lenta y estas empiezan a fallar antes.</li>
+<li><strong>TLC</strong> (<em>Triple Level Cell</em>): almacena <strong>3 bits</strong> por celda, con un empaquetamiento aún más eficaz, más memoria por chip y el precio de fabricación y venta más económico. Los estados pasan a ser 8, por lo que la pérdida de rendimiento es aún mayor que en MLC.</li>
+<li><strong>QLC</strong> (<em>Quad Level Cell</em>): almacena hasta <strong>4 bits</strong> por celda, lo que permite reducir aún más el precio. Es la que menos ciclos de escritura/borrado soporta, por lo que su vida útil es la más corta.</li>
+</ul>
+<p><img src="../assets/img/tema2/u23-tabla-tipos-ssd.png" alt="Tabla comparativa de los tipos de SSD (velocidad, consumo, capacidad y coste)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Tabla comparativa de los tipos de SSD (velocidad, consumo, capacidad y coste)</em></p>
+
+<h4 id="236-trim">2.3.6 TRIM<a class="headerlink" href="#236-trim" title="Permanent link">&para;</a></h4>
+<p>En los discos SSD, escribir y borrar datos en los mismos sectores o celdas hace que se pierda integridad. Para evitar estar continuamente escribiendo datos en las celdas y, por tanto, aumentar la vida útil del disco, se ideó el <strong>TRIM</strong>.</p>
+<p>Es un comando específico de las unidades SSD en sus diferentes versiones. Aunque se introdujo con la interfaz SATA, también está disponible en las unidades M.2 NVMe PCIe. Cuando se quiere borrar información del SSD, TRIM no la borra, sino que la marca para borrar, de forma que indica al SSD qué cantidad de datos pueden borrarse sin problemas, limpiando de basura la unidad. El proceso realiza un escaneo previo buscando los bloques marcados para su borrado, los selecciona y los borra. De esta forma nos ahorramos una escritura en los bloques:</p>
+<table>
+<thead>
+<tr>
+<th>Sin TRIM</th>
+<th>Con TRIM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Escritura de contenido</td>
+<td>1. Escritura de contenido</td>
+</tr>
+<tr>
+<td>2. Escritura para vaciar contenido</td>
+<td>2. Escritura del nuevo contenido</td>
+</tr>
+<tr>
+<td>3. Escritura del nuevo contenido</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="../assets/img/tema2/u23-trim.jpg" alt="Funcionamiento de TRIM: bloques libres, con datos válidos y con datos obsoletos" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Funcionamiento de TRIM: bloques libres, con datos válidos y con datos obsoletos</em></p>
+
+<p>Las instrucciones TRIM funcionan en multitud de sistemas operativos: múltiples distribuciones de Linux desde hace más de 15 años, macOS a partir de la versión 10.6.8 y Microsoft Windows desde la versión 7 hasta las actuales. Pero hay sistemas operativos que no admiten TRIM, por lo que puede darse el caso de que en algunas unidades no se active nativamente.</p>
+<p><strong>¿Para qué sirve el TRIM?</strong> Gestiona las áreas del SSD que contienen datos que ya no se usan o no se volverán a usar. El usuario no se da cuenta de este proceso, ya que se realiza en segundo plano cuando el equipo está en reposo. TRIM <strong>no borra información del usuario</strong> bajo ningún concepto; elimina datos que el sistema operativo le ha dicho que ya no son necesarios. Sin este comando, el SSD no sabría qué sectores contienen información no válida y debería esperar a que el sistema operativo le indicara que escribiera en ese sector: primero se debería borrar la información almacenada y luego escribir los datos. Es un pequeño lapso de tiempo, pero supone una pérdida de prestaciones.</p>
+<h4 id="237-desfragmentacion-en-ssd">2.3.7 Desfragmentación en SSD<a class="headerlink" href="#237-desfragmentacion-en-ssd" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">JAMÁS desfragmentes un SSD</p>
+<p>Los discos duros mecánicos requerían desfragmentación periódica: se recolocaban los archivos dispersos por la unidad, emparejándolos y ordenándolos para que fuera más fácil el acceso. Este proceso <strong>no se debe realizar bajo ningún concepto en un SSD</strong>: primero, porque son unidades rápidas que acceden a la información de manera ágil y no es necesario; y segundo, porque supone degradar el SSD con una enorme cantidad de escrituras innecesarias.</p>
+</div>
+<p>Internamente, los SSD integran una controladora que gestiona la información almacenada de manera eficiente, guarda una «tabla» con la disposición de los datos para acceder a ellos rápidamente y cuenta con memoria caché para almacenar los datos temporalmente y «ganar» rendimiento. Hacer una desfragmentación a un SSD supone desgastarlo y acortar su vida útil, gastando los ciclos de escritura que garantiza el fabricante en procesos que no sirven para nada. Es uno de los puntos clave de la tecnología de almacenamiento de estado sólido.</p>
+<h2 id="3-tarjetas-de-expansion">3. Tarjetas de expansión<a class="headerlink" href="#3-tarjetas-de-expansion" title="Permanent link">&para;</a></h2>
+<p>Hoy en día las placas base incorporan los controladores para manejar los periféricos básicos, como el teclado, el ratón o el disco duro. Los que no estén y necesitemos deberemos agregarlos mediante tarjetas en las <strong>ranuras de expansión</strong>. Aún se siguen incorporando por motivos de compatibilidad algunas ranuras PCI, pero ahora la mayoría son <strong>PCI Express</strong>.</p>
+<p><strong>Ranura PCI Express</strong> (PCI-E): la última evolución del bus PCI clásico, que permite añadir tarjetas de expansión al ordenador. Es un puerto <strong>serie</strong> local, a diferencia del PCI, que es paralelo. Conecta dispositivos punto a punto mediante <strong>carriles</strong> (<em>lanes</em>) y la velocidad de transferencia depende de los carriles: x1, x2, x4, x8, x12, x16 y x32 (los más grandes son extremadamente raros y por lo general no se ven en hardware de consumo). Una tarjeta x1 podrá utilizarse en un conector x16, aunque utilizando únicamente los carriles que le corresponden; sin embargo, no se puede hacer a la inversa.</p>
+<p><img src="../assets/img/tema2/u23-pcie-carriles.jpg" alt="Ranuras PCI Express x1, x4, x8 y x16" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras PCI Express x1, x4, x8 y x16</em></p>
+<p><img src="../assets/img/tema2/u23-pcie-lanes.jpg" alt="Carriles (lanes) de PCI Express: x1, x2, x4" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Carriles (lanes) de PCI Express: x1, x2, x4</em></p>
+<p><img src="../assets/img/tema2/u23-pcie-ancho-banda.jpg" alt="Velocidad de transferencia de PCIe según su versión" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Velocidad de transferencia de PCIe según su versión</em></p>
+<p><img src="../assets/img/tema2/u23-pcie-roadmap.jpg" alt="Hoja de ruta del estándar PCI Express" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Hoja de ruta del estándar PCI Express</em></p>
+
+<h3 id="31-diferencias-entre-agp-y-pci">3.1 Diferencias entre AGP y PCI<a class="headerlink" href="#31-diferencias-entre-agp-y-pci" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u23-agp-pci.jpg" alt="Ranuras AGP y PCI en una placa base" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras AGP y PCI en una placa base</em></p>
+<p><img src="../assets/img/tema2/u23-pcie-agp-pci-placa.jpg" alt="Ranuras PCI Express x16, PCI Express x1, AGP y PCI (legacy) en una placa" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras PCI Express x16, PCI Express x1, AGP y PCI (legacy) en una placa</em></p>
+
+<h3 id="32-tarjetas-graficas">3.2 Tarjetas gráficas<a class="headerlink" href="#32-tarjetas-graficas" title="Permanent link">&para;</a></h3>
+<p>Los usuarios nos comunicamos con el ordenador usando el teclado y el monitor; para ello el ordenador debe disponer de un elemento que transforme los datos internos en gráficos que podamos entender. La elección de una tarjeta dependerá de las necesidades. Las tarjetas actuales se clasifican por su potencia de trabajo, incluyendo su procesador gráfico, velocidad, memoria, tipo de slot y conectores disponibles.</p>
+<p>La <strong>tarjeta gráfica</strong>, también conocida como tarjeta de vídeo, tarjeta aceleradora de gráficos o adaptador de pantalla, es la responsable de mostrar texto, imágenes y gráficos en el monitor. Se encarga de controlar la apariencia, el movimiento, el color, el brillo y la claridad de las imágenes mostradas en el monitor o la TV, procesando cada bit de datos enviado.</p>
+<p>La mayoría de las tarjetas gráficas actuales están diseñadas para la ranura <strong>PCI Express x16</strong>; las AGP y PCI están prácticamente extinguidas. Los principales fabricantes son <strong>ATI (AMD)</strong> y <strong>NVIDIA</strong>; también Via/S3, SiS e Intel fabrican chipsets para gráficas, pero la mayoría integradas (<em>on board</em>) en la placa base. La evolución de la tarjeta gráfica ha ido paralela al desarrollo de los videojuegos, con un gran avance con la aparición de los primeros juegos en 3D.</p>
+<p><img src="../assets/img/tema2/u23-tarjeta-grafica.jpg" alt="Tarjeta gráfica moderna" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Tarjeta gráfica moderna</em></p>
+
+<h4 id="321-memoria-compartida-frente-a-memoria-dedicada">3.2.1 Memoria compartida frente a memoria dedicada<a class="headerlink" href="#321-memoria-compartida-frente-a-memoria-dedicada" title="Permanent link">&para;</a></h4>
+<p>La tarjeta gráfica puede utilizar dos tipos de memoria de vídeo:</p>
+<ul>
+<li><strong>Memoria compartida</strong>: suele darse cuando la tarjeta está integrada en la placa base y, en algunos casos, utiliza la propia RAM de la placa para sus operaciones.</li>
+<li><strong>Memoria dedicada</strong>: la tarjeta tiene su propia memoria RAM dedicada a las operaciones gráficas, independiente de la RAM de la placa. Se caracteriza por su <strong>capacidad</strong> (MB o GB), su <strong>tipo</strong> (GDDR, basada en la misma tecnología que la memoria DDR; hoy hasta GDDR6) y su <strong>velocidad</strong> (MHz).</li>
+</ul>
+<p><strong>Ventajas</strong> de una gráfica dedicada:</p>
+<ul>
+<li>Son mucho más potentes que una GPU integrada.</li>
+<li>Se pueden comprar y cambiar cuando queramos por una mejor.</li>
+<li>Tienen su propia GPU y su propia memoria.</li>
+<li>Tienen su propio sistema de refrigeración integrado.</li>
+<li>Si es buena, permite jugar a los últimos títulos aunque el equipo sea antiguo, activando filtros avanzados y de mayor calidad sin que el equipo se ralentice.</li>
+<li>Existen muchos modelos, desde las más potentes a las más modestas, y casi todas rinden mejor que una tarjeta integrada.</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<ul>
+<li>La inversión de dinero en una buena es bastante grande, casi siempre más de 300 euros.</li>
+<li>Consumen bastante potencia y necesitamos fuentes de alimentación de más de 500 W.</li>
+<li>Meten más calor en la caja.</li>
+</ul>
+<h4 id="322-componentes-y-caracteristicas">3.2.2 Componentes y características<a class="headerlink" href="#322-componentes-y-caracteristicas" title="Permanent link">&para;</a></h4>
+<p><strong>GPU</strong> (<em>Graphics Processing Unit</em>): un procesador, como la CPU, dedicado específicamente al procesamiento de gráficos. Su tarea principal es disminuir la carga de trabajo del procesador central. Está optimizada para el cálculo en coma flotante, sobre todo en las funciones 3D. Para obtener el mejor rendimiento se han de tener en cuenta tres características importantes:</p>
+<ul>
+<li>La <strong>frecuencia de reloj del núcleo</strong>, que oscila entre 825 MHz y 1600 MHz.</li>
+<li>El número de <strong>sombreadores o <em>shaders</em></strong>, llamados también <strong>núcleos CUDA</strong> (<em>Compute Unified Device Architecture</em>) en NVIDIA y <strong><em>Stream Processors</em></strong> en AMD. Se encargan de la rasterización de texturas y de la geometría de objetos, y del número de tuberías (de vértices o fragmentos) que traducen una imagen 3D compuesta por vértices y líneas en una imagen 2D compuesta por píxeles.</li>
+<li><strong>CUDA</strong> es una plataforma desarrollada por NVIDIA para realizar la programación de las tareas. Su gran ventaja sobre arquitecturas anteriores es la posibilidad de paralelizar las instrucciones de los shaders, consiguiendo imágenes mucho más realistas con bastante menos trabajo.</li>
+<li>Los <strong>Stream Processors</strong> tienen la misión de procesar las instrucciones destinadas a la GPU, relacionadas con los gráficos y su renderizado (dibujado de modelos 3D, iluminación ambiental...). Trabajan en paralelo para completar la tarea en el menor tiempo posible.</li>
+</ul>
+<p><strong>Chips</strong>: todas disponen de un circuito llamado <strong>RAMDAC</strong>, cuya función es convertir las señales digitales que llegan del procesador en señales analógicas. Pueden incluir otros chips, como el 3D, que libera al procesador realizando tareas de generación de vectores y triángulos.</p>
+<p><strong>API gráficas</strong>: las APIs de gráficos y procesamiento actúan como puentes entre el software y el hardware, permitiendo a los desarrolladores aprovechar al máximo las capacidades de los dispositivos, ya sea para crear entornos visualmente espectaculares o para llevar a cabo cálculos complejos y tareas paralelizadas de alta intensidad.</p>
+<ul>
+<li><strong>DirectX 12 Ultimate</strong>: la apuesta de Microsoft para Windows y Xbox; incluye características como el <em>ray tracing</em> y una gran optimización para el hardware moderno.</li>
+<li><strong>OpenGL 4.6</strong>: el estándar versátil; su amplia compatibilidad lo mantiene relevante, especialmente cuando la portabilidad es clave.</li>
+<li><strong>Vulkan</strong>: ofrece control detallado del hardware y eficiencia superior; es una API de bajo nivel disponible en plataformas múltiples, incluidos dispositivos móviles.</li>
+<li><strong>Metal</strong>: diseñada para dispositivos de Apple (iOS y macOS).</li>
+<li><strong>WebGL</strong>: gráficos 3D y 2D directamente en el navegador.</li>
+</ul>
+<p><strong>Tipos de buses</strong>: es el canal por donde circula la información. El número de bits que pueden circular a la vez es el ancho de bus; la velocidad a la que circula se mide en MHz; y el ancho de banda es el número de bits transmitidos por unidad de tiempo.</p>
+<p><strong>Memoria</strong>: la memoria gráfica de acceso aleatorio (GRAM) son chips de memoria que almacenan y transportan información entre sí; no son determinantes del rendimiento máximo de la tarjeta, pero unas especificaciones reducidas pueden limitar la potencia de la GPU. La memoria <strong>GDDR-SDRAM</strong> está basada en la DDR-SDRAM y se caracteriza por la optimización de los tiempos de acceso y las altas frecuencias (GDDR2, GDDR3, GDDR4, GDDR5 y GDDR6, la tecnología actual).</p>
+<p><strong>Frecuencia</strong>: en casi todas las tarjetas gráficas hay tres frecuencias distintas:</p>
+<ul>
+<li><strong>Base</strong>: el reloj al que funciona la GPU en reposo.</li>
+<li><strong>Game</strong>: el reloj cuando jugamos o seleccionamos un preset de overclock determinado.</li>
+<li><strong>Boost</strong>: la frecuencia máxima teórica que podemos disfrutar en la GPU.</li>
+</ul>
+<p>La frecuencia de la GPU se mide en MHz e indica lo rápido que pueden ser sus núcleos. A mayor refrigeración, mayor capacidad de mantener una frecuencia más alta (más calor requiere mejor refrigeración), por lo que las gráficas con tres ventiladores o con bloques de agua manejan frecuencias más altas. Hay que diferenciar el <em>core clock</em> del <em>memory clock</em>, siendo este último la velocidad de la memoria <strong>VRAM</strong> (la cantidad de memoria GDDR de la GPU, muy habitual en 4, 6, 8, 10-12, 16 y 24 GB o más).</p>
+<p><strong>Salidas de vídeo</strong>: hay muchos tipos, pero en la actualidad se utilizan las siguientes:</p>
+<ul>
+<li><strong>VGA</strong> (totalmente en desuso): <em>Video Graphics Array</em>, estándar de vídeo analógico de la década de los 90.</li>
+<li><strong>DVI</strong> (en desuso): <em>Digital Visual Interface</em>, sustituye a la anterior. Es totalmente digital, por lo que no hay que hacer conversión, eliminando gran parte del ruido eléctrico y la distorsión. Ofrece mayor calidad y mayores resoluciones.</li>
+<li><strong>HDMI</strong>: <em>High Definition Multimedia Interface</em>; actualmente el más utilizado. Cuenta con cifrado sin compresión y es capaz de transmitir audio a la vez que vídeo, con resoluciones todavía más altas.</li>
+<li><strong>DisplayPort</strong>: actualmente el «rival» del HDMI. Es un estándar de VESA que también transmite audio y vídeo, pero a mayor resolución y frecuencia que HDMI. Tiene como ventaja que está libre de patentes, por lo que es más fácil que su uso se extienda (prácticamente todas las gráficas llevan DisplayPort).</li>
+</ul>
+<h4 id="323-funcionamiento">3.2.3 Funcionamiento<a class="headerlink" href="#323-funcionamiento" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u23-videojuego-gpu.jpg" alt="Un videojuego como ejemplo de aplicación que utiliza la GPU" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Un videojuego como ejemplo de aplicación que utiliza la GPU</em></p>
+
+<ol>
+<li><strong>Videojuego</strong>: queremos mostrar un escenario.</li>
+<li><strong>API</strong> (OpenGL, Vulkan, WebGL o DirectX 3D): el videojuego usa las funciones de la API para generar el escenario.</li>
+<li><strong>Controlador (driver) de la gráfica</strong>: sin el driver no podemos traducir esas funciones a la GPU.</li>
+</ol>
+<h4 id="324-arquitectura">3.2.4 Arquitectura<a class="headerlink" href="#324-arquitectura" title="Permanent link">&para;</a></h4>
+<p>Los procesadores gráficos tienen una infinidad de parámetros de rendimiento y además están construidos bajo distintas arquitecturas y fabricantes. Aquí se citan las últimas tecnologías de cada fabricante (según el documento original).</p>
+<p><strong>Arquitectura Turing (NVIDIA)</strong>: toda tarjeta gráfica que lleve en su nombre <strong>RTX</strong> es de tecnología Turing, la más novedosa de la marca en el momento del documento. La arquitectura Turing fabrica procesadores con transistores de 12 nm optimizados para el <strong><em>ray tracing</em></strong> (trazado de rayos en tiempo real), la realidad virtual (VR) y la inteligencia artificial. En las características de los procesadores de las NVIDIA RTX podemos identificar los <strong>núcleos CUDA</strong>, los <strong>núcleos Tensor</strong> y los <strong>núcleos RT</strong> (procesador de rayos dedicado), además de la frecuencia de reloj: cuanto mayores son estas cifras, mayor rendimiento ofrece la tarjeta. Los desarrolladores pueden aprovechar hasta 4608 núcleos CUDA, cada uno un «mini procesador» que se encarga de cierto tipo de instrucciones que suelen poder ejecutarse en paralelo.</p>
+<p><strong>Arquitectura RDNA 3 (AMD)</strong>: RDNA proviene de <em>Radeon DNA</em>, marca registrada de AMD que se usa para referirse a su microarquitectura y conjunto de instrucciones gráficas que siguieron a GCN (<em>Graphics Core Next</em>).</p>
+<div class="admonition task">
+<p class="admonition-title">Actividad 2</p>
+<p>Haced 2 grupos en clase. <strong>Grupo 1</strong>: explicará en qué consiste la arquitectura Turing y variantes. <strong>Grupo 2</strong>: explicará en qué consiste la arquitectura RDNA y variantes. Después, entre todos: ¿qué es el <em>ray tracing</em>? ¿Cómo se conectan las dos tarjetas en paralelo y qué implicaciones tiene (puntos positivos y negativos)? ¿Cómo funciona el minado de criptomonedas? ¿Por qué ha crecido tanto NVIDIA en inteligencia artificial?</p>
+</div>
+<h4 id="325-diferencias-entre-cpu-y-gpu">3.2.5 Diferencias entre CPU y GPU<a class="headerlink" href="#325-diferencias-entre-cpu-y-gpu" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u23-cpu-vs-gpu.jpg" alt="Esquema comparativo de una CPU (control, pocas ALU, mucha caché) y una GPU (miles de ALU pequeñas)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema comparativo de una CPU (control, pocas ALU, mucha caché) y una GPU (miles de ALU pequeñas)</em></p>
+<p><img src="../assets/img/tema2/u23-arquitectura-gpu.jpg" alt="Distribución interna de un procesador gráfico con miles de núcleos" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Distribución interna de un procesador gráfico con miles de núcleos</em></p>
+
+<ul>
+<li>La <strong>GPU</strong> no sigue la arquitectura Von Neumann clásica, sino un modelo basado en la segmentación y el procesamiento paralelo. Está especializada en cómputo intensivo y altamente paralelo, y sus transistores se dedican al procesamiento de datos en lugar de al almacenamiento en caché y al control de flujo. Tiene <strong>miles de núcleos sencillos</strong>, orientados al cálculo (unidades de cálculo FPU independientes).</li>
+<li>La <strong>CPU</strong> sigue la arquitectura Von Neumann y carga programas (<em>fetch, decode, execute, write back</em>). Tiene <strong>pocos núcleos, pero complejos</strong>.</li>
+</ul>
+<h4 id="326-modelos-de-nvidia">3.2.6 Modelos de NVIDIA<a class="headerlink" href="#326-modelos-de-nvidia" title="Permanent link">&para;</a></h4>
+<p>Junto al nombre GeForce GTX o RTX hay una serie de números que representan la generación y también la gama en la que se ubica cada modelo. Hasta la serie GTX 900, el primer número, el «9», se refiere a la generación. Con las GTX 1000 y RTX 2000 esto se ha extendido a los dos primeros números, es decir, el «10» y el «20».</p>
+<p><img src="../assets/img/tema2/u23-modelos-nvidia-1.jpg" alt="Líneas de producto de NVIDIA: GeForce GTX/RTX, Titan, Quadro y Tesla" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Líneas de producto de NVIDIA: GeForce GTX/RTX, Titan, Quadro y Tesla</em></p>
+<p><img src="../assets/img/tema2/u23-modelos-nvidia-2.png" alt="Significado de las cifras en el nombre de una tarjeta NVIDIA" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Significado de las cifras en el nombre de una tarjeta NVIDIA</em></p>
+
+<h4 id="327-modelos-de-amd">3.2.7 Modelos de AMD<a class="headerlink" href="#327-modelos-de-amd" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u23-modelos-amd-1.jpg" alt="Líneas de producto de AMD: Radeon RX, Radeon Pro/FirePro y Radeon Instinct" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Líneas de producto de AMD: Radeon RX, Radeon Pro/FirePro y Radeon Instinct</em></p>
+<p><img src="../assets/img/tema2/u23-modelos-amd-2.png" alt="Significado de las cifras en el nombre de una tarjeta AMD" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Significado de las cifras en el nombre de una tarjeta AMD</em></p>
+
+<h3 id="33-tarjetas-de-sonido">3.3 Tarjetas de sonido<a class="headerlink" href="#33-tarjetas-de-sonido" title="Permanent link">&para;</a></h3>
+<p>La <strong>tarjeta de sonido</strong> es una tarjeta de expansión para computadoras que permite la salida de audio controlada por un programa informático llamado <strong>controlador</strong> (<em>driver</em>). El uso típico de las tarjetas de sonido consiste en hacer, mediante un programa que actúa de mezclador, que las aplicaciones multimedia del componente de audio suenen y puedan ser gestionadas.</p>
+<h3 id="34-tarjetas-de-red">3.4 Tarjetas de red<a class="headerlink" href="#34-tarjetas-de-red" title="Permanent link">&para;</a></h3>
+<p>Son dispositivos que permiten conectar el ordenador a una red de ordenadores para realizar la transmisión y recepción a través de ellas. Existen diferentes tarjetas de red:</p>
+<ul>
+<li><strong>Ethernet</strong>: se utilizan en entornos de red pequeños y grandes; es el estándar, por lo que no pertenece a ninguna industria y no hay problemas de compatibilidad. Este tipo de tarjetas no garantizan la distribución de acceso al medio de forma igualitaria: se podrá transmitir siempre que la red esté libre. Velocidades de transmisión: 10 y 100 Mbps, 1 y 10 Gbps.</li>
+<li><strong>Wi-Fi</strong>: basadas en la tecnología de transmisión inalámbrica.</li>
+</ul>
+<p>Es aconsejable que todos los elementos que forman una red de área local soporten la misma velocidad, para evitar cuellos de botella.</p>
+<h3 id="35-tarjetas-raid">3.5 Tarjetas RAID<a class="headerlink" href="#35-tarjetas-raid" title="Permanent link">&para;</a></h3>
+<p>Las tarjetas <strong>RAID</strong> surgieron para solucionar los problemas de almacenamiento con los tiempos de acceso. El concepto fundamental es dividir en bloques o segmentos, cada uno almacenado en discos diferentes y con determinadas medidas de redundancia de datos. Consecuencias:</p>
+<ul>
+<li>Así se minimiza la pérdida de datos.</li>
+<li>Menor tiempo de acceso a la información.</li>
+</ul>
+<p>Esto se debe a que suministran información en paralelo, comportándose como unidades diferentes.</p>
+<h2 id="ejercicios-practicos">Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Permanent link">&para;</a></h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Explica la diferencia entre almacenamiento primario, secundario y terciario, y pon un ejemplo de cada uno.</p>
+<p><strong>Ejercicio 2</strong>. Describe las partes físicas y lógicas de un disco duro (platos, cabezas, pistas, sectores, cilindros, clúster).</p>
+<p><strong>Ejercicio 3</strong>. Un disco duro tiene 6 caras, 2000 pistas por cara y 63 sectores por pista. Calcula el número total de sectores y su capacidad si cada sector ocupa 512 bytes.</p>
+<p><strong>Ejercicio 4</strong>. Explica la diferencia entre los sistemas de direccionamiento CHS y LBA. ¿Cuál se usa actualmente?</p>
+<p><strong>Ejercicio 5</strong>. Compara un HDD y un SSD (tiempo de acceso, ruido, calor, resistencia). ¿Qué es una celda de puerta flotante?</p>
+<p><strong>Ejercicio 6</strong>. Explica la diferencia entre un SSD M.2 SATA y un M.2 NVMe. ¿Qué velocidad máxima aproximada tiene cada uno?</p>
+<p><strong>Ejercicio 7</strong>. Ordena de mayor a menor durabilidad los tipos de celda SLC, MLC, TLC y QLC, y explica la relación entre bits por celda, precio y vida útil.</p>
+<p><strong>Ejercicio 8</strong>. Explica qué hace el comando TRIM, por qué alarga la vida del SSD y por qué <strong>nunca</strong> hay que desfragmentar un SSD.</p>
+<p><strong>Ejercicio 9</strong>. ¿Qué diferencia hay entre PCI y PCI Express? ¿Se puede instalar una tarjeta x1 en una ranura x16? ¿Y una x16 en una x1? Explica por qué.</p>
+<p><strong>Ejercicio 10</strong>. Compara memoria de vídeo compartida y dedicada, con ventajas e inconvenientes.</p>
+<p><strong>Ejercicio 11</strong>. Explica las tres frecuencias de una GPU (base, game y boost) y la diferencia entre <em>core clock</em> y <em>memory clock</em>.</p>
+<p><strong>Ejercicio 12</strong>. Explica qué papel juegan la API gráfica y el driver cuando un videojuego muestra una escena en pantalla. Cita dos API gráficas y su plataforma principal.</p>
+<p><strong>Ejercicio 13</strong>. Compara las salidas de vídeo VGA, DVI, HDMI y DisplayPort.</p>
+<p><strong>Ejercicio 14</strong>. Explica las diferencias entre una CPU y una GPU (número y tipo de núcleos, uso de los transistores, tipo de tareas).</p>
+<p><strong>Ejercicio 15</strong>. ¿Para qué sirve una tarjeta RAID? ¿Qué ventajas ofrece?</p>
+<p><strong>Ejercicio 16 (práctica en el aula)</strong>. En un equipo del aula, identifica el tipo de disco (HDD/SSD), su interfaz (SATA/M.2/NVMe), las ranuras de expansión libres y usadas, y la tarjeta gráfica (integrada o dedicada, y su VRAM). Documéntalo en una tabla.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

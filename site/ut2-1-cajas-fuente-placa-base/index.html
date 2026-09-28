@@ -1,0 +1,2126 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ut1-introduccion-microinformatica/">
+      
+      
+        <link rel="next" href="../ut2-2-procesadores-memoria/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.1 Cajas, fuente de alimentación y placa base - Fundamentos de Hardware</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut21-cajas-fuente-de-alimentacion-y-placa-base" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fundamentos de Hardware" class="md-header__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Hardware
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.1 Cajas, fuente de alimentación y placa base
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Hardware" class="md-nav__button md-logo" aria-label="Fundamentos de Hardware" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Hardware
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut0-sistemas-numeracion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 0. Sistemas de numeración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut1-introduccion-microinformatica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1. Introducción a los sistemas microinformáticos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tema 2. Elementos internos de un sistema informático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Cajas, fuente de alimentación y placa base
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Cajas, fuente de alimentación y placa base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-elementos-fisicos-de-un-sistema-informatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Elementos físicos de un sistema informático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cajas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cajas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Características
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Características">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-disenar-el-mejor-flujo-de-aire-para-tu-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo diseñar el mejor flujo de aire para tu PC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentes-y-facilidad-de-montaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes y facilidad de montaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tipos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-un-servidor-blade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es un servidor blade?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superordenadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superordenadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-que-debe-conocer-un-administrador-de-sistemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 ¿Qué debe conocer un Administrador de Sistemas?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fuentes de alimentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Fuentes de alimentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipos-de-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tipos de fuentes de alimentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Tipos de fuentes de alimentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segun-su-factor-de-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Según su factor de forma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuentes-modulares-semimodulares-y-no-modulares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes modulares, semimodulares y no modulares
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otras-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otras fuentes de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-caracteristicas-de-las-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Características de las fuentes de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-conectores-de-la-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Conectores de la fuente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Conectores de la fuente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procesador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-de-la-grafica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de la gráfica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-fases-de-la-fuente-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Fases de la fuente de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Placa base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Placa base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-factores-de-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Factores de forma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-componentes-de-la-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Componentes de la placa base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Componentes de la placa base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zocalo-de-la-cpu-procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zócalo de la CPU (procesador)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ranuras-de-memoria-ram-memoria-ddr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ranuras de memoria RAM (memoria DDR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ranuras-de-expansion-pci-express-y-pci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ranuras de expansión: PCI Express y PCI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectores-de-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectores de almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puertos-usb-y-conectores-traseros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos USB y conectores traseros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chipsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chipsets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bateria-cmos-ram-cmos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batería CMOS (RAM CMOS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-de-alimentacion-atx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de alimentación ATX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectores-de-refrigeracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectores de refrigeración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-msata-yo-m2-nvme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector mSATA y/o M.2 NVMe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boton-de-encendido-y-reseteo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Botón de encendido y reseteo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-inputoutput-system-bios-vs-uefi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Input/Output System (BIOS) vs UEFI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memoria caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-componentes-modernos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Componentes modernos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-2-procesadores-memoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Procesadores y memoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut2-3-almacenamiento-expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Almacenamiento y expansión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ut3-montaje-diagnostico.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 3. Montaje y diagnóstico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programacion-de-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación de Aula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programación de Aula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificacion-temporal-2-sesiones-4-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificación Temporal (2 sesiones / 4 horas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-elementos-fisicos-de-un-sistema-informatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Elementos físicos de un sistema informático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cajas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cajas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Características
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Características">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-disenar-el-mejor-flujo-de-aire-para-tu-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo diseñar el mejor flujo de aire para tu PC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentes-y-facilidad-de-montaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes y facilidad de montaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tipos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-un-servidor-blade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es un servidor blade?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superordenadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superordenadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-que-debe-conocer-un-administrador-de-sistemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 ¿Qué debe conocer un Administrador de Sistemas?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fuentes de alimentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Fuentes de alimentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipos-de-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tipos de fuentes de alimentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Tipos de fuentes de alimentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segun-su-factor-de-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Según su factor de forma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuentes-modulares-semimodulares-y-no-modulares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes modulares, semimodulares y no modulares
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otras-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otras fuentes de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-caracteristicas-de-las-fuentes-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Características de las fuentes de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-conectores-de-la-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Conectores de la fuente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Conectores de la fuente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procesador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-de-la-grafica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de la gráfica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-fases-de-la-fuente-de-alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Fases de la fuente de alimentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Placa base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Placa base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-factores-de-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Factores de forma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-componentes-de-la-placa-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Componentes de la placa base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Componentes de la placa base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zocalo-de-la-cpu-procesador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zócalo de la CPU (procesador)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ranuras-de-memoria-ram-memoria-ddr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ranuras de memoria RAM (memoria DDR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ranuras-de-expansion-pci-express-y-pci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ranuras de expansión: PCI Express y PCI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectores-de-almacenamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectores de almacenamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puertos-usb-y-conectores-traseros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos USB y conectores traseros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chipsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chipsets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bateria-cmos-ram-cmos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batería CMOS (RAM CMOS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-de-alimentacion-atx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector de alimentación ATX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectores-de-refrigeracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectores de refrigeración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conector-msata-yo-m2-nvme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conector mSATA y/o M.2 NVMe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boton-de-encendido-y-reseteo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Botón de encendido y reseteo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-inputoutput-system-bios-vs-uefi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Input/Output System (BIOS) vs UEFI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memoria-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memoria caché
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-componentes-modernos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Componentes modernos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios prácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
+
+<p>Material elaborado para el módulo <strong>Fundamentos de Hardware</strong></p>
+<h1 id="ut21-cajas-fuente-de-alimentacion-y-placa-base">UT2.1. Cajas, fuente de alimentación y placa base<a class="headerlink" href="#ut21-cajas-fuente-de-alimentacion-y-placa-base" title="Permanent link">&para;</a></h1>
+<h2 id="programacion-de-aula">Programación de Aula<a class="headerlink" href="#programacion-de-aula" title="Permanent link">&para;</a></h2>
+<h3 id="resultados-de-aprendizaje">Resultados de Aprendizaje<a class="headerlink" href="#resultados-de-aprendizaje" title="Permanent link">&para;</a></h3>
+<p>Esta unidad forma parte de la UT2 "Elementos internos de un sistema informático" y trabaja el <strong>Resultado de Aprendizaje 1 (RA1)</strong> del módulo, según el <strong>Real Decreto 1629/2009</strong> (Anexo I, módulo <em>Fundamentos de Hardware</em>):</p>
+<ol>
+<li><strong>RA1.</strong> Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.</li>
+</ol>
+<p>Según la programación de aula, la UT2 se evalúa sobre los criterios <strong>CE11, CE13, CE14, CE18, CE47 y CE49</strong>:</p>
+<ul>
+<li><strong>CE11</strong> (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.</li>
+<li><strong>CE13</strong> (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.</li>
+<li><strong>CE14</strong> (RA1.d): Se han establecido los parámetros de configuración (hardware y software) de un equipo microinformático con las utilidades específicas.</li>
+<li><strong>CE18</strong> (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.</li>
+<li><strong>CE47</strong> (RA5.d): Se han descrito los elementos de seguridad de las máquinas y los equipos de protección individual que se deben emplear.</li>
+<li><strong>CE49</strong> (RA5.f): Se han identificado las posibles fuentes de contaminación del entorno ambiental.</li>
+</ul>
+<h3 id="planificacion-temporal-2-sesiones-4-horas">Planificación Temporal (2 sesiones / 4 horas)<a class="headerlink" href="#planificacion-temporal-2-sesiones-4-horas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Elementos físicos de un sistema informático. Las cajas. La fuente de alimentación</td>
+</tr>
+<tr>
+<td>2</td>
+<td>La placa base: factor de forma, componentes, chipset, BIOS/UEFI</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Fuentes y licencia</p>
+<p>Este tema adapta el documento <em>UT2.1 Cajas, fuente de alimentación y placa base</em> del módulo de Fundamentos de Hardware (ASIX), publicado bajo licencia <strong>Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)</strong>. Por respeto a dicha licencia, este material se comparte con las mismas condiciones. Las imágenes proceden del documento original; consulta su bibliografía (Wikipedia, HardZone, Profesional Review, Freelancermap y Geeknetic) para su origen.</p>
+</div>
+<h2 id="1-elementos-fisicos-de-un-sistema-informatico">1. Elementos físicos de un sistema informático<a class="headerlink" href="#1-elementos-fisicos-de-un-sistema-informatico" title="Permanent link">&para;</a></h2>
+<p>El <strong>hardware</strong> en informática se refiere a las partes físicas, tangibles, de un sistema informático: sus componentes eléctricos, electrónicos y electromecánicos. Los cables, las cajas, los periféricos de todo tipo y cualquier otro elemento físico involucrado componen el hardware o soporte físico; contrariamente, el soporte lógico e intangible es el <strong>software</strong>.</p>
+<p>El término es propio del inglés y su traducción al español no tiene un significado acorde, por lo que se ha adoptado tal cual. La Real Academia Española lo define como «conjunto de los componentes que integran la parte material de una computadora». Aunque lo más común es aplicarlo a los ordenadores, se usa también en robots, teléfonos móviles, cámaras fotográficas, reproductores digitales o cualquier otro dispositivo electrónico. Cuando dichos dispositivos también procesan datos, poseen firmware y/o software además de hardware.</p>
+<p>Así, podemos mostrar los elementos hardware que forman parte de un computador o sistema informático:</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Elementos</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Internos</strong></td>
+<td>Placa base</td>
+<td>CPU, RAM, chipset, buses, slots, etc.</td>
+</tr>
+<tr>
+<td></td>
+<td>Almacenamiento</td>
+<td>HDD, SSD, lector, USB, etc.</td>
+</tr>
+<tr>
+<td></td>
+<td>Tarjetas controladoras</td>
+<td>Gráfica, sonido, RAID, etc.</td>
+</tr>
+<tr>
+<td></td>
+<td>Componentes auxiliares</td>
+<td>Chasis, fuente de alimentación, sistemas de refrigeración</td>
+</tr>
+<tr>
+<td><strong>Externos</strong></td>
+<td>Periféricos de entrada</td>
+<td>Teclado, ratón, joystick, escáner, micrófono, escáner 3D, sistemas de captura de movimiento</td>
+</tr>
+<tr>
+<td></td>
+<td>Periféricos de salida</td>
+<td>Pantalla, impresora, reproductor de voz, altavoces</td>
+</tr>
+<tr>
+<td></td>
+<td>Periféricos de entrada/salida</td>
+<td>Dispositivos de red, multifunción, pantallas táctiles</td>
+</tr>
+<tr>
+<td></td>
+<td>Almacenamiento</td>
+<td>USB, SSD, tarjetas SD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-cajas">2. Cajas<a class="headerlink" href="#2-cajas" title="Permanent link">&para;</a></h2>
+<p>La <strong>caja</strong> es el elemento encargado de <strong>cohesionar</strong> los componentes internos del ordenador. Su estructura rígida permite proteger los elementos alojados en su interior, además de facilitar su transporte. Los componentes electrónicos son extremadamente delicados frente a la electricidad estática, por lo que los materiales utilizados en la construcción de las cajas son normalmente acero o aluminio.</p>
+<div class="admonition warning">
+<p class="admonition-title">Seguridad antes de manipular el interior</p>
+<p>Antes de añadir una tarjeta o instalar un componente, toca previamente un elemento metálico de la carcasa del equipo (o usa una pulsera antiestática) para eliminar tu electricidad estática y minimizar el riesgo de avería. Hazlo siempre con el equipo apagado y desenchufado.</p>
+</div>
+<p><img src="../assets/img/tema2/u21-caja-torre.jpg" alt="Caja de torre con panel lateral" style="max-width:260px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Caja de torre con panel lateral</em></p>
+<p><img src="../assets/img/tema2/u21-caja-gaming.jpg" alt="Caja gaming con panel de cristal templado" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Caja gaming con panel de cristal templado</em></p>
+
+<h3 id="21-caracteristicas">2.1 Características<a class="headerlink" href="#21-caracteristicas" title="Permanent link">&para;</a></h3>
+<p>El material utilizado es plástico, metal, acero o aluminio. La elección entre acero y aluminio influye en el peso, la resistencia, la maleabilidad o la capacidad de conducir el calor. El acero se ha utilizado generalmente para soportar mejor los golpes; el aluminio es más ligero y manejable, da un aspecto más atractivo y, además, permite mejor refrigeración, ya que transporta mejor el calor.</p>
+<p>Los elementos del ordenador (microprocesadores, tarjetas, discos duros) generan gran cantidad de calor, por lo que es importante que la caja disponga de <strong>ranuras de ventilación</strong>. El aire caliente del interior debe ser expulsado al exterior para dejar espacio libre que ocupe el aire frío procedente del exterior. Se consideran imprescindibles las ventilaciones posteriores de la caja y recomendables las superiores o frontales, ya que así se genera un circuito de aire que disipa el calor.</p>
+<p><img src="../assets/img/tema2/u21-caja-ventilacion.jpg" alt="Caja con ventiladores y flujo de aire" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Caja con ventiladores y flujo de aire</em></p>
+
+<p>Por las ranuras de ventilación entra también el polvo, que provoca averías. Es necesario limpiar de vez en cuando el interior y el exterior, comprobando el buen funcionamiento de los ventiladores para que el equipo se refrigere adecuadamente. Para limpiar el interior se recomienda un aspirador sin demasiada potencia, y para el exterior un paño húmedo, como con cualquier otro aparato eléctrico.</p>
+<h4 id="como-disenar-el-mejor-flujo-de-aire-para-tu-pc">Cómo diseñar el mejor flujo de aire para tu PC<a class="headerlink" href="#como-disenar-el-mejor-flujo-de-aire-para-tu-pc" title="Permanent link">&para;</a></h4>
+<p>A la hora de diseñar el flujo interno de la caja hay que tener en cuenta varios factores:</p>
+<ul>
+<li>El aire caliente <strong>tiende a subir</strong>: los ventiladores que extraen el aire caliente deben estar en posiciones elevadas, mientras que los que introducen aire fresco deben estar en posiciones más bajas.</li>
+<li>Hay que <strong>montar y canalizar bien los cables</strong> de la caja para que ni ellos ni otros componentes bloqueen el paso del aire.</li>
+<li>Para diseñar un flujo de aire adecuado, los ventiladores con <strong>más caudal de aire</strong> (y, a ser posible, dirigido) funcionan mejor que los que tienen más presión estática.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-flujo-aire.png" alt="Flujo de aire ideal en una caja: entrada por delante y abajo, salida por detrás y arriba" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Flujo de aire ideal en una caja: entrada por delante y abajo, salida por detrás y arriba</em></p>
+
+<p>Lo ideal es que los ventiladores frontales (e incluso los inferiores, si los hay) introduzcan aire fresco en la caja, mientras que los instalados en la parte trasera y en el techo lo saquen fuera.</p>
+<p>Hay un detalle más fino para maximizar el rendimiento: en muchas cajas de gama alta se puede modificar la altura a la que se atornilla el ventilador trasero. Aunque la mayoría de usuarios lo alinea con el ventilador del disipador de la CPU (si es de aire), lo ideal es que quede <strong>un poco por encima</strong> (entre 1 y 2 cm), porque el aire caliente que expulsa el disipador tiende a subir y encaja mejor con el marco del ventilador trasero.</p>
+<h4 id="componentes-y-facilidad-de-montaje">Componentes y facilidad de montaje<a class="headerlink" href="#componentes-y-facilidad-de-montaje" title="Permanent link">&para;</a></h4>
+<p>Es bastante común que los propios usuarios instalen componentes internos (tarjetas, unidades de CD/DVD...), por lo que tienen mucho éxito las cajas que facilitan su inserción y extracción. Algunos fabricantes utilizan fijación por tornillos, raíles en el chasis y sistemas de fijación por presión, es decir, cualquier método que reduzca el tiempo de instalación. Los sistemas de apertura han evolucionado mucho: en cajas verticales se recomienda un sistema de paneles laterales sin tornillos, y en las horizontales una carcasa superior única de fácil anclaje.</p>
+<p>El acabado debe ser robusto y sin cantos afilados, ya que es habitual sufrir accidentes por los bordes mal pulidos de las láminas metálicas. Como característica práctica, muchos fabricantes incorporan conectores USB en la parte frontal. Y, por supuesto, cuenta también el atractivo de la caja: diseño, color y tamaño.</p>
+<h3 id="22-tipos">2.2 Tipos<a class="headerlink" href="#22-tipos" title="Permanent link">&para;</a></h3>
+<p>El estándar <strong>ATX</strong> no es más que un conjunto de convenciones y características definidas para servir como patrón que facilite la integración de componentes desarrollados por distintos fabricantes. Es posible instalar una placa base de un fabricante en una caja de otra compañía sin problema alguno, siempre que ambas satisfagan lo estipulado en la misma especificación.</p>
+<p>Fue <strong>Intel</strong> quien describió el estándar ATX, aunque es una especificación abierta que puede usar cualquier fabricante sin pagar royalties. Cada cierto tiempo se introducen mejoras en la especificación para adaptarla a las necesidades cambiantes y al desarrollo tecnológico.</p>
+<p>Las dimensiones de la caja determinan el tipo, ya que la mayoría pueden incorporar <strong>placas compatibles ATX</strong>. De menor a mayor, las más normales son: <strong>mini-torre</strong>, <strong>sobremesa</strong>, <strong>midi-torre</strong> (o semitorre) y <strong>gran torre</strong>, así como modelos para algunos servidores que requieren montaje en <strong>rack</strong>. Según el tamaño disponemos de más ranuras (slots) externas y más espacio para unidades de almacenamiento.</p>
+<p><img src="../assets/img/tema2/u21-tamanos-cajas.jpg" alt="Tamaños de caja y factores de forma de placa compatibles" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Tamaños de caja y factores de forma de placa compatibles</em></p>
+
+<div class="admonition task">
+<p class="admonition-title">Actividad 1</p>
+<p>Busca diferentes imágenes de todos los tamaños de las cajas de PC. ¿Qué elementos caracterizan una caja <em>gaming</em>?</p>
+</div>
+<h4 id="que-es-un-servidor-blade">¿Qué es un servidor blade?<a class="headerlink" href="#que-es-un-servidor-blade" title="Permanent link">&para;</a></h4>
+<p>Un servidor blade es básicamente la compactación de un servidor tradicional ajustado al tamaño de una tarjeta. Esta reducción se realiza normalmente en tres tamaños; por ejemplo, en los servidores blade de Dell hay blades de altura completa, media altura y cuarto de altura. Un servidor blade contiene procesadores, memoria, controladores de red integrados, FiberChannel y múltiples adaptadores de entrada/salida. Todo lo relacionado con conexiones, alimentación y refrigeración se traslada, de forma compartida, al chasis que los alberga.</p>
+<p>Los servidores blade están diseñados para aprovechar el espacio, reducir el consumo y simplificar el mantenimiento. Su uso principal es funcionar en chasis blade en forma de granja de servidores y en centros de proceso de datos.</p>
+<p><img src="../assets/img/tema2/u21-servidor-blade.jpg" alt="Chasis con servidores blade" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Chasis con servidores blade</em></p>
+
+<h4 id="superordenadores">Superordenadores<a class="headerlink" href="#superordenadores" title="Permanent link">&para;</a></h4>
+<p>Un supercomputador o superordenador es un dispositivo informático con capacidades de cálculo superiores a las de los ordenadores comunes de escritorio, y se usa con fines específicos. Hoy se prefiere hablar de <em>computadoras de alto rendimiento</em> o <em>ambientes de cómputo de alto rendimiento</em>, ya que las supercomputadoras son un conjunto de potentes ordenadores unidos entre sí para aumentar su potencia de trabajo. Al año 2019, los superordenadores más rápidos superaban los 148 petaflops (un petaflop equivale a más de 1000 billones de operaciones por segundo). La lista de los más potentes es el ranking <strong>TOP500</strong>.</p>
+<p><img src="../assets/img/tema2/u21-superordenador-frontier.jpg" alt="El superordenador Frontier (Oak Ridge National Laboratory)" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>El superordenador Frontier (Oak Ridge National Laboratory)</em></p>
+
+<h3 id="23-que-debe-conocer-un-administrador-de-sistemas">2.3 ¿Qué debe conocer un Administrador de Sistemas?<a class="headerlink" href="#23-que-debe-conocer-un-administrador-de-sistemas" title="Permanent link">&para;</a></h3>
+<p>Un administrador de sistemas es responsable de <strong>mantener la red de PCs bajo control</strong>. No se espera que arregle los equipos de todos los usuarios, pero será la persona que por regla general se asegure de que todo funcione. Además, es responsable de la seguridad de la red y de la gestión del tráfico, asegurándose de que existan copias de seguridad por si algo llegara a suceder.</p>
+<p>El administrador interactúa con los usuarios finales, por lo que también debe tener habilidades sociales: es la persona que configura el «sistema» (incluyendo las cuentas personales y los derechos sobre ellas) y se asegura de que nadie pueda desconfigurar demasiado sin una cuenta de administrador.</p>
+<p>Responsabilidades y tareas del administrador de sistemas:</p>
+<ul>
+<li>Instalar y configurar software y hardware.</li>
+<li>Administrar los servidores de red y las herramientas tecnológicas.</li>
+<li>Configurar las cuentas y los equipos de trabajo.</li>
+<li>Supervisar el rendimiento y mantener los sistemas.</li>
+<li>Solucionar problemas y apagones.</li>
+<li>Garantizar la seguridad mediante controles de acceso, copias de seguridad y cortafuegos.</li>
+<li>Actualizar los sistemas con nuevos lanzamientos y modelos.</li>
+<li>Desarrollar conocimientos especializados para capacitar al personal en nuevas tecnologías.</li>
+<li>Construir una base de datos interna con documentación técnica, manuales y políticas de TI.</li>
+</ul>
+<h2 id="3-fuentes-de-alimentacion">3. Fuentes de alimentación<a class="headerlink" href="#3-fuentes-de-alimentacion" title="Permanent link">&para;</a></h2>
+<p>Los componentes del ordenador necesitan energía eléctrica, que es suministrada por la <strong>fuente de alimentación</strong>. Cuantos más elementos tenga el ordenador, mayor será la potencia necesaria.</p>
+<p>La fuente de alimentación es un <strong>transformador</strong> diseñado para adecuar la corriente alterna de <strong>220 V</strong> de la red a la que necesitan los componentes del ordenador. Básicamente, transforma los 220 V de la línea eléctrica alterna en las tensiones continuas (<strong>−12 V, −5 V, 0 V, 3,3 V, 5 V y 12 V</strong>) que precisan los elementos; después <strong>rectifica</strong> la corriente alterna para conseguir que sea continua, y a continuación la <strong>filtra</strong> y la <strong>estabiliza</strong>.</p>
+<p><img src="../assets/img/tema2/u21-fuente-partes.jpg" alt="Partes de una fuente de alimentación de PC" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Partes de una fuente de alimentación de PC</em></p>
+<p><img src="../assets/img/tema2/u21-fuente-fases.png" alt="Fases de la fuente: transformación, rectificación, filtrado y regulación" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Fases de la fuente: transformación, rectificación, filtrado y regulación</em></p>
+
+<p>Además, la fuente sirve como elemento de protección del ordenador: incluye un interruptor que permite encender y apagar el equipo, y un <strong>fusible</strong> que se funde, protegiendo el ordenador, en caso de consumo excesivo y cortocircuito. Las salidas de <strong>5 V</strong> son para los circuitos electrónicos y las de <strong>12 V</strong>, para los motores (ventilador, disco duro, etc.).</p>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Una fuente de alimentación de buena calidad debe ser capaz de generar una señal continua <strong>estable y totalmente plana</strong>, de forma que las variaciones de entrada no afecten al nivel de tensión de salida. Los conectores que vienen en la fuente de alimentación están normalizados.</p>
+</div>
+<p>Múltiples averías de los ordenadores se producen por pérdidas de información que tienen su origen en un mal funcionamiento o una sobrecarga del sistema de alimentación. Cuando se actualiza un equipo añadiendo o sustituyendo componentes, hay que comprobar que la fuente tiene suficiente potencia para todos ellos. Algunos componentes no incorporan protección frente a sobrecargas y pueden resultar dañados de forma irreparable; lo que es aún más perjudicial, pueden extender la avería a otros componentes del equipo. Teniendo en cuenta el consumo de los componentes actuales, un equipo moderno no debería utilizar una fuente de menos de <strong>500 W</strong>.</p>
+<p>Factores como el ruido del ventilador de la fuente o el número de conectores incorporados deben tenerse en cuenta a la hora de adquirirla.</p>
+<h3 id="31-caracteristicas">3.1 Características<a class="headerlink" href="#31-caracteristicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Proporciona estabilidad</strong>: una buena elección garantiza que todos los componentes tendrán la energía suficiente en cualquier momento.</li>
+<li><strong>Determina posibilidades de expansión</strong>: la potencia, expresada en vatios (W), debe ser suficiente para los componentes actuales con alto rendimiento y para futuras ampliaciones.</li>
+<li><strong>Ventilación</strong>: influyen el tamaño y la refrigeración.</li>
+<li><strong>Consumo energético</strong>: coste = potencia (kW) × número de horas × precio del kWh.</li>
+</ul>
+<h3 id="32-tipos-de-fuentes-de-alimentacion">3.2 Tipos de fuentes de alimentación<a class="headerlink" href="#32-tipos-de-fuentes-de-alimentacion" title="Permanent link">&para;</a></h3>
+<h4 id="segun-su-factor-de-forma">Según su factor de forma<a class="headerlink" href="#segun-su-factor-de-forma" title="Permanent link">&para;</a></h4>
+<p><strong>AT.</strong> Anterior a este estaba el PC/XT de IBM; a partir de 1984 pasó a llamarse AT. La única diferencia entre ambos formatos era el tamaño, siendo la AT bastante más reducida gracias a su mayor integración, aunque seguían siendo plenamente compatibles. Alimenta la placa mediante dos conectores independientes, marcados normalmente como <strong>P8 y P9</strong>. Estos dos conectores no se pueden intercambiar, debiendo quedar siempre los cables negros juntos y en el centro. Son del tipo Molex 90331-0001 o equivalente.</p>
+<p><img src="../assets/img/tema2/u21-conector-at.png" alt="Conectores P8 y P9 de una fuente AT" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conectores P8 y P9 de una fuente AT</em></p>
+<p><img src="../assets/img/tema2/u21-conector-at-foto.png" alt="Fotografía de los conectores de una fuente AT" style="max-width:200px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Fotografía de los conectores de una fuente AT</em></p>
+
+<p><strong>ATX.</strong> El formato más común en las fuentes actuales tiene un tamaño de 140 × 150 × 85 mm. Existen otros tamaños para equipos compactos, como los <strong>SFX</strong> (125 × 100 × 63,5 mm), y otros según el tipo de caja. El conector utilizado es el ATX/2 (20 y 24 contactos), que permite la plena compatibilidad entre ellas.</p>
+<p><img src="../assets/img/tema2/u21-conector-atx.png" alt="Conector ATX de 20+4 pines" style="max-width:220px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector ATX de 20+4 pines</em></p>
+<p><img src="../assets/img/tema2/u21-conector-atx-pines.png" alt="Numeración de los conectores ATX de 20 y de 24 pines" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Numeración de los conectores ATX de 20 y de 24 pines</em></p>
+
+<p><strong>Conectores especiales:</strong></p>
+<ul>
+<li><strong>PS_ON</strong>: enciende la fuente de alimentación. Está cortocircuitado con tierra.</li>
+<li><strong>PWR_OK</strong>: señal de validación de la fuente hacia la placa. Cuando los valores son estables, enciende.</li>
+<li><strong>+5VSB</strong>: tensión en <em>stand by</em>, utilizada para los elementos que necesitan alimentación mientras el ordenador está apagado.</li>
+</ul>
+<p><strong>Conectores de la fuente de alimentación ATX2 para PC:</strong></p>
+<ol>
+<li>Mini Molex para FDD.</li>
+<li>Molex universal: dispositivos IDE, HDD y unidad de disco óptico.</li>
+<li>Para dispositivos SATA.</li>
+<li>Para tarjetas gráficas de 8 pines, separable para 6 pines.</li>
+<li>Para tarjeta gráfica de 6 pines.</li>
+<li>Para placa base de 8 pines.</li>
+<li>Para CPU P4, combinado con el conector de la placa base de 8 pines a 12 V.</li>
+<li>Alimentación de la placa base ATX2 de 24 pines.</li>
+</ol>
+<p><img src="../assets/img/tema2/u21-conectores-fuente.png" alt="Conectores de una fuente ATX numerados del 1 al 8" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conectores de una fuente ATX numerados del 1 al 8</em></p>
+
+<h4 id="fuentes-modulares-semimodulares-y-no-modulares">Fuentes modulares, semimodulares y no modulares<a class="headerlink" href="#fuentes-modulares-semimodulares-y-no-modulares" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>No modulares</strong> (cableado fijo): sus cables se fijan al circuito interno de la fuente y salen por un pequeño agujero de la parte trasera.</li>
+<li><strong>Semimodulares</strong>: poseen un conjunto de cables fijos, pero además cuentan con conectores hembra para conectar más cables según se necesiten.</li>
+<li><strong>Modulares</strong>: se reemplaza la maraña de cables de la parte trasera por conectores hembra.</li>
+</ul>
+<h4 id="otras-fuentes-de-alimentacion">Otras fuentes de alimentación<a class="headerlink" href="#otras-fuentes-de-alimentacion" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>SFX</strong>: como las ATX, solo varían en sus dimensiones (125 × 100 × 76,5 mm).</li>
+<li><strong>EPS</strong>: estándar para SSI (<em>Server System Infrastructure</em>). No cumple con el estándar ATX. Tiene dos conectores, de 24 y 8 pines (150 × 97,5 × 90 mm), y son fuentes preparadas para recibir dos líneas de alimentación. Suele usarse en sistemas críticos, como servidores de tipo rack.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-atx-sfx.png" alt="Comparación de fuentes ATX y SFX" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Comparación de fuentes ATX y SFX</em></p>
+<p><img src="../assets/img/tema2/u21-fuente-eps-rack.png" alt="Fuente redundante extraíble de un servidor rack" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Fuente redundante extraíble de un servidor rack</em></p>
+
+<h3 id="33-caracteristicas-de-las-fuentes-de-alimentacion">3.3 Características de las fuentes de alimentación<a class="headerlink" href="#33-caracteristicas-de-las-fuentes-de-alimentacion" title="Permanent link">&para;</a></h3>
+<p>Para saber la intensidad máxima que puede suministrar la fuente con cada una de las tensiones hay que fijarse en su placa de características:</p>
+<ul>
+<li>La entrada en corriente alterna (<strong>AC INPUT</strong>) admite un rango de tensiones entre 100 V y 240 V, aunque normalmente es de 230 V, la tensión de los enchufes de las casas.</li>
+<li>En la salida a corriente continua (<strong>DC OUTPUT</strong>) hay diferentes tensiones, intensidades y potencias. Por ejemplo, para +3,3 V la intensidad máxima puede ser de 15 A (igual que para +5 V), mientras que para +12 V la fuente puede suministrar 62,5 A.</li>
+<li>Lo mismo ocurre con la potencia: a 3,3 V solo puede llegar a 100 W, pero para +12 V puede alimentar aparatos hasta 750 W.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-fuente-tabla-salidas.jpg" alt="Tabla de tensiones e intensidades de una fuente de 750 W" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Tabla de tensiones e intensidades de una fuente de 750 W</em></p>
+<p><img src="../assets/img/tema2/u21-fuente-etiqueta.jpg" alt="Etiqueta de características de una fuente de 750 W" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Etiqueta de características de una fuente de 750 W</em></p>
+
+<ul>
+<li><strong>Active PFC</strong> (corrector de factor de potencia activo): permite que la distribución de energía opere a su máxima eficiencia y disminuye marcadamente los armónicos totales mezclados en la corriente AC. Una fuente con este complemento tendrá más vida útil.</li>
+<li><strong>Certificación 80 PLUS</strong>: iniciativa para promover una mayor eficiencia energética de las fuentes de alimentación. La <strong>eficiencia</strong> es la energía suministrada por la fuente dividida por la energía que recibe, es decir, cuánta energía se desperdicia mientras el ordenador trabaja. Por ejemplo, una fuente de 100 W puede ser un 80 % eficiente al 100 % de carga, pero bajar al 50 % de eficiencia cuando está al 50 % de carga.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-80plus.jpg" alt="Niveles de la certificación 80 PLUS y su eficiencia según la carga" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Niveles de la certificación 80 PLUS y su eficiencia según la carga</em></p>
+
+<div class="admonition task">
+<p class="admonition-title">Actividad 2</p>
+<p>Determina la potencia que debería tener una fuente de alimentación con certificación <strong>80 PLUS Silver</strong> para un equipo cuyo consumo máximo puntual es de <strong>598 W</strong> y cuya actividad normal (la mayor parte del tiempo, o el 50 %) tiene un consumo de <strong>400 W</strong>, de modo que se consiga la mejor eficiencia energética posible.</p>
+<table>
+<thead>
+<tr>
+<th>Carga</th>
+<th>80 Plus Silver</th>
+<th>Consumo</th>
+<th>Potencia real</th>
+<th>F.A. mínima</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 %</td>
+<td>85 %</td>
+<td>400 W</td>
+<td>400 W ÷ 0,85 = 470,5 W</td>
+<td>500 W</td>
+</tr>
+<tr>
+<td>50 %</td>
+<td>88 %</td>
+<td>400 W</td>
+<td>400 W ÷ 0,88 = 454,5 W</td>
+<td>500 W</td>
+</tr>
+<tr>
+<td>100 %</td>
+<td>85 %</td>
+<td>598 W</td>
+<td>598 W ÷ 0,85 = 703,5 W</td>
+<td>750 W</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solución razonada:</strong> la mejor eficiencia de una fuente Silver se da al 50 % de carga (88 %). Como el consumo habitual es de 400 W, lo ideal es una fuente en torno a 800 W (400 W ÷ 0,5). Con una de 750 W el pico de 598 W supone un ~80 % de carga, aún dentro de rango, y el uso normal queda cerca de su punto óptimo.</p>
+</div>
+<h3 id="34-conectores-de-la-fuente">3.4 Conectores de la fuente<a class="headerlink" href="#34-conectores-de-la-fuente" title="Permanent link">&para;</a></h3>
+<h4 id="procesador">Procesador<a class="headerlink" href="#procesador" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Conector P4</strong>: alimenta el procesador.</li>
+<li>De 4 u 8 pines (los de 8 pines suelen emplearse en servidores y para <em>overclock</em>).</li>
+<li>Es exclusivo de ATX.</li>
+</ul>
+<h4 id="conector-de-la-grafica">Conector de la gráfica<a class="headerlink" href="#conector-de-la-grafica" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Cuando una gráfica consume menos de <strong>75 W</strong>, se alimenta a través del propio slot PCIe.</li>
+<li>Si consume más, se usa un conector de <strong>6 pines</strong>.</li>
+<li>Un segundo conector de <strong>8 pines</strong> se usa para el <em>overclock</em> de la gráfica.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-otros-conectores.jpg" alt="Otros conectores de la fuente de alimentación (+12 V, disquetera, Molex IDE/SATA)" style="max-width:420px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Otros conectores de la fuente de alimentación (+12 V, disquetera, Molex IDE/SATA)</em></p>
+<p><img src="../assets/img/tema2/u21-conector-pcie.png" alt="Conectores PCIe de 6 y 8 pines: macho, hembra y numeración" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conectores PCIe de 6 y 8 pines: macho, hembra y numeración</em></p>
+
+<h4 id="almacenamiento">Almacenamiento<a class="headerlink" href="#almacenamiento" title="Permanent link">&para;</a></h4>
+<p><img src="../assets/img/tema2/u21-conector-sata.png" alt="Conector SATA de alimentación: macho y hembra" style="max-width:300px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector SATA de alimentación: macho y hembra</em></p>
+<p><img src="../assets/img/tema2/u21-conector-molex.png" alt="Conector Molex: macho, hembra y numeración" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector Molex: macho, hembra y numeración</em></p>
+
+<h3 id="35-fases-de-la-fuente-de-alimentacion">3.5 Fases de la fuente de alimentación<a class="headerlink" href="#35-fases-de-la-fuente-de-alimentacion" title="Permanent link">&para;</a></h3>
+<p><img src="../assets/img/tema2/u21-fuente-fases-esquema.png" alt="Esquema por bloques de las fases de una fuente de alimentación" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema por bloques de las fases de una fuente de alimentación</em></p>
+
+<h2 id="4-placa-base">4. Placa base<a class="headerlink" href="#4-placa-base" title="Permanent link">&para;</a></h2>
+<p>La <strong>placa base</strong>, placa madre o tarjeta madre es una placa formada por un circuito impreso a la cual van conectados todos los componentes que conforman una computadora.</p>
+<p>Las placas base varían mucho respecto a los tipos de componentes que soportan. Por ejemplo, cada placa soporta un solo tipo de CPU y una lista corta de tipos de memoria. Además, algunas tarjetas gráficas, memorias RAM, discos duros y otros periféricos pueden no ser compatibles. El fabricante de la placa base debe proporcionar una orientación clara sobre la compatibilidad de los componentes.</p>
+<p>En portátiles y tabletas, y cada vez más incluso en ordenadores de sobremesa, la placa base suele incorporar las funciones de la tarjeta de vídeo y de la tarjeta de sonido. Esto ayuda a mantener el tamaño reducido, pero impide actualizar esos componentes integrados.</p>
+<p>Por otra parte, unos mecanismos de refrigeración deficientes pueden dañar el hardware conectado a la placa. Por eso los dispositivos de alto rendimiento (la CPU y las tarjetas de vídeo de gama alta) suelen refrigerarse con disipadores, y a menudo se utilizan sensores integrados para detectar la temperatura y comunicarse con la BIOS o el sistema operativo para regular la velocidad del ventilador. Los dispositivos conectados a una placa base a menudo necesitan que los controladores se instalen manualmente para funcionar con el sistema operativo.</p>
+<p>El <strong>chipset</strong> determinará qué tipo de componentes se pueden conectar a la placa y nos dará las limitaciones de la misma, tanto para la memoria como para el microprocesador y otros.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo</p>
+<p>Si elegimos un equipo con una placa base <strong>H370</strong> y un procesador Core i9 9900K, funcionará sin problemas, pero estará limitado: no podremos aprovechar el multiplicador desbloqueado del procesador para hacer <em>overclock</em>. Para ello necesitaríamos una placa con chipset <strong>Z370</strong>, de precio superior.</p>
+</div>
+<h3 id="41-factores-de-forma">4.1 Factores de forma<a class="headerlink" href="#41-factores-de-forma" title="Permanent link">&para;</a></h3>
+<p>Las placas base de PC, las fuentes de alimentación y las cajas salen de fábrica en distintos tamaños, conocidos como «factores de forma». Estos tres componentes tienen que ser compatibles en tamaño para un funcionamiento correcto.</p>
+<p><img src="../assets/img/tema2/u21-factores-forma.png" alt="Factores de forma de placas base: ATX, Micro-ATX, Mini-ITX, Nano-ITX y Pico-ITX" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Factores de forma de placas base: ATX, Micro-ATX, Mini-ITX, Nano-ITX y Pico-ITX</em></p>
+
+<h3 id="42-componentes-de-la-placa-base">4.2 Componentes de la placa base<a class="headerlink" href="#42-componentes-de-la-placa-base" title="Permanent link">&para;</a></h3>
+<p>Las placas base de los portátiles hacen el mismo trabajo que las de PC, pero están hechas a medida y varían mucho en diseño y disposición. Además, mientras la placa de un PC está diseñada con espacio para añadir componentes, en la de un portátil lo único que normalmente se puede actualizar es la RAM.</p>
+<p><img src="../assets/img/tema2/u21-placa-componentes.png" alt="Componentes de una placa base" style="max-width:460px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Componentes de una placa base</em></p>
+
+<h4 id="zocalo-de-la-cpu-procesador">Zócalo de la CPU (procesador)<a class="headerlink" href="#zocalo-de-la-cpu-procesador" title="Permanent link">&para;</a></h4>
+<p>Aquí es donde se conecta la CPU. Todos los ordenadores modernos tienen grandes dispositivos de refrigeración sobre el procesador, que normalmente consisten en un bloque de metal con aletas y un ventilador. El zócalo está cuidadosamente diseñado para que el procesador solo quepa en el lugar adecuado.</p>
+<p>Si el procesador no está en la placa base, puedes identificar el zócalo como socket 1 al socket 8, LGA 775 y otros, lo que ayuda a identificar el procesador que cabe. Por ejemplo, un 486DX encaja en el socket 3; un Intel Core i7 8700K, en el socket LGA 1151; un i9-7900X, en el LGA 2011; y los AMD Ryzen de primera y segunda generación, en el AM4.</p>
+<p><img src="../assets/img/tema2/u21-socket.jpg" alt="Zócalo (socket) de la CPU" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Zócalo (socket) de la CPU</em></p>
+
+<p>Los tipos de sockets son:</p>
+<ul>
+<li><strong>PGA</strong> (<em>Pin Grid Array</em>): la conexión se realiza mediante una matriz de pines instalados en la CPU, que encajan en los agujeros del zócalo de la placa.</li>
+<li><strong>LGA</strong> (<em>Land Grid Array</em>): la matriz de pines está en el socket, y hacen contacto con las superficies conductoras del procesador.</li>
+<li><strong>BGA</strong> (<em>Ball Grid Array</em>): en lugar de patitas hay pequeñas bolas que se sueldan directamente a la placa. No hace falta socket, lo que reduce tamaño y costes, pero elimina cualquier posibilidad de ampliación. Se utiliza mucho en chips de la placa y, últimamente, en portátiles.</li>
+</ul>
+<h4 id="ranuras-de-memoria-ram-memoria-ddr">Ranuras de memoria RAM (memoria DDR)<a class="headerlink" href="#ranuras-de-memoria-ram-memoria-ddr" title="Permanent link">&para;</a></h4>
+<p>La mayoría de los equipos de escritorio tienen dos, cuatro u ocho ranuras. En los portátiles, las ranuras de RAM suelen ser la única parte de la placa que el usuario puede reemplazar.</p>
+<p>Los módulos son largos y delgados. Las ranuras tienen un mecanismo a lo largo que corresponde a un hueco en el módulo, por lo que este solo se ajustará de la manera correcta. Este hueco también asegura que no se pueda instalar RAM incompatible, como un módulo DDR2 antiguo en una placa DDR4 moderna.</p>
+<p><img src="../assets/img/tema2/u21-ranuras-ram.jpg" alt="Ranuras de memoria RAM" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras de memoria RAM</em></p>
+
+<h4 id="ranuras-de-expansion-pci-express-y-pci">Ranuras de expansión: PCI Express y PCI<a class="headerlink" href="#ranuras-de-expansion-pci-express-y-pci" title="Permanent link">&para;</a></h4>
+<p>Sirven para añadir componentes adicionales, como tarjetas gráficas o de sonido. Hay dos tipos principales: <strong>PCI Express</strong> y la ya obsoleta <strong>PCI</strong>. Las ranuras PCI Express vienen en varios tamaños y clasificaciones de velocidad (x1, x4 y x16) para adaptarse a distintos tipos de tarjetas.</p>
+<p>En muchos PCs estas ranuras nunca llegan a utilizarse: todas las placas tienen sonido integrado y muchas CPU incluyen componentes gráficos. Sin embargo, los ordenadores para juegos suelen llevar potentes tarjetas gráficas dedicadas en una ranura PCI Express x16.</p>
+<p>La ranura PCI es para tarjetas de expansión más antiguas (sonido, red, conexión), y cada vez es menos habitual en placas de gama media y alta, donde predominan los slots PCI Express.</p>
+<p><img src="../assets/img/tema2/u21-ranuras-expansion.jpg" alt="Ranuras PCI Express y M.2 en una placa base" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranuras PCI Express y M.2 en una placa base</em></p>
+
+<p>Resumen de los principales slots de expansión:</p>
+<ul>
+<li><strong>ISA y/o VESA</strong>: obsoletas; se empezaron a utilizar en los primeros 386.</li>
+<li><strong>PCI</strong>: aún se ve; en la época del Pentium I fue un estándar con la llegada de tarjetas gráficas 3D.</li>
+<li><strong>PCI Express</strong>: existe en x1, x4 y x16; son los slots de expansión habituales de las placas actuales.</li>
+</ul>
+<h4 id="conectores-de-almacenamiento">Conectores de almacenamiento<a class="headerlink" href="#conectores-de-almacenamiento" title="Permanent link">&para;</a></h4>
+<p>Estos conectores son para discos duros mecánicos, dispositivos de estado sólido (SSD) y unidades ópticas, como las grabadoras de DVD.</p>
+<p>Hay dos tipos de conectores: <strong>SATA 2</strong> y el más rápido <strong>SATA 3</strong>. SATA 2 es suficientemente rápido para los discos duros mecánicos tradicionales y las unidades ópticas, mientras que los SSD necesitan SATA 3 para funcionar a toda velocidad. Los dispositivos SATA 2 funcionan bien en conectores SATA 3, pero los SATA 3 conectados a conectores SATA 2 funcionan a velocidad reducida.</p>
+<h4 id="puertos-usb-y-conectores-traseros">Puertos USB y conectores traseros<a class="headerlink" href="#puertos-usb-y-conectores-traseros" title="Permanent link">&para;</a></h4>
+<p>Casi todo lo que se conecta al ordenador desde el exterior, desde teclados hasta ratones e impresoras, se conecta a un puerto USB. Hay dos tipos de USB de tamaño completo: USB 2 y USB 3. El USB 3 es mucho más rápido y se adapta mejor a dispositivos como los discos duros externos, donde la velocidad extra marca la diferencia.</p>
+<p>La mayoría de las placas tienen conectores USB 2 y USB 3, y todos los dispositivos USB 2, USB 3 y USB 3.1 funcionan en cualquiera de los puertos, aunque quizá algo más despacio en el USB 2. Las placas modernas incorporan también <strong>USB-C</strong> de segunda generación.</p>
+<p><img src="../assets/img/tema2/u21-puertos-traseros.jpg" alt="Panel trasero de conectores de una placa base" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Panel trasero de conectores de una placa base</em></p>
+
+<h4 id="puerto-de-red">Puerto de red<a class="headerlink" href="#puerto-de-red" title="Permanent link">&para;</a></h4>
+<p>No todos los portátiles tienen puerto de red con cable (algunos traen un USB con conexión Gigabit), pero se encuentran en prácticamente todos los equipos de escritorio. Aquí se conecta el cable Ethernet para crear una conexión alámbrica con un router doméstico o con la red de la oficina.</p>
+<p>Todas las placas modernas tienen puertos Gigabit Ethernet (10/100/1000), que transfieren datos a 1000 megabits por segundo (Mbit/s), es decir, un máximo teórico de 125 megabytes por segundo (MB/s). En un futuro próximo, las conexiones de 10 Gigabit estarán en todas las placas.</p>
+<h4 id="chipsets">Chipsets<a class="headerlink" href="#chipsets" title="Permanent link">&para;</a></h4>
+<p>Es un conjunto de chips situados en la placa base. Su función es controlar el flujo de datos entre el procesador, la memoria y los diferentes periféricos del ordenador. Estaba formado por dos chips diferenciados, conocidos como <strong>northbridge</strong> y <strong>southbridge</strong>.</p>
+<p><img src="../assets/img/tema2/u21-northbridge-southbridge.png" alt="Puente norte y puente sur en una placa base" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Puente norte y puente sur en una placa base</em></p>
+<p><img src="../assets/img/tema2/u21-chipset-esquema.png" alt="Esquema de interconexión de un chipset con puente norte y puente sur" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema de interconexión de un chipset con puente norte y puente sur</em></p>
+
+<ul>
+<li><strong>Northbridge</strong> (o <em>Memory Controller Hub</em>, MCH): permite a la CPU comunicarse con la RAM y la tarjeta gráfica. Controla los componentes de alta velocidad: E/S al microprocesador, RAM, AGP, PCI-E y gráfica. Se encarga de las transferencias entre el procesador y la RAM, por lo que se encuentra físicamente cerca del procesador. A veces se le llama GMCH (<em>Graphic and Memory Controller Hub</em>). A partir de Intel Sandy Bridge (2011), este componente ya no está presente como chip separado, porque se ha integrado en el propio microprocesador, mejorando claramente la rapidez de todo el hardware.</li>
+<li><strong>Southbridge</strong> (o <em>I/O Controller Hub</em>, ICH): permite a la CPU comunicarse con las ranuras PCI, las ranuras PCI-Express x1 (tarjetas de expansión), los conectores SATA (discos duros, unidades ópticas), los puertos USB, los puertos Ethernet y el audio integrado. En definitiva, maneja los dispositivos más lentos.</li>
+</ul>
+<p>Cada nueva arquitectura, tanto de AMD como de Intel, modifica las funciones que antes cumplía el southbridge: aumenta el número de conexiones directas con puertos USB y SATA e incorpora nuevas funcionalidades para comunicar los chiplets entre sí (en el caso de AMD). Su funcionamiento base sigue siendo el mismo, pero es ahora más eficiente y menos propenso a fallos.</p>
+<p><img src="../assets/img/tema2/u21-chipset-intel.png" alt="Diagrama de un chipset Intel actual" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Diagrama de un chipset Intel actual</em></p>
+<p><img src="../assets/img/tema2/u21-bloques-chipset.jpg" alt="Diagrama de bloques del conjunto procesador-chipset" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Diagrama de bloques del conjunto procesador-chipset</em></p>
+
+<p>El <strong>DMI</strong> (<em>Direct Media Interface</em>) es un bus de alta velocidad que une el procesador con el chipset, que actúa como <em>hub</em> (concentrador) para controlar y comunicar todas las interfaces. En AMD se conoce como <strong>UMI</strong> (<em>Unified Media Interface</em>).</p>
+<p>Cada procesador ha de utilizarse junto con un chipset que complementa sus funciones y añade muchas otras. Cada procesador se instala en un socket de la placa y, para obtener el mejor rendimiento, debe ir con un chipset acorde.</p>
+<h4 id="bateria-cmos-ram-cmos">Batería CMOS (RAM CMOS)<a class="headerlink" href="#bateria-cmos-ram-cmos" title="Permanent link">&para;</a></h4>
+<p>La batería CMOS que se encuentra en la mayoría de las placas base es la pila de litio <strong>CR2032</strong>. Suministra energía para almacenar la configuración de la BIOS y mantener en funcionamiento el reloj en tiempo real.</p>
+<p>Las placas base incluyen también un pequeño bloque separado de memoria hecho de chips RAM CMOS que se mantiene vivo gracias a esta batería, incluso cuando el PC está apagado, lo que evita la reconfiguración cada vez que se enciende. Los dispositivos CMOS requieren muy poca energía. La RAM CMOS almacena información básica sobre la configuración del PC, además de la hora y la fecha, que se actualizan mediante un reloj de tiempo real (RTC).</p>
+<p><img src="../assets/img/tema2/u21-pila-cmos.jpg" alt="Pila CR2032 de una placa base" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Pila CR2032 de una placa base</em></p>
+
+<h4 id="conector-de-alimentacion-atx">Conector de alimentación ATX<a class="headerlink" href="#conector-de-alimentacion-atx" title="Permanent link">&para;</a></h4>
+<p>Se conecta al cable de alimentación ATX de 24 clavijas de la fuente, que suministra energía a la placa. Como conexión auxiliar podemos encontrar conectores de 4 u 8 pines; en placas de gama alta lo normal es ver 24 pines de alimentación y dos conexiones EPS de 8 pines (plataformas Intel LGA 2066 y AMD TR4/Threadripper).</p>
+<h4 id="conectores-de-refrigeracion">Conectores de refrigeración<a class="headerlink" href="#conectores-de-refrigeracion" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>CPU_FAN</strong>: ventilador del procesador (con control de temperatura).</li>
+<li><strong>CPU_SYS, CPU_OPT o CHA_FAN</strong>: conectores adicionales o secundarios destinados al sistema en general, ya sea para ventiladores superiores, traseros o frontales. Hoy la mayoría pueden regularse por BIOS, pero no suelen llevar el control de temperatura del CPU_FAN.</li>
+<li><strong>AIO_PUMP</strong>: conector destinado a la bomba del bloque de agua de una AIO (todo en uno); también puede usarse para un ventilador común.</li>
+<li><strong>W_PUMP</strong> (<em>Water Pump</em>): enfocado a bombas de alto rendimiento para refrigeración líquida; suele disponer de mayor energía.</li>
+<li><strong>H_AMP</strong>: diseñado para ventiladores de alto consumo, ya que puede llegar a triplicar la energía de un conector normal.</li>
+</ul>
+<p><img src="../assets/img/tema2/u21-conectores-ventilador.png" alt="Ubicación de los conectores de ventilador en una placa" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ubicación de los conectores de ventilador en una placa</em></p>
+<p><img src="../assets/img/tema2/u21-tabla-ventiladores.png" alt="Corriente, potencia y control de cada conector de ventilador" style="max-width:400px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Corriente, potencia y control de cada conector de ventilador</em></p>
+<p><img src="../assets/img/tema2/u21-w-pump.png" alt="Conector W_PUMP para bombas de refrigeración líquida" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector W_PUMP para bombas de refrigeración líquida</em></p>
+
+<h4 id="conector-msata-yo-m2-nvme">Conector mSATA y/o M.2 NVMe<a class="headerlink" href="#conector-msata-yo-m2-nvme" title="Permanent link">&para;</a></h4>
+<p>Se conecta a una unidad de estado sólido mSATA o M.2 NVMe. En la mayoría de los casos esta unidad SSD se utiliza como caché para acelerar los discos duros, pero es posible utilizarla como unidad de disco normal. Actualmente es difícil encontrarlo en portátiles domésticos, pero en portátiles de empresa todavía puede encontrarse.</p>
+<p><img src="../assets/img/tema2/u21-m2.jpg" alt="Ranura M.2 con una unidad Intel Optane" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranura M.2 con una unidad Intel Optane</em></p>
+
+<h4 id="boton-de-encendido-y-reseteo">Botón de encendido y reseteo<a class="headerlink" href="#boton-de-encendido-y-reseteo" title="Permanent link">&para;</a></h4>
+<p>Botón incorporado para encender, apagar y reiniciar el ordenador. Este componente es más común en las placas de gama alta.</p>
+<h4 id="basic-inputoutput-system-bios-vs-uefi">Basic Input/Output System (BIOS) vs UEFI<a class="headerlink" href="#basic-inputoutput-system-bios-vs-uefi" title="Permanent link">&para;</a></h4>
+<p>Los ordenadores necesitan un sistema interno cuyo código contenga las instrucciones necesarias para realizar un arranque seguro y poner a punto el equipo. Para ello se creó la <strong>BIOS</strong>, que desde 1975 se encargó de iniciar el hardware y el software de los ordenadores.</p>
+<p><strong>BIOS</strong> significa <em>Basic Input/Output System</em> (sistema básico de entrada/salida). Es una memoria de solo lectura que consiste en software de bajo nivel que controla el hardware del sistema y actúa como interfaz entre el sistema operativo y el hardware. Se almacena en un chip ROM de la placa base porque la ROM retiene la información incluso cuando no se suministra energía al ordenador, y se utiliza durante la rutina de arranque para comprobar el sistema y prepararse para ejecutar el hardware.</p>
+<p>Debido a las demandas de los nuevos diseños de PC nació <strong>UEFI</strong>, el sucesor de la BIOS. Es el primer programa que se ejecuta al iniciar el PC y tiene tres fines: verificar el hardware conectado a la placa, activar los componentes y vincularlos al sistema operativo. Sus siglas corresponden a <em>Unified Extensible Firmware Interface</em>. UEFI establece qué reloj o frecuencia debe adoptar la CPU, la GPU y la RAM, así como la energía que se debe extraer de la fuente de alimentación para los componentes.</p>
+<p>La BIOS tenía muchas limitaciones que la UEFI corrige:</p>
+<ul>
+<li><strong>MBR frente a GPT</strong>. La BIOS usaba <strong>MBR</strong>, que estaba limitado a entradas de 32 bits y a 4 particiones primarias en total, con un máximo de 2 TB por disco. UEFI usa <strong>GPT</strong>, con entradas de 64 bits, que permite muchas más particiones y discos de tamaño prácticamente ilimitado. (UEFI también soporta 32 bits, pero este sistema ya ha dejado de usarse en la mayoría de ordenadores modernos).</li>
+<li><strong>Limitación de capacidad</strong>: UEFI puede direccionar discos duros de hasta 9,4 ZB (zettabytes).</li>
+<li><strong>Velocidad de arranque acelerada</strong>: en UEFI los módulos y controladores se cargan en paralelo, mientras que en BIOS se cargan secuencialmente.</li>
+<li><strong>Más seguridad</strong>: UEFI permite que los controladores y servicios genuinos se ejecuten en el arranque, lo que se conoce como <em>arranque seguro</em> (<strong>Secure Boot</strong>).</li>
+</ul>
+<h4 id="memoria-cache">Memoria caché<a class="headerlink" href="#memoria-cache" title="Permanent link">&para;</a></h4>
+<p>La memoria caché es un pequeño bloque de memoria de alta velocidad (RAM) que mejora el rendimiento del PC precargando información de la memoria principal (relativamente lenta) y pasándola al procesador bajo demanda.</p>
+<p>La mayoría de las CPU tienen una memoria caché interna (integrada en el procesador) que se conoce como Nivel 1 (L1) o caché primaria. Esta puede complementarse con caché externa instalada en la placa base: el Nivel 2 (L2) o caché secundaria. Hoy toda la caché se ha integrado en el propio procesador (se estudia con detalle en la UT2.2).</p>
+<div class="admonition task">
+<p class="admonition-title">Actividad 3</p>
+<p>En grupos de 3, buscad las siguientes placas base y determinad sus componentes: Raspberry Pi 5, iPhone 13, Arduino, Meta Quest 2 RV, Nintendo Switch, PS4 y Xbox Serie S.</p>
+</div>
+<h3 id="43-componentes-modernos">4.3 Componentes modernos<a class="headerlink" href="#43-componentes-modernos" title="Permanent link">&para;</a></h3>
+<p>Las placas base modernas incorporan además elementos de seguridad como el módulo <strong>TPM</strong> (<em>Trusted Platform Module</em>), un chip que almacena de forma segura claves criptográficas y que se conecta a la placa mediante un conector específico. Existen distintos formatos de conector TPM (por ejemplo, 12-1, 14-1 y 20-1 pines), según la placa.</p>
+<p><img src="../assets/img/tema2/u21-tpm.png" alt="Chip TPM y módulo TPM 2.0 (TPM 20-1)" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Chip TPM y módulo TPM 2.0 (TPM 20-1)</em></p>
+<p><img src="../assets/img/tema2/u21-tpm-tipos.png" alt="Distintos tipos de conector TPM: 20-1, 14-1 y 12-1" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Distintos tipos de conector TPM: 20-1, 14-1 y 12-1</em></p>
+<p><img src="../assets/img/tema2/u21-tpm-placa.png" alt="Conector TPM 12-1 en una placa base" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
+<p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector TPM 12-1 en una placa base</em></p>
+
+<h2 id="ejercicios-practicos">Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Permanent link">&para;</a></h2>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+<p><strong>Ejercicio 1</strong>. Clasifica estos elementos en internos o externos y, dentro de cada grupo, indica su categoría: SSD, teclado, tarjeta gráfica, impresora, fuente de alimentación, tarjeta SD, chipset, altavoces.</p>
+<p><strong>Ejercicio 2</strong>. Explica por qué los ventiladores que extraen aire caliente de una caja deben situarse en posiciones altas y los que introducen aire fresco en posiciones bajas. ¿Por qué es importante canalizar bien los cables?</p>
+<p><strong>Ejercicio 3</strong>. ¿Qué es un servidor <em>blade</em> y qué ventajas tiene frente a un servidor tradicional?</p>
+<p><strong>Ejercicio 4</strong>. Explica qué hace una fuente de alimentación (transformar, rectificar, filtrar y estabilizar) y para qué se usan las salidas de 5 V y de 12 V.</p>
+<p><strong>Ejercicio 5</strong>. ¿Cuál es la diferencia entre una fuente modular, una semimodular y una no modular? ¿Qué ventaja aporta la modular?</p>
+<p><strong>Ejercicio 6</strong>. Un equipo tiene un consumo habitual de 300 W y un pico de 450 W. Con una fuente 80 PLUS Gold que rinde un 90 % al 50 % de carga, ¿qué potencia de fuente elegirías para trabajar en su punto de mayor eficiencia y cuánta energía consumiría de la red en uso normal?</p>
+<p><strong>Ejercicio 7</strong>. Si una gráfica consume 120 W, ¿basta con la alimentación que proporciona la ranura PCIe? ¿Qué conector adicional necesitaría?</p>
+<p><strong>Ejercicio 8</strong>. Explica la diferencia entre los sockets PGA, LGA y BGA. ¿Cuál de ellos no permite ampliar el procesador y por qué?</p>
+<p><strong>Ejercicio 9</strong>. Explica qué es el chipset y describe la función del puente norte y del puente sur. ¿Por qué ha desaparecido el puente norte en los procesadores actuales?</p>
+<p><strong>Ejercicio 10</strong>. ¿Para qué sirve la pila CR2032 de la placa base? ¿Qué pasaría con la fecha y la hora si se agotara?</p>
+<p><strong>Ejercicio 11</strong>. Compara BIOS y UEFI: cita al menos tres diferencias (particiones, arranque, seguridad...).</p>
+<p><strong>Ejercicio 12 (práctica en el aula)</strong>. Abre un equipo del aula (apagado, desenchufado y con las precauciones antiestáticas) e identifica: la caja y su flujo de ventilación, la fuente de alimentación y sus conectores, el socket, las ranuras de RAM y de expansión, los conectores SATA/M.2, la pila CMOS y el chipset. Haz un esquema o fotografías anotadas.</p>
+</div>
+<hr />
+<p><strong>Bibliografía del documento original:</strong> Wikipedia (<em>Hardware</em>), HardZone (<em>flujo de aire perfecto del PC</em>), Freelancermap (<em>qué hace un administrador de sistemas</em>), Profesional Review (<em>componentes de una placa base</em>) y Geeknetic (<em>chipsets de Intel por socket</em>).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
