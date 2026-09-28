@@ -2,6 +2,8 @@
 
 Bienvenidos al módulo de Fundamentos de Hardware. Aquí encontrarás los contenidos del curso.
 
+## Bloque I: Arquitectura de sistemas
+
 - [Tema 0. Sistemas de numeración y representación de la información](ut0-sistemas-numeracion.md)
 - [Tema 1. Introducción a los sistemas microinformáticos](ut1-introduccion-microinformatica.md)
 - Tema 2. Elementos internos de un sistema informático
