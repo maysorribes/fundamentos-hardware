@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../ut1-introduccion-microinformatica/">
+        <link rel="prev" href="../tema1_introduccion_arquitectura_computadores/">
       
       
         <link rel="next" href="../ut2-2-procesadores-memoria/">
@@ -252,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ut1-introduccion-microinformatica/" class="md-nav__link">
+      <a href="../tema1_introduccion_arquitectura_computadores/" class="md-nav__link">
         
   
   
@@ -1816,42 +1816,47 @@
 
 <div class="admonition task">
 <p class="admonition-title">Actividad 2</p>
-<p>Determina la potencia que debería tener una fuente de alimentación con certificación <strong>80 PLUS Silver</strong> para un equipo cuyo consumo máximo puntual es de <strong>598 W</strong> y cuya actividad normal (la mayor parte del tiempo, o el 50 %) tiene un consumo de <strong>400 W</strong>, de modo que se consiga la mejor eficiencia energética posible.</p>
+<p>Un equipo consume normalmente <strong>400 W</strong> y, en momentos puntuales de máxima exigencia, llega a <strong>598 W</strong>. Queremos ponerle una fuente con certificación <strong>80 PLUS Silver</strong>, que da su mejor eficiencia (88 %) cuando trabaja al <strong>50 % de su capacidad</strong>.</p>
+<p>En la tienda hay fuentes de <strong>500 W, 650 W, 750 W y 1000 W</strong>. ¿Cuál elegirías para conseguir la mejor eficiencia energética posible?</p>
+<p><em>Pista: carga (%) = consumo del equipo ÷ potencia de la fuente × 100</em></p>
 <table>
 <thead>
 <tr>
-<th>Carga</th>
-<th>80 Plus Silver</th>
-<th>Consumo</th>
-<th>Potencia real</th>
-<th>F.A. mínima</th>
+<th>Fuente</th>
+<th>Carga en uso normal (400 W)</th>
+<th>Carga en el pico (598 W)</th>
+<th>Valoración</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>20 %</td>
-<td>85 %</td>
-<td>400 W</td>
-<td>400 W ÷ 0,85 = 470,5 W</td>
 <td>500 W</td>
+<td>400 ÷ 500 = 80 %</td>
+<td>598 ÷ 500 = 120 %</td>
+<td>No vale: el pico supera lo que puede dar</td>
 </tr>
 <tr>
-<td>50 %</td>
-<td>88 %</td>
-<td>400 W</td>
-<td>400 W ÷ 0,88 = 454,5 W</td>
-<td>500 W</td>
+<td>650 W</td>
+<td>400 ÷ 650 = 62 %</td>
+<td>598 ÷ 650 = 92 %</td>
+<td>Vale, pero va muy justa en el pico</td>
 </tr>
 <tr>
-<td>100 %</td>
-<td>85 %</td>
-<td>598 W</td>
-<td>598 W ÷ 0,85 = 703,5 W</td>
-<td>750 W</td>
+<td><strong>750 W</strong></td>
+<td><strong>400 ÷ 750 = 53 %</strong></td>
+<td><strong>598 ÷ 750 = 80 %</strong></td>
+<td><strong>La mejor: uso normal casi al 50 %</strong></td>
+</tr>
+<tr>
+<td>1000 W</td>
+<td>400 ÷ 1000 = 40 %</td>
+<td>598 ÷ 1000 = 60 %</td>
+<td>Vale, pero se aleja más del 50 % y es más cara</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Solución razonada:</strong> la mejor eficiencia de una fuente Silver se da al 50 % de carga (88 %). Como el consumo habitual es de 400 W, lo ideal es una fuente en torno a 800 W (400 W ÷ 0,5). Con una de 750 W el pico de 598 W supone un ~80 % de carga, aún dentro de rango, y el uso normal queda cerca de su punto óptimo.</p>
+<p><strong>Solución razonada:</strong> la fuente debe cumplir dos condiciones. Primero, aguantar el pico: los 598 W tienen que ser menos del 100 % de la fuente, lo que descarta la de 500 W. Segundo, que el consumo habitual quede lo más cerca posible del 50 % de carga, que es donde una fuente Silver rinde mejor. Con la de 750 W, los 400 W habituales suponen un 53 % de carga y el pico se queda en un 80 %. La respuesta es <strong>750 W</strong>.</p>
+<p><strong>Ampliación:</strong> con esa fuente, ¿cuánta potencia toma el equipo del enchufe en uso normal? 400 W ÷ 0,88 = <strong>454,5 W</strong>. Los 54,5 W de diferencia se pierden en forma de calor.</p>
 </div>
 <h3 id="34-conectores-de-la-fuente">3.4 Conectores de la fuente<a class="headerlink" href="#34-conectores-de-la-fuente" title="Permanent link">&para;</a></h3>
 <h4 id="procesador">Procesador<a class="headerlink" href="#procesador" title="Permanent link">&para;</a></h4>

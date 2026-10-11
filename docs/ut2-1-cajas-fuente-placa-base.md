@@ -243,15 +243,22 @@ Para saber la intensidad máxima que puede suministrar la fuente con cada una de
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Niveles de la certificación 80 PLUS y su eficiencia según la carga</em></p>
 
 !!! task "Actividad 2"
-    Determina la potencia que debería tener una fuente de alimentación con certificación **80 PLUS Silver** para un equipo cuyo consumo máximo puntual es de **598 W** y cuya actividad normal (la mayor parte del tiempo, o el 50 %) tiene un consumo de **400 W**, de modo que se consiga la mejor eficiencia energética posible.
+    Un equipo consume normalmente **400 W** y, en momentos puntuales de máxima exigencia, llega a **598 W**. Queremos ponerle una fuente con certificación **80 PLUS Silver**, que da su mejor eficiencia (88 %) cuando trabaja al **50 % de su capacidad**.
 
-    | Carga | 80 Plus Silver | Consumo | Potencia real | F.A. mínima |
-    | ----- | -------------- | ------- | ------------- | ----------- |
-    | 20 % | 85 % | 400 W | 400 W ÷ 0,85 = 470,5 W | 500 W |
-    | 50 % | 88 % | 400 W | 400 W ÷ 0,88 = 454,5 W | 500 W |
-    | 100 % | 85 % | 598 W | 598 W ÷ 0,85 = 703,5 W | 750 W |
+    En la tienda hay fuentes de **500 W, 650 W, 750 W y 1000 W**. ¿Cuál elegirías para conseguir la mejor eficiencia energética posible?
 
-    **Solución razonada:** la mejor eficiencia de una fuente Silver se da al 50 % de carga (88 %). Como el consumo habitual es de 400 W, lo ideal es una fuente en torno a 800 W (400 W ÷ 0,5). Con una de 750 W el pico de 598 W supone un ~80 % de carga, aún dentro de rango, y el uso normal queda cerca de su punto óptimo.
+    *Pista: carga (%) = consumo del equipo ÷ potencia de la fuente × 100*
+
+    | Fuente | Carga en uso normal (400 W) | Carga en el pico (598 W) | Valoración |
+    | ------ | --------------------------- | ------------------------ | ---------- |
+    | 500 W | 400 ÷ 500 = 80 % | 598 ÷ 500 = 120 % | No vale: el pico supera lo que puede dar |
+    | 650 W | 400 ÷ 650 = 62 % | 598 ÷ 650 = 92 % | Vale, pero va muy justa en el pico |
+    | **750 W** | **400 ÷ 750 = 53 %** | **598 ÷ 750 = 80 %** | **La mejor: uso normal casi al 50 %** |
+    | 1000 W | 400 ÷ 1000 = 40 % | 598 ÷ 1000 = 60 % | Vale, pero se aleja más del 50 % y es más cara |
+
+    **Solución razonada:** la fuente debe cumplir dos condiciones. Primero, aguantar el pico: los 598 W tienen que ser menos del 100 % de la fuente, lo que descarta la de 500 W. Segundo, que el consumo habitual quede lo más cerca posible del 50 % de carga, que es donde una fuente Silver rinde mejor. Con la de 750 W, los 400 W habituales suponen un 53 % de carga y el pico se queda en un 80 %. La respuesta es **750 W**.
+
+    **Ampliación:** con esa fuente, ¿cuánta potencia toma el equipo del enchufe en uso normal? 400 W ÷ 0,88 = **454,5 W**. Los 54,5 W de diferencia se pierden en forma de calor.
 
 ### 3.4 Conectores de la fuente
 

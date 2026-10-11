@@ -1,28 +1,11 @@
 # Tema 1 – Introducción a la arquitectura de computadores
 
-<p style="font-size: 1.3em;"><strong>CFGS Administración de Sistemas Informáticos y en Red (1º curso)</strong></p>
-
-Material elaborado para el módulo **Fundamentos de Hardware**
+*Fundamentos de Hardware*
 
 ![Portada](images/00_portada.png)
 
 > "Juntarse es el principio, mantenerse juntos el progreso, trabajar en equipo el éxito." — Henry Ford.
 
-## Programación de Aula
-
-### Resultados de Aprendizaje
-
-Esta unidad trabaja el **Resultado de Aprendizaje 1 (RA1)** del módulo, según el **Real Decreto 1629/2009** (Anexo I, módulo *Fundamentos de Hardware*):
-
-1. **RA1.** Configura equipos microinformáticos, componentes y periféricos, analizando sus características y relación con el conjunto.
-
-Esta unidad se centra especialmente en los criterios:
-
-- **CE1.a** (RA1.a): Se han identificado y caracterizado los dispositivos que constituyen los bloques funcionales de un equipo microinformático.
-- **CE1.c** (RA1.c): Se ha analizado la arquitectura general de un equipo y los mecanismos de conexión entre dispositivos.
-- **CE1.h** (RA1.h): Se han clasificado los dispositivos periféricos y sus mecanismos de comunicación.
-
----
 
 ## 1. Información y sistemas informáticos
 
@@ -78,8 +61,81 @@ En cuanto a la parte física del ordenador, para que funcione de manera eficient
 
 Estos elementos traducen las diferentes señales eléctricas en información. La información que le llega al ordenador es ausencia o presencia de señal eléctrica: **0** o **1**. Cada cifra se conoce como **bit** (*Binary Digit*) y es la unidad más pequeña de información.
 
-![Tipos de señales eléctricas y electrónicas](images/02_senales_electricas.png)
+![Señales eléctricas](images/02_senales_electricas.png)
 
+Este sistema de información, en el que solo hay 2 valores posibles, se llama **binario**. Nosotros usamos habitualmente el sistema **decimal**, que contiene dígitos del 0 al 9. Es un sistema de numeración posicional (la posición de cada cifra tiene un valor diferente). Por ejemplo, podemos representar el número **4367,85** como:
+
+```
+4000 + 300 + 60 + 7 + 0,8 + 0,05 = 4×10³ + 3×10² + 6×10¹ + 7×10⁰ + 8×10⁻¹ + 5×10⁻²
+```
+
+En cuanto al sistema decimal:
+
+![Sistema decimal](images/03_sistema_decimal.png)
+
+Al ser la base del sistema binario tan pequeña, el número de dígitos necesarios para representar números grandes crece con rapidez. Debido a esto, trabajar directamente en binario es una tarea muy engorrosa, por lo que se usan agrupaciones de cifras para representar números:
+
+- **Octal**: sistema de numeración en base 8. Símbolos del 0 al 7.
+
+![Sistema octal](images/04_sistema_octal.png)
+
+- **Hexadecimal**: sistema de numeración en base 16. Al tener más de 10 símbolos (del 0 al 15), y para evitar confusiones, se utilizan letras una vez sobrepasado el número 9:
+
+  **A**=10, **B**=11, **C**=12, **D**=13, **E**=14, **F**=15
+
+| Decimal | Binario | Octal | Hexadecimal |
+|---|---|---|---|
+| 0  | 0000 | 0  | 0 |
+| 1  | 0001 | 1  | 1 |
+| 2  | 0010 | 2  | 2 |
+| 3  | 0011 | 3  | 3 |
+| 4  | 0100 | 4  | 4 |
+| 5  | 0101 | 5  | 5 |
+| 6  | 0110 | 6  | 6 |
+| 7  | 0111 | 7  | 7 |
+| 8  | 1000 | 10 | 8 |
+| 9  | 1001 | 11 | 9 |
+| 10 | 1010 | 12 | A |
+| 11 | 1011 | 13 | B |
+| 12 | 1100 | 14 | C |
+| 13 | 1101 | 15 | D |
+| 14 | 1110 | 16 | E |
+| 15 | 1111 | 17 | F |
+
+#### 1.2.2 Y todo esto, ¿para qué?
+
+Podemos realizar operaciones en binario usando circuitos lógicos. Esto nos da la posibilidad de transformar señales eléctricas en información valiosa; por ejemplo, los impulsos ópticos del movimiento de un ratón se traducen en la posición del puntero en la pantalla.
+
+Si queremos hacer una operación matemática (sumar) en sistema binario, necesitamos un circuito lógico, ya que solo recibirá 2 posibles cifras en cada una de sus entradas.
+
+El problema de la suma en binario es que, al sumar 1 + 1, necesitamos una serie de reglas para saber qué hacer. Esto se resuelve usando la misma técnica que en las matemáticas en decimal: nos "llevamos" una cifra y la colocamos a la izquierda. Simplemente, 1+1 sigue siendo igual a 2, salvo que en binario "2" se escribe "10". Reglas básicas:
+
+```
+0 + 0 = 0
+0 + 1 = 1
+1 + 1 = 10
+```
+
+![Suma en binario](images/05_suma_binaria.png)
+
+**Ejemplo: semisumador**
+
+Un semisumador es un circuito digital sencillo que permite sumar dos bits y registrar el acarreo. Los tres resultados posibles de la suma de dos bits son: 0+0=0; 0+1=1+0=1; y 1+1=10 (en binario).
+
+Siempre que diseñamos un circuito digital, necesitamos trasladar estos resultados o condiciones a una tabla de verdad:
+
+| Operando A | Operando B | Suma | Carry out |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 |
+
+![Semisumador](images/06_semisumador.png)
+
+*Fuente: [angelmicelti.github.io/4ESO/EDI/semisumador.html](https://angelmicelti.github.io/4ESO/EDI/semisumador.html)*
+
+---
 
 ## 2. Estructura funcional de un computador
 
