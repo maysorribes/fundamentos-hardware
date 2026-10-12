@@ -394,7 +394,7 @@ Es un conjunto de chips situados en la placa base. Su función es controlar el f
 - **Northbridge** (o *Memory Controller Hub*, MCH): permite a la CPU comunicarse con la RAM y la tarjeta gráfica. Controla los componentes de alta velocidad: E/S al microprocesador, RAM, AGP, PCI-E y gráfica. Se encarga de las transferencias entre el procesador y la RAM, por lo que se encuentra físicamente cerca del procesador. A veces se le llama GMCH (*Graphic and Memory Controller Hub*). A partir de Intel Sandy Bridge (2011), este componente ya no está presente como chip separado, porque se ha integrado en el propio microprocesador, mejorando claramente la rapidez de todo el hardware.
 - **Southbridge** (o *I/O Controller Hub*, ICH): permite a la CPU comunicarse con las ranuras PCI, las ranuras PCI-Express x1 (tarjetas de expansión), los conectores SATA (discos duros, unidades ópticas), los puertos USB, los puertos Ethernet y el audio integrado. En definitiva, maneja los dispositivos más lentos.
 
-Cada nueva arquitectura, tanto de AMD como de Intel, modifica las funciones que antes cumplía el southbridge: aumenta el número de conexiones directas con puertos USB y SATA e incorpora nuevas funcionalidades para comunicar los chiplets entre sí (en el caso de AMD). Su funcionamiento base sigue siendo el mismo, pero es ahora más eficiente y menos propenso a fallos.
+En las arquitecturas actuales de Intel y AMD, el antiguo puente sur ya no existe como tal: en Intel se llama **PCH** (*Platform Controller Hub*) y en AMD, simplemente **chipset**. Cada generación, el **procesador** asume más funciones que antes estaban en la placa (controlador de memoria, líneas PCIe para la gráfica y para los SSD M.2 y, en algunos modelos, puertos USB), de modo que el chipset queda como un **ampliador de conexiones**: añade puertos USB y SATA, líneas PCIe adicionales, red y audio, y se comunica con el procesador mediante el bus DMI (Intel) o PCIe (AMD).
 
 <img src="../assets/img/tema2/u21-chipset-intel.png" alt="Diagrama de un chipset Intel actual" style="max-width:340px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Diagrama de un chipset Intel actual</em></p>
@@ -420,11 +420,16 @@ Se conecta al cable de alimentación ATX de 24 clavijas de la fuente, que sumini
 
 #### Conectores de refrigeración
 
-- **CPU_FAN**: ventilador del procesador (con control de temperatura).
-- **CPU_SYS, CPU_OPT o CHA_FAN**: conectores adicionales o secundarios destinados al sistema en general, ya sea para ventiladores superiores, traseros o frontales. Hoy la mayoría pueden regularse por BIOS, pero no suelen llevar el control de temperatura del CPU_FAN.
-- **AIO_PUMP**: conector destinado a la bomba del bloque de agua de una AIO (todo en uno); también puede usarse para un ventilador común.
-- **W_PUMP** (*Water Pump*): enfocado a bombas de alto rendimiento para refrigeración líquida; suele disponer de mayor energía.
-- **H_AMP**: diseñado para ventiladores de alto consumo, ya que puede llegar a triplicar la energía de un conector normal.
+Son los conectores de la placa base donde se enchufan los ventiladores y las bombas de refrigeración líquida. Físicamente son iguales: los de **4 pines (PWM)** regulan la velocidad mediante una señal de control, y los antiguos de **3 pines (DC)**, variando la tensión. Ambos tipos son compatibles entre sí. Hoy todos pueden regularse por temperatura desde la BIOS/UEFI.
+
+- **CPU_FAN**: ventilador del disipador del procesador. Es el más importante: si la placa no detecta ningún ventilador conectado, muestra un aviso (*CPU Fan Error*) o no arranca, para proteger la CPU.
+- **CPU_OPT**: segundo ventilador del disipador del procesador. Copia el comportamiento de CPU_FAN y se usa en disipadores grandes con dos ventiladores.
+- **CHA_FAN o SYS_FAN**: ventiladores de la caja (frontales, traseros o superiores). Suele haber varios (CHA_FAN1, CHA_FAN2...).
+- **AIO_PUMP**: bomba de una refrigeración líquida todo en uno (AIO). Por defecto funciona a máxima velocidad, ya que la bomba debe trabajar a ritmo constante. También admite un ventilador común.
+- **W_PUMP+** (*Water Pump*): bombas de refrigeración líquida personalizada. Proporciona más corriente que un conector normal.
+- **H_AMP**: ventiladores de alto consumo, o varios conectados con un divisor. Puede dar hasta unos 3 A, el triple que un conector normal (1 A).
+
+Los nombres W_PUMP+ y H_AMP son propios de ASUS; otros fabricantes usan denominaciones parecidas, por lo que conviene consultar siempre el manual de la placa.
 
 <img src="../assets/img/tema2/u21-conectores-ventilador.png" alt="Ubicación de los conectores de ventilador en una placa" style="max-width:360px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Ubicación de los conectores de ventilador en una placa</em></p>
@@ -433,11 +438,15 @@ Se conecta al cable de alimentación ATX de 24 clavijas de la fuente, que sumini
 <img src="../assets/img/tema2/u21-w-pump.png" alt="Conector W_PUMP para bombas de refrigeración líquida" style="max-width:340px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector W_PUMP para bombas de refrigeración líquida</em></p>
 
-#### Conector mSATA y/o M.2 NVMe
+#### Ranura M.2
 
-Se conecta a una unidad de estado sólido mSATA o M.2 NVMe. En la mayoría de los casos esta unidad SSD se utiliza como caché para acelerar los discos duros, pero es posible utilizarla como unidad de disco normal. Actualmente es difícil encontrarlo en portátiles domésticos, pero en portátiles de empresa todavía puede encontrarse.
+Es la ranura donde se instalan los SSD en formato tarjeta, que se atornillan directamente a la placa sin cables. Hoy es la **unidad de almacenamiento principal** de la mayoría de equipos de sobremesa y de prácticamente todos los portátiles, y en ella se instala el sistema operativo.
 
-<img src="../assets/img/tema2/u21-m2.jpg" alt="Ranura M.2 con una unidad Intel Optane" style="max-width:380px; width:100%; display:block; margin:16px auto;">
+Una ranura M.2 puede funcionar por **SATA** (hasta unos 550 MB/s, como un SSD de 2,5") o por **PCIe con protocolo NVMe** (desde unos 3500 MB/s en PCIe 3.0 hasta más de 12 000 MB/s en PCIe 5.0). Por fuera son casi iguales, así que hay que consultar el manual de la placa para saber qué admite cada ranura.
+
+Su antecesor fue el conector **mSATA**, hoy obsoleto. 
+
+<img src="../assets/img/tema2/u21-m2.jpg" alt="Ranura M.2 con una unidad SSD" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranura M.2 con una unidad Intel Optane</em></p>
 
 #### Botón de encendido y reseteo
@@ -470,7 +479,7 @@ La mayoría de las CPU tienen una memoria caché interna (integrada en el proces
 
 ### 4.3 Componentes modernos
 
-Las placas base modernas incorporan además elementos de seguridad como el módulo **TPM** (*Trusted Platform Module*), un chip que almacena de forma segura claves criptográficas y que se conecta a la placa mediante un conector específico. Existen distintos formatos de conector TPM (por ejemplo, 12-1, 14-1 y 20-1 pines), según la placa.
+Las placas base modernas incorporan además elementos de seguridad como el **TPM** (*Trusted Platform Module*), un chip que almacena de forma segura claves criptográficas. Se usa, por ejemplo, para cifrar el disco con **BitLocker**, para el arranque seguro (**Secure Boot**) y para **Windows Hello**, y **Windows 11 exige TPM 2.0** para instalarse. Hoy lo habitual es que el TPM venga integrado en el propio procesador como *firmware TPM* (**Intel PTT** o **AMD fTPM**) y solo haya que activarlo en la BIOS/UEFI; muchos equipos que aparentemente "no son compatibles con Windows 11" solo lo tienen desactivado. Como alternativa, algunas placas permiten instalar un módulo TPM físico en un conector específico, cuyo formato varía según el fabricante (por ejemplo, 12-1, 14-1 o 20-1 pines).
 
 <img src="../assets/img/tema2/u21-tpm.png" alt="Chip TPM y módulo TPM 2.0 (TPM 20-1)" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Chip TPM y módulo TPM 2.0 (TPM 20-1)</em></p>
@@ -482,13 +491,13 @@ Las placas base modernas incorporan además elementos de seguridad como el módu
 ## Ejercicios prácticos
 
 !!! task "Tarea"
-    **Ejercicio 1**. Clasifica estos elementos en internos o externos y, dentro de cada grupo, indica su categoría: SSD, teclado, tarjeta gráfica, impresora, fuente de alimentación, tarjeta SD, chipset, altavoces.
+    **Ejercicio 1**. Clasifica estos elementos en internos o externos y, dentro de cada grupo, indica su categoría: SSD M.2, teclado, tarjeta gráfica, impresora, fuente de alimentación, tarjeta SD, chipset, altavoces.
 
     **Ejercicio 2**. Explica por qué los ventiladores que extraen aire caliente de una caja deben situarse en posiciones altas y los que introducen aire fresco en posiciones bajas. ¿Por qué es importante canalizar bien los cables?
 
     **Ejercicio 3**. ¿Qué es un servidor *blade* y qué ventajas tiene frente a un servidor tradicional?
 
-    **Ejercicio 4**. Explica qué hace una fuente de alimentación (transformar, rectificar, filtrar y estabilizar) y para qué se usan las salidas de 5 V y de 12 V.
+    **Ejercicio 4**. Explica qué hace una fuente de alimentación (transformar, rectificar, filtrar y estabilizar). Después, observa la tabla de la fuente de 750 W del apartado 3.3: ¿qué salida puede entregar más potencia? ¿Qué componentes se alimentan de ella y por qué crees que es la más importante en un equipo actual?
 
     **Ejercicio 5**. ¿Cuál es la diferencia entre una fuente modular, una semimodular y una no modular? ¿Qué ventaja aporta la modular?
 
@@ -505,6 +514,10 @@ Las placas base modernas incorporan además elementos de seguridad como el módu
     **Ejercicio 11**. Compara BIOS y UEFI: cita al menos tres diferencias (particiones, arranque, seguridad...).
 
     **Ejercicio 12 (práctica en el aula)**. Abre un equipo del aula (apagado, desenchufado y con las precauciones antiestáticas) e identifica: la caja y su flujo de ventilación, la fuente de alimentación y sus conectores, el socket, las ranuras de RAM y de expansión, los conectores SATA/M.2, la pila CMOS y el chipset. Haz un esquema o fotografías anotadas.
+
+    **Ejercicio 13**. Quieres montar un PC pequeño con una placa Mini-ITX. ¿Cabría en una caja ATX? ¿Y una placa ATX en una caja Mini-ITX? ¿Cuántas tarjetas de expansión podrías instalar como máximo en la Mini-ITX?
+
+    **Ejercicio 14**. ¿Qué diferencia hay entre un SSD M.2 SATA y uno M.2 NVMe? ¿Se distinguen a simple vista? ¿Cómo sabrías cuál admite la ranura M.2 de tu placa?
 
 ---
 
