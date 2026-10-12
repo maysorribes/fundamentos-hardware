@@ -839,10 +839,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conector-msata-yo-m2-nvme" class="md-nav__link">
+  <a href="#ranura-m2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conector mSATA y/o M.2 NVMe
+        Ranura M.2
       
     </span>
   </a>
@@ -1464,10 +1464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conector-msata-yo-m2-nvme" class="md-nav__link">
+  <a href="#ranura-m2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conector mSATA y/o M.2 NVMe
+        Ranura M.2
       
     </span>
   </a>
@@ -1960,7 +1960,7 @@
 <li><strong>Northbridge</strong> (o <em>Memory Controller Hub</em>, MCH): permite a la CPU comunicarse con la RAM y la tarjeta gráfica. Controla los componentes de alta velocidad: E/S al microprocesador, RAM, AGP, PCI-E y gráfica. Se encarga de las transferencias entre el procesador y la RAM, por lo que se encuentra físicamente cerca del procesador. A veces se le llama GMCH (<em>Graphic and Memory Controller Hub</em>). A partir de Intel Sandy Bridge (2011), este componente ya no está presente como chip separado, porque se ha integrado en el propio microprocesador, mejorando claramente la rapidez de todo el hardware.</li>
 <li><strong>Southbridge</strong> (o <em>I/O Controller Hub</em>, ICH): permite a la CPU comunicarse con las ranuras PCI, las ranuras PCI-Express x1 (tarjetas de expansión), los conectores SATA (discos duros, unidades ópticas), los puertos USB, los puertos Ethernet y el audio integrado. En definitiva, maneja los dispositivos más lentos.</li>
 </ul>
-<p>Cada nueva arquitectura, tanto de AMD como de Intel, modifica las funciones que antes cumplía el southbridge: aumenta el número de conexiones directas con puertos USB y SATA e incorpora nuevas funcionalidades para comunicar los chiplets entre sí (en el caso de AMD). Su funcionamiento base sigue siendo el mismo, pero es ahora más eficiente y menos propenso a fallos.</p>
+<p>En las arquitecturas actuales de Intel y AMD, el antiguo puente sur ya no existe como tal: en Intel se llama <strong>PCH</strong> (<em>Platform Controller Hub</em>) y en AMD, simplemente <strong>chipset</strong>. Cada generación, el <strong>procesador</strong> asume más funciones que antes estaban en la placa (controlador de memoria, líneas PCIe para la gráfica y para los SSD M.2 y, en algunos modelos, puertos USB), de modo que el chipset queda como un <strong>ampliador de conexiones</strong>: añade puertos USB y SATA, líneas PCIe adicionales, red y audio, y se comunica con el procesador mediante el bus DMI (Intel) o PCIe (AMD).</p>
 <p><img src="../assets/img/tema2/u21-chipset-intel.png" alt="Diagrama de un chipset Intel actual" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Diagrama de un chipset Intel actual</em></p>
 <p><img src="../assets/img/tema2/u21-bloques-chipset.jpg" alt="Diagrama de bloques del conjunto procesador-chipset" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
@@ -1977,13 +1977,16 @@
 <h4 id="conector-de-alimentacion-atx">Conector de alimentación ATX<a class="headerlink" href="#conector-de-alimentacion-atx" title="Permanent link">&para;</a></h4>
 <p>Se conecta al cable de alimentación ATX de 24 clavijas de la fuente, que suministra energía a la placa. Como conexión auxiliar podemos encontrar conectores de 4 u 8 pines; en placas de gama alta lo normal es ver 24 pines de alimentación y dos conexiones EPS de 8 pines (plataformas Intel LGA 2066 y AMD TR4/Threadripper).</p>
 <h4 id="conectores-de-refrigeracion">Conectores de refrigeración<a class="headerlink" href="#conectores-de-refrigeracion" title="Permanent link">&para;</a></h4>
+<p>Son los conectores de la placa base donde se enchufan los ventiladores y las bombas de refrigeración líquida. Físicamente son iguales: los de <strong>4 pines (PWM)</strong> regulan la velocidad mediante una señal de control, y los antiguos de <strong>3 pines (DC)</strong>, variando la tensión. Ambos tipos son compatibles entre sí. Hoy todos pueden regularse por temperatura desde la BIOS/UEFI.</p>
 <ul>
-<li><strong>CPU_FAN</strong>: ventilador del procesador (con control de temperatura).</li>
-<li><strong>CPU_SYS, CPU_OPT o CHA_FAN</strong>: conectores adicionales o secundarios destinados al sistema en general, ya sea para ventiladores superiores, traseros o frontales. Hoy la mayoría pueden regularse por BIOS, pero no suelen llevar el control de temperatura del CPU_FAN.</li>
-<li><strong>AIO_PUMP</strong>: conector destinado a la bomba del bloque de agua de una AIO (todo en uno); también puede usarse para un ventilador común.</li>
-<li><strong>W_PUMP</strong> (<em>Water Pump</em>): enfocado a bombas de alto rendimiento para refrigeración líquida; suele disponer de mayor energía.</li>
-<li><strong>H_AMP</strong>: diseñado para ventiladores de alto consumo, ya que puede llegar a triplicar la energía de un conector normal.</li>
+<li><strong>CPU_FAN</strong>: ventilador del disipador del procesador. Es el más importante: si la placa no detecta ningún ventilador conectado, muestra un aviso (<em>CPU Fan Error</em>) o no arranca, para proteger la CPU.</li>
+<li><strong>CPU_OPT</strong>: segundo ventilador del disipador del procesador. Copia el comportamiento de CPU_FAN y se usa en disipadores grandes con dos ventiladores.</li>
+<li><strong>CHA_FAN o SYS_FAN</strong>: ventiladores de la caja (frontales, traseros o superiores). Suele haber varios (CHA_FAN1, CHA_FAN2...).</li>
+<li><strong>AIO_PUMP</strong>: bomba de una refrigeración líquida todo en uno (AIO). Por defecto funciona a máxima velocidad, ya que la bomba debe trabajar a ritmo constante. También admite un ventilador común.</li>
+<li><strong>W_PUMP+</strong> (<em>Water Pump</em>): bombas de refrigeración líquida personalizada. Proporciona más corriente que un conector normal.</li>
+<li><strong>H_AMP</strong>: ventiladores de alto consumo, o varios conectados con un divisor. Puede dar hasta unos 3 A, el triple que un conector normal (1 A).</li>
 </ul>
+<p>Los nombres W_PUMP+ y H_AMP son propios de ASUS; otros fabricantes usan denominaciones parecidas, por lo que conviene consultar siempre el manual de la placa.</p>
 <p><img src="../assets/img/tema2/u21-conectores-ventilador.png" alt="Ubicación de los conectores de ventilador en una placa" style="max-width:360px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Ubicación de los conectores de ventilador en una placa</em></p>
 <p><img src="../assets/img/tema2/u21-tabla-ventiladores.png" alt="Corriente, potencia y control de cada conector de ventilador" style="max-width:400px; width:100%; display:block; margin:16px auto;"></p>
@@ -1991,9 +1994,11 @@
 <p><img src="../assets/img/tema2/u21-w-pump.png" alt="Conector W_PUMP para bombas de refrigeración líquida" style="max-width:340px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Conector W_PUMP para bombas de refrigeración líquida</em></p>
 
-<h4 id="conector-msata-yo-m2-nvme">Conector mSATA y/o M.2 NVMe<a class="headerlink" href="#conector-msata-yo-m2-nvme" title="Permanent link">&para;</a></h4>
-<p>Se conecta a una unidad de estado sólido mSATA o M.2 NVMe. En la mayoría de los casos esta unidad SSD se utiliza como caché para acelerar los discos duros, pero es posible utilizarla como unidad de disco normal. Actualmente es difícil encontrarlo en portátiles domésticos, pero en portátiles de empresa todavía puede encontrarse.</p>
-<p><img src="../assets/img/tema2/u21-m2.jpg" alt="Ranura M.2 con una unidad Intel Optane" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
+<h4 id="ranura-m2">Ranura M.2<a class="headerlink" href="#ranura-m2" title="Permanent link">&para;</a></h4>
+<p>Es la ranura donde se instalan los SSD en formato tarjeta, que se atornillan directamente a la placa sin cables. Hoy es la <strong>unidad de almacenamiento principal</strong> de la mayoría de equipos de sobremesa y de prácticamente todos los portátiles, y en ella se instala el sistema operativo.</p>
+<p>Una ranura M.2 puede funcionar por <strong>SATA</strong> (hasta unos 550 MB/s, como un SSD de 2,5") o por <strong>PCIe con protocolo NVMe</strong> (desde unos 3500 MB/s en PCIe 3.0 hasta más de 12 000 MB/s en PCIe 5.0). Por fuera son casi iguales, así que hay que consultar el manual de la placa para saber qué admite cada ranura.</p>
+<p>Su antecesor fue el conector <strong>mSATA</strong>, hoy obsoleto. </p>
+<p><img src="../assets/img/tema2/u21-m2.jpg" alt="Ranura M.2 con una unidad SSD" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Ranura M.2 con una unidad Intel Optane</em></p>
 
 <h4 id="boton-de-encendido-y-reseteo">Botón de encendido y reseteo<a class="headerlink" href="#boton-de-encendido-y-reseteo" title="Permanent link">&para;</a></h4>
@@ -2017,7 +2022,7 @@
 <p>En grupos de 3, buscad las siguientes placas base y determinad sus componentes: Raspberry Pi 5, iPhone 13, Arduino, Meta Quest 2 RV, Nintendo Switch, PS4 y Xbox Serie S.</p>
 </div>
 <h3 id="43-componentes-modernos">4.3 Componentes modernos<a class="headerlink" href="#43-componentes-modernos" title="Permanent link">&para;</a></h3>
-<p>Las placas base modernas incorporan además elementos de seguridad como el módulo <strong>TPM</strong> (<em>Trusted Platform Module</em>), un chip que almacena de forma segura claves criptográficas y que se conecta a la placa mediante un conector específico. Existen distintos formatos de conector TPM (por ejemplo, 12-1, 14-1 y 20-1 pines), según la placa.</p>
+<p>Las placas base modernas incorporan además elementos de seguridad como el <strong>TPM</strong> (<em>Trusted Platform Module</em>), un chip que almacena de forma segura claves criptográficas. Se usa, por ejemplo, para cifrar el disco con <strong>BitLocker</strong>, para el arranque seguro (<strong>Secure Boot</strong>) y para <strong>Windows Hello</strong>, y <strong>Windows 11 exige TPM 2.0</strong> para instalarse. Hoy lo habitual es que el TPM venga integrado en el propio procesador como <em>firmware TPM</em> (<strong>Intel PTT</strong> o <strong>AMD fTPM</strong>) y solo haya que activarlo en la BIOS/UEFI; muchos equipos que aparentemente "no son compatibles con Windows 11" solo lo tienen desactivado. Como alternativa, algunas placas permiten instalar un módulo TPM físico en un conector específico, cuyo formato varía según el fabricante (por ejemplo, 12-1, 14-1 o 20-1 pines).</p>
 <p><img src="../assets/img/tema2/u21-tpm.png" alt="Chip TPM y módulo TPM 2.0 (TPM 20-1)" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Chip TPM y módulo TPM 2.0 (TPM 20-1)</em></p>
 <p><img src="../assets/img/tema2/u21-tpm-tipos.png" alt="Distintos tipos de conector TPM: 20-1, 14-1 y 12-1" style="max-width:380px; width:100%; display:block; margin:16px auto;"></p>
@@ -2028,10 +2033,10 @@
 <h2 id="ejercicios-practicos">Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Permanent link">&para;</a></h2>
 <div class="admonition task">
 <p class="admonition-title">Tarea</p>
-<p><strong>Ejercicio 1</strong>. Clasifica estos elementos en internos o externos y, dentro de cada grupo, indica su categoría: SSD, teclado, tarjeta gráfica, impresora, fuente de alimentación, tarjeta SD, chipset, altavoces.</p>
+<p><strong>Ejercicio 1</strong>. Clasifica estos elementos en internos o externos y, dentro de cada grupo, indica su categoría: SSD M.2, teclado, tarjeta gráfica, impresora, fuente de alimentación, tarjeta SD, chipset, altavoces.</p>
 <p><strong>Ejercicio 2</strong>. Explica por qué los ventiladores que extraen aire caliente de una caja deben situarse en posiciones altas y los que introducen aire fresco en posiciones bajas. ¿Por qué es importante canalizar bien los cables?</p>
 <p><strong>Ejercicio 3</strong>. ¿Qué es un servidor <em>blade</em> y qué ventajas tiene frente a un servidor tradicional?</p>
-<p><strong>Ejercicio 4</strong>. Explica qué hace una fuente de alimentación (transformar, rectificar, filtrar y estabilizar) y para qué se usan las salidas de 5 V y de 12 V.</p>
+<p><strong>Ejercicio 4</strong>. Explica qué hace una fuente de alimentación (transformar, rectificar, filtrar y estabilizar). Después, observa la tabla de la fuente de 750 W del apartado 3.3: ¿qué salida puede entregar más potencia? ¿Qué componentes se alimentan de ella y por qué crees que es la más importante en un equipo actual?</p>
 <p><strong>Ejercicio 5</strong>. ¿Cuál es la diferencia entre una fuente modular, una semimodular y una no modular? ¿Qué ventaja aporta la modular?</p>
 <p><strong>Ejercicio 6</strong>. Un equipo tiene un consumo habitual de 300 W y un pico de 450 W. Con una fuente 80 PLUS Gold que rinde un 90 % al 50 % de carga, ¿qué potencia de fuente elegirías para trabajar en su punto de mayor eficiencia y cuánta energía consumiría de la red en uso normal?</p>
 <p><strong>Ejercicio 7</strong>. Si una gráfica consume 120 W, ¿basta con la alimentación que proporciona la ranura PCIe? ¿Qué conector adicional necesitaría?</p>
@@ -2040,6 +2045,8 @@
 <p><strong>Ejercicio 10</strong>. ¿Para qué sirve la pila CR2032 de la placa base? ¿Qué pasaría con la fecha y la hora si se agotara?</p>
 <p><strong>Ejercicio 11</strong>. Compara BIOS y UEFI: cita al menos tres diferencias (particiones, arranque, seguridad...).</p>
 <p><strong>Ejercicio 12 (práctica en el aula)</strong>. Abre un equipo del aula (apagado, desenchufado y con las precauciones antiestáticas) e identifica: la caja y su flujo de ventilación, la fuente de alimentación y sus conectores, el socket, las ranuras de RAM y de expansión, los conectores SATA/M.2, la pila CMOS y el chipset. Haz un esquema o fotografías anotadas.</p>
+<p><strong>Ejercicio 13</strong>. Quieres montar un PC pequeño con una placa Mini-ITX. ¿Cabría en una caja ATX? ¿Y una placa ATX en una caja Mini-ITX? ¿Cuántas tarjetas de expansión podrías instalar como máximo en la Mini-ITX?</p>
+<p><strong>Ejercicio 14</strong>. ¿Qué diferencia hay entre un SSD M.2 SATA y uno M.2 NVMe? ¿Se distinguen a simple vista? ¿Cómo sabrías cuál admite la ranura M.2 de tu placa?</p>
 </div>
 <hr />
 <p><strong>Bibliografía del documento original:</strong> Wikipedia (<em>Hardware</em>), HardZone (<em>flujo de aire perfecto del PC</em>), Freelancermap (<em>qué hace un administrador de sistemas</em>), Profesional Review (<em>componentes de una placa base</em>) y Geeknetic (<em>chipsets de Intel por socket</em>).</p>
