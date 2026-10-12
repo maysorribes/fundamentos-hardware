@@ -237,7 +237,7 @@ Para saber la intensidad máxima que puede suministrar la fuente con cada una de
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Etiqueta de características de una fuente de 750 W</em></p>
 
 - **Active PFC** (corrector de factor de potencia activo): permite que la distribución de energía opere a su máxima eficiencia y disminuye marcadamente los armónicos totales mezclados en la corriente AC. Una fuente con este complemento tendrá más vida útil.
-- **Certificación 80 PLUS**: iniciativa para promover una mayor eficiencia energética de las fuentes de alimentación. La **eficiencia** es la energía suministrada por la fuente dividida por la energía que recibe, es decir, cuánta energía se desperdicia mientras el ordenador trabaja. Por ejemplo, una fuente de 100 W puede ser un 80 % eficiente al 100 % de carga, pero bajar al 50 % de eficiencia cuando está al 50 % de carga.
+- **Certificación 80 PLUS**: iniciativa para promover una mayor eficiencia energética de las fuentes de alimentación. La **eficiencia** es la potencia que la fuente entrega al equipo dividida por la que toma del enchufe; la diferencia se pierde en forma de calor. Por ejemplo, si una fuente toma 500 W del enchufe y entrega 440 W al equipo, su eficiencia es del 88 % y desperdicia 60 W. Para obtener el sello 80 PLUS, la fuente debe superar al menos el 80 % de eficiencia al 20 %, al 50 % y al 100 % de carga. Los niveles superiores (Bronze, Silver, Gold, Platinum y Titanium) exigen valores más altos, y en todos ellos **la mejor eficiencia se alcanza en torno al 50 % de carga**: una fuente Silver, por ejemplo, rinde un 85 % al 20 % de carga, un 88 % al 50 % y un 85 % al 100 %.
 
 <img src="../assets/img/tema2/u21-80plus.jpg" alt="Niveles de la certificación 80 PLUS y su eficiencia según la carga" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Niveles de la certificación 80 PLUS y su eficiencia según la carga</em></p>
@@ -324,7 +324,7 @@ Las placas base de los portátiles hacen el mismo trabajo que las de PC, pero es
 
 Aquí es donde se conecta la CPU. Todos los ordenadores modernos tienen grandes dispositivos de refrigeración sobre el procesador, que normalmente consisten en un bloque de metal con aletas y un ventilador. El zócalo está cuidadosamente diseñado para que el procesador solo quepa en el lugar adecuado.
 
-Si el procesador no está en la placa base, puedes identificar el zócalo como socket 1 al socket 8, LGA 775 y otros, lo que ayuda a identificar el procesador que cabe. Por ejemplo, un 486DX encaja en el socket 3; un Intel Core i7 8700K, en el socket LGA 1151; un i9-7900X, en el LGA 2011; y los AMD Ryzen de primera y segunda generación, en el AM4.
+Si el procesador no está en la placa base, puedes identificar el zócalo como socket 1 al socket 8, LGA 775 y otros, lo que ayuda a identificar el procesador que cabe. Por ejemplo, un 486DX encaja en el socket 3; un Intel Core i7 8700K, en el socket LGA 1151; un i9-7900X, en el LGA 2066; y los AMD Ryzen de primera y segunda generación, en el AM4.
 
 <img src="../assets/img/tema2/u21-socket.jpg" alt="Zócalo (socket) de la CPU" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Zócalo (socket) de la CPU</em></p>
@@ -371,7 +371,7 @@ Hay dos tipos de conectores: **SATA 2** y el más rápido **SATA 3**. SATA 2 es 
 
 Casi todo lo que se conecta al ordenador desde el exterior, desde teclados hasta ratones e impresoras, se conecta a un puerto USB. Hay dos tipos de USB de tamaño completo: USB 2 y USB 3. El USB 3 es mucho más rápido y se adapta mejor a dispositivos como los discos duros externos, donde la velocidad extra marca la diferencia.
 
-La mayoría de las placas tienen conectores USB 2 y USB 3, y todos los dispositivos USB 2, USB 3 y USB 3.1 funcionan en cualquiera de los puertos, aunque quizá algo más despacio en el USB 2. Las placas modernas incorporan también **USB-C** de segunda generación.
+La mayoría de las placas tienen conectores USB 2 y USB 3, y todos los dispositivos USB 2, USB 3 y USB 3.1 funcionan en cualquiera de los puertos, aunque quizá algo más despacio en el USB 2. Las placas modernas incorporan también puertos USB-C, normalmente a 10 Gb/s (USB 3.2 Gen 2) o más. Ojo: USB-C es el tipo de conector, no la velocidad; un puerto USB-C puede ir desde 480 Mb/s hasta 80 Gb/s según la versión.
 
 <img src="../assets/img/tema2/u21-puertos-traseros.jpg" alt="Panel trasero de conectores de una placa base" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Panel trasero de conectores de una placa base</em></p>
