@@ -36,9 +36,9 @@ El **microprocesador** es el auténtico cerebro de todos los elementos del PC. L
 <img src="../assets/img/tema2/u22-cpu-intro.jpg" alt="El microprocesador: un chip con miles o millones de transistores" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>El microprocesador: un chip con miles o millones de transistores</em></p>
 
-El microprocesador es un chip, un componente electrónico cuyo interior está compuesto por miles o millones de **transistores**, cuya combinación permite realizar los trabajos que se le encomienden. Suelen tener forma de rectángulo y van sobre un elemento llamado **zócalo** (*socket*, en inglés), específico de cada modelo, que permite conectarlos a la placa mediante pines. Además, es necesario situarlo junto con un sistema de refrigeración que ayude a disipar el calor; para una mejor transmisión entre el procesador y el disipador se inserta **pasta térmica**.
+El microprocesador es un chip, un componente electrónico cuyo interior está compuesto por miles de millones de transistores, cuya combinación permite ejecutar las instrucciones de los programas. Suelen tener forma cuadrada o rectangular y, en los equipos de sobremesa, se instalan sobre un elemento llamado zócalo (socket), específico de cada familia de procesadores, que los conecta a la placa base mediante pines o contactos. En muchos portátiles, en cambio, el procesador va soldado directamente a la placa. Además, es necesario acompañarlo de un sistema de refrigeración que ayude a disipar el calor; para mejorar la transmisión del calor entre el procesador y el disipador se aplica pasta térmica.
 
-Hemos de tener en cuenta que la información manejada es, a fin de cuentas, electricidad que viaja a través de los circuitos y que es retenida en pequeñas zonas de memoria para su posterior procesamiento en la memoria principal.
+Hemos de tener en cuenta que la información se representa mediante señales eléctricas que viajan por los circuitos. Los datos y programas se almacenan en la memoria principal (RAM), y el procesador los lleva a pequeñas memorias internas muy rápidas (registros y caché) para procesarlos.
 
 ## 2. Arquitectura de procesadores
 
@@ -71,26 +71,26 @@ Existen varias filosofías de arquitectura de procesadores:
 - **RISC**: ofrece un conjunto de instrucciones muy simples que se ejecutan más rápidamente. El catálogo es de pocas instrucciones muy sencillas, lo que implica que hacen falta más de ellas: el programa final es más largo y accede más veces a los datos almacenados en memoria. En la actualidad, el mayor ejemplo de procesador RISC son los productos **ARM**, muy utilizados en dispositivos móviles.
 - **Híbrido CISC/RISC**: recoge lo mejor de ambas. Internamente, el procesador lleva a cabo solo instrucciones simples. Sobre estas instrucciones internas hay un circuito decodificador que convierte las instrucciones complejas utilizadas por los programas en varias instrucciones simples que el procesador puede entender.
 
-La gran batalla actual es la de sus dos grandes exponentes, **ARM** y **x86**, que han actualizado sus objetivos a lo que importa a los usuarios del siglo XXI. El punto fuerte de ARM es la **eficiencia energética**: un chip ARM consume mucha menos energía que un procesador x86, que tiene en su alto rendimiento su gran virtud a costa de consumir bastante más energía.
+La gran batalla actual es la que libran las dos principales arquitecturas de procesadores: ARM y x86. ARM, de tipo RISC (juego de instrucciones reducido), se ha caracterizado tradicionalmente por su eficiencia energética, lo que la ha convertido en la arquitectura dominante en móviles y tablets. x86, de tipo CISC (juego de instrucciones complejo) y fabricada principalmente por Intel y AMD, ha destacado históricamente por su alto rendimiento en ordenadores personales y servidores, a costa de un mayor consumo.
+
+Sin embargo, esta frontera es cada vez más difusa. Procesadores ARM como los Apple M o los Snapdragon X ofrecen ya un rendimiento comparable al de los x86, y los fabricantes de x86 han mejorado notablemente su eficiencia. Hoy, el consumo y el rendimiento dependen tanto del diseño concreto del chip y de su proceso de fabricación como de la arquitectura en sí.
 
 ### 2.3 Partes del microprocesador
 
 <img src="../assets/img/tema2/u22-partes-cpu.jpg" alt="Partes de un microprocesador: encapsulado, memoria caché, sistema de control y coprocesador matemático" style="max-width:380px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Partes de un microprocesador: encapsulado, memoria caché, sistema de control y coprocesador matemático</em></p>
 
-- **Encapsulado**: parte física que rodea el procesador para impedir su deterioro y permitir el enlace de los conectores con el zócalo. Otorga protección de plástico o cerámica, con una serie de conexiones eléctricas que sirven para recibir energía, realizar la transmisión de datos y evacuar el calor generado.
-- **Memoria caché**: memoria ultrarrápida que el procesador emplea para tener almacenados los datos que previsiblemente se usarán con más frecuencia, sin acceder a la RAM. Hay diferentes niveles según su ubicación, velocidad y tamaño:
-  - **Caché L1**: se encuentra en el núcleo del microprocesador. Es la más rápida.
-  - **Caché L2**: más lenta que la L1, pero de mayor capacidad. Se encuentra en el procesador, pero no en su núcleo. Genera copia de L1.
-  - **Caché L3**: agiliza el acceso a datos e instrucciones que no se localizaron en L1 o L2. Genera copia a la L2.
-  - **Caché L4**: poco habitual; se utiliza como apoyo para mejorar el rendimiento de las GPU integradas.
-- **Coprocesador matemático o FPU** (*Floating Point Unit*): unidad especializada en el cálculo de operaciones en coma flotante.
-- **Unidad de control**: se encarga de buscar las instrucciones y los datos de la memoria principal, ejecutarlos y atender las interrupciones.
-- **ALU**: se encarga de realizar las operaciones aritméticas y lógicas sencillas.
-- **Registros**: pequeñas memorias de acceso rápido donde guardar datos de operaciones en curso. Pueden ser de uso general o específico.
-- **iGP** (*Integrated Graphics Processor*): procesadores que dependen de la memoria primaria del sistema. Los chips integrados actuales se incrustan directamente en la CPU, lo que determina cuánta RAM se utilizará para procesar gráficos.
-
-### 2.4 Características de la CPU
+* **Encapsulado**: envoltorio físico de plástico, cerámica o resina que rodea el chip de silicio para protegerlo y permitir su conexión con el zócalo. Incluye los contactos eléctricos para la alimentación y la transmisión de datos y, en su parte superior, una placa metálica (IHS) que transmite el calor hacia el disipador.
+* **Memoria caché**: memoria ultrarrápida integrada en el procesador que almacena los datos e instrucciones que previsiblemente se usarán con más frecuencia, evitando accesos a la RAM, mucho más lenta. Se organiza en niveles según su ubicación, velocidad y tamaño:
+    * **Caché L1**: la más rápida y pequeña. Cada núcleo tiene la suya, normalmente dividida en caché de instrucciones y caché de datos.
+    * **Caché L2**: más lenta que la L1, pero de mayor capacidad. En los procesadores actuales suele ser privada de cada núcleo.
+    * **Caché L3**: más grande y lenta que las anteriores, y compartida por todos los núcleos. Agiliza el acceso a los datos e instrucciones que no se encontraron en L1 ni en L2.
+    * **Caché L4**: poco habitual; se ha utilizado en algunos procesadores, por ejemplo como apoyo a la GPU integrada.
+* **FPU (Floating Point Unit)**: unidad especializada en operaciones en coma flotante (números reales). Antiguamente era un chip independiente (coprocesador matemático); hoy está integrada en cada núcleo.
+* **Unidad de control (UC)**: busca las instrucciones en memoria, las decodifica y coordina su ejecución enviando señales de control al resto de componentes. También gestiona las interrupciones.
+* **ALU (Unidad Aritmético-Lógica)**: realiza las operaciones aritméticas y lógicas con números enteros.
+* **Registros**: pequeñas memorias de acceso muy rápido dentro del procesador donde se guardan los datos e instrucciones de las operaciones en curso. Pueden ser de uso general o específico (contador de programa, registro de instrucción, acumulador…).
+* **iGPU (Integrated Graphics Processing Unit)**: unidad gráfica integrada en el propio procesador. Al no disponer de memoria propia, comparte la RAM del sistema; la cantidad reservada para gráficos se configura en la BIOS/UEFI o la asigna el sistema operativo de forma dinámica.
 
 Las CPU tienen una serie de características que usamos para clasificarlas y compararlas.
 
@@ -102,11 +102,13 @@ Las CPU tienen una serie de características que usamos para clasificarlas y com
 <img src="../assets/img/tema2/u22-nucleos-die.jpg" alt="Fotografía de la pastilla de silicio de un procesador con varios núcleos y caché L3" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Fotografía de la pastilla de silicio de un procesador con varios núcleos y caché L3</em></p>
 
-Los **núcleos** son las entidades de procesamiento de información: los elementos formados por los componentes básicos de la arquitectura x86, es decir, la unidad de control (UC), el decodificador de instrucciones (DI), la unidad aritmético-lógica (ALU), la unidad de coma flotante (FPU) y la pila de instrucciones (PI).
+Los núcleos son las unidades de procesamiento de información del microprocesador. Cada núcleo contiene los componentes básicos necesarios para ejecutar instrucciones: la unidad de control (UC), el decodificador de instrucciones, la unidad aritmético-lógica (ALU), la unidad de coma flotante (FPU), los registros y la memoria caché de primer y segundo nivel (L1 y L2).
 
-Cada uno de estos núcleos está formado por los mismos componentes internos, y cada uno es capaz de llevar a cabo una operación en cada ciclo de instrucción. Este ciclo se mide en frecuencia o hercios (Hz): mientras más Hz, más instrucciones por segundo; y mientras más núcleos, más operaciones al mismo tiempo.
+Cada núcleo es capaz de ejecutar instrucciones de forma independiente. Los procesadores actuales pueden ejecutar varias instrucciones por cada ciclo de reloj, lo que se mide mediante el IPC (instrucciones por ciclo). La frecuencia de reloj, medida en hercios (Hz), indica cuántos ciclos se producen por segundo. Por tanto, el rendimiento de un núcleo depende tanto de su frecuencia como de su IPC: a igualdad de arquitectura, más Hz implican más instrucciones por segundo, y más núcleos permiten realizar más operaciones simultáneamente, siempre que el software esté preparado para aprovecharlos. Además, muchos procesadores incorporan SMT (Hyper-Threading, en Intel), que permite a cada núcleo ejecutar dos hilos a la vez.
 
-En la actualidad, fabricantes como AMD implementan estos núcleos en bloques de silicio, **chiplets** o CCX, de forma modular. Con este sistema se consigue una mejor escalabilidad: se trata de colocar chiplets hasta conseguir el número deseado de núcleos (8 por cada elemento), y además es posible activar o desactivar cada núcleo para conseguir el recuento deseado. Intel, por su parte, aún mete todos los núcleos en un solo silicio.
+No todos los núcleos tienen por qué ser iguales: los diseños híbridos, como los de Intel (núcleos P de rendimiento y núcleos E de eficiencia) o ARM (big.LITTLE), combinan núcleos de distinto tipo para equilibrar rendimiento y consumo.
+
+En la actualidad, los fabricantes construyen sus procesadores de forma modular, uniendo varios bloques de silicio. AMD utiliza chiplets llamados CCD (Core Complex Die), cada uno con 8 núcleos en sus modelos Ryzen recientes, junto a un chiplet independiente de entrada/salida (IOD). Este sistema mejora la escalabilidad: basta con combinar varios CCD para conseguir el número de núcleos deseado. Además, el fabricante puede desactivar núcleos para crear modelos de gama inferior. Intel, que durante años fabricó sus procesadores en un único bloque de silicio, también ha adoptado un diseño modular basado en tiles desde sus procesadores Core Ultra.
 
 #### 2.4.2 Control de voltaje
 
@@ -128,43 +130,67 @@ Hay tareas más difíciles que otras, por lo que un núcleo tardará más o meno
 <img src="../assets/img/tema2/u22-hyperthreading.jpg" alt="Funcionamiento de la tecnología Hyper-Threading" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Funcionamiento de la tecnología Hyper-Threading</em></p>
 
-¿Por qué vemos en unos casos el mismo número de núcleos que de hilos y en otros no? Se debe a las tecnologías *multithreading* que los fabricantes tienen implementadas en sus procesadores. Cuando una CPU cuenta con el doble de hilos que de núcleos, significa que tiene implementada esta tecnología: divide un núcleo en dos hilos o «núcleos lógicos» para dividir tareas. La división se realiza siempre en dos hilos por núcleo y no más.
+¿Por qué en unos procesadores vemos el mismo número de núcleos que de hilos y en otros no? Se debe a la tecnología SMT (Simultaneous Multithreading o multihilo simultáneo), que algunos fabricantes implementan en sus procesadores.
 
-La tecnología de Intel se denomina **Hyper-Threading**, y la de AMD, **SMT** (*Simultaneous Multithreading*). A efectos prácticos ambas funcionan igual y, en nuestro equipo, los veremos como núcleos reales (por ejemplo, al renderizar una foto). Un procesador con idéntica velocidad es más rápido si tiene 8 núcleos físicos que si tuviera 8 lógicos.
+Un hilo es una secuencia de instrucciones que el procesador ejecuta. Sin SMT, cada núcleo ejecuta un solo hilo a la vez, por lo que el número de hilos coincide con el de núcleos. Con SMT, cada núcleo puede ejecutar dos hilos simultáneamente compartiendo sus recursos internos (ALU, FPU, caché…): aprovecha los momentos en que una parte del núcleo quedaría inactiva, por ejemplo esperando un dato de la memoria, para avanzar con el otro hilo. El sistema operativo ve cada hilo como un procesador lógico, por lo que un procesador de 8 núcleos con SMT aparece como 16 procesadores lógicos.
+
+En los procesadores de ordenador personal, el SMT permite ejecutar dos hilos por núcleo, aunque existen procesadores de servidor que admiten 4 u 8. Intel llama a su implementación Hyper-Threading, mientras que AMD la denomina simplemente SMT; en la práctica, ambas funcionan de forma similar.
+
+No todos los procesadores incorporan esta tecnología. Muchos modelos de gama baja, la mayoría de procesadores ARM (como los Apple M) y los Intel Core Ultra más recientes carecen de ella, por lo que tienen el mismo número de núcleos que de hilos. En los procesadores híbridos de Intel, solo los núcleos de rendimiento (P) tienen Hyper-Threading, de modo que el número de hilos no llega al doble del de núcleos: por ejemplo, el Core i9-13900K tiene 24 núcleos y 32 hilos.
+
+Hay que tener en cuenta que un hilo no equivale a un núcleo físico: el SMT suele mejorar el rendimiento en torno a un 15-30 %, no lo duplica. Por ello, a igual frecuencia, un procesador con 8 núcleos físicos es más rápido que uno con 4 núcleos y 8 hilos.
 
 #### 2.4.5 Memoria caché
 
 <img src="../assets/img/tema2/u22-cache-esquema.png" alt="Esquema de la memoria caché dentro del procesador y su conexión con la RAM" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Esquema de la memoria caché dentro del procesador y su conexión con la RAM</em></p>
 
-Es, de hecho, el segundo elemento más importante de un procesador. La memoria caché es mucho más rápida que la memoria RAM y está directamente integrada en el procesador. Mientras que una RAM DDR4 a 3600 MHz puede alcanzar los 50 000 MB/s en lectura, una caché L3 puede llegar a los 570 GB/s, una L2 a los 790 GB/s y una L1 a los 1600 GB/s (cifras registradas en los Ryzen 3000).
+La memoria caché es uno de los elementos más importantes de un procesador. Está integrada en el propio procesador y es mucho más rápida que la memoria RAM. Por ejemplo, en un Ryzen 3000, mientras que una RAM DDR4-3600 en doble canal alcanza unos 50 GB/s en lectura, la caché L3 puede superar los 500 GB/s, la L2 los 750 GB/s y la L1 los 1500 GB/s (cifras que suman todos los núcleos y varían según el modelo).
 
-Esta memoria es de tipo **SRAM** (*Static RAM*), rápida y cara, mientras que la RAM usa **DRAM** (*Dynamic RAM*), lenta y barata por necesitar continuamente una señal de refresco. En la caché se almacenan los datos que van a ser usados inmediatamente por el procesador, eliminando la espera de cogerlos de la RAM y optimizando el tiempo de proceso. En los procesadores de AMD e Intel existen tres niveles de caché:
+La caché utiliza memoria SRAM (Static RAM), mientras que la RAM utiliza DRAM (Dynamic RAM). La DRAM almacena cada bit en un condensador, que se descarga con el tiempo y necesita una señal de refresco continua; al necesitar muy pocos componentes por bit, es densa y barata, pero más lenta. La SRAM necesita unos seis transistores por bit y no requiere refresco: es mucho más rápida, pero también más cara y ocupa más espacio, por lo que la caché tiene una capacidad reducida.
 
-- **L1**: la más cercana a los núcleos, la más pequeña y la más rápida (latencias inferiores a 1 ns). Está dividida en dos: **L1I** (instrucciones) y **L1D** (datos). En los Intel Core de 9ª generación y los Ryzen 3000 es de 32 KB en cada caso, y cada núcleo tiene la suya propia.
-- **L2**: la siguiente, con latencias en torno a los 3 ns; también asignada de forma independiente a cada núcleo. Las CPU Intel la tienen de 256 KB, y los Ryzen, de 512 KB.
-- **L3**: la memoria más grande de las tres, asignada de forma compartida entre los núcleos, normalmente en grupos de 4.
+En la caché se almacenan los datos e instrucciones que el procesador predice que va a necesitar, basándose en el principio de localidad: un dato usado recientemente probablemente se vuelva a usar pronto, al igual que los datos cercanos a él en memoria. Así se reducen los accesos a la RAM y se optimiza el tiempo de proceso. En los procesadores actuales de AMD e Intel existen tres niveles de caché:
 
-Se produce un **acierto de caché** (*hit*) cuando los datos solicitados se encuentran en ella, y un **error o fallo de caché** (*miss*) cuando no. Los datos se alojan en distintos niveles según su frecuencia de uso.
+* **L1**: la más cercana a los núcleos, la más pequeña y la más rápida, con latencias en torno a 1 ns. Cada núcleo tiene la suya propia, dividida en dos: L1I (instrucciones) y L1D (datos). En los Intel Core de 9.ª generación y los Ryzen 3000 es de 32 KB cada una.
+* **L2**: el siguiente nivel, con latencias en torno a 3 ns, también independiente para cada núcleo. Su tamaño ha crecido con cada generación: de 256 KB en los Intel Core de 9.ª generación y 512 KB en los Ryzen 3000 a 1 MB en los Ryzen actuales y 2-3 MB en los núcleos de rendimiento de Intel más recientes.
+* **L3**: la de mayor tamaño (desde varios MB hasta decenas de MB) y la más lenta de las tres, con latencias en torno a 10 ns. Se comparte entre varios núcleos: en Intel, entre todos ellos; en AMD, entre los núcleos de cada CCX (grupos de 4 en los Ryzen 3000 y de 8 a partir de los Ryzen 5000).
+
+Cuando el procesador necesita un dato, lo busca primero en L1, después en L2, luego en L3 y, por último, en la RAM. Se produce un acierto de caché (hit) cuando el dato se encuentra en la caché, y un fallo de caché (miss) cuando no está y hay que buscarlo en el nivel siguiente. Al recuperarlo, el dato se copia a los niveles superiores para tenerlo más a mano la próxima vez. Cuando la caché se llena, se sustituyen normalmente los datos que llevan más tiempo sin usarse.
 
 #### 2.4.6 Buses
 
-El **puente norte** de un procesador o de una placa base tiene la función de conectar la memoria RAM con la CPU. En la actualidad, ambos fabricantes implementan este controlador de memoria (o PCH, *Platform Controller Hub*) dentro de la propia CPU, por ejemplo en un silicio independiente en las CPU basadas en chiplets.
+En las placas base antiguas, el puente norte (northbridge) era el chip encargado de conectar el procesador con la memoria RAM, la tarjeta gráfica y el puente sur. En la actualidad, AMD e Intel integran el controlador de memoria (IMC, Integrated Memory Controller) dentro de la propia CPU, junto con las líneas PCIe destinadas a la tarjeta gráfica. En los procesadores basados en chiplets, como los Ryzen, el controlador de memoria se encuentra en el chiplet de entrada/salida (IOD).
 
-Es una forma de aumentar significativamente la velocidad de las transacciones de información y de simplificar los buses de las placas base, quedándose solo con el puente sur, que llamamos **chipset**. Este conjunto de chips se dedica a direccionar los datos de los discos duros, periféricos y algunas ranuras PCIe. Los procesadores de última generación de escritorio y portátiles son capaces de direccionar hasta 128 GB de RAM en *dual channel* a 3200 MHz nativos (4800 MHz con perfiles JEDEC y XMP activado).
+Esto aumenta significativamente la velocidad de acceso a la memoria y simplifica el diseño de las placas base, que conservan solo el antiguo puente sur, al que llamamos chipset (Intel lo denomina PCH, Platform Controller Hub). El chipset gestiona las conexiones de los discos SATA, los puertos USB, la red, el audio y algunas ranuras PCIe y M.2, mientras que la ranura PCIe principal de la tarjeta gráfica y el primer M.2 suelen conectarse directamente a la CPU.
 
-Los buses se dividen en:
+Los procesadores de escritorio actuales utilizan memoria DDR5 en doble canal, con velocidades oficiales de entre 5600 y 6400 MT/s según el modelo, y admiten hasta 192 GB de RAM o más. Estas velocidades oficiales corresponden a los perfiles estándar JEDEC; los perfiles XMP (Intel) y EXPO (AMD) permiten configurar la memoria a velocidades superiores mediante overclock.
 
-- **Bus de datos**: transporta los datos e instrucciones de los programas.
-- **Bus de direcciones**: por él circulan las direcciones de las celdas donde se guardan los datos.
-- **BSB** (*Back-Side Bus*): bus de conexión entre los núcleos del procesador y la memoria. El que utiliza AMD en Zen 2 se denomina **Infinity Fabric** (capaz de trabajar a 5100 MHz), y el de Intel, **Intel Ring Bus**.
-- **Bus frontal o FSB**: bus para comunicar el procesador con el chipset. En Intel es **QuickPath Interconnect** y en AMD, **HyperTransport**.
+Según la información que transportan, los buses del sistema se dividen en:
+
+* **Bus de datos**: transporta los datos e instrucciones de los programas.
+* **Bus de direcciones**: transporta las direcciones de las posiciones de memoria donde se leen o escriben los datos.
+* **Bus de control**: transporta las señales que coordinan el funcionamiento del sistema (lectura, escritura, interrupciones, reloj…).
+
+Históricamente, también se distinguía entre:
+
+* **FSB (Front-Side Bus)**: conectaba el procesador con el puente norte. Fue sustituido por enlaces más rápidos como QuickPath Interconnect (Intel) e HyperTransport (AMD), que a su vez han quedado obsoletos. Hoy Intel conecta la CPU con el chipset mediante DMI, y AMD mediante líneas PCIe.
+* **BSB (Back-Side Bus)**: conectaba el procesador con la caché L2 cuando esta se encontraba fuera del núcleo. Desapareció al integrarse la caché en el propio procesador.
+
+Dentro del procesador actual, los distintos componentes se comunican mediante interconexiones internas: AMD utiliza Infinity Fabric para unir sus chiplets, e Intel utiliza un bus en anillo (Ring Bus) para conectar los núcleos, la caché L3 y la gráfica integrada.
 
 #### 2.4.7 iGPU: procesador gráfico integrado
 
-La mayoría de procesadores actuales cuentan con núcleos destinados a trabajar exclusivamente con gráficos y texturas. Ya sea Intel, AMD o fabricantes como Qualcomm (con sus Adreno para smartphone) o Realtek (para Smart TV y NAS), todos tienen núcleos de este tipo. A este tipo de procesadores se les llama **APU** (*Accelerated Processor Unit*).
+Muchos procesadores actuales integran una unidad gráfica (iGPU) destinada al procesamiento de gráficos, la decodificación de vídeo y, cada vez más, a tareas de cálculo e inteligencia artificial. Intel y AMD la incorporan en buena parte de sus procesadores para ordenadores, y fabricantes como Qualcomm (con sus gráficas Adreno) la integran en los chips de los smartphones. AMD denomina a sus procesadores con gráfica integrada **APU** (*Accelerated Processing Unit*), mientras que en móviles y otros dispositivos se habla de **SoC** (*System on a Chip*), ya que integran en un solo chip la CPU, la GPU y otros componentes.
 
-La razón es simple: separar este duro trabajo del resto de tareas típicas de un programa, ya que son mucho más pesadas y lentas si no se usa un bus de mayor capacidad (por ejemplo, de 128 bits en las APU). Al igual que los núcleos normales, estos se pueden medir en cantidad y en la frecuencia a la que trabajan, pero además tienen otros componentes: las **unidades de sombreado**, las **TMU** (unidades de texturizado) y las **ROP** (unidades de renderizado). Todas ellas ayudan a identificar la potencia gráfica del conjunto.
+La razón de incluir una GPU es que el procesamiento gráfico requiere un tipo de cálculo muy distinto al del resto de tareas. Una CPU dispone de pocos núcleos muy potentes, pensados para ejecutar instrucciones de forma secuencial, mientras que una GPU dispone de cientos o miles de núcleos más sencillos que trabajan en paralelo, ideales para calcular a la vez los millones de píxeles que forman una imagen. Integrar la GPU en el procesador permite prescindir de una tarjeta gráfica dedicada, reduciendo el coste, el consumo y el espacio. Su principal limitación es que no dispone de memoria propia: comparte la RAM del sistema con la CPU, que es mucho más lenta que la memoria GDDR de las tarjetas gráficas dedicadas.
+
+La potencia de una GPU se mide por la cantidad de núcleos y su frecuencia de trabajo, así como por otros elementos:
+
+* **Unidades de sombreado** (*shaders*): son los núcleos de la GPU, encargados de calcular la geometría, la iluminación y el color de cada píxel. Cada fabricante les da un nombre propio y los agrupa en unidades mayores (Compute Units en AMD, núcleos Xe en Intel).
+* **TMU** (*Texture Mapping Units*): unidades de texturizado, que aplican las texturas sobre los objetos.
+* **ROP** (*Render Output Units*): unidades de salida de renderizado, que componen y escriben en memoria el resultado final de cada píxel.
+
+Además, el rendimiento gráfico depende en gran medida del ancho de banda de la memoria a la que tiene acceso la GPU.
 
 ### 2.5 Socket
 
@@ -205,55 +231,57 @@ El *thermal throttling* es un sistema de protección automático que tienen las 
 - **CPU Package**: promedio de la temperatura de unión de todos los núcleos de la CPU.
 
 ### 2.7 Resumen de tecnologías asociadas
-
 **Intel**
 
-- **Hyper-Threading**: divide el núcleo en dos, creando un microprocesador virtual.
-- **QuickPath Interconnect**: conexión punto a punto con el procesador (4,8 a 6,4 GT/s).
-- **Turbo Boost**: incrementa la velocidad de los núcleos cuando el usuario lo demanda.
-- **SpeedStep**: cambia la frecuencia del microprocesador ajustándose a la carga; disminuye el consumo y el calor.
-- **Quick Sync**: permite codificar y decodificar un vídeo por hardware.
-- **HD Graphics**: procesador gráfico dentro de la CPU.
+- **Hyper-Threading**: implementación de Intel de la tecnología SMT, que permite a cada núcleo ejecutar dos hilos simultáneamente; el sistema operativo ve cada núcleo como dos procesadores lógicos. Ha sido eliminada en los Intel Core Ultra más recientes.
+- **QuickPath Interconnect (QPI)**: conexión punto a punto entre procesadores y con el chipset (de 4,8 a 6,4 GT/s en su primera versión), que sustituyó al FSB. Actualmente está obsoleta: ha sido reemplazada por UPI (entre procesadores en servidores) y DMI (entre la CPU y el chipset).
+- **Turbo Boost**: aumenta automáticamente la frecuencia de los núcleos cuando la carga de trabajo lo requiere, siempre que la temperatura y el consumo lo permitan.
+- **SpeedStep**: ajusta la frecuencia y el voltaje del procesador según la carga de trabajo, reduciendo el consumo y el calor. Su evolución, **Speed Shift**, permite que sea el propio procesador quien gestione estos cambios, de forma más rápida.
+- **Quick Sync**: codifica y decodifica vídeo por hardware mediante la gráfica integrada.
+- **Gráficos integrados**: GPU integrada en el procesador, conocida como HD Graphics, UHD Graphics, Iris Xe y, en los Core Ultra, Intel Graphics o Arc.
 
 **AMD**
 
-- **CMT** (*Cluster-based Multithreading*): divide el procesador en dos, similar a Hyper-Threading.
-- **HyperTransport**: comunicaciones de alta velocidad punto a punto, similar a QuickPath.
-- **Turbo Core**: modifica la frecuencia en función de la demanda del procesador.
-- **Cool'n'Quiet**: permite reducir la frecuencia de operación del procesador.
+- **SMT** (*Simultaneous Multithreading*): equivalente al Hyper-Threading de Intel; permite a cada núcleo ejecutar dos hilos. Se utiliza desde los procesadores Ryzen (2017). Anteriormente, los procesadores Bulldozer usaban **CMT** (*Clustered Multithreading*), en la que cada módulo contenía dos núcleos que compartían la FPU y otros recursos.
+- **Infinity Fabric**: interconexión de alta velocidad que une los distintos chiplets del procesador. Sustituyó a **HyperTransport**, la conexión punto a punto equivalente a QuickPath.
+- **Precision Boost**: aumenta automáticamente la frecuencia de los núcleos según la carga, la temperatura y el consumo, equivalente al Turbo Boost de Intel. Sustituyó a **Turbo Core**.
+- **Cool'n'Quiet**: reduce la frecuencia y el voltaje del procesador cuando la carga de trabajo es baja, disminuyendo el consumo y el calor; equivalente a SpeedStep.
+- **VCN** (*Video Core Next*): codifica y decodifica vídeo por hardware, equivalente a Quick Sync.
+- **Radeon Graphics**: GPU integrada en las APU y en los procesadores Ryzen actuales.
 
 ### 2.8 Overclocking
 
 <img src="../assets/img/tema2/u22-xtu-overclock.png" alt="Herramienta Intel Extreme Tuning Utility (XTU) para ajustar frecuencia y voltaje" style="max-width:420px; width:100%; display:block; margin:16px auto;">
 <p style="text-align:center; font-size:0.85em; color:#666;"><em>Herramienta Intel Extreme Tuning Utility (XTU) para ajustar frecuencia y voltaje</em></p>
 
-El **overclocking** es una técnica en la que se aumenta el voltaje de la CPU y se modifica el multiplicador para aumentar así su frecuencia de operación. No se trata de las frecuencias de las especificaciones (como el modo turbo), sino de valores que superan los establecidos por el fabricante. Es un riesgo para la estabilidad e integridad del procesador.
+El overclocking es una técnica que consiste en aumentar la frecuencia de funcionamiento de la CPU por encima de los valores establecidos por el fabricante, incluidos los del modo turbo. La frecuencia del procesador se obtiene multiplicando el reloj base (BCLK) por el multiplicador (por ejemplo, 100 MHz × 45 = 4,5 GHz), por lo que puede aumentarse modificando cualquiera de los dos valores. A menudo también es necesario aumentar el voltaje para que el procesador funcione de forma estable. Es una práctica que supone un riesgo para la estabilidad y la vida útil del procesador, y que puede suponer la pérdida de la garantía.
 
 !!! warning "Importante"
-    Cuando hagamos *overclocking*, no es aconsejable sobrepasar la velocidad marcada en más de un 15 %.
+    No existe un margen de overclock seguro para todos los procesadores: depende de cada chip. Los procesadores actuales ya trabajan cerca de su límite, por lo que se recomienda subir la frecuencia de forma gradual y comprobar la estabilidad en cada paso.
 
-Para realizar un overclock hace falta una CPU con el **multiplicador desbloqueado** y una placa base con un chipset que permita este tipo de acción. Todos los AMD Ryzen son susceptibles de ser overclockeados, al igual que los procesadores Intel con denominación **K**. Los chipsets AMD B450, X470 y X570 admiten esta práctica, al igual que los de la serie X y Z de Intel.
+Para realizar overclock modificando el multiplicador, se necesita un procesador con el multiplicador desbloqueado y una placa base cuyo chipset lo permita. En AMD, casi todos los Ryzen de escritorio tienen el multiplicador desbloqueado, y lo admiten los chipsets de las series B y X (como B650, X670, B850 o X870). En Intel, solo los procesadores con sufijo K (K, KF y KS) y los chipsets de la serie Z (como Z790 o Z890).
 
-El overclocking también se puede realizar aumentando la frecuencia del reloj base o **BCLK**, el reloj principal de la placa base, que controla prácticamente todos los componentes (CPU, RAM, PCIe y chipset). Si se aumenta este reloj se aumenta la frecuencia de otros componentes que incluso tienen el multiplicador bloqueado, aunque conlleva aún más riesgos y es un método muy inestable.
+El overclocking también puede realizarse aumentando la frecuencia del reloj base o BCLK (normalmente de 100 MHz), del que dependen la CPU y la memoria RAM. Este método permite aumentar la frecuencia incluso en procesadores con el multiplicador bloqueado, pero es más arriesgado e inestable, ya que puede afectar a otros componentes.
 
-El **undervolting**, por su parte, es justo lo contrario: disminuir el voltaje para evitar que un procesador haga *thermal throttling*. Se usa en portátiles o tarjetas gráficas con sistemas de refrigeración ineficaces.
+El undervolting, por su parte, consiste en reducir el voltaje del procesador manteniendo su frecuencia. Así se disminuyen la temperatura y el consumo, lo que ayuda a evitar el thermal throttling (reducción automática de la frecuencia por exceso de temperatura) y a mantener el modo turbo durante más tiempo. Es muy habitual en portátiles y tarjetas gráficas. Si se reduce demasiado el voltaje, el equipo puede volverse inestable.
 
 | Consecuencias negativas | Consecuencias positivas |
-| ----------------------- | ----------------------- |
-| Que no funcione a más velocidad de la marcada | Tener un procesador más rápido «gratis» |
-| Que se estropee (rara vez pasa si se sube de manera escalonada) | |
-| Que funcione, pero se caliente más rápido | |
+|---|---|
+| Inestabilidad del sistema (cuelgues, pantallazos azules, reinicios) | Mayor rendimiento sin coste adicional |
+| Mayor temperatura y consumo | |
+| Reducción de la vida útil o daños por voltaje excesivo | |
+| Pérdida de la garantía | |
 
-Consejos:
+**Consejos:**
 
-- Utilizar un buen ventilador y disipador.
-- Subir gradualmente la velocidad.
-- En ocasiones hay que subir el voltaje al que trabaja el microprocesador.
-- Estar atentos a cualquier fallo de ejecución.
-- No pedir imposibles: subir un i7 a 420 MHz es demasiado.
-- Contar con el resto de componentes de calidad.
+* Utilizar un buen sistema de refrigeración.
+* Subir la frecuencia de forma gradual.
+* Aumentar el voltaje solo si es necesario y sin superar los valores recomendados.
+* Realizar pruebas de estrés (Prime95, OCCT, Cinebench) para comprobar la estabilidad.
+* Vigilar las temperaturas con programas de monitorización (como HWiNFO).
+* Contar con componentes de calidad, especialmente la placa base y la fuente de alimentación.
 
-Últimamente los fabricantes están limitando esta práctica, por lo que tienen un multiplicador del bus fijo.
+Actualmente, los fabricantes solo permiten el overclocking en determinados modelos, bloqueando el multiplicador en el resto. Además, los procesadores modernos ajustan automáticamente su frecuencia hasta casi su máximo (Turbo Boost, Precision Boost), por lo que la ganancia que se obtiene con el overclocking manual es cada vez menor.
 
 ### 2.9 Tipos de microprocesadores
 
